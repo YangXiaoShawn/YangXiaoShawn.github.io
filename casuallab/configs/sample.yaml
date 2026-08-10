@@ -1,0 +1,24 @@
+data:
+  source: chicago_tnp
+  mode: sample
+  project_root: ..
+  fixture_path: data/fixtures/chicago_tnp_2022-01-01_300.csv
+  raw_dir: data/raw
+  clean_dir: data/clean
+  panel_dir: data/panel
+  manifest_path: data/manifest.json
+  diagnostics_path: data/diagnostics.json
+  sample_rows: 300
+  start_datetime: "2022-01-01T00:00:00"
+  end_datetime: "2022-01-01T22:59:59"
+  chicago_dataset_id: m6dm-c72p
+  panel_frequency: 1h
+  complete_panel_grid: false
+  partition_by:
+    - source
+    - service_year
+    - service_month
+  page_size: 50000
+  max_pages: 1
+  timeout_seconds: 120
+

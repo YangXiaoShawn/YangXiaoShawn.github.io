@@ -1,0 +1,26 @@
+data:
+  source: nyc_hvfhv
+  mode: full
+  project_root: ..
+  raw_dir: data/nyc_full/raw
+  clean_dir: data/nyc_full/clean
+  panel_dir: data/nyc_full/panel
+  manifest_path: data/nyc_full/manifest.json
+  diagnostics_path: data/nyc_full/diagnostics.json
+  start_datetime: null
+  end_datetime: null
+  nyc_year: 2024
+  nyc_months:
+    - 1
+  nyc_batch_rows: 100000
+  nyc_expected_rows: 19663930
+  nyc_expected_bytes: 472757547
+  nyc_expected_sha256: 9897de352aa52cea36b70348cc6721b8d4494327ce39c85f0dba83d86ecaa098
+  panel_frequency: 1h
+  complete_panel_grid: true
+  partition_by:
+    - source
+    - service_year
+    - service_month
+  page_size: 50000
+  timeout_seconds: 300

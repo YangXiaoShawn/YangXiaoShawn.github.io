@@ -1,0 +1,7 @@
+{
+  "dataset": "open-economic-quant-research-data",
+  "generated_at": "2026-08-10T00:00:00Z",
+  "projects": [],
+  "status": "planned",
+  "notes": "Dataset packaging and upload blocked on authentication/network policy in this session. Create dataset from upload_ready artifacts and fixtures first."
+}

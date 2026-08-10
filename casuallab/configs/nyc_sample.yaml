@@ -1,0 +1,27 @@
+data:
+  source: nyc_hvfhv
+  mode: sample
+  project_root: ..
+  raw_dir: data/nyc_sample/raw
+  clean_dir: data/nyc_sample/clean
+  panel_dir: data/nyc_sample/panel
+  manifest_path: data/nyc_sample/manifest.json
+  diagnostics_path: data/nyc_sample/diagnostics.json
+  sample_rows: 10000
+  start_datetime: null
+  end_datetime: null
+  nyc_year: 2024
+  nyc_months:
+    - 1
+  nyc_sample_days:
+    - 1
+    - 10
+    - 19
+    - 28
+  panel_frequency: 1h
+  complete_panel_grid: false
+  partition_by:
+    - source
+    - service_year
+    - service_month
+  timeout_seconds: 300

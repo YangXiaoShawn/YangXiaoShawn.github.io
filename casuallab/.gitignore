@@ -1,0 +1,10 @@
+# upload constraints for casuallab
+artifacts/
+raw/
+tmp/
+data/generated/
+.git/
+.venv/
+__pycache__/
+.ruff_cache/
+.pytest_cache/

@@ -1,0 +1,66 @@
+repo:
+  target: public-open-research
+  default_visibility: public
+  default_branch: main
+gh_pages:
+  enabled: true
+  base_path: '/'
+  status: planned
+
+projects:
+  - slug: casuallab
+    title: Causal Marketplace Lab
+    github_destination: TBD
+    pages_destination: TBD
+    hf_dataset_destination: TBD
+    hf_space_destination: TBD
+    publication_rights: RIGHTS_UNKNOWN
+  - slug: macroeconomics
+    title: Real-Time Macro Nowcasting and Policy Shock Engine
+    github_destination: TBD
+    pages_destination: TBD
+    hf_dataset_destination: TBD
+    hf_space_destination: TBD
+    publication_rights: RIGHTS_UNKNOWN
+  - slug: microstructure
+    title: Order Flow to Price Impact
+    github_destination: TBD
+    pages_destination: TBD
+    hf_dataset_destination: TBD
+    hf_space_destination: TBD
+    publication_rights: RIGHTS_UNKNOWN
+  - slug: microstructure-cleanroom-3f0f278
+    title: Order Flow to Price Impact
+    github_destination: TBD
+    pages_destination: TBD
+    hf_dataset_destination: TBD
+    hf_space_destination: TBD
+    publication_rights: RIGHTS_UNKNOWN
+  - slug: microstructure-m8-l2-2026-08-10-13
+    title: Order Flow to Price Impact
+    github_destination: TBD
+    pages_destination: TBD
+    hf_dataset_destination: TBD
+    hf_space_destination: TBD
+    publication_rights: RIGHTS_UNKNOWN
+  - slug: microstructure-m8-l2-frozen
+    title: Order Flow to Price Impact
+    github_destination: TBD
+    pages_destination: TBD
+    hf_dataset_destination: TBD
+    hf_space_destination: TBD
+    publication_rights: RIGHTS_UNKNOWN
+  - slug: microstructure-m8-trade-verifier-88060613
+    title: Order Flow to Price Impact
+    github_destination: TBD
+    pages_destination: TBD
+    hf_dataset_destination: TBD
+    hf_space_destination: TBD
+    publication_rights: RIGHTS_UNKNOWN
+  - slug: secpolicy
+    title: Corporate Disclosures as a Real-Time Economic Sensor
+    github_destination: TBD
+    pages_destination: TBD
+    hf_dataset_destination: TBD
+    hf_space_destination: TBD
+    publication_rights: RIGHTS_UNKNOWN

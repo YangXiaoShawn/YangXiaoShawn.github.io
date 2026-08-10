@@ -1,0 +1,22 @@
+{
+  "files": [
+    {
+      "bytes": 70621,
+      "path": "chicago_tnp_2022-01-01_300.csv",
+      "rows": 300,
+      "sha256": "84177e5a72548cc4346df99f0a6b671adb50d7762e23abe041f01b2958b85ad7"
+    }
+  ],
+  "retrieved_at": "2026-08-07",
+  "selection": {
+    "dataset_id": "m6dm-c72p",
+    "hours_local": [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22],
+    "order_within_hour": "trip_id",
+    "query_predicate": "trip_start_timestamp = exact reported hourly timestamp",
+    "query_url_template": "https://data.cityofchicago.org/resource/m6dm-c72p.csv?$where=trip_start_timestamp%20%3D%20%272022-01-01T%7BHH%7D%3A00%3A00%27&$order=trip_id&$limit=25",
+    "rows_per_hour": 25,
+    "service_date": "2022-01-01"
+  },
+  "source": "City of Chicago Transportation Network Providers - Trips (2018-2022)",
+  "source_page": "https://data.cityofchicago.org/Transportation/Transportation-Network-Providers-Trips-2018-2022-/m6dm-c72p"
+}

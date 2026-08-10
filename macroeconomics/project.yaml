@@ -1,0 +1,36 @@
+title: Macroeconomics
+slug: macroeconomics
+summary: Macroeconomic forecasting and vintage-reconstruction pipeline with updated real-time indicator work.
+research_question: How do revised releases and vintage timing affect nowcast and forecast quality?
+research_fields:
+  - Macroeconomics
+  - Forecasting
+  - Policy analytics
+project_type: research-replication
+status: public-ready
+authors:
+  - Repository owner/maintainer
+original_source: Macroeconomics (intern-project workspace)
+original_sample_period: N/A
+updated_sample_period: N/A
+data_sources:
+  - Public macroeconomic release feeds (public API/web sources)
+  - Synthetic fixture datasets in data/fixtures/
+
+data_license: RIGHTS_UNKNOWN
+code_license: project-local
+reproduction_command: python -m macro_nowcast.pipeline
+expected_runtime: varies by configuration
+outputs:
+  - src/
+  - reports/
+  - scripts/
+  - tests/
+  - data/fixtures/
+  - config/
+github_url: TDB
+site_url: TDB
+dataset_url: TDB
+space_url: TDB
+last_updated: 2026-08-10
+limitations: Raw agency release snapshots and raw large datasets intentionally excluded from this upload-ready copy.

@@ -1,0 +1,150 @@
+{
+  "config": {
+    "chicago_dataset_id": "m6dm-c72p",
+    "clean_dir": "data/nyc_sample/clean",
+    "complete_panel_grid": false,
+    "diagnostics_path": "data/nyc_sample/diagnostics.json",
+    "end_datetime": null,
+    "fixture_path": null,
+    "manifest_path": "data/nyc_sample/manifest.json",
+    "max_pages": null,
+    "mode": "sample",
+    "nyc_months": [
+      1
+    ],
+    "nyc_sample_days": [
+      1,
+      10,
+      19,
+      28
+    ],
+    "nyc_sample_hours": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "nyc_year": 2024,
+    "page_size": 50000,
+    "panel_dir": "data/nyc_sample/panel",
+    "panel_frequency": "1h",
+    "partition_by": [
+      "source",
+      "service_year",
+      "service_month"
+    ],
+    "project_root": ".",
+    "raw_dir": "data/nyc_sample/raw",
+    "sample_rows": 10000,
+    "source": "nyc_hvfhv",
+    "start_datetime": null,
+    "timeout_seconds": 300
+  },
+  "files": [
+    {
+      "bytes": 585723,
+      "path": "data/nyc_sample/clean/trips/source=nyc_hvfhv/service_year=2024/service_month=1/part-00000.parquet",
+      "sha256": "814f91d674ba2e9a0480f4c5cd6fe4f79ff9458931fb04f3b1568184291f5e9d"
+    },
+    {
+      "bytes": 4750,
+      "path": "data/nyc_sample/diagnostics.json",
+      "sha256": "829d5fd7a57ad69ee99821d8f7330d46cfc82e6e8ae79cc08869a4fdc3baeba9"
+    },
+    {
+      "bytes": 79641,
+      "path": "data/nyc_sample/panel/od_flow/source=nyc_hvfhv/year=2024/month=1/part-00000.parquet",
+      "sha256": "94640b5734d26dc3e53c78b1263daccfe9c5ec39cbdaf8d9c45b73e1a16dc21c"
+    },
+    {
+      "bytes": 158627,
+      "path": "data/nyc_sample/panel/zone_time/source=nyc_hvfhv/year=2024/month=1/part-00000.parquet",
+      "sha256": "d22dd86463d95966ed33ee8ac8505f751bf5598131fd65566924b2d00b2fa9cc"
+    },
+    {
+      "bytes": 325339,
+      "path": "data/nyc_sample/raw/fhvhv_tripdata_2024-01_stratified_10000_ca1e55852837.parquet",
+      "sha256": "b8aeeb5c99ab94306251a22419a894769d1e8801a1080862a47105c19800dfae"
+    }
+  ],
+  "generated_at_utc": "2026-08-08T21:58:36.921324+00:00",
+  "metadata": {
+    "causal_claim": false,
+    "evidence_label": "descriptive_real_data",
+    "od_flow_rows": 9852,
+    "sample_selection": {
+      "days": [
+        1,
+        10,
+        19,
+        28
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "population_weighted": false,
+      "probability_sample": false,
+      "requested_rows": 10000,
+      "strategy": "equal_quota_per_configured_day_hour_stable_hash_v1"
+    },
+    "trip_rows": 10000,
+    "zone_time_rows": 7112
+  },
+  "schema_version": "1.0.0",
+  "source_metadata": {
+    "dataset_page": "https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page",
+    "known_measurement": {
+      "census_tracts": "not published in the monthly HVFHV trip schema",
+      "sample_selection": "equal configured day-hour quotas are deterministic engineering coverage, not probability or population-weighted sampling",
+      "schema": "monthly HVFHV Parquet; cbd_congestion_fee is optional pre-2025"
+    },
+    "publisher": "New York City Taxi and Limousine Commission",
+    "timezone": "America/New_York"
+  },
+  "source_urls": [
+    "https://d37ci6vzurychx.cloudfront.net/trip-data/fhvhv_tripdata_2024-01.parquet"
+  ]
+}

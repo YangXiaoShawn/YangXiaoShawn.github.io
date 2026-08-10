@@ -1,0 +1,218 @@
+{
+  "missingness": {
+    "additional_charges": {
+      "count": 0,
+      "rate": 0.0
+    },
+    "airport_fee": {
+      "count": 0,
+      "rate": 0.0
+    },
+    "airport_trip": {
+      "count": 0,
+      "rate": 0.0
+    },
+    "dispatching_base_id": {
+      "count": 0,
+      "rate": 0.0
+    },
+    "driver_pay": {
+      "count": 0,
+      "rate": 0.0
+    },
+    "dropoff_census_tract": {
+      "count": 10000,
+      "rate": 1.0
+    },
+    "dropoff_census_tract_missing_or_suppressed": {
+      "count": 10000,
+      "rate": 1.0
+    },
+    "dropoff_datetime": {
+      "count": 0,
+      "rate": 0.0
+    },
+    "dropoff_datetime_utc": {
+      "count": 0,
+      "rate": 0.0
+    },
+    "dropoff_zone_id": {
+      "count": 0,
+      "rate": 0.0
+    },
+    "dropoff_zone_missing": {
+      "count": 0,
+      "rate": 0.0
+    },
+    "fare": {
+      "count": 0,
+      "rate": 0.0
+    },
+    "fare_on_declared_grid": {
+      "count": 10000,
+      "rate": 1.0
+    },
+    "pickup_census_tract": {
+      "count": 10000,
+      "rate": 1.0
+    },
+    "pickup_census_tract_missing_or_suppressed": {
+      "count": 10000,
+      "rate": 1.0
+    },
+    "pickup_datetime": {
+      "count": 0,
+      "rate": 0.0
+    },
+    "pickup_datetime_utc": {
+      "count": 0,
+      "rate": 0.0
+    },
+    "pickup_on_15_minute_grid": {
+      "count": 0,
+      "rate": 0.0
+    },
+    "pickup_zone_id": {
+      "count": 0,
+      "rate": 0.0
+    },
+    "pickup_zone_missing": {
+      "count": 0,
+      "rate": 0.0
+    },
+    "provider_id": {
+      "count": 0,
+      "rate": 0.0
+    },
+    "record_id_is_surrogate": {
+      "count": 0,
+      "rate": 0.0
+    },
+    "reported_fare_rounding_increment": {
+      "count": 10000,
+      "rate": 1.0
+    },
+    "reported_timestamp_rounding_minutes": {
+      "count": 10000,
+      "rate": 1.0
+    },
+    "reported_tip_rounding_increment": {
+      "count": 10000,
+      "rate": 1.0
+    },
+    "request_datetime": {
+      "count": 0,
+      "rate": 0.0
+    },
+    "service_date": {
+      "count": 0,
+      "rate": 0.0
+    },
+    "service_day_of_week": {
+      "count": 0,
+      "rate": 0.0
+    },
+    "service_month": {
+      "count": 0,
+      "rate": 0.0
+    },
+    "service_year": {
+      "count": 0,
+      "rate": 0.0
+    },
+    "shared_matched": {
+      "count": 0,
+      "rate": 0.0
+    },
+    "shared_requested": {
+      "count": 0,
+      "rate": 0.0
+    },
+    "source": {
+      "count": 0,
+      "rate": 0.0
+    },
+    "source_dataset_id": {
+      "count": 0,
+      "rate": 0.0
+    },
+    "source_timezone": {
+      "count": 0,
+      "rate": 0.0
+    },
+    "taxes_and_surcharges": {
+      "count": 0,
+      "rate": 0.0
+    },
+    "tips": {
+      "count": 0,
+      "rate": 0.0
+    },
+    "tolls": {
+      "count": 0,
+      "rate": 0.0
+    },
+    "total_amount": {
+      "count": 0,
+      "rate": 0.0
+    },
+    "trip_id": {
+      "count": 0,
+      "rate": 0.0
+    },
+    "trip_miles": {
+      "count": 0,
+      "rate": 0.0
+    },
+    "trip_seconds": {
+      "count": 0,
+      "rate": 0.0
+    },
+    "trips_pooled": {
+      "count": 10000,
+      "rate": 1.0
+    },
+    "zone_type": {
+      "count": 0,
+      "rate": 0.0
+    }
+  },
+  "rounding": {
+    "declared_fare_rounding_increments": [],
+    "declared_timestamp_rounding_minutes": [],
+    "fare_on_declared_grid_rate": null,
+    "interpretation": "Grid conformance verifies reported-value patterns; it does not recover latent exact fares or timestamps.",
+    "pickup_on_15_minute_grid_rate": 0.0009
+  },
+  "row_count": 10000,
+  "schema_version": "1.0.0",
+  "source_caveats": {
+    "nyc_hvfhv": {
+      "census_tracts": "not published in the monthly HVFHV trip schema",
+      "sample_selection": "equal configured day-hour quotas are deterministic engineering coverage, not probability or population-weighted sampling",
+      "schema": "monthly HVFHV Parquet; cbd_congestion_fee is optional pre-2025"
+    }
+  },
+  "sources": [
+    "nyc_hvfhv"
+  ],
+  "suppression_or_nonreporting": {
+    "dropoff_census_tract_count": 0,
+    "dropoff_census_tract_rate": null,
+    "dropoff_indicator_known_count": 0,
+    "dropoff_indicator_status": "unavailable",
+    "interpretation": "Null availability indicators mean the source does not report the field; they must not be recoded as unsuppressed. Chicago blank census tracts may be privacy-suppressed or outside Chicago, and no record-level mechanism is claimed.",
+    "pickup_census_tract_count": 0,
+    "pickup_census_tract_rate": null,
+    "pickup_indicator_known_count": 0,
+    "pickup_indicator_status": "unavailable"
+  },
+  "validity": {
+    "duplicate_trip_id_count": 0,
+    "missing_trip_id_count": 0,
+    "negative_fare_count": 1,
+    "negative_trip_miles_count": 0,
+    "nonpositive_trip_seconds_count": 0,
+    "utc_conversion_null_count": 0
+  }
+}

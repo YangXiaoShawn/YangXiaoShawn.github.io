@@ -1,0 +1,20 @@
+{
+  "repository": {
+    "github_repository": "pending",
+    "github_pages_url": "pending"
+  },
+  "huggingface": {
+    "dataset_repo": "pending",
+    "space_repo": "pending"
+  },
+  "commit_hashes": {
+    "local_snapshot": "N/A"
+  },
+  "deployment_status": {
+    "github_repository": "BLOCKED",
+    "github_pages": "BLOCKED",
+    "hf_dataset": "BLOCKED",
+    "hf_space": "BLOCKED"
+  },
+  "blocking_reason": "Authenticated publishing channels unavailable in this environment."
+}

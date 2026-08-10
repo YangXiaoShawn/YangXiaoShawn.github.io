@@ -1,0 +1,11 @@
+# upload constraints for macroeconomics
+artifacts/
+generated/
+data/generated/
+raw/
+tmp/
+.git/
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/

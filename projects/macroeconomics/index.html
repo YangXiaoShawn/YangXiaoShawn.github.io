@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Macroeconomics publishing page: reproducible forecasting, revision tracking, and release boundary checklist." />
+  <title>Macroeconomics | Open Economic &amp; Quant Research Observatory</title>
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="../../index.html" aria-label="Open Economic and Quant Research Observatory home">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 17.5 8.2 13l3.1 2.9L19.8 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 7v10.5h16" fill="none" stroke="currentColor" stroke-width="1.4" opacity=".55"/></svg></span>
+      <span class="brand-copy"><span class="brand-title">Open Econ × Quant</span><span class="brand-subtitle">Research Observatory</span></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation"><span></span></button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+      <a href="../../index.html">Home</a>
+      <a href="../casuallab/index.html">CasualLab</a>
+      <a href="../macroeconomics/index.html" aria-current="page">Macroeconomics</a>
+      <a href="../../upload_checklist.md">Upload checklist</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="detail-hero">
+    <div class="container detail-hero-grid">
+      <div>
+        <div class="breadcrumbs"><a href="../../index.html">Home</a><a href="../../index.html#projects-section">Project collection</a><span>Macroeconomics</span></div>
+        <h1>Macroeconomics</h1>
+        <p class="detail-lead">Focuses on macro data release revisions, real-time vintages, and multi-model back-testing to keep forecasting workflows reproducible under public constraints.</p>
+        <div class="detail-tags tag-row" style="margin-top: 20px;">
+          <span class="tag">public-ready</span>
+          <span class="tag">Nowcasting</span>
+          <span class="tag">Vintage Data</span>
+        </div>
+      </div>
+      <aside class="detail-side">
+        <div class="detail-side-row"><span>Status</span><strong>Public-ready (revision verification pending)</strong></div>
+        <div class="detail-side-row"><span>Version</span><strong>v2.0</strong></div>
+        <div class="detail-side-row"><span>Last updated</span><strong>2026-08-10</strong></div>
+        <div class="detail-side-row"><span>Main directory</span><strong>macroeconomics/</strong></div>
+        <div class="detail-side-actions">
+          <a class="button button-small" href="../../macroeconomics/project.yaml">Project metadata</a>
+          <a class="button button-small" href="../../macroeconomics/README.md">Reproducibility notes</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container detail-layout">
+      <article class="article" id="content">
+        <h2 id="overview">Project overview</h2>
+        <p>The project studies macro release revisions and real-time sample windows for forecast performance, covering standardized data ingestion, timeline alignment, back-testing, and release documentation.</p>
+        <p>The current site keeps publish-ready entry points and lightweight examples for review and external sharing.</p>
+
+        <h2 id="publish-assets">Release assets</h2>
+        <div class="metric-grid">
+          <div class="metric-card"><span>Core files</span><strong>6</strong><small>traceable paths</small></div>
+          <div class="metric-card"><span>fixtures</span><strong>Retained</strong><small>lightweight demo inputs</small></div>
+          <div class="metric-card"><span>Blocked directories</span><strong>removed</strong><small>generated/raw and intermediates</small></div>
+        </div>
+        <ul>
+          <li><a href="../../macroeconomics/project.yaml">project.yaml (project metadata)</a></li>
+          <li><a href="../../macroeconomics/">macroeconomics (publish directory)</a></li>
+          <li><a href="../../macroeconomics/data/fixtures/">data/fixtures (reproducible samples)</a></li>
+          <li><a href="../../macroeconomics/fixtures/">fixtures (lightweight demo inputs)</a></li>
+          <li><a href="../../macroeconomics/README.md">README (reproducibility notes)</a></li>
+          <li><a href="../../macroeconomics/STATUS.md">STATUS (state and constraints)</a></li>
+        </ul>
+
+        <h2 id="constraints">Release constraints</h2>
+        <ul>
+          <li>Removed non-publishable paths: <code>artifacts/</code>, <code>raw/</code>, <code>generated/</code>, <code>data/generated/</code>, <code>.venv/</code>, and test caches.</li>
+          <li>Use project-level <code>.gitignore</code> plus root <code>upload_ready/.gitignore</code> to define final upload scope.</li>
+          <li>Some external data sources require additional permission checks before going live.</li>
+        </ul>
+
+        <div class="callout">
+          <strong>Recommended publishing action</strong>
+          <p>Complete release notes and verify latest data source paths first, then run the final publish checklist to keep <code>project_inventory.json</code> and <code>asset_inventory.csv</code> aligned.</p>
+        </div>
+      </article>
+
+      <aside class="article-nav">
+        <div class="article-nav-title">Page navigation</div>
+        <a href="#overview">Project overview</a>
+        <a href="#publish-assets">Release assets</a>
+        <a href="#constraints">Release constraints</a>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© <span data-current-year></span> Open Economic &amp; Quant Research Observatory</span>
+      <a class="text-link" href="../../index.html">Back to homepage</a>
+    </div>
+  </div>
+</footer>
+<div class="toast" role="status" aria-live="polite" data-toast></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "macro-nowcast"
+version = "0.1.0"
+description = "Vintage-aware real-time macroeconomic nowcasting research engine"
+readme = "README.md"
+requires-python = ">=3.12"
+license = {text = "MIT"}
+authors = [{name = "Macroeconomics research project"}]
+dependencies = [
+  "duckdb>=1.1",
+  "jinja2>=3.1",
+  "numpy>=2.0",
+  "plotly>=6.0",
+  "polars>=1.20",
+  "pypdf>=6.0",
+  "pyarrow>=18.0",
+  "scikit-learn>=1.6",
+  "scipy>=1.14",
+  "statsmodels>=0.14.4",
+  "streamlit>=1.42",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3",
+  "pytest-cov>=6.0",
+  "ruff>=0.9",
+]
+
+[project.scripts]
+macro-nowcast = "macro_nowcast.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/macro_nowcast"]
+
+[tool.pytest.ini_options]
+addopts = "-ra --strict-markers"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
+
+[tool.ruff.lint.per-file-ignores]
+"scripts/check_python.py" = ["UP036"]
+"src/macro_nowcast/reporting.py" = ["E501", "RUF001"]

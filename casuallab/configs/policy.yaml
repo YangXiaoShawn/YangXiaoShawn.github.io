@@ -1,0 +1,10 @@
+policy:
+  # Binding under the calibrated sample market, so allocation rules differ.
+  budget: 1000.0
+  instability_penalty: 0.25
+  model_trees: 120
+  model_replicates: 4
+  seed: 202503
+  # Counts are independent simulated markets, not rows. Larger runs are opt-in.
+  n_train: 12
+  n_holdout: 8

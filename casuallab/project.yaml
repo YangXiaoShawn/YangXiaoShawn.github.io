@@ -1,0 +1,35 @@
+title: CasualLab
+slug: casuallab
+summary: Experimental causal inference and policy-oriented simulation toolkit with NYC policy and simulation modules.
+research_question: How do causal mechanisms and heterogeneous treatment effects shape market outcomes and policy interventions in field-like datasets?
+research_fields:
+  - Causal inference
+  - Experimental economics
+  - Market design
+project_type: research-replication
+status: public-ready
+authors:
+  - Repository owner/maintainer
+original_source: CasualLab (intern-project workspace)
+original_sample_period: N/A
+updated_sample_period: N/A
+data_sources:
+  - Public synthetic or open policy data as configured per run
+  - Internal fixtures included in this repository
+
+data_license: RIGHTS_UNKNOWN
+code_license: project-local
+reproduction_command: make reproduce
+expected_runtime: varies by module
+outputs:
+  - src/
+  - reports/
+  - scripts/
+  - tests/
+  - data/fixtures/
+github_url: TDB
+site_url: TDB
+dataset_url: TDB
+space_url: TDB
+last_updated: 2026-08-10
+limitations: Large raw data and potentially restricted artifacts intentionally excluded from this upload-ready copy.
