@@ -1,0 +1,8 @@
+SITE_TITLE: Open Economic & Quant Research Observatory
+SITE_DESCRIPTION: Reproducible economics, finance, quantitative research, open datasets, updated empirical results, and interactive research tools.
+GITHUB_REPOSITORY: <github-username>/open-economic-quant-research
+HUGGINGFACE_DATASET: <huggingface-username>/open-economic-quant-research-data
+HUGGINGFACE_SPACE: <huggingface-username>/open-economic-quant-research-observatory
+DEFAULT_VISIBILITY: public
+DEFAULT_BRANCH: main
+CUSTOM_DOMAIN: ''

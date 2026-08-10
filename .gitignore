@@ -1,0 +1,33 @@
+# macOS
+.DS_Store
+.DS_Store?
+
+# Python / editor / local artifacts
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.venv/
+.env
+.env.local
+.env.*
+
+# Build / cache / generated
+.build/
+.cache/
+.tox/
+target/
+out/
+
+# Large or non-upload mirrors
+upload_ready/
+/tmp/
+
+# macOS / IDE
+*.swp
+*.swo
+*.bak
+*.tmp
+.idea/
+.vscode/

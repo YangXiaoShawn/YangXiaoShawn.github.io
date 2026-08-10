@@ -1,0 +1,6 @@
+cff-version: 1.2.0
+title: Open Economic & Quant Research Observatory
+authors:
+  - family-names: "Open-source Maintainers"
+    given-names: "Team"
+message: If you use this repository, cite this project release.
