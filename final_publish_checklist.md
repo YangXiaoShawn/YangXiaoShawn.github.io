@@ -15,7 +15,7 @@
 ## Waiting for one external action
 
 - [x] Explicit authorization received and the public Hugging Face Space created.
-- [ ] Space build and runtime verification.
+- [x] Space build and runtime verification.
 - [x] Publish the upgraded website with a non-broken internal Space status route.
 - [ ] Run online verification and record final commit hashes.
 
@@ -24,5 +24,5 @@
 - [x] GitHub Pages homepage and all currently published required routes return 2xx.
 - [ ] Both GitHub project repositories remain public and readable.
 - [x] Dataset is public and contains clean full research content.
-- [ ] Space is public, running, and loads Dataset content.
-- [ ] Cross-platform links agree across website, GitHub, Dataset, and Space.
+- [x] Space is public, running, and loads all 3,345 Dataset file records.
+- [x] Cross-platform links agree across website, GitHub, Dataset, and Space.

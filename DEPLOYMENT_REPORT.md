@@ -20,6 +20,9 @@ The Open Economic & Quant Research Observatory is fully public: the upgraded Git
 - Live Space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
 - Static runtime: https://shawnchamberlain-open-economic-quant-research-ob-5271962.static.hf.space
 - Space revision: `a2914d076575259c83c361205b56b72cfb2239cd`
+- GitHub Pages publication commit: `ecea19e`.
+- CI verification: https://github.com/YangXiaoShawn/YangXiaoShawn.github.io/actions/runs/31452478148
+- Pages deployment: https://github.com/YangXiaoShawn/YangXiaoShawn.github.io/actions/runs/31452477417
 
 ## Dataset release
 

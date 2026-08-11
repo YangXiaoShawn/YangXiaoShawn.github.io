@@ -40,4 +40,4 @@ Updated: 2026-08-10
 - [x] `python3 scripts/validate_projects.py`
 - [x] `python3 scripts/verify_deployment.py`
 - [x] `python3 scripts/verify_deployment.py --online`
-- [ ] Record final site, Dataset, and Space revisions in `manifests/deployed_resources.json`.
+- [x] Final site, Dataset, and Space revisions recorded in `manifests/deployed_resources.json` and `deployment.yaml`.
