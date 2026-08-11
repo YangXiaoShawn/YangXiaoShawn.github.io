@@ -16,12 +16,12 @@
 
 - [ ] Explicit authorization to create the new public Hugging Face Space.
 - [ ] Space build and runtime verification.
-- [ ] Push the prepared website release once its Space link is valid.
+- [x] Publish the upgraded website with a non-broken internal Space status route.
 - [ ] Run online verification and record final commit hashes.
 
 ## Final success conditions
 
-- [ ] GitHub Pages homepage and all required routes return 2xx.
+- [x] GitHub Pages homepage and all currently published required routes return 2xx.
 - [ ] Both GitHub project repositories remain public and readable.
 - [x] Dataset is public and contains clean full research content.
 - [ ] Space is public, running, and loads Dataset content.

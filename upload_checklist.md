@@ -7,8 +7,8 @@ Updated: 2026-08-10
 - [x] Upload the complete `GithubIO` repository to `YangXiaoShawn/YangXiaoShawn.github.io`.
 - [x] Include the static website, project pages, compact project copies, manifests, governance documents, scripts, and workflows.
 - [x] Exclude credentials, `.env*`, `.venv`, caches, `.DS_Store`, and private keys.
-- [ ] Push the prepared optimization release after the Space URL is live.
-- [ ] Confirm the homepage, both project pages, ten section routes, `robots.txt`, `sitemap.xml`, `feed.xml`, assets, and 404 page return successfully.
+- [x] Push the prepared optimization release with safe internal dashboard links.
+- [x] Confirm the homepage, both project pages, section routes, `robots.txt`, `sitemap.xml`, `feed.xml`, assets, and 404 page return successfully.
 
 ## Standalone GitHub repositories
 
@@ -24,7 +24,7 @@ Updated: 2026-08-10
 - [x] Remove only `.venv`, `.pytest_cache`, `.ruff_cache`, `__pycache__`, and `.DS_Store` artifacts.
 - [x] Upload the Dataset Card and detailed clean-content manifest.
 - [x] Confirm both project prefixes and approximately 2.85 GB of research content remain available.
-- [ ] Reconfirm the final Dataset revision after metadata publication.
+- [x] Final Dataset revision recorded: `ec14f18767cfae241862824119b05fced754b8b5`.
 
 ## Hugging Face Space
 
@@ -39,5 +39,5 @@ Updated: 2026-08-10
 - [x] `python3 scripts/build_site_data.py --check`
 - [x] `python3 scripts/validate_projects.py`
 - [x] `python3 scripts/verify_deployment.py`
-- [ ] `python3 scripts/verify_deployment.py --online`
+- [x] `python3 scripts/verify_deployment.py --online`
 - [ ] Record final site, Dataset, and Space revisions in `manifests/deployed_resources.json`.

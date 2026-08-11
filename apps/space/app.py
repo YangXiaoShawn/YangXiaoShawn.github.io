@@ -10,7 +10,7 @@ import pandas as pd
 from huggingface_hub import HfApi
 
 DATASET_REPO = os.getenv("HF_DATASET_REPO", "ShawnChamberlain/open-economic-quant-research-data")
-DATASET_REVISION = os.getenv("HF_DATASET_REVISION", "f348e460994289efebe0fa1a36d8fa79bae60cee")
+DATASET_REVISION = os.getenv("HF_DATASET_REVISION", "ec14f18767cfae241862824119b05fced754b8b5")
 SITE_URL = os.getenv("SITE_URL", "https://yangxiaoshawn.github.io")
 GITHUB_URL = os.getenv("GITHUB_REPOSITORY_URL", "https://github.com/YangXiaoShawn/YangXiaoShawn.github.io")
 

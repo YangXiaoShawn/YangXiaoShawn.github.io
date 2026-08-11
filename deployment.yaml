@@ -7,7 +7,7 @@ GITHUB_PROJECT_REPOSITORIES:
   macroeconomics: YangXiaoShawn/open-economic-quant-macroeconomics
 HUGGINGFACE_DATASET: ShawnChamberlain/open-economic-quant-research-data
 HUGGINGFACE_SPACE: ShawnChamberlain/open-economic-quant-research-observatory
-HF_DATASET_REVISION: f348e460994289efebe0fa1a36d8fa79bae60cee
+HF_DATASET_REVISION: ec14f18767cfae241862824119b05fced754b8b5
 DEFAULT_VISIBILITY: public
 DEFAULT_BRANCH: main
 CUSTOM_DOMAIN: ''

@@ -2,7 +2,7 @@
 
 | Content | Destination | Current state |
 | --- | --- | --- |
-| Complete `GithubIO` website repository | `github.com/YangXiaoShawn/YangXiaoShawn.github.io` | Current release live; optimization prepared locally |
+| Complete `GithubIO` website repository | `github.com/YangXiaoShawn/YangXiaoShawn.github.io` | Upgraded English release live |
 | Compact `casuallab/` package | `github.com/YangXiaoShawn/open-economic-quant-casuallab` | Live |
 | Compact `macroeconomics/` package | `github.com/YangXiaoShawn/open-economic-quant-macroeconomics` | Live |
 | Clean full CasualLab + Macroeconomics research content | `huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data` | Live, cleaned, Dataset Card added |
