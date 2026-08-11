@@ -7,4 +7,4 @@ No credential is stored in this repository.
 - Never paste tokens into tracked files, deployment commands, screenshots, issues, or logs.
 - Configure GitHub Actions with the `HF_TOKEN` repository secret only after rotating any token previously shared in chat.
 
-Current external blocker: explicit authorization is required before creating the new public Hugging Face Space.
+Authorization received and publication completed. No external deployment blocker remains.

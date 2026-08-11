@@ -10,10 +10,13 @@
   "huggingface": {
     "dataset_repo": "https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data",
     "dataset_revision": "ec14f18767cfae241862824119b05fced754b8b5",
+    "dataset_head_revision": "930a99b7271d2d34423d9c545b2264c0f6820358",
     "dataset_files": 3348,
     "research_payload_files": 3345,
     "research_payload_bytes": 2848776663,
     "space_repo": "https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory",
+    "space_runtime": "https://shawnchamberlain-open-economic-quant-research-ob-5271962.static.hf.space",
+    "space_revision": "a2914d076575259c83c361205b56b72cfb2239cd",
     "space_revision": "pending-explicit-authorization"
   },
   "commit_hashes": {
@@ -24,6 +27,6 @@
     "github_repository": "SUCCESS",
     "github_pages": "SUCCESS",
     "hf_dataset": "SUCCESS",
-    "hf_space": "BLOCKED_PENDING_EXPLICIT_AUTHORIZATION"
+    "hf_space": "SUCCESS"
   }
 }

@@ -14,7 +14,7 @@
 
 ## Waiting for one external action
 
-- [ ] Explicit authorization to create the new public Hugging Face Space.
+- [x] Explicit authorization received and the public Hugging Face Space created.
 - [ ] Space build and runtime verification.
 - [x] Publish the upgraded website with a non-broken internal Space status route.
 - [ ] Run online verification and record final commit hashes.

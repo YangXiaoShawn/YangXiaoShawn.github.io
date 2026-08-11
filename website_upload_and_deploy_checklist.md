@@ -6,7 +6,7 @@
 | Compact `casuallab/` package | `github.com/YangXiaoShawn/open-economic-quant-casuallab` | Live |
 | Compact `macroeconomics/` package | `github.com/YangXiaoShawn/open-economic-quant-macroeconomics` | Live |
 | Clean full CasualLab + Macroeconomics research content | `huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data` | Live, cleaned, Dataset Card added |
-| `apps/space/` interactive explorer | `huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory` | Prepared; explicit creation approval required |
+| `apps/space/` interactive explorer | `huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory` | Published; static runtime healthy |
 
 ## Files uploaded to GitHub Pages
 

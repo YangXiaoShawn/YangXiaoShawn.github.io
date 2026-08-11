@@ -9,8 +9,8 @@ A public research platform for reproducible economics, finance, quantitative met
 - CasualLab source: https://github.com/YangXiaoShawn/open-economic-quant-casuallab
 - Macroeconomics source: https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics
 - Full research dataset: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data
-- Interactive observatory status: https://yangxiaoshawn.github.io/dashboards/
-- Planned public Space: `ShawnChamberlain/open-economic-quant-research-observatory` (deployment authorization pending)
+- Interactive Hugging Face Space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
+- Static runtime revision: `a2914d076575259c83c361205b56b72cfb2239cd`
 
 ## Published projects
 

@@ -31,7 +31,7 @@ PUBLIC_URLS = (
     "https://github.com/YangXiaoShawn/open-economic-quant-casuallab",
     "https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics",
     "https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data",
-    "https://yangxiaoshawn.github.io/dashboards/",
+    "https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory",
 )
 
 
@@ -63,6 +63,7 @@ def main() -> None:
         ROOT / "projects" / "macroeconomics" / "index.html",
         ROOT / "apps" / "space" / "app.py",
         ROOT / "apps" / "space" / "README.md",
+        ROOT / "apps" / "space" / "index.html",
     ]
     required.extend(ROOT / route / "index.html" for route in ROUTES)
     missing = [str(path.relative_to(ROOT)) for path in required if not path.exists()]

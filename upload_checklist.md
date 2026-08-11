@@ -24,14 +24,14 @@ Updated: 2026-08-10
 - [x] Remove only `.venv`, `.pytest_cache`, `.ruff_cache`, `__pycache__`, and `.DS_Store` artifacts.
 - [x] Upload the Dataset Card and detailed clean-content manifest.
 - [x] Confirm both project prefixes and approximately 2.85 GB of research content remain available.
-- [x] Final Dataset revision recorded: `ec14f18767cfae241862824119b05fced754b8b5`.
+- [x] Research payload revision recorded: `ec14f18767cfae241862824119b05fced754b8b5`; current Dataset head recorded: `930a99b7271d2d34423d9c545b2264c0f6820358`.
 
 ## Hugging Face Space
 
 - [x] Prepare `apps/space/README.md`, `app.py`, requirements, and tests.
 - [x] Configure project selection, search, Dataset browsing, status chart, methodology, fallbacks, and cross-platform links.
 - [x] Run Space tests in the pinned Python 3.12 / Gradio environment: 2 passed.
-- [ ] Obtain explicit authorization to create the new public Space.
+- [x] Explicit authorization received and the new public Space created.
 - [ ] Deploy and confirm build, runtime, Dataset connection, and both projects.
 
 ## Final gate

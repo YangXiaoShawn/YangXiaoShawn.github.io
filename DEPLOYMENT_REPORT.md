@@ -2,7 +2,7 @@
 
 ## Executive summary
 
-The Open Economic & Quant Research Observatory has a live upgraded GitHub Pages site, a live source repository, two live standalone project repositories, and a cleaned full-research Hugging Face Dataset. The Hugging Face Space source is complete and tested locally. The Space has not yet been created because a fresh explicit authorization is required for that new public resource; all public interactive links currently resolve to the live internal dashboard status page.
+The Open Economic & Quant Research Observatory is fully public: the upgraded GitHub Pages site, source repository, two standalone project repositories, full-research Hugging Face Dataset, and interactive Hugging Face Space are live and cross-linked.
 
 ## Projects discovered and published
 
@@ -17,7 +17,9 @@ The Open Economic & Quant Research Observatory has a live upgraded GitHub Pages 
 - CasualLab repository: https://github.com/YangXiaoShawn/open-economic-quant-casuallab
 - Macroeconomics repository: https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics
 - Full Dataset: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data
-- Planned Space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
+- Live Space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
+- Static runtime: https://shawnchamberlain-open-economic-quant-research-ob-5271962.static.hf.space
+- Space revision: `a2914d076575259c83c361205b56b72cfb2239cd`
 
 ## Dataset release
 
@@ -28,7 +30,8 @@ The Open Economic & Quant Research Observatory has a live upgraded GitHub Pages 
 - Removed: 39,277 local-environment files plus test caches, bytecode, and operating-system metadata.
 - Preserved: project code, data, reports, notebooks, tests, documentation, and research outputs.
 - Dataset Card and detailed file manifest: uploaded after cleanup.
-- Final Dataset revision: `ec14f18767cfae241862824119b05fced754b8b5`.
+- Pinned research payload revision: `ec14f18767cfae241862824119b05fced754b8b5`.
+- Current Dataset head after the live-Space Card update: `930a99b7271d2d34423d9c545b2264c0f6820358`.
 
 ## Website improvements prepared
 
@@ -54,12 +57,12 @@ The Open Economic & Quant Research Observatory has a live upgraded GitHub Pages 
 - Compact project validation: passed, 2 projects.
 - Local deployment verification: passed, 21 required artifacts.
 - Python syntax compilation: passed using an isolated writable bytecode cache.
-- Hugging Face Space tests: 2 passed under the pinned Python 3.12 and Gradio 5.44.1 environment; one upstream WebSockets deprecation warning.
+- Hugging Face Space: static runtime returned HTTP 200 and loaded all 414 CasualLab plus 2,931 Macroeconomics file records; the retained Gradio fallback also passed 2 tests under Python 3.12 and Gradio 5.44.1.
 - Public homepage, project pages, research routes, dashboard status page, `robots.txt`, and `sitemap.xml`: HTTP 200.
 - Automated online verifier: passed, 9 public resources.
 - GitHub CI: passed on release commit `fb5effa6cae46fea36ffdf2f7726427e31d2bba2`.
 - GitHub Pages build and deployment: passed on the same release commit.
-- HF Space: pending explicit authorization and deployment.
+- HF Space: successful, public, and running.
 
 ## Recoverability
 
@@ -67,4 +70,4 @@ The pre-optimization site snapshot is tagged `backup/pre-publication-20260810-19
 
 ## Remaining blocker
 
-Explicitly authorize creation and publication of the public Hugging Face Space. After that authorization, run the prepared deployment, verify the Space build/runtime, switch the internal dashboard links to the live Space, and record the Space revision.
+No publication blocker remains. Previously pasted access tokens should be revoked and replaced because chat messages are not an appropriate long-term credential store.

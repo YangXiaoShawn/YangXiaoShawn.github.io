@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Open Economic &amp; Quant Research Observatory</title>
+  <meta name="description" content="Interactive explorer for reproducible causal inference and macroeconomic forecasting research." />
+  <style>
+    :root{--bg:#071019;--surface:#0f1d2a;--surface2:#142739;--text:#eef4f7;--soft:#a9bac7;--line:rgba(174,204,219,.18);--mint:#6ee7d8;--blue:#8eb8ff;--amber:#ffca6a;--radius:20px}
+    *{box-sizing:border-box}html{color-scheme:dark}body{margin:0;min-height:100vh;color:var(--text);background:radial-gradient(circle at 10% 0,rgba(110,231,216,.13),transparent 31%),radial-gradient(circle at 90% 10%,rgba(142,184,255,.1),transparent 28%),var(--bg);font:15px/1.6 ui-sans-serif,system-ui,sans-serif}a{color:var(--mint)}button,input,select{font:inherit}.shell{width:min(1180px,calc(100% - 32px));margin:auto}.hero{padding:64px 0 34px}.eyebrow{color:var(--mint);font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}.hero h1{max-width:920px;margin:14px 0 20px;font:500 clamp(3rem,8vw,6.8rem)/.95 Georgia,serif;letter-spacing:-.06em}.hero p{max-width:760px;color:var(--soft);font-size:1.05rem}.links{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}.links a{padding:10px 14px;border:1px solid var(--line);border-radius:11px;text-decoration:none}.panel{margin:22px 0;padding:24px;border:1px solid var(--line);border-radius:var(--radius);background:rgba(15,29,42,.88)}.controls{display:grid;grid-template-columns:1fr 1.4fr auto;gap:12px}label{display:grid;gap:7px;color:var(--soft);font-size:.75rem}select,input{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:11px;color:var(--text);background:#09141f}button{align-self:end;padding:12px 18px;border:0;border-radius:11px;color:#03120f;background:var(--mint);font-weight:750;cursor:pointer}.grid{display:grid;grid-template-columns:1.05fr .95fr;gap:22px}.summary h2{margin:0;font:500 2.2rem Georgia,serif}.summary p,.method p{color:var(--soft)}.meta{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:18px}.meta div{padding:12px;border:1px solid var(--line);border-radius:12px}.meta span{display:block;color:var(--soft);font-size:.7rem;text-transform:uppercase;letter-spacing:.08em}.meta strong{display:block;margin-top:4px}.bars{display:grid;gap:12px;margin-top:18px}.bar-row{display:grid;grid-template-columns:90px 1fr 42px;align-items:center;gap:10px;color:var(--soft)}.bar{height:9px;border-radius:99px;background:rgba(255,255,255,.07);overflow:hidden}.bar i{display:block;height:100%;width:100%;background:linear-gradient(90deg,var(--mint),var(--blue))}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:14px}table{width:100%;border-collapse:collapse;min-width:620px}th,td{padding:11px 13px;border-bottom:1px solid var(--line);text-align:left}th{color:var(--soft);font-size:.7rem;text-transform:uppercase;letter-spacing:.08em}td{font-family:ui-monospace,monospace;font-size:.78rem}.status{margin:0 0 12px;color:var(--soft)}.status[data-state=error]{color:var(--amber)}.empty{padding:22px;color:var(--soft)}footer{padding:24px 0 46px;color:var(--soft);font-size:.8rem}@media(max-width:780px){.hero{padding-top:42px}.controls,.grid{grid-template-columns:1fr}.hero h1{font-size:clamp(3rem,15vw,5rem)}button{width:100%}}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <div class="eyebrow">Open data / Reproducible evidence</div>
+      <h1>Open Economic &amp; Quant Research Observatory</h1>
+      <p>Inspect project questions, evidence boundaries, methodology, and representative files from a pinned research Dataset revision.</p>
+      <div class="links"><a href="https://yangxiaoshawn.github.io/">Website</a><a href="https://github.com/YangXiaoShawn/YangXiaoShawn.github.io">GitHub</a><a href="https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data">Full Dataset</a></div>
+    </section>
+    <section class="panel controls" aria-label="Project controls">
+      <label>Project<select id="project"><option>CasualLab</option><option>Macroeconomics</option></select></label>
+      <label>Filter representative paths<input id="search" type="search" placeholder="data, reports, tests..." /></label>
+      <button id="explore" type="button">Explore</button>
+    </section>
+    <section class="grid">
+      <article class="panel summary"><h2 id="title"></h2><p id="question"></p><p id="summary"></p><div class="meta"><div><span>Field</span><strong id="field"></strong></div><div><span>Dataset revision</span><strong id="revision">Loading...</strong></div></div><div class="links"><a id="project-page">Project page</a><a id="source">GitHub source</a></div></article>
+      <article class="panel method"><div class="eyebrow">Release-stage coverage</div><div class="bars"><div class="bar-row"><span>Source</span><div class="bar"><i></i></div><strong>100</strong></div><div class="bar-row"><span>Standardize</span><div class="bar"><i></i></div><strong>100</strong></div><div class="bar-row"><span>Validate</span><div class="bar"><i></i></div><strong>100</strong></div><div class="bar-row"><span>Publish</span><div class="bar"><i></i></div><strong>100</strong></div></div><p id="method"></p></article>
+    </section>
+    <section class="panel"><div class="eyebrow">Dataset browser</div><p class="status" id="status" role="status">Connecting to the pinned Dataset revision...</p><div class="table-wrap"><table><thead><tr><th>Path</th><th>Kind</th><th>Size</th></tr></thead><tbody id="files"></tbody></table><div class="empty" id="empty" hidden>No Dataset paths match this filter.</div></div></section>
+  </main>
+  <footer class="shell">No credentials or research data are stored in this Space. All files are loaded from the public versioned Dataset.</footer>
+  <script>
+    const REPO='ShawnChamberlain/open-economic-quant-research-data';
+    const REVISION='ec14f18767cfae241862824119b05fced754b8b5';
+    const PROJECTS={
+      CasualLab:{prefix:'CasualLab',field:'Causal inference',question:'How do causal mechanisms and heterogeneous treatment effects shape market outcomes and policy interventions?',summary:'A reproducible causal-inference and policy-simulation toolkit with public examples and estimator validation workflows.',method:'Define an estimand, document identification assumptions, validate estimator behavior, and publish a traceable result manifest.',page:'https://yangxiaoshawn.github.io/projects/casuallab/',source:'https://github.com/YangXiaoShawn/open-economic-quant-casuallab'},
+      Macroeconomics:{prefix:'Macroeconomics',field:'Macroeconomic forecasting',question:'How do release revisions and information available at each vintage affect real-time forecast quality?',summary:'A vintage-aware nowcasting and policy-shock engine with guarded public-source adapters and reproducible fixtures.',method:'Record source availability, align vintage-consistent observations, prevent revised-data leakage, and publish source and result manifests.',page:'https://yangxiaoshawn.github.io/projects/macroeconomics/',source:'https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics'}
+    };
+    const fallback=[{path:'data/fixtures/',type:'sample data',size:null},{path:'src/',type:'research code',size:null},{path:'tests/',type:'validation',size:null}];
+    let rows=[];
+    const byId=id=>document.getElementById(id);
+    const size=value=>Number.isFinite(value)?new Intl.NumberFormat('en',{notation:'compact'}).format(value)+'B':'--';
+    function render(){const q=byId('search').value.trim().toLowerCase();const visible=rows.filter(row=>!q||row.path.toLowerCase().includes(q));byId('files').innerHTML=visible.map(row=>`<tr><td>${escapeHTML(row.path)}</td><td>${escapeHTML(row.type)}</td><td>${size(row.size)}</td></tr>`).join('');byId('empty').hidden=visible.length>0;}
+    function escapeHTML(value){return String(value).replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));}
+    async function explore(){const project=PROJECTS[byId('project').value];byId('title').textContent=project.prefix;byId('question').innerHTML='<strong>Research question:</strong> '+escapeHTML(project.question);byId('summary').textContent=project.summary;byId('field').textContent=project.field;byId('method').textContent=project.method+' Numerical comparisons remain withheld until matched benchmark evidence is published.';byId('project-page').href=project.page;byId('source').href=project.source;byId('revision').textContent=REVISION.slice(0,12);byId('status').dataset.state='loading';byId('status').textContent='Loading the full file index for this Dataset project...';try{const url=`./catalog/${project.prefix}.json`;const response=await fetch(url);if(!response.ok)throw new Error(`HTTP ${response.status}`);const payload=await response.json();rows=payload.map(item=>({path:item.path||'',type:item.type||((item.size===undefined)?'directory':'file'),size:item.size??null}));byId('status').dataset.state='ready';byId('status').textContent=`Connected to ${REPO} at ${REVISION.slice(0,12)}. ${rows.length} Dataset files loaded.`;}catch(error){rows=fallback;byId('status').dataset.state='error';byId('status').textContent=`Dataset preview fallback active (${error.message}). Permanent project and Dataset links remain available.`;}render();}
+    byId('explore').addEventListener('click',explore);byId('project').addEventListener('change',explore);byId('search').addEventListener('input',render);explore();
+  </script>
+</body>
+</html>
