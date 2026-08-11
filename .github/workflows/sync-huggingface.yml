@@ -4,12 +4,6 @@ on:
   workflow_dispatch:
   release:
     types: [published]
-  push:
-    branches: [main]
-    paths:
-      - 'apps/space/**'
-      - 'build/hf-dataset/README.md'
-      - 'build/hf-dataset/dataset_manifest.json'
 
 permissions:
   contents: read

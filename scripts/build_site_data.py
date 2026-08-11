@@ -196,7 +196,8 @@ def main() -> None:
         raise SystemExit("No project.yaml files were found.")
 
     changed = 0
-    payload = {"generated_at": date.today().isoformat(), "projects": projects}
+    release_date = max((project["last_updated"] for project in projects), default=date.today().isoformat())
+    payload = {"generated_at": release_date, "projects": projects}
     changed += emit(
         ROOT / "assets" / "data" / "projects.json",
         json.dumps(payload, indent=2, ensure_ascii=True) + "\n",
