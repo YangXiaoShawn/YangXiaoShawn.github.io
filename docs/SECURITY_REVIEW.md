@@ -1,13 +1,19 @@
-# SECURITY_REVIEW.md
+# Security Review
 
-## Secret scan (local static pass)
+## Findings
 
-- `.env*` patterns: **not found** in top-level project scan.
-- Common secret-like file patterns (`*.pem`, `*.key`, `*token*`, `*secret*`): **not found in top-level scan**.
-- Credential-bearing files discovered later should be moved to `.env.example`/private secrets store and removed before publish.
+- No GitHub token, Hugging Face token, private-key marker, or credential-bearing environment file was detected in the public `GithubIO` tree.
+- API credential references in the Macroeconomics adapters are environment-variable names and guarded configuration, not embedded values.
+- The first full Dataset snapshot included local `.venv`, test caches, and operating-system metadata. These are non-research artifacts and are removed in the cleanup revision.
+- Public documentation no longer contains an absolute local home-directory path.
 
-## Remediations
+## Controls
 
-- Add `.env.example` with non-sensitive placeholders.
-- Keep `.venv`, `.pytest_cache`, `.ruff_cache` out of publish-ready directories.
-- Block `.pdf`, large `.json` and source API payloads where rights are unknown.
+- Root and project `.gitignore` rules exclude local environments, caches, `.env*`, editor state, and system metadata.
+- CI uses `HF_TOKEN` only as a secret and does not interpolate it into logs.
+- Live data adapters require explicit authorization and retrieve credentials from environment variables.
+- Dataset and Space releases are versioned, so cleanup commits remain recoverable.
+
+## Rotation note
+
+Any token ever pasted into chat or exposed in terminal history should be treated as compromised and revoked at its provider. Replacement credentials must be stored only in the provider CLI/keychain or a secrets manager.

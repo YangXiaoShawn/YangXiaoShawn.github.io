@@ -1,9 +1,9 @@
-project_slug,path,size_bytes,file_count
-casuallab,/Users/shawn/Documents/intern projects/CasualLab,2313515144,18625
-macroeconomics,/Users/shawn/Documents/intern projects/Macroeconomics,2337718419,24337
-microstructure,/Users/shawn/Documents/intern projects/Microstructure,3258941113,18852
-microstructure-cleanroom-3f0f278,/Users/shawn/Documents/intern projects/Microstructure-cleanroom-3f0f278,828463303,11940
-microstructure-m8-l2-2026-08-10-13,/Users/shawn/Documents/intern projects/Microstructure-m8-l2-2026-08-10-13,1010647311,12623
-microstructure-m8-l2-frozen,/Users/shawn/Documents/intern projects/Microstructure-m8-l2-frozen,938833004,12677
-microstructure-m8-trade-verifier-88060613,/Users/shawn/Documents/intern projects/Microstructure-m8-trade-verifier-88060613,4258444,148
-secpolicy,/Users/shawn/Documents/intern projects/SECPolicy,137858859,139
+project_slug,source_label,size_bytes,file_count,publication_route
+casuallab,workspace/CasualLab,2313515144,18625,GitHub compact copy + Hugging Face full research content
+macroeconomics,workspace/Macroeconomics,2337718419,24337,GitHub compact copy + Hugging Face full research content
+microstructure,workspace/Microstructure,3258941113,18852,WITHHELD
+microstructure-cleanroom-3f0f278,workspace/Microstructure-cleanroom-3f0f278,828463303,11940,WITHHELD
+microstructure-m8-l2-2026-08-10-13,workspace/Microstructure-m8-l2-2026-08-10-13,1010647311,12623,WITHHELD
+microstructure-m8-l2-frozen,workspace/Microstructure-m8-l2-frozen,938833004,12677,WITHHELD
+microstructure-m8-trade-verifier-88060613,workspace/Microstructure-m8-trade-verifier-88060613,4258444,148,WITHHELD
+secpolicy,workspace/SECPolicy,137858859,139,WITHHELD

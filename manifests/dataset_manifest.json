@@ -1,7 +1,16 @@
 {
-  "dataset": "open-economic-quant-research-data",
-  "generated_at": "2026-08-10T00:00:00Z",
-  "projects": [],
-  "status": "planned",
-  "notes": "Dataset packaging and upload blocked on authentication/network policy in this session. Create dataset from upload_ready artifacts and fixtures first."
+  "dataset": "ShawnChamberlain/open-economic-quant-research-data",
+  "generated_at": "2026-08-10T23:55:00Z",
+  "revision": "f348e460994289efebe0fa1a36d8fa79bae60cee",
+  "remote_file_count": 3348,
+  "research_payload_file_count": 3345,
+  "research_payload_size_bytes": 2848776663,
+  "projects": [
+    {"slug": "casuallab", "remote_prefix": "CasualLab/", "source": "workspace/CasualLab"},
+    {"slug": "macroeconomics", "remote_prefix": "Macroeconomics/", "source": "workspace/Macroeconomics"}
+  ],
+  "root_metadata": [".gitattributes", "README.md", "dataset_manifest.json"],
+  "excluded_non_research_paths": ["**/.venv/**", "**/.pytest_cache/**", "**/.ruff_cache/**", "**/__pycache__/**", "**/.DS_Store"],
+  "status": "clean-full-research-content-live",
+  "notes": "All source project code, research data, reports, notebooks, tests, documentation, and outputs are preserved. Only runtime environments, caches, bytecode, and operating-system metadata were removed."
 }

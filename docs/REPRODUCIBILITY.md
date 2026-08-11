@@ -1,17 +1,21 @@
-# REPRODUCIBILITY.md
+# Reproducibility
 
-## 推荐复现入口
+## Entry points
 
-- CasualLab: `make reproduce`（以项目内 Makefile 为准）
+- CasualLab: `make reproduce`
 - Macroeconomics: `python -m macro_nowcast.pipeline`
 
-## 准备清单
+## Environment and data
 
-- 固定依赖：每个项目保留 `pyproject.toml`。
-- 数据：上传包中保留最小样例 `fixtures` 与 `data/fixtures`。
-- 测试：两项目的 `tests/` 均已保留。
+- Each project retains a `pyproject.toml` and project-specific setup notes.
+- Compact public copies include fixtures and small samples for smoke tests.
+- Full research content is versioned in the Hugging Face Dataset.
+- Local `.venv`, `.pytest_cache`, `.ruff_cache`, `__pycache__`, and operating-system metadata are never research inputs and are excluded from releases.
 
-## 注意事项
+## Evidence standard
 
-- 发布包中剥离了原始大规模数据与本地环境目录。
-- 网络与外部 API 获取过程在部署链路中应在可执行环境中重跑。
+A result is treated as reproduced only when the source, sample period, configuration, command, output manifest, and validation result are recorded. Missing benchmark evidence is described as a limitation rather than replaced with a simulated claim.
+
+## Refreshes
+
+Network-backed source updates must run in an authorized environment. Updated outputs should record source retrieval time, dataset revision, transformation steps, and checksums before the site or Space presents them as current results.

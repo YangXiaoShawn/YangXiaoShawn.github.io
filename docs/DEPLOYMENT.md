@@ -1,18 +1,31 @@
-# DEPLOYMENT.md
+# Deployment
 
-## 当前状态
+## Destinations
 
-- GitHub Pages 站点文件已本地搭建（`index.html` 与项目展示页）。
-- `GithubIO` 仍未实际执行 GitHub/Hugging Face 远端部署。
+- GitHub Pages: https://yangxiaoshawn.github.io/
+- Site repository: https://github.com/YangXiaoShawn/YangXiaoShawn.github.io
+- CasualLab repository: https://github.com/YangXiaoShawn/open-economic-quant-casuallab
+- Macroeconomics repository: https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics
+- Hugging Face Dataset: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data
+- Hugging Face Space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
 
-## 外部认证
+## Release order
 
-- GitHub CLI 授权与 Hugging Face 登录在当前环境不可直接执行/验证。
+1. Run `make build` and `make verify`.
+2. Commit and push the site repository.
+3. Push each compact project copy to its standalone GitHub repository.
+4. Package or synchronize the full research dataset, excluding local environments and caches.
+5. Deploy `apps/space/` and confirm its Dataset connection.
+6. Run `make verify-online` and record the resulting revisions in `DEPLOYMENT_REPORT.md`.
 
-## 发布步骤（待执行）
+## Authentication
 
-1. 创建/定位目标 GitHub 仓库。
-2. 将 `GithubIO` 仓库内容推送。
-3. 启用 GitHub Pages（建议 `gh-pages` 或默认分支 + Pages）。
-4. 使用 `scripts/verify_deployment.py` 检查站点文件完整性。
-5. 配置并上传 HF dataset / space（授权后进行）。
+Use authenticated `gh` and `hf` sessions. Never place a personal access token in a command file, tracked configuration, shell history, or CI log. GitHub Actions uses the `HF_TOKEN` secret and non-secret repository variables.
+
+## GitHub Pages
+
+The repository supports a direct user-site URL and an Actions-based static deployment. All paths are relative so the site remains valid at the root and in local previews.
+
+## Hugging Face
+
+The Dataset and Space deployment scripts are idempotent. The Space supports `HF_DATASET_REPO`, `HF_DATASET_REVISION`, `SITE_URL`, and `GITHUB_REPOSITORY_URL` without storing credentials.

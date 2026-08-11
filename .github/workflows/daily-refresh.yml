@@ -1,0 +1,27 @@
+name: Daily Research Validation
+
+on:
+  schedule:
+    - cron: '17 9 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: daily-research-validation
+  cancel-in-progress: false
+
+jobs:
+  validate-current-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-dev.txt
+      - run: python scripts/build_site_data.py --check
+      - run: python scripts/validate_projects.py
+      - run: python scripts/verify_deployment.py
+      - run: echo 'Data refresh remains disabled until each project has an audited update command; see docs/AUTOMATION_GAPS.md.'

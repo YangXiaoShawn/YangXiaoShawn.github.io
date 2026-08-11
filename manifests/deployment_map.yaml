@@ -1,66 +1,38 @@
-repo:
-  target: public-open-research
-  default_visibility: public
+repository:
+  url: https://github.com/YangXiaoShawn/YangXiaoShawn.github.io
   default_branch: main
-gh_pages:
-  enabled: true
-  base_path: '/'
-  status: planned
+  visibility: public
+github_pages:
+  url: https://yangxiaoshawn.github.io/
+  base_path: /
+  status: live
+huggingface:
+  dataset: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data
+  space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
 
 projects:
   - slug: casuallab
-    title: Causal Marketplace Lab
-    github_destination: TBD
-    pages_destination: TBD
-    hf_dataset_destination: TBD
-    hf_space_destination: TBD
-    publication_rights: RIGHTS_UNKNOWN
+    title: CasualLab
+    publication_status: public-live
+    github: https://github.com/YangXiaoShawn/open-economic-quant-casuallab
+    pages: https://yangxiaoshawn.github.io/projects/casuallab/
+    dataset: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/CasualLab
+    space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
+    publication_rights: MIXED_REVIEW_REQUIRED
   - slug: macroeconomics
-    title: Real-Time Macro Nowcasting and Policy Shock Engine
-    github_destination: TBD
-    pages_destination: TBD
-    hf_dataset_destination: TBD
-    hf_space_destination: TBD
-    publication_rights: RIGHTS_UNKNOWN
-  - slug: microstructure
-    title: Order Flow to Price Impact
-    github_destination: TBD
-    pages_destination: TBD
-    hf_dataset_destination: TBD
-    hf_space_destination: TBD
-    publication_rights: RIGHTS_UNKNOWN
-  - slug: microstructure-cleanroom-3f0f278
-    title: Order Flow to Price Impact
-    github_destination: TBD
-    pages_destination: TBD
-    hf_dataset_destination: TBD
-    hf_space_destination: TBD
-    publication_rights: RIGHTS_UNKNOWN
-  - slug: microstructure-m8-l2-2026-08-10-13
-    title: Order Flow to Price Impact
-    github_destination: TBD
-    pages_destination: TBD
-    hf_dataset_destination: TBD
-    hf_space_destination: TBD
-    publication_rights: RIGHTS_UNKNOWN
-  - slug: microstructure-m8-l2-frozen
-    title: Order Flow to Price Impact
-    github_destination: TBD
-    pages_destination: TBD
-    hf_dataset_destination: TBD
-    hf_space_destination: TBD
-    publication_rights: RIGHTS_UNKNOWN
-  - slug: microstructure-m8-trade-verifier-88060613
-    title: Order Flow to Price Impact
-    github_destination: TBD
-    pages_destination: TBD
-    hf_dataset_destination: TBD
-    hf_space_destination: TBD
-    publication_rights: RIGHTS_UNKNOWN
-  - slug: secpolicy
-    title: Corporate Disclosures as a Real-Time Economic Sensor
-    github_destination: TBD
-    pages_destination: TBD
-    hf_dataset_destination: TBD
-    hf_space_destination: TBD
-    publication_rights: RIGHTS_UNKNOWN
+    title: Macroeconomics
+    publication_status: public-live
+    github: https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics
+    pages: https://yangxiaoshawn.github.io/projects/macroeconomics/
+    dataset: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/Macroeconomics
+    space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
+    publication_rights: MIXED_REVIEW_REQUIRED
+
+withheld_projects:
+  - microstructure
+  - microstructure-cleanroom-3f0f278
+  - microstructure-m8-l2-2026-08-10-13
+  - microstructure-m8-l2-frozen
+  - microstructure-m8-trade-verifier-88060613
+  - secpolicy
+withheld_reason: Publication rights and release scope were not validated for this two-project release.

@@ -1,20 +1,28 @@
 {
+  "generated_at": "2026-08-10T23:55:00Z",
   "repository": {
-    "github_repository": "pending",
-    "github_pages_url": "pending"
+    "github_repository": "https://github.com/YangXiaoShawn/YangXiaoShawn.github.io",
+    "github_pages_url": "https://yangxiaoshawn.github.io/",
+    "casuallab_repository": "https://github.com/YangXiaoShawn/open-economic-quant-casuallab",
+    "macroeconomics_repository": "https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics",
+    "default_branch": "main"
   },
   "huggingface": {
-    "dataset_repo": "pending",
-    "space_repo": "pending"
+    "dataset_repo": "https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data",
+    "dataset_revision": "f348e460994289efebe0fa1a36d8fa79bae60cee",
+    "dataset_files": 3348,
+    "research_payload_files": 3345,
+    "research_payload_bytes": 2848776663,
+    "space_repo": "https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory",
+    "space_revision": "pending-explicit-authorization"
   },
   "commit_hashes": {
-    "local_snapshot": "N/A"
+    "site_pre_optimization": "3fa4c1711868ae9b9a376fb4138c0bd913e01a09"
   },
   "deployment_status": {
-    "github_repository": "BLOCKED",
-    "github_pages": "BLOCKED",
-    "hf_dataset": "BLOCKED",
-    "hf_space": "BLOCKED"
-  },
-  "blocking_reason": "Authenticated publishing channels unavailable in this environment."
+    "github_repository": "SUCCESS_CURRENT_RELEASE",
+    "github_pages": "SUCCESS_CURRENT_RELEASE_OPTIMIZATION_PENDING",
+    "hf_dataset": "SUCCESS",
+    "hf_space": "BLOCKED_PENDING_EXPLICIT_AUTHORIZATION"
+  }
 }

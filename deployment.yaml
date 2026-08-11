@@ -1,8 +1,14 @@
 SITE_TITLE: Open Economic & Quant Research Observatory
 SITE_DESCRIPTION: Reproducible economics, finance, quantitative research, open datasets, updated empirical results, and interactive research tools.
-GITHUB_REPOSITORY: <github-username>/open-economic-quant-research
-HUGGINGFACE_DATASET: <huggingface-username>/open-economic-quant-research-data
-HUGGINGFACE_SPACE: <huggingface-username>/open-economic-quant-research-observatory
+GITHUB_REPOSITORY: YangXiaoShawn/YangXiaoShawn.github.io
+GITHUB_PAGES_URL: https://yangxiaoshawn.github.io/
+GITHUB_PROJECT_REPOSITORIES:
+  casuallab: YangXiaoShawn/open-economic-quant-casuallab
+  macroeconomics: YangXiaoShawn/open-economic-quant-macroeconomics
+HUGGINGFACE_DATASET: ShawnChamberlain/open-economic-quant-research-data
+HUGGINGFACE_SPACE: ShawnChamberlain/open-economic-quant-research-observatory
+HF_DATASET_REVISION: f348e460994289efebe0fa1a36d8fa79bae60cee
 DEFAULT_VISIBILITY: public
 DEFAULT_BRANCH: main
 CUSTOM_DOMAIN: ''
+ANALYTICS_ENABLED: false

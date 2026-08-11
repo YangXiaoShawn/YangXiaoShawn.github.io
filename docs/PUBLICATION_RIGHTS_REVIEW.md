@@ -1,17 +1,18 @@
-# PUBLICATION_RIGHTS_REVIEW.md
+# Publication Rights Review
 
-## Default policy
+## Policy
 
-Unless explicitly confirmed, each source dataset/reports item is marked as RIGHTS_UNKNOWN.
+Only assets with documented redistribution permission are classified `PUBLIC_OK`. Source code and project-owned fixtures may be published under their applicable terms. Third-party raw data remains `RIGHTS_UNKNOWN`, `PUBLIC_DERIVED_ONLY`, or `METADATA_ONLY` until source terms are recorded.
 
-## Categories
+## Published projects
 
-- PUBLIC_OK: ready for publication
-- PUBLIC_DERIVED_ONLY: publish only transformed outputs
-- METADATA_ONLY: metadata + links only
-- PRIVATE: do not publish
-- RIGHTS_UNKNOWN: hold until verified
+- CasualLab: project code and synthetic/open examples are public; new raw source snapshots require source-level review.
+- Macroeconomics: project code, synthetic fixtures, and guarded public-source adapters are public; agency data retain provider terms and provenance requirements.
 
-## Project status
+## Dataset limitation
 
-All projects are currently marked RIGHTS_UNKNOWN for public release of raw materials and large artifacts.
+The Dataset is a versioned research mirror. Inclusion does not grant a license to third-party content. Users must review each source's terms before redistributing or using raw files beyond the documented research purpose.
+
+## Withheld inventory
+
+Other workspace projects remain inventoried but are not added to the public site because their publication rights have not been validated for this release.

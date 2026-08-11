@@ -1,0 +1,57 @@
+{
+  "generated_at": "2026-08-10",
+  "projects": [
+    {
+      "title": "CasualLab",
+      "slug": "casuallab",
+      "summary": "Experimental causal inference and policy simulation toolkit with NYC-oriented public examples.",
+      "research_question": "How do causal mechanisms and heterogeneous treatment effects shape market outcomes and policy interventions in field-like datasets?",
+      "research_fields": [
+        "Causal inference",
+        "Experimental economics",
+        "Market design"
+      ],
+      "project_type": "research-replication",
+      "status": "public-live",
+      "last_updated": "2026-08-10",
+      "field": "causal",
+      "accent": "teal",
+      "tags": [
+        "Causal Inference",
+        "Policy Simulation",
+        "Heterogeneity"
+      ],
+      "metric": "Reproducible fixtures",
+      "site_url": "https://yangxiaoshawn.github.io/projects/casuallab/",
+      "github_url": "https://github.com/YangXiaoShawn/open-economic-quant-casuallab",
+      "dataset_url": "https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/CasualLab",
+      "space_url": "https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory"
+    },
+    {
+      "title": "Macroeconomics",
+      "slug": "macroeconomics",
+      "summary": "Real-time macroeconomic forecasting, vintage reconstruction, and policy-shock analysis with public-source adapters.",
+      "research_question": "How do release revisions and information available at each vintage affect nowcast and forecast quality?",
+      "research_fields": [
+        "Macroeconomics",
+        "Forecasting",
+        "Policy analytics"
+      ],
+      "project_type": "research-replication",
+      "status": "public-live",
+      "last_updated": "2026-08-10",
+      "field": "macro",
+      "accent": "blue",
+      "tags": [
+        "Nowcasting",
+        "Vintage Data",
+        "Policy Forecasting"
+      ],
+      "metric": "Guarded public adapters",
+      "site_url": "https://yangxiaoshawn.github.io/projects/macroeconomics/",
+      "github_url": "https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics",
+      "dataset_url": "https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/Macroeconomics",
+      "space_url": "https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory"
+    }
+  ]
+}

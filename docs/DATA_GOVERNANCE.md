@@ -1,15 +1,21 @@
-# DATA_GOVERNANCE.md
+# Data Governance
 
-## 分类策略
+## Publication classes
 
-- RIGHTS_UNKNOWN：未核实版权与再发布条件。
-- PUBLIC_DERIVED_ONLY：派生/样本结果可发布。
+- `PUBLIC_OK`: redistribution is confirmed and the full asset may be published.
+- `PUBLIC_DERIVED_ONLY`: only documented derived outputs and samples may be published.
+- `METADATA_ONLY`: publish citations, metadata, and source links only.
+- `PRIVATE`: do not publish.
+- `RIGHTS_UNKNOWN`: hold new raw assets until terms are reviewed.
 
-## 当前默认状态
+## Routing policy
 
-两个项目当前都标记为 `RIGHTS_UNKNOWN`，并使用样例/衍生文件为主。
+GitHub stores code, metadata, tests, schemas, documentation, and compact fixtures. Hugging Face stores versioned research data and public outputs. The Space reads from the Dataset and does not duplicate persistent data.
 
-## 实施要求
+## Current projects
 
-- 原始敏感/大型 `data/raw` 与缓存数据不在上传包中。
-- 上传前逐项确认原始数据许可与重发布条款。
+CasualLab and Macroeconomics include project-owned code and public examples. Raw third-party assets retain `RIGHTS_UNKNOWN` where redistribution terms have not been documented. Their presence in an earlier full snapshot does not convert them to a new license.
+
+## Required release record
+
+Every new data source must record origin, retrieval date, geographic and temporal coverage, transformations, units, frequency, schema, checksum, license, and publication class.

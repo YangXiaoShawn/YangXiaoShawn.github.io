@@ -1,290 +1,51 @@
 {
+  "generated_at": "2026-08-10T23:55:00Z",
   "projects": [
     {
-      "project_title": "Causal Marketplace Lab",
+      "project_title": "CasualLab",
       "project_slug": "casuallab",
-      "research_field": [
-        "Economics",
-        "Quantitative finance"
-      ],
-      "research_question": "Research question extracted from project documentation (to be finalized per project).",
-      "current_status": "UNKNOWN",
-      "source_directory": "/Users/shawn/Documents/intern projects/CasualLab",
+      "research_field": ["Causal inference", "Experimental economics", "Market design"],
+      "research_question": "How do causal mechanisms and heterogeneous treatment effects shape market outcomes and policy interventions in field-like datasets?",
+      "current_status": "PUBLIC_LIVE",
+      "source_directory": "workspace/CasualLab",
       "main_programming_language": "Python",
-      "data_requirements": [
-        "data",
-        "artifacts",
-        "reports"
-      ],
-      "data_sources": [
-        "AGENCY_PUBLIC_DATA"
-      ],
-      "outputs": [
-        "reports",
-        "scripts",
-        "tests",
-        "src"
-      ],
-      "reproduction_command": "pip install -e .",
-      "code_license": "UNKNOWN",
-      "publication_rights": "RIGHTS_UNKNOWN",
-      "github_destination": "TBD",
-      "github_pages_destination": "TBD",
-      "hf_dataset_destination": "TBD",
-      "hf_space_destination": "TBD",
+      "data_sources": ["Public and synthetic policy data", "Repository fixtures and NYC samples"],
+      "outputs": ["reports", "scripts", "tests", "src", "data fixtures"],
+      "reproduction_command": "make reproduce",
+      "code_license": "PROJECT_LOCAL",
+      "publication_rights": "MIXED_REVIEW_REQUIRED",
+      "github_destination": "https://github.com/YangXiaoShawn/open-economic-quant-casuallab",
+      "github_pages_destination": "https://yangxiaoshawn.github.io/projects/casuallab/",
+      "hf_dataset_destination": "https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/CasualLab",
+      "hf_space_destination": "https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory",
       "last_updated_date": "2026-08-10",
-      "known_limitations": "Rights and dataset-sharing status need manual validation."
+      "known_limitations": "Numerical comparisons require a documented benchmark and result manifest; new raw sources require rights review."
     },
     {
-      "project_title": "Real-Time Macro Nowcasting and Policy Shock Engine",
+      "project_title": "Macroeconomics",
       "project_slug": "macroeconomics",
-      "research_field": [
-        "Macroeconomics",
-        "Forecasting",
-        "Economic indicators"
-      ],
-      "research_question": "Research question extracted from project documentation (to be finalized per project).",
-      "current_status": "UNKNOWN",
-      "source_directory": "/Users/shawn/Documents/intern projects/Macroeconomics",
+      "research_field": ["Macroeconomics", "Forecasting", "Policy analytics"],
+      "research_question": "How do release revisions and information available at each vintage affect nowcast and forecast quality?",
+      "current_status": "PUBLIC_LIVE",
+      "source_directory": "workspace/Macroeconomics",
       "main_programming_language": "Python",
-      "data_requirements": [
-        "data",
-        "reports"
-      ],
-      "data_sources": [
-        "AGENCY_PUBLIC_DATA"
-      ],
-      "outputs": [
-        "reports",
-        "scripts",
-        "tests",
-        "src"
-      ],
-      "reproduction_command": "pip install -e .",
-      "code_license": "UNKNOWN",
-      "publication_rights": "RIGHTS_UNKNOWN",
-      "github_destination": "TBD",
-      "github_pages_destination": "TBD",
-      "hf_dataset_destination": "TBD",
-      "hf_space_destination": "TBD",
+      "data_sources": ["FRED and ALFRED", "Guarded BLS and BEA APIs", "Synthetic fixtures"],
+      "outputs": ["reports", "scripts", "tests", "src", "data fixtures"],
+      "reproduction_command": "python -m macro_nowcast.pipeline",
+      "code_license": "PROJECT_LOCAL",
+      "publication_rights": "MIXED_REVIEW_REQUIRED",
+      "github_destination": "https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics",
+      "github_pages_destination": "https://yangxiaoshawn.github.io/projects/macroeconomics/",
+      "hf_dataset_destination": "https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/Macroeconomics",
+      "hf_space_destination": "https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory",
       "last_updated_date": "2026-08-10",
-      "known_limitations": "Rights and dataset-sharing status need manual validation."
+      "known_limitations": "Historical first-release claims require an audited vintage archive and result manifest."
     },
-    {
-      "project_title": "Order Flow to Price Impact",
-      "project_slug": "microstructure",
-      "research_field": [
-        "Market microstructure",
-        "Trading",
-        "Finance"
-      ],
-      "research_question": "Research question extracted from project documentation (to be finalized per project).",
-      "current_status": "UNKNOWN",
-      "source_directory": "/Users/shawn/Documents/intern projects/Microstructure",
-      "main_programming_language": "Python",
-      "data_requirements": [
-        "data",
-        "artifacts",
-        "reports"
-      ],
-      "data_sources": [
-        "PUBLIC_WEB"
-      ],
-      "outputs": [
-        "reports",
-        "scripts",
-        "tests",
-        "src"
-      ],
-      "reproduction_command": "pip install -e .",
-      "code_license": "PROJECT_LICENSE",
-      "publication_rights": "RIGHTS_UNKNOWN",
-      "github_destination": "TBD",
-      "github_pages_destination": "TBD",
-      "hf_dataset_destination": "TBD",
-      "hf_space_destination": "TBD",
-      "last_updated_date": "2026-08-10",
-      "known_limitations": "Rights and dataset-sharing status need manual validation."
-    },
-    {
-      "project_title": "Order Flow to Price Impact",
-      "project_slug": "microstructure-cleanroom-3f0f278",
-      "research_field": [
-        "Market microstructure",
-        "Trading",
-        "Finance"
-      ],
-      "research_question": "Research question extracted from project documentation (to be finalized per project).",
-      "current_status": "UNKNOWN",
-      "source_directory": "/Users/shawn/Documents/intern projects/Microstructure-cleanroom-3f0f278",
-      "main_programming_language": "Python",
-      "data_requirements": [
-        "data",
-        "artifacts",
-        "reports"
-      ],
-      "data_sources": [
-        "PUBLIC_WEB"
-      ],
-      "outputs": [
-        "reports",
-        "scripts",
-        "tests",
-        "src"
-      ],
-      "reproduction_command": "pip install -e .",
-      "code_license": "PROJECT_LICENSE",
-      "publication_rights": "RIGHTS_UNKNOWN",
-      "github_destination": "TBD",
-      "github_pages_destination": "TBD",
-      "hf_dataset_destination": "TBD",
-      "hf_space_destination": "TBD",
-      "last_updated_date": "2026-08-10",
-      "known_limitations": "Rights and dataset-sharing status need manual validation."
-    },
-    {
-      "project_title": "Order Flow to Price Impact",
-      "project_slug": "microstructure-m8-l2-2026-08-10-13",
-      "research_field": [
-        "Market microstructure",
-        "Trading",
-        "Finance"
-      ],
-      "research_question": "Research question extracted from project documentation (to be finalized per project).",
-      "current_status": "UNKNOWN",
-      "source_directory": "/Users/shawn/Documents/intern projects/Microstructure-m8-l2-2026-08-10-13",
-      "main_programming_language": "Python",
-      "data_requirements": [
-        "data",
-        "artifacts",
-        "reports"
-      ],
-      "data_sources": [
-        "PUBLIC_WEB"
-      ],
-      "outputs": [
-        "reports",
-        "scripts",
-        "tests",
-        "src"
-      ],
-      "reproduction_command": "pip install -e .",
-      "code_license": "PROJECT_LICENSE",
-      "publication_rights": "RIGHTS_UNKNOWN",
-      "github_destination": "TBD",
-      "github_pages_destination": "TBD",
-      "hf_dataset_destination": "TBD",
-      "hf_space_destination": "TBD",
-      "last_updated_date": "2026-08-10",
-      "known_limitations": "Rights and dataset-sharing status need manual validation."
-    },
-    {
-      "project_title": "Order Flow to Price Impact",
-      "project_slug": "microstructure-m8-l2-frozen",
-      "research_field": [
-        "Market microstructure",
-        "Trading",
-        "Finance"
-      ],
-      "research_question": "Research question extracted from project documentation (to be finalized per project).",
-      "current_status": "UNKNOWN",
-      "source_directory": "/Users/shawn/Documents/intern projects/Microstructure-m8-l2-frozen",
-      "main_programming_language": "Python",
-      "data_requirements": [
-        "data",
-        "artifacts",
-        "reports"
-      ],
-      "data_sources": [
-        "PUBLIC_WEB"
-      ],
-      "outputs": [
-        "reports",
-        "scripts",
-        "tests",
-        "src"
-      ],
-      "reproduction_command": "pip install -e .",
-      "code_license": "PROJECT_LICENSE",
-      "publication_rights": "RIGHTS_UNKNOWN",
-      "github_destination": "TBD",
-      "github_pages_destination": "TBD",
-      "hf_dataset_destination": "TBD",
-      "hf_space_destination": "TBD",
-      "last_updated_date": "2026-08-10",
-      "known_limitations": "Rights and dataset-sharing status need manual validation."
-    },
-    {
-      "project_title": "Order Flow to Price Impact",
-      "project_slug": "microstructure-m8-trade-verifier-88060613",
-      "research_field": [
-        "Market microstructure",
-        "Trading",
-        "Finance"
-      ],
-      "research_question": "Research question extracted from project documentation (to be finalized per project).",
-      "current_status": "UNKNOWN",
-      "source_directory": "/Users/shawn/Documents/intern projects/Microstructure-m8-trade-verifier-88060613",
-      "main_programming_language": "Python",
-      "data_requirements": [
-        "data",
-        "artifacts",
-        "reports"
-      ],
-      "data_sources": [
-        "PUBLIC_WEB"
-      ],
-      "outputs": [
-        "reports",
-        "scripts",
-        "tests",
-        "src"
-      ],
-      "reproduction_command": "pip install -e .",
-      "code_license": "PROJECT_LICENSE",
-      "publication_rights": "RIGHTS_UNKNOWN",
-      "github_destination": "TBD",
-      "github_pages_destination": "TBD",
-      "hf_dataset_destination": "TBD",
-      "hf_space_destination": "TBD",
-      "last_updated_date": "2026-08-10",
-      "known_limitations": "Rights and dataset-sharing status need manual validation."
-    },
-    {
-      "project_title": "Corporate Disclosures as a Real-Time Economic Sensor",
-      "project_slug": "secpolicy",
-      "research_field": [
-        "SEC filings",
-        "Policy",
-        "Document analysis"
-      ],
-      "research_question": "Research question extracted from project documentation (to be finalized per project).",
-      "current_status": "UNKNOWN",
-      "source_directory": "/Users/shawn/Documents/intern projects/SECPolicy",
-      "main_programming_language": "Python",
-      "data_requirements": [
-        "data",
-        "reports"
-      ],
-      "data_sources": [
-        "AGENCY_PUBLIC_DATA"
-      ],
-      "outputs": [
-        "reports",
-        "scripts",
-        "tests",
-        "src"
-      ],
-      "reproduction_command": "pip install -e .",
-      "code_license": "UNKNOWN",
-      "publication_rights": "RIGHTS_UNKNOWN",
-      "github_destination": "TBD",
-      "github_pages_destination": "TBD",
-      "hf_dataset_destination": "TBD",
-      "hf_space_destination": "TBD",
-      "last_updated_date": "2026-08-10",
-      "known_limitations": "Rights and dataset-sharing status need manual validation."
-    }
-  ],
-  "generated_at": "2026-08-10T19:53:03.794920+00:00"
+    {"project_title": "Order Flow to Price Impact", "project_slug": "microstructure", "current_status": "WITHHELD_RIGHTS_REVIEW", "source_directory": "workspace/Microstructure"},
+    {"project_title": "Order Flow to Price Impact", "project_slug": "microstructure-cleanroom-3f0f278", "current_status": "WITHHELD_RIGHTS_REVIEW", "source_directory": "workspace/Microstructure-cleanroom-3f0f278"},
+    {"project_title": "Order Flow to Price Impact", "project_slug": "microstructure-m8-l2-2026-08-10-13", "current_status": "WITHHELD_RIGHTS_REVIEW", "source_directory": "workspace/Microstructure-m8-l2-2026-08-10-13"},
+    {"project_title": "Order Flow to Price Impact", "project_slug": "microstructure-m8-l2-frozen", "current_status": "WITHHELD_RIGHTS_REVIEW", "source_directory": "workspace/Microstructure-m8-l2-frozen"},
+    {"project_title": "Order Flow to Price Impact", "project_slug": "microstructure-m8-trade-verifier-88060613", "current_status": "WITHHELD_RIGHTS_REVIEW", "source_directory": "workspace/Microstructure-m8-trade-verifier-88060613"},
+    {"project_title": "Corporate Disclosures as a Real-Time Economic Sensor", "project_slug": "secpolicy", "current_status": "WITHHELD_RIGHTS_REVIEW", "source_directory": "workspace/SECPolicy"}
+  ]
 }

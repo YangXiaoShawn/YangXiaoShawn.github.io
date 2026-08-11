@@ -1,0 +1,33 @@
+name: Sync Hugging Face Metadata and Space
+
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+  push:
+    branches: [main]
+    paths:
+      - 'apps/space/**'
+      - 'build/hf-dataset/README.md'
+      - 'build/hf-dataset/dataset_manifest.json'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: huggingface-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    env:
+      HF_TOKEN: ${{ secrets.HF_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-dev.txt
+      - run: python scripts/deploy_hf_dataset.py
+      - run: python scripts/deploy_hf_space.py

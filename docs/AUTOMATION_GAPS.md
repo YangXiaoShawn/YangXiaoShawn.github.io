@@ -1,12 +1,15 @@
-# AUTOMATION_GAPS.md
+# Automation Gaps
 
-## 缺失/受限功能
+## Current limitations
 
-- 未接入 `daily-refresh` 与定期更新工作流（未见稳定可靠的原始数据更新命令）。
-- HF dataset/space 自动同步暂未完成（缺少在线认证凭据）。
-- 站点生成仍为手工静态 HTML，未接入模板化构建器。
+- The daily workflow validates metadata and packaging but does not refresh external data automatically because no single audited update command exists for both projects.
+- Project result pages report validated evidence only; benchmark comparison tables remain incomplete until project-specific result manifests are published.
+- Rights review remains a human gate for new third-party raw data.
 
-## 下一步建议
+## Next automation milestones
 
-- 将 `scripts/` 下的脚本扩展为 CI job 的稳定接口。
-- 补齐 `.github/workflows` 以实现自动化发布。
+- Add one deterministic refresh command and output manifest per project.
+- Pin Dataset revisions for reproducible Space releases.
+- Add project-specific smoke tests before enabling unattended daily data publication.
+
+The workflow scaffold is intentionally non-destructive until these project-level commands are reliable.

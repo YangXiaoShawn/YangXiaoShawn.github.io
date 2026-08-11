@@ -1,0 +1,4 @@
+gradio==5.44.1
+huggingface_hub==0.34.4
+pandas==2.3.2
+pytest==8.4.1

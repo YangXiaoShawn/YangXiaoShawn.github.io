@@ -1,26 +1,27 @@
 title: Macroeconomics
 slug: macroeconomics
-summary: Macroeconomic forecasting and vintage-reconstruction pipeline with updated real-time indicator work.
-research_question: How do revised releases and vintage timing affect nowcast and forecast quality?
+summary: Real-time macroeconomic forecasting, vintage reconstruction, and policy-shock analysis with public-source adapters.
+research_question: How do release revisions and information available at each vintage affect nowcast and forecast quality?
+why_it_matters: Vintage-aware evaluation prevents revised data from leaking into historical forecasts and overstating real-time performance.
 research_fields:
   - Macroeconomics
   - Forecasting
   - Policy analytics
 project_type: research-replication
-status: public-ready
+status: public-live
 authors:
-  - Repository owner/maintainer
-original_source: Macroeconomics (intern-project workspace)
-original_sample_period: N/A
-updated_sample_period: N/A
+  - Repository owner and maintainer
+original_source: Macroeconomics workspace project
+original_sample_period: Defined by each configured source and vintage archive.
+updated_sample_period: Updated when a documented public-data refresh is released.
 data_sources:
-  - Public macroeconomic release feeds (public API/web sources)
+  - FRED and ALFRED public observations
+  - BLS and BEA public APIs under guarded live-access settings
   - Synthetic fixture datasets in data/fixtures/
-
-data_license: RIGHTS_UNKNOWN
-code_license: project-local
+data_license: RIGHTS_UNKNOWN for raw third-party snapshots; included fixtures are publishable examples.
+code_license: Project-local terms; third-party components retain their own licenses.
 reproduction_command: python -m macro_nowcast.pipeline
-expected_runtime: varies by configuration
+expected_runtime: Varies by source configuration and backtest horizon.
 outputs:
   - src/
   - reports/
@@ -28,9 +29,17 @@ outputs:
   - tests/
   - data/fixtures/
   - config/
-github_url: TDB
-site_url: TDB
-dataset_url: TDB
-space_url: TDB
+github_url: https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics
+site_url: https://yangxiaoshawn.github.io/projects/macroeconomics/
+dataset_url: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/Macroeconomics
+space_url: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
 last_updated: 2026-08-10
-limitations: Raw agency release snapshots and raw large datasets intentionally excluded from this upload-ready copy.
+limitations: Real-time claims require an audited vintage source. Current BLS and BEA API observations are labeled latest-revised and are not presented as historical first releases.
+catalog:
+  field: macro
+  accent: blue
+  tags:
+    - Nowcasting
+    - Vintage Data
+    - Policy Forecasting
+  metric: Guarded public adapters

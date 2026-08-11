@@ -1,35 +1,43 @@
 title: CasualLab
 slug: casuallab
-summary: Experimental causal inference and policy-oriented simulation toolkit with NYC policy and simulation modules.
+summary: Experimental causal inference and policy simulation toolkit with NYC-oriented public examples.
 research_question: How do causal mechanisms and heterogeneous treatment effects shape market outcomes and policy interventions in field-like datasets?
+why_it_matters: Credible policy evaluation requires both transparent identification assumptions and reproducible decision rules.
 research_fields:
   - Causal inference
   - Experimental economics
   - Market design
 project_type: research-replication
-status: public-ready
+status: public-live
 authors:
-  - Repository owner/maintainer
-original_source: CasualLab (intern-project workspace)
-original_sample_period: N/A
-updated_sample_period: N/A
+  - Repository owner and maintainer
+original_source: CasualLab workspace project
+original_sample_period: Not applicable; the public package uses synthetic and open examples.
+updated_sample_period: Updated when a documented public-data refresh is released.
 data_sources:
-  - Public synthetic or open policy data as configured per run
-  - Internal fixtures included in this repository
-
-data_license: RIGHTS_UNKNOWN
-code_license: project-local
+  - Public synthetic or open policy data configured per run
+  - Repository fixtures and NYC sample data
+data_license: RIGHTS_UNKNOWN for raw third-party sources; included fixtures are publishable examples.
+code_license: Project-local terms; third-party components retain their own licenses.
 reproduction_command: make reproduce
-expected_runtime: varies by module
+expected_runtime: Varies by module and selected estimator.
 outputs:
   - src/
   - reports/
   - scripts/
   - tests/
   - data/fixtures/
-github_url: TDB
-site_url: TDB
-dataset_url: TDB
-space_url: TDB
+github_url: https://github.com/YangXiaoShawn/open-economic-quant-casuallab
+site_url: https://yangxiaoshawn.github.io/projects/casuallab/
+dataset_url: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/CasualLab
+space_url: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
 last_updated: 2026-08-10
-limitations: Large raw data and potentially restricted artifacts intentionally excluded from this upload-ready copy.
+limitations: Numerical result comparisons are reported only when a source, sample, and validation record are available. Publication rights for new raw sources must be reviewed before release.
+catalog:
+  field: causal
+  accent: teal
+  tags:
+    - Causal Inference
+    - Policy Simulation
+    - Heterogeneity
+  metric: Reproducible fixtures

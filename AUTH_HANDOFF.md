@@ -1,30 +1,10 @@
-# AUTH_HANDOFF
+# Authentication Handoff
 
-Current environment status:
+No credential is stored in this repository.
 
-- `gh` is installed and on `PATH`, but no GitHub session is active yet (`gh auth status` shows not logged in).
-- `hf` / `huggingface-cli` is installed and logged in with the provided token.
-- Network is restricted in this container, so external verification commands may fail unless run in a connected environment.
+- GitHub CLI: authenticate interactively with `gh auth login` and select HTTPS unless an SSH workflow is already configured.
+- Hugging Face CLI: authenticate interactively with `hf auth login`.
+- Never paste tokens into tracked files, deployment commands, screenshots, issues, or logs.
+- Configure GitHub Actions with the `HF_TOKEN` repository secret only after rotating any token previously shared in chat.
 
-Recommended follow-up on your machine with network access:
-
-```bash
-export PATH="$HOME/.local/bin:$PATH"
-gh auth status
-# if not logged in:
-gh auth login
-```
-
-After login, continue with:
-
-1. Initialize repository (if not already).
-2. Push to GitHub and enable Pages.
-3. Configure external HF dataset/space uploads as needed.
-4. Run `python3 scripts/verify_deployment.py` from `GithubIO`.
-
-If you want a clean local reinstall sequence:
-
-```bash
-brew install gh
-python3 -m pip install --user "huggingface_hub[cli]"
-```
+Current external blocker: explicit authorization is required before creating the new public Hugging Face Space.
