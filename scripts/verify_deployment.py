@@ -31,7 +31,7 @@ PUBLIC_URLS = (
     "https://github.com/YangXiaoShawn/open-economic-quant-casuallab",
     "https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics",
     "https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data",
-    "https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory",
+    "https://yangxiaoshawn.github.io/dashboards/",
 )
 
 

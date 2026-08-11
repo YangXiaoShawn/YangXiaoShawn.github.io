@@ -32,7 +32,8 @@ outputs:
 github_url: https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics
 site_url: https://yangxiaoshawn.github.io/projects/macroeconomics/
 dataset_url: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/Macroeconomics
-space_url: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
+space_url: https://yangxiaoshawn.github.io/dashboards/
+planned_space_url: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
 last_updated: 2026-08-10
 limitations: Real-time claims require an audited vintage source. Current BLS and BEA API observations are labeled latest-revised and are not presented as historical first releases.
 catalog:

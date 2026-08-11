@@ -30,7 +30,8 @@ outputs:
 github_url: https://github.com/YangXiaoShawn/open-economic-quant-casuallab
 site_url: https://yangxiaoshawn.github.io/projects/casuallab/
 dataset_url: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/CasualLab
-space_url: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
+space_url: https://yangxiaoshawn.github.io/dashboards/
+planned_space_url: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
 last_updated: 2026-08-10
 limitations: Numerical result comparisons are reported only when a source, sample, and validation record are available. Publication rights for new raw sources must be reviewed before release.
 catalog:

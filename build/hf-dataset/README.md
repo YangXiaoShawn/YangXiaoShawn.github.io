@@ -45,7 +45,7 @@ Project-owned code and fixtures follow project-local terms. Third-party data and
 
 - Website: https://yangxiaoshawn.github.io/
 - GitHub: https://github.com/YangXiaoShawn/YangXiaoShawn.github.io
-- Space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
+- Interactive observatory status: https://yangxiaoshawn.github.io/dashboards/
 
 ## Citation
 
