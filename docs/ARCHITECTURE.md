@@ -3,7 +3,7 @@
 ## Public surfaces
 
 1. GitHub Pages hosts the static research portal and permanent project pages.
-2. Three standalone GitHub repositories host compact, reviewable project source packages.
+2. GitHub hosts three compact, reviewable project source packages; RealEstate is versioned inside the site repository.
 3. The Hugging Face Dataset stores the full versioned research payload without local environments or caches.
 4. The Hugging Face Space provides an interactive explorer and reads the Dataset at a configurable revision.
 

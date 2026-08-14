@@ -8,7 +8,7 @@ A public research platform for reproducible economics, finance, quantitative met
 - Website source: https://github.com/YangXiaoShawn/YangXiaoShawn.github.io
 - CasualLab source: https://github.com/YangXiaoShawn/open-economic-quant-casuallab
 - Macroeconomics source: https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics
-- Mortgage Rate Lock-In source: https://github.com/YangXiaoShawn/open-economic-quant-realestate
+- Mortgage Rate Lock-In source: https://github.com/YangXiaoShawn/YangXiaoShawn.github.io/tree/main/realestate
 - Full research dataset: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data
 - Interactive Hugging Face Space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
 - Static runtime revision: `a2914d076575259c83c361205b56b72cfb2239cd`
