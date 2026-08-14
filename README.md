@@ -11,7 +11,7 @@ A public research platform for reproducible economics, finance, quantitative met
 - Mortgage Rate Lock-In source: https://github.com/YangXiaoShawn/YangXiaoShawn.github.io/tree/main/realestate
 - Full research dataset: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data
 - Interactive Hugging Face Space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
-- Static runtime revision: `a2914d076575259c83c361205b56b72cfb2239cd`
+- Static runtime revision: `1954aedffee20c0f04652a96d051e702cc7fa4b6`
 
 ## Published projects
 
