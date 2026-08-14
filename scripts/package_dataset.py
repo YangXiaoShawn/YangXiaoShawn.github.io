@@ -33,7 +33,11 @@ def main() -> None:
     parser.add_argument("--output", type=Path, default=ROOT / "build" / "hf-dataset")
     parser.add_argument("--copy", action="store_true", help="Copy included files into the staging directory.")
     args = parser.parse_args()
-    projects = (("CasualLab", args.workspace / "CasualLab"), ("Macroeconomics", args.workspace / "Macroeconomics"))
+    projects = (
+        ("CasualLab", args.workspace / "CasualLab"),
+        ("Macroeconomics", args.workspace / "Macroeconomics"),
+        ("RealEstate", ROOT / "realestate"),
+    )
     records = []
     for prefix, source in projects:
         if not source.exists():

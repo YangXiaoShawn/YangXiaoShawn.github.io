@@ -36,7 +36,7 @@ SECTIONS = {
     ),
     "methods": (
         "Methods Library",
-        "Causal inference, vintage-aware forecasting, guarded data adapters, and reproducibility controls.",
+        "Causal inference, duration models, event studies, vintage-aware forecasting, guarded data adapters, and reproducibility controls.",
     ),
     "dashboards": (
         "Interactive Dashboards",
@@ -146,7 +146,7 @@ def section_page(slug: str, title: str, description: str, projects: list[dict]) 
 </div></header>
 <main id="main">
   <section class="page-hero"><div class="container"><div class="breadcrumbs"><a href="../index.html">Home</a><span>{html.escape(title)}</span></div><div class="eyebrow">Open research platform</div><h1>{html.escape(title)}</h1><p class="page-lead">{html.escape(description)}</p><div class="hero-actions">{extra}</div></div></section>
-  <section class="section section-border"><div class="container"><div class="section-header"><div><div class="section-kicker">Published work</div><h2 class="section-title">Two projects, one evidence standard.</h2></div></div><div class="platform-grid">{cards}</div></div></section>
+  <section class="section section-border"><div class="container"><div class="section-header"><div><div class="section-kicker">Published work</div><h2 class="section-title">{len(projects)} projects, one evidence standard.</h2></div></div><div class="platform-grid">{cards}</div></div></section>
 </main>
 <footer class="site-footer"><div class="container"><div class="footer-bottom"><span>Open Economic &amp; Quant Research Observatory</span><a class="text-link" href="../index.html">Back to homepage</a></div></div></footer>
 <script src="../assets/js/app.js"></script>
@@ -155,24 +155,25 @@ def section_page(slug: str, title: str, description: str, projects: list[dict]) 
 """
 
 
-def sitemap(projects: list[dict]) -> str:
+def sitemap(projects: list[dict], release_date: str) -> str:
     routes = ["", *[f"{slug}/" for slug in SECTIONS]]
     routes.extend(f"projects/{project['slug']}/" for project in projects)
     rows = "\n".join(
-        f"  <url><loc>{SITE_URL}/{route}</loc><lastmod>2026-08-10</lastmod></url>"
+        f"  <url><loc>{SITE_URL}/{route}</loc><lastmod>{release_date}</lastmod></url>"
         for route in routes
     )
     return f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{rows}\n</urlset>\n'
 
 
-def feed(projects: list[dict]) -> str:
+def feed(projects: list[dict], release_date: str) -> str:
+    updated_at = f"{release_date}T00:00:00Z"
     entries = []
     for project in projects:
         entries.append(
-            f"""  <entry><title>{html.escape(project['title'])}</title><id>{SITE_URL}/projects/{project['slug']}/</id><link href="{SITE_URL}/projects/{project['slug']}/"/><updated>2026-08-10T23:40:00Z</updated><summary>{html.escape(project['summary'])}</summary></entry>"""
+            f"""  <entry><title>{html.escape(project['title'])}</title><id>{SITE_URL}/projects/{project['slug']}/</id><link href="{SITE_URL}/projects/{project['slug']}/"/><updated>{updated_at}</updated><summary>{html.escape(project['summary'])}</summary></entry>"""
         )
     return f'''<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Open Economic &amp; Quant Research Observatory Updates</title><id>{SITE_URL}/</id><link href="{SITE_URL}/feed.xml" rel="self"/><updated>2026-08-10T23:40:00Z</updated>{''.join(entries)}</feed>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Open Economic &amp; Quant Research Observatory Updates</title><id>{SITE_URL}/</id><link href="{SITE_URL}/feed.xml" rel="self"/><updated>{updated_at}</updated>{''.join(entries)}</feed>
 '''
 
 
@@ -205,8 +206,8 @@ def main() -> None:
     )
     for slug, (title, description) in SECTIONS.items():
         changed += emit(ROOT / slug / "index.html", section_page(slug, title, description, projects), args.check)
-    changed += emit(ROOT / "sitemap.xml", sitemap(projects), args.check)
-    changed += emit(ROOT / "feed.xml", feed(projects), args.check)
+    changed += emit(ROOT / "sitemap.xml", sitemap(projects, release_date), args.check)
+    changed += emit(ROOT / "feed.xml", feed(projects, release_date), args.check)
     print(f"catalog-ok projects={len(projects)} changed={changed}")
 
 

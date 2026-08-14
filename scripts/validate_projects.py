@@ -7,7 +7,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-PROJECTS = ("casuallab", "macroeconomics")
+PROJECTS = ("casuallab", "macroeconomics", "realestate")
 REQUIRED_KEYS = {
     "title",
     "slug",
@@ -61,7 +61,7 @@ def main() -> None:
             failures.append(f"missing {required.relative_to(ROOT)}")
     if failures:
         raise SystemExit("Validation failed:\n- " + "\n- ".join(failures))
-    print("validation-ok projects=2")
+    print(f"validation-ok projects={len(PROJECTS)}")
 
 
 if __name__ == "__main__":

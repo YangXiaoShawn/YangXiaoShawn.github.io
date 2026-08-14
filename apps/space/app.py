@@ -45,6 +45,15 @@ PROJECTS = {
         methodology="Record source availability, align observations to their real-time vintage, prevent revised-data leakage, backtest models on comparable information sets, and label current revised APIs honestly.",
         source_url="https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics",
     ),
+    "RealEstate": Project(
+        title="Mortgage Rate Lock-In and Housing Market Dynamics",
+        prefix="RealEstate",
+        field="Housing economics and mortgage finance",
+        question="How does the gap between existing mortgage rates and current market rates affect mortgage exits, local activity, prices, and construction?",
+        summary="A reproducible housing-finance research system with registered-data analyses, public aggregate sources, explicit evidence tiers, and strict publication boundaries.",
+        methodology="Construct point-in-time lock-in measures, model mortgage-exit hazards, freeze predetermined local exposure for event studies, auto-demote results when diagnostics fail, and label counterfactuals as simulations rather than forecasts.",
+        source_url="https://github.com/YangXiaoShawn/open-economic-quant-realestate",
+    ),
 }
 
 FALLBACK_ROWS = pd.DataFrame(

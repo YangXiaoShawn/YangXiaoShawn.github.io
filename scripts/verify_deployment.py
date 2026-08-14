@@ -26,10 +26,12 @@ PUBLIC_URLS = (
     "https://yangxiaoshawn.github.io/",
     "https://yangxiaoshawn.github.io/projects/casuallab/",
     "https://yangxiaoshawn.github.io/projects/macroeconomics/",
+    "https://yangxiaoshawn.github.io/projects/realestate/",
     "https://yangxiaoshawn.github.io/robots.txt",
     "https://yangxiaoshawn.github.io/sitemap.xml",
     "https://github.com/YangXiaoShawn/open-economic-quant-casuallab",
     "https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics",
+    "https://github.com/YangXiaoShawn/open-economic-quant-realestate",
     "https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data",
     "https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory",
 )
@@ -61,6 +63,7 @@ def main() -> None:
         ROOT / "assets" / "data" / "projects.json",
         ROOT / "projects" / "casuallab" / "index.html",
         ROOT / "projects" / "macroeconomics" / "index.html",
+        ROOT / "projects" / "realestate" / "index.html",
         ROOT / "apps" / "space" / "app.py",
         ROOT / "apps" / "space" / "README.md",
         ROOT / "apps" / "space" / "index.html",
@@ -72,8 +75,9 @@ def main() -> None:
     catalog_path = ROOT / "assets" / "data" / "projects.json"
     if catalog_path.exists():
         catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
-        if {item.get("slug") for item in catalog.get("projects", [])} != {"casuallab", "macroeconomics"}:
-            failures.append("generated catalog does not contain exactly the two published projects")
+        expected_projects = {"casuallab", "macroeconomics", "realestate"}
+        if {item.get("slug") for item in catalog.get("projects", [])} != expected_projects:
+            failures.append("generated catalog does not contain exactly the three published projects")
 
     public_text = "\n".join(
         path.read_text(encoding="utf-8", errors="ignore")

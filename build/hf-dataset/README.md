@@ -10,16 +10,18 @@ tags:
   - quantitative-finance
   - causal-inference
   - macroeconomics
+  - housing-economics
 ---
 
 # Open Economic & Quant Research Data
 
-Versioned research content for CasualLab and Macroeconomics, including project code, notebooks, public data, fixtures, reports, tests, and reproducibility documentation.
+Versioned research content for CasualLab, Macroeconomics, and Mortgage Rate Lock-In and Housing Market Dynamics, including project code, publishable data, fixtures, reports, tests, and reproducibility documentation.
 
 ## Repository structure
 
 - `CasualLab/`: causal inference and policy-simulation research content.
 - `Macroeconomics/`: vintage-aware forecasting and public-source adapter research content.
+- `RealEstate/`: housing-finance research on mortgage lock-in, mortgage exits, local activity, prices, and construction. Registered loan-level records and loan-granular derivatives are excluded.
 - `dataset_manifest.json`: file counts, exclusions, and release metadata.
 
 ## Supported uses

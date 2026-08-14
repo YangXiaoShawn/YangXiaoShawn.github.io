@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-10",
+  "generated_at": "2026-08-14",
   "projects": [
     {
       "title": "CasualLab",
@@ -51,6 +51,32 @@
       "site_url": "https://yangxiaoshawn.github.io/projects/macroeconomics/",
       "github_url": "https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics",
       "dataset_url": "https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/Macroeconomics",
+      "space_url": "https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory"
+    },
+    {
+      "title": "Mortgage Rate Lock-In and Housing Market Dynamics",
+      "slug": "realestate",
+      "summary": "Reproducible housing-finance research on how mortgage rate lock-in relates to mortgage exits, local activity, prices, and residential construction.",
+      "research_question": "How does the gap between homeowners' existing mortgage rates and current market mortgage rates affect mortgage exits, housing-market activity, local prices, and new construction?",
+      "research_fields": [
+        "Housing economics",
+        "Mortgage finance",
+        "Applied econometrics"
+      ],
+      "project_type": "empirical-research",
+      "status": "public-live",
+      "last_updated": "2026-08-14",
+      "field": "housing",
+      "accent": "amber",
+      "tags": [
+        "Housing Economics",
+        "Mortgage Lock-In",
+        "Event Studies"
+      ],
+      "metric": "Tiered empirical evidence",
+      "site_url": "https://yangxiaoshawn.github.io/projects/realestate/",
+      "github_url": "https://github.com/YangXiaoShawn/open-economic-quant-realestate",
+      "dataset_url": "https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/RealEstate",
       "space_url": "https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory"
     }
   ]

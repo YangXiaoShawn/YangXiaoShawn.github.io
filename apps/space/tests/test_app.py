@@ -9,7 +9,7 @@ from app import PROJECTS, explore
 
 
 def test_project_registry():
-    assert set(PROJECTS) == {"CasualLab", "Macroeconomics"}
+    assert set(PROJECTS) == {"CasualLab", "Macroeconomics", "RealEstate"}
 
 
 def test_explorer_has_fallback(monkeypatch):

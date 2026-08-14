@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-10T23:55:00Z",
+  "generated_at": "2026-08-14T00:00:00Z",
   "projects": [
     {
       "project_title": "CasualLab",
@@ -40,6 +40,26 @@
       "hf_space_destination": "https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory",
       "last_updated_date": "2026-08-10",
       "known_limitations": "Historical first-release claims require an audited vintage archive and result manifest."
+    },
+    {
+      "project_title": "Mortgage Rate Lock-In and Housing Market Dynamics",
+      "project_slug": "realestate",
+      "research_field": ["Housing economics", "Mortgage finance", "Applied econometrics"],
+      "research_question": "How does the gap between homeowners' existing mortgage rates and current market mortgage rates affect mortgage exits, housing-market activity, local prices, and new construction?",
+      "current_status": "PUBLIC_LIVE",
+      "source_directory": "workspace/RealEstate",
+      "main_programming_language": "Python",
+      "data_sources": ["Registered Freddie Mac loan-level data, excluded from publication", "PMMS", "FHFA HPI", "HMDA aggregations", "Census BPS", "BLS LAUS"],
+      "outputs": ["reports", "dashboard", "tests", "src", "synthetic fixtures", "documentation"],
+      "reproduction_command": "make reproduce-sample",
+      "code_license": "MIT",
+      "publication_rights": "APPROVED_WITH_EXCLUSIONS",
+      "github_destination": "https://github.com/YangXiaoShawn/open-economic-quant-realestate",
+      "github_pages_destination": "https://yangxiaoshawn.github.io/projects/realestate/",
+      "hf_dataset_destination": "https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/RealEstate",
+      "hf_space_destination": "https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory",
+      "last_updated_date": "2026-08-14",
+      "known_limitations": "Prepayment is not a home sale or move; registered loan-level data and loan-granular derivatives are never redistributed; loan-level estimates are associations."
     },
     {"project_title": "Order Flow to Price Impact", "project_slug": "microstructure", "current_status": "WITHHELD_RIGHTS_REVIEW", "source_directory": "workspace/Microstructure"},
     {"project_title": "Order Flow to Price Impact", "project_slug": "microstructure-cleanroom-3f0f278", "current_status": "WITHHELD_RIGHTS_REVIEW", "source_directory": "workspace/Microstructure-cleanroom-3f0f278"},

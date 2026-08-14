@@ -27,6 +27,14 @@ projects:
     dataset: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/Macroeconomics
     space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
     publication_rights: MIXED_REVIEW_REQUIRED
+  - slug: realestate
+    title: Mortgage Rate Lock-In and Housing Market Dynamics
+    publication_status: public-live
+    github: https://github.com/YangXiaoShawn/open-economic-quant-realestate
+    pages: https://yangxiaoshawn.github.io/projects/realestate/
+    dataset: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/RealEstate
+    space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
+    publication_rights: APPROVED_WITH_EXCLUSIONS
 
 withheld_projects:
   - microstructure

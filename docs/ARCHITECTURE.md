@@ -3,7 +3,7 @@
 ## Public surfaces
 
 1. GitHub Pages hosts the static research portal and permanent project pages.
-2. Two standalone GitHub repositories host compact, reviewable project source packages.
+2. Three standalone GitHub repositories host compact, reviewable project source packages.
 3. The Hugging Face Dataset stores the full versioned research payload without local environments or caches.
 4. The Hugging Face Space provides an interactive explorer and reads the Dataset at a configurable revision.
 
@@ -11,7 +11,7 @@
 
 - `assets/`: shared styles, browser behavior, generated catalog data, and site identity.
 - `projects/`: permanent project narratives and research summaries.
-- `casuallab/`, `macroeconomics/`: upload-ready public project copies.
+- `casuallab/`, `macroeconomics/`, `realestate/`: upload-ready public project copies.
 - `apps/space/`: Gradio application, tests, and runtime metadata.
 - `manifests/`: machine-readable inventory, rights, and deployment state.
 - `docs/`: governance, security, reproducibility, and release documentation.

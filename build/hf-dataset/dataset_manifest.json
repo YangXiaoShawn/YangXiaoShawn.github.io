@@ -2,10 +2,11 @@
   "dataset": "ShawnChamberlain/open-economic-quant-research-data",
   "projects": [
     "CasualLab",
-    "Macroeconomics"
+    "Macroeconomics",
+    "RealEstate"
   ],
-  "file_count": 3345,
-  "size_bytes": 2848776663,
+  "file_count": 3446,
+  "size_bytes": 2849960546,
   "excluded_parts": [
     ".DS_Store",
     ".git",
@@ -13394,6 +13395,410 @@
     {
       "path": "Macroeconomics/src/macro_nowcast/asof.py",
       "size_bytes": 8975
+    },
+    {
+      "path": "RealEstate/project.yaml",
+      "size_bytes": 2941
+    },
+    {
+      "path": "RealEstate/LICENSE",
+      "size_bytes": 1090
+    },
+    {
+      "path": "RealEstate/Makefile",
+      "size_bytes": 3961
+    },
+    {
+      "path": "RealEstate/pyproject.toml",
+      "size_bytes": 3479
+    },
+    {
+      "path": "RealEstate/STATUS.md",
+      "size_bytes": 16357
+    },
+    {
+      "path": "RealEstate/README.md",
+      "size_bytes": 7683
+    },
+    {
+      "path": "RealEstate/.gitignore",
+      "size_bytes": 1132
+    },
+    {
+      "path": "RealEstate/AGENTS.md",
+      "size_bytes": 6389
+    },
+    {
+      "path": "RealEstate/tests/test_lockin_measures.py",
+      "size_bytes": 8871
+    },
+    {
+      "path": "RealEstate/tests/test_governance.py",
+      "size_bytes": 7649
+    },
+    {
+      "path": "RealEstate/tests/test_validation_scaling.py",
+      "size_bytes": 2309
+    },
+    {
+      "path": "RealEstate/tests/test_eventstudy_controls.py",
+      "size_bytes": 4688
+    },
+    {
+      "path": "RealEstate/tests/test_geography_guard.py",
+      "size_bytes": 2177
+    },
+    {
+      "path": "RealEstate/tests/test_preflight.py",
+      "size_bytes": 7496
+    },
+    {
+      "path": "RealEstate/tests/test_laus_metro.py",
+      "size_bytes": 1697
+    },
+    {
+      "path": "RealEstate/tests/__init__.py",
+      "size_bytes": 0
+    },
+    {
+      "path": "RealEstate/tests/test_teleworkable.py",
+      "size_bytes": 3101
+    },
+    {
+      "path": "RealEstate/tests/test_ingest.py",
+      "size_bytes": 13199
+    },
+    {
+      "path": "RealEstate/tests/test_omb_cbsa.py",
+      "size_bytes": 4316
+    },
+    {
+      "path": "RealEstate/tests/test_rate_alignment.py",
+      "size_bytes": 7500
+    },
+    {
+      "path": "RealEstate/tests/test_events.py",
+      "size_bytes": 10960
+    },
+    {
+      "path": "RealEstate/tests/test_bps_metro.py",
+      "size_bytes": 2574
+    },
+    {
+      "path": "RealEstate/tests/test_amortization.py",
+      "size_bytes": 5450
+    },
+    {
+      "path": "RealEstate/tests/test_hmda_msa.py",
+      "size_bytes": 3476
+    },
+    {
+      "path": "RealEstate/docs/PUBLICATION.md",
+      "size_bytes": 1620
+    },
+    {
+      "path": "RealEstate/docs/PROJECT_PLAN.md",
+      "size_bytes": 15420
+    },
+    {
+      "path": "RealEstate/docs/IDENTIFICATION_STRATEGY.md",
+      "size_bytes": 10074
+    },
+    {
+      "path": "RealEstate/docs/DECISION_LOG.md",
+      "size_bytes": 59380
+    },
+    {
+      "path": "RealEstate/docs/RESEARCH_DESIGN.md",
+      "size_bytes": 12253
+    },
+    {
+      "path": "RealEstate/dashboard/app.py",
+      "size_bytes": 29564
+    },
+    {
+      "path": "RealEstate/configs/msa_full.yaml",
+      "size_bytes": 4978
+    },
+    {
+      "path": "RealEstate/configs/sample.yaml",
+      "size_bytes": 2798
+    },
+    {
+      "path": "RealEstate/configs/full.yaml",
+      "size_bytes": 4975
+    },
+    {
+      "path": "RealEstate/configs/msa.yaml",
+      "size_bytes": 2793
+    },
+    {
+      "path": "RealEstate/portfolio/interview_story.md",
+      "size_bytes": 11448
+    },
+    {
+      "path": "RealEstate/portfolio/ten_minute_presentation_outline.md",
+      "size_bytes": 7440
+    },
+    {
+      "path": "RealEstate/portfolio/thirty_minute_research_presentation.md",
+      "size_bytes": 17805
+    },
+    {
+      "path": "RealEstate/portfolio/resume_bullets.md",
+      "size_bytes": 9580
+    },
+    {
+      "path": "RealEstate/data/DATA_DICTIONARY.md",
+      "size_bytes": 17610
+    },
+    {
+      "path": "RealEstate/data/DATA_ACCESS.md",
+      "size_bytes": 11582
+    },
+    {
+      "path": "RealEstate/data/LICENSE_AND_REDISTRIBUTION.md",
+      "size_bytes": 6199
+    },
+    {
+      "path": "RealEstate/data/fixtures/freddie/_dataset.manifest.json",
+      "size_bytes": 3920
+    },
+    {
+      "path": "RealEstate/data/reference/freddie_llds_layout.yaml",
+      "size_bytes": 14133
+    },
+    {
+      "path": "RealEstate/reports/methodology_and_limitations.md",
+      "size_bytes": 13636
+    },
+    {
+      "path": "RealEstate/reports/executive_housing_policy_memo.md",
+      "size_bytes": 13222
+    },
+    {
+      "path": "RealEstate/reports/failed_hypotheses.md",
+      "size_bytes": 18033
+    },
+    {
+      "path": "RealEstate/reports/local_market_event_study.md",
+      "size_bytes": 21453
+    },
+    {
+      "path": "RealEstate/reports/technical_report.md",
+      "size_bytes": 12400
+    },
+    {
+      "path": "RealEstate/reports/.lockin_profile.json",
+      "size_bytes": 775
+    },
+    {
+      "path": "RealEstate/reports/loan_hazard_analysis.md",
+      "size_bytes": 15610
+    },
+    {
+      "path": "RealEstate/reports/policy_counterfactuals.md",
+      "size_bytes": 22350
+    },
+    {
+      "path": "RealEstate/reports/benchmark_comparison.md",
+      "size_bytes": 10378
+    },
+    {
+      "path": "RealEstate/reports/replication_protocol.md",
+      "size_bytes": 7046
+    },
+    {
+      "path": "RealEstate/reports/demand_supply_decomposition.md",
+      "size_bytes": 8365
+    },
+    {
+      "path": "RealEstate/src/lockin/amortization.py",
+      "size_bytes": 5378
+    },
+    {
+      "path": "RealEstate/src/lockin/config.py",
+      "size_bytes": 8600
+    },
+    {
+      "path": "RealEstate/src/lockin/benchmark.py",
+      "size_bytes": 13640
+    },
+    {
+      "path": "RealEstate/src/lockin/manifest.py",
+      "size_bytes": 5471
+    },
+    {
+      "path": "RealEstate/src/lockin/events.py",
+      "size_bytes": 19845
+    },
+    {
+      "path": "RealEstate/src/lockin/dataset_stamp.py",
+      "size_bytes": 3975
+    },
+    {
+      "path": "RealEstate/src/lockin/pipeline_status.py",
+      "size_bytes": 5294
+    },
+    {
+      "path": "RealEstate/src/lockin/__init__.py",
+      "size_bytes": 0
+    },
+    {
+      "path": "RealEstate/src/lockin/stock.py",
+      "size_bytes": 22399
+    },
+    {
+      "path": "RealEstate/src/lockin/validate.py",
+      "size_bytes": 8293
+    },
+    {
+      "path": "RealEstate/src/lockin/cli.py",
+      "size_bytes": 18625
+    },
+    {
+      "path": "RealEstate/src/lockin/lockin_measures.py",
+      "size_bytes": 12130
+    },
+    {
+      "path": "RealEstate/src/lockin/artifacts.py",
+      "size_bytes": 3999
+    },
+    {
+      "path": "RealEstate/src/lockin/episodes.py",
+      "size_bytes": 22109
+    },
+    {
+      "path": "RealEstate/src/lockin/provenance.py",
+      "size_bytes": 4437
+    },
+    {
+      "path": "RealEstate/src/lockin/fixtures.py",
+      "size_bytes": 21916
+    },
+    {
+      "path": "RealEstate/src/lockin/preflight.py",
+      "size_bytes": 18930
+    },
+    {
+      "path": "RealEstate/src/lockin/rates.py",
+      "size_bytes": 7531
+    },
+    {
+      "path": "RealEstate/src/lockin/reporting/render.py",
+      "size_bytes": 101108
+    },
+    {
+      "path": "RealEstate/src/lockin/reporting/__init__.py",
+      "size_bytes": 0
+    },
+    {
+      "path": "RealEstate/src/lockin/panel/build.py",
+      "size_bytes": 25870
+    },
+    {
+      "path": "RealEstate/src/lockin/panel/eventstudy.py",
+      "size_bytes": 37418
+    },
+    {
+      "path": "RealEstate/src/lockin/panel/__init__.py",
+      "size_bytes": 0
+    },
+    {
+      "path": "RealEstate/src/lockin/panel/robustness.py",
+      "size_bytes": 25607
+    },
+    {
+      "path": "RealEstate/src/lockin/ingest/origination.py",
+      "size_bytes": 14570
+    },
+    {
+      "path": "RealEstate/src/lockin/ingest/__init__.py",
+      "size_bytes": 0
+    },
+    {
+      "path": "RealEstate/src/lockin/ingest/performance.py",
+      "size_bytes": 14813
+    },
+    {
+      "path": "RealEstate/src/lockin/simulate/scenarios.py",
+      "size_bytes": 25735
+    },
+    {
+      "path": "RealEstate/src/lockin/simulate/__init__.py",
+      "size_bytes": 0
+    },
+    {
+      "path": "RealEstate/src/lockin/schemas/variants.py",
+      "size_bytes": 10456
+    },
+    {
+      "path": "RealEstate/src/lockin/schemas/__init__.py",
+      "size_bytes": 0
+    },
+    {
+      "path": "RealEstate/src/lockin/schemas/freddie.py",
+      "size_bytes": 21656
+    },
+    {
+      "path": "RealEstate/src/lockin/adapters/bls_laus.py",
+      "size_bytes": 18911
+    },
+    {
+      "path": "RealEstate/src/lockin/adapters/hmda.py",
+      "size_bytes": 21716
+    },
+    {
+      "path": "RealEstate/src/lockin/adapters/teleworkable.py",
+      "size_bytes": 13649
+    },
+    {
+      "path": "RealEstate/src/lockin/adapters/__init__.py",
+      "size_bytes": 0
+    },
+    {
+      "path": "RealEstate/src/lockin/adapters/omb_cbsa.py",
+      "size_bytes": 27819
+    },
+    {
+      "path": "RealEstate/src/lockin/adapters/base.py",
+      "size_bytes": 4580
+    },
+    {
+      "path": "RealEstate/src/lockin/adapters/pmms.py",
+      "size_bytes": 6319
+    },
+    {
+      "path": "RealEstate/src/lockin/adapters/freddie_llds.py",
+      "size_bytes": 11083
+    },
+    {
+      "path": "RealEstate/src/lockin/adapters/fhfa_hpi.py",
+      "size_bytes": 9794
+    },
+    {
+      "path": "RealEstate/src/lockin/adapters/census_bps.py",
+      "size_bytes": 15596
+    },
+    {
+      "path": "RealEstate/src/lockin/survival/run.py",
+      "size_bytes": 13130
+    },
+    {
+      "path": "RealEstate/src/lockin/survival/models.py",
+      "size_bytes": 21142
+    },
+    {
+      "path": "RealEstate/src/lockin/survival/__init__.py",
+      "size_bytes": 0
+    },
+    {
+      "path": "RealEstate/src/lockin/survival/sensitivity.py",
+      "size_bytes": 11962
+    },
+    {
+      "path": "RealEstate/src/lockin/survival/dataset.py",
+      "size_bytes": 13042
     }
   ]
 }

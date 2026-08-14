@@ -16,6 +16,8 @@ GitHub stores code, metadata, tests, schemas, documentation, and compact fixture
 
 CasualLab and Macroeconomics include project-owned code and public examples. Raw third-party assets retain `RIGHTS_UNKNOWN` where redistribution terms have not been documented. Their presence in an earlier full snapshot does not convert them to a new license.
 
+RealEstate is `PUBLIC_OK` for project-owned source, tests, documentation, synthetic fixtures, and aggregate reports, and `PRIVATE` for registered Freddie Mac loan-level records and loan-granular derivatives. Public packaging is restricted to tracked files and excludes `data/raw/`, `data/interim/`, `data/processed/`, `data/cache/`, and `outputs/`.
+
 ## Required release record
 
 Every new data source must record origin, retrieval date, geographic and temporal coverage, transformations, units, frequency, schema, checksum, license, and publication class.
