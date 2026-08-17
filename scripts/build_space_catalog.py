@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_PATH = ROOT / "build" / "hf-dataset" / "dataset_manifest.json"
 CATALOG_ROOT = ROOT / "apps" / "space" / "catalog"
-PROJECTS = ("CasualLab", "Macroeconomics", "RealEstate")
+PROJECTS = ("CasualLab", "Macroeconomics", "RealEstate", "TariffIncidence")
 
 
 def build_catalogs() -> dict[str, int]:

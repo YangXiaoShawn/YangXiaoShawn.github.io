@@ -1,0 +1,37 @@
+{
+  "dataset_id": "structural_sourcing_counterfactual",
+  "layer": "results",
+  "source": "Armington/CES one-tier sourcing model over this project's trade panel",
+  "source_url": "",
+  "retrieval_timestamp_utc": "2026-08-11T20:15:06.067409+00:00",
+  "source_release_or_vintage": "sample_slice.yaml",
+  "date_range_start": "2017-01",
+  "date_range_end": "2020-02",
+  "schema_version": "structural_v1",
+  "product_code_vintage": null,
+  "checksum_sha256": "b2e509d45dc056ebc47333253424b292799387c17857754141470c8503776908",
+  "row_count": 8,
+  "partition_keys": [],
+  "transformation_version": "structural_counterfactual.py@v1",
+  "data_provenance": "OFFICIAL",
+  "known_limitations": [
+    "One-tier nest over foreign sources only. No domestic alternative, so the model cannot say whether displaced imports went to U.S. producers or out of consumption.",
+    "sigma is calibrated, not estimated. Every quantity scales with it and the grid is reported rather than a single preferred value.",
+    "Holds foreign producer prices fixed. Supported here by the reduced-form bounded null on the customs unit value, which is itself an estimate with an interval, not a certainty.",
+    "No welfare, deadweight loss or consumer-cost number is produced. The import bundle cost change is one component of such a calculation, not the result."
+  ],
+  "columns": {
+    "sigma": "Float64",
+    "sigma_source": "String",
+    "parameter_type": "String",
+    "treated_share_pre": "Float64",
+    "treated_share_model": "Float64",
+    "treated_share_observed": "Float64",
+    "model_minus_observed": "Float64",
+    "log_import_bundle_cost_change": "Float64",
+    "run_id": "String",
+    "git_commit": "String",
+    "data_provenance": "String"
+  },
+  "extra": {}
+}

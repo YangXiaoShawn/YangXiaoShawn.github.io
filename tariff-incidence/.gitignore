@@ -1,0 +1,30 @@
+# Data layers: never commit large raw / intermediate data
+data/raw/**
+data/staged/**
+data/normalized/**
+data/analytical/**
+!data/**/.gitkeep
+!data/manifests/**
+!data/*.md
+
+# Results: commit only small generated tables/figures explicitly added
+data/results/**/*.parquet
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+.coverage
+htmlcov/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# OS
+.DS_Store

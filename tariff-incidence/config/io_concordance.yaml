@@ -1,0 +1,64 @@
+# HS chapter -> BEA summary commodity concordance.
+#
+# STATUS: FALLBACK ONLY. Superseded by the official Census import concordance.
+#
+# The pipeline now uses `impconcordNN.xlsx` from
+# https://www.census.gov/foreign-trade/reference/codes/concordance/, which is
+# keyed on the 10-digit commodity code and gives each line one NAICS industry.
+# This chapter map is retained only for the case where that file cannot be
+# fetched or parsed, and `--force-chapter-map` selects it deliberately for
+# comparison. See docs/DECISION_LOG.md D-037.
+#
+# It is kept rather than deleted because the comparison it enables is itself
+# informative: the chapter map systematically UNDERSTATED exposure. Against the
+# official concordance it classified 48 of 72 industries as having little direct
+# exposure where the true figure is 24, and reported zero output protection for
+# chemicals, food and beverage, nonmetallic minerals and other transportation
+# equipment, all of which carry 0.22-0.25.
+#
+# What the approximation costs, stated plainly:
+#   * It maps whole HS2 chapters, so within-chapter heterogeneity is lost. If a
+#     chapter contains both heavily tariffed and untariffed HS6 lines, the
+#     commodity receives an import-weighted average and the industry-level shock
+#     is attenuated.
+#   * BEA summary commodities are broader than NAICS 6-digit, compounding the
+#     aggregation loss.
+#   * Chapters that genuinely span several BEA commodities are assigned to the
+#     single largest by U.S. import value. That assignment is a judgement, not a
+#     measurement.
+#
+# Consequence for interpretation: industry exposure rankings are usable as a
+# qualitative ordering. The magnitudes are not usable as elasticities or as
+# inputs to a welfare number, and no report may use them that way.
+
+status: COARSE_APPROXIMATION
+level: HS2_CHAPTER_TO_BEA_SUMMARY_COMMODITY
+source: hand-built from BEA summary commodity definitions
+replaces: Census HS-to-NAICS concordance (unavailable at build time)
+
+# BEA summary codes as they appear in the Supply-Use summary tables.
+hs2_to_bea_commodity:
+  "28": "325"      # Inorganic chemicals -> Chemical products
+  "29": "325"      # Organic chemicals -> Chemical products
+  "38": "325"      # Miscellaneous chemical products
+  "39": "326"      # Plastics and rubber products
+  "40": "326"      # Rubber
+  "44": "321"      # Wood products
+  "48": "322"      # Paper products
+  "72": "331"      # Iron and steel -> Primary metals
+  "73": "332"      # Articles of iron or steel -> Fabricated metal products
+  "76": "331"      # Aluminium -> Primary metals
+  "82": "332"      # Tools -> Fabricated metal products
+  "83": "332"      # Miscellaneous articles of base metal
+  "84": "333"      # Machinery
+  "85": "334"      # Electrical machinery -> Computer and electronic products
+  "87": "3361MV"   # Vehicles -> Motor vehicles, bodies and trailers, and parts
+  "90": "334"      # Optical / measuring instruments
+  "94": "337"      # Furniture and related products
+  "95": "339"      # Toys and games -> Miscellaneous manufacturing
+
+# Industries that primarily produce each commodity. BEA summary coding uses the
+# same code space for industries and commodities, so this is the identity map;
+# it is written out rather than assumed so a future detail-level run can
+# override it.
+industry_produces_commodity: {}

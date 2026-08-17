@@ -1,0 +1,47 @@
+title: Tariff Incidence, Supply-Chain Reallocation, and Domestic Propagation
+slug: tariff-incidence
+summary: Reproducible research on how the 2018–2019 U.S. Section 301 tariffs affected landed costs, customs unit values, import quantities, sourcing, and downstream industry exposure.
+research_question: How did U.S. product-level tariffs on imports from China pass through to importers, reshape sourcing, and propagate through domestic input-output linkages?
+why_it_matters: Tariffs can raise importer costs, change supplier choices, and affect protected and downstream industries at the same time; credible measurement must keep these channels and their evidential limits separate.
+research_fields:
+  - International trade
+  - Applied econometrics
+  - Input-output economics
+project_type: empirical-research
+status: public-live
+authors:
+  - Repository owner and maintainer
+original_source: Tariff Incidence workspace project
+original_sample_period: 2017-01 through 2020-02, covering all four Section 301 actions in the research window.
+updated_sample_period: Official U.S. Census HS10 by country by month panel through 2020-02, as documented by the current run stamps.
+data_sources:
+  - U.S. Census Bureau international trade API
+  - U.S. Federal Register and USTR Section 301 notices
+  - U.S. International Trade Commission Harmonized Tariff Schedule
+  - Bureau of Economic Analysis input-output tables
+  - Bureau of Labor Statistics Producer Price Index
+data_license: Source-specific terms apply. The public package includes code, documentation, manifests, reports, and small official excerpts; large raw and analytical data are excluded from GitHub.
+code_license: No repository license declared; copyright remains with the repository owner.
+reproduction_command: make reproduce-sample
+expected_runtime: The complete official-data pipeline requires Python 3.12, a Census API key, and approximately 16 GB of memory; synthetic estimator validation runs without credentials.
+outputs:
+  - src/
+  - reports/
+  - tests/
+  - dashboard/
+  - data/manifests/
+  - docs/
+github_url: https://github.com/YangXiaoShawn/open-economic-quant-tariff-incidence
+site_url: https://yangxiaoshawn.github.io/projects/tariff-incidence/
+dataset_url: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/TariffIncidence
+space_url: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
+last_updated: 2026-08-17
+limitations: Quantity estimates fail the date placebo and require a qualified reading; product exclusions are intention-to-treat because exclusion grants are finer than published import statistics; the structural model covers foreign sourcing only and produces no welfare estimate.
+catalog:
+  field: trade
+  accent: green
+  tags:
+    - International Trade
+    - Tariff Incidence
+    - Supply Chains
+  metric: Official-data design

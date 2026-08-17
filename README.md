@@ -9,6 +9,7 @@ A public research platform for reproducible economics, finance, quantitative met
 - CasualLab source: https://github.com/YangXiaoShawn/open-economic-quant-casuallab
 - Macroeconomics source: https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics
 - Mortgage Rate Lock-In source: https://github.com/YangXiaoShawn/YangXiaoShawn.github.io/tree/main/realestate
+- Tariff Incidence source: https://github.com/YangXiaoShawn/open-economic-quant-tariff-incidence
 - Full research dataset: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data
 - Interactive Hugging Face Space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
 - Static runtime revision: `1954aedffee20c0f04652a96d051e702cc7fa4b6`
@@ -20,6 +21,7 @@ A public research platform for reproducible economics, finance, quantitative met
 | CasualLab | Causal inference, experimental economics, market design | Public live | `make reproduce` |
 | Macroeconomics | Real-time macro forecasting and vintage analysis | Public live | `python -m macro_nowcast.pipeline` |
 | Mortgage Rate Lock-In | Housing economics, mortgage finance, applied econometrics | Public live | `make reproduce-sample` |
+| Tariff Incidence | International trade, tariff pass-through, supply-chain propagation | Public live | `make reproduce-sample` |
 
 The public GitHub copies are intentionally compact. The full research payload is versioned in the Hugging Face Dataset, while the Space reads from that dataset instead of duplicating it.
 
@@ -27,7 +29,7 @@ The public GitHub copies are intentionally compact. The full research payload is
 
 - `index.html` and section directories contain the GitHub Pages site.
 - `projects/` contains permanent project pages.
-- `casuallab/`, `macroeconomics/`, and `realestate/` are compact, upload-ready project copies.
+- `casuallab/`, `macroeconomics/`, `realestate/`, and `tariff-incidence/` are compact, upload-ready project copies.
 - `apps/space/` contains the Hugging Face Space source.
 - `manifests/` records inventory, publication rights, dataset state, and deployed resources.
 - `scripts/` generates the catalog, validates releases, packages data, and verifies deployment.

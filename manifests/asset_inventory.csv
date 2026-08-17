@@ -2,6 +2,7 @@ project_slug,source_label,size_bytes,file_count,publication_route
 casuallab,workspace/CasualLab,2313515144,18625,GitHub compact copy + Hugging Face full research content
 macroeconomics,workspace/Macroeconomics,2337718419,24337,GitHub compact copy + Hugging Face full research content
 realestate,workspace/RealEstate,1400000,101,GitHub compact copy + Hugging Face publishable tracked research content
+tariff-incidence,workspace/claude test,1476927,122,Standalone GitHub repository + Hugging Face tracked research package
 microstructure,workspace/Microstructure,3258941113,18852,WITHHELD
 microstructure-cleanroom-3f0f278,workspace/Microstructure-cleanroom-3f0f278,828463303,11940,WITHHELD
 microstructure-m8-l2-2026-08-10-13,workspace/Microstructure-m8-l2-2026-08-10-13,1010647311,12623,WITHHELD

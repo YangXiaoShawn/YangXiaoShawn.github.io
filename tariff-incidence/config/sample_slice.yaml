@@ -1,0 +1,71 @@
+name: vertical_slice_v1
+
+sample:
+  name: section301_list3_slice
+  description: >
+    Official-data slice at HS10. Treated group: 10-digit statistical lines whose
+    8-digit parent is covered by Section 301 List 3 and by no other action
+    (effective 2018-09-24). Control group: HS10 lines in the same HS2 chapters
+    whose 8-digit parent has zero coverage under Lists 1, 2 and 3.
+
+    HS10 rather than HS6 for two reasons, both discovered against live data:
+    Census reports no quantity at HS6 aggregation (UNIT_QY1 is "-" and
+    CON_QY1_MO is 0, because the underlying 10-digit lines carry different units
+    of measure), so unit values -- the central incidence outcome -- cannot be
+    constructed there at all. And because Section 301 is legislated at HS8, into
+    which HS10 nests exactly, the partial-coverage problem that forced 598 HS6
+    headings out of the sample simply does not arise.
+
+    An HS6 panel is still built by aggregation, for comparison across
+    aggregation levels. Its unit values are constructed from summed HS10
+    quantities and are therefore only defined where the constituent lines share
+    a unit of measure; that restriction is recorded, not hidden.
+  hs_level: HS10
+  hs2_chapters: ["39", "40", "44", "48", "73", "76", "84", "85", "87", "94"]
+  hs6_products: []          # empty means "derive from the tariff schedule"
+  treated_country_code: "5700"
+  comparison_country_codes:
+    - "5520"   # Vietnam
+    - "5490"   # Thailand
+    - "5590"   # Malaysia
+    - "5330"   # India
+    - "5800"   # Korea, South
+    - "5880"   # Taiwan
+    - "2010"   # Mexico
+    - "1220"   # Canada
+  start_month: "2017-01"
+  end_month: "2020-02"
+  max_api_calls: 400
+
+# Sample-window rationale
+# -----------------------
+# Previously the window ended 2019-08, because List 4A took effect 2019-09-01
+# and, unparsed, would have put genuinely treated products in the never-treated
+# control group. List 4A is now in the tariff schedule, so those products are
+# classified as their own cohort and the control group stays clean.
+#
+# The window now ends 2020-02, and that endpoint is a judgement about COVID-19
+# rather than about tariffs. U.S. "imports for consumption" are recorded when
+# goods enter the United States, so entries lag Chinese shipment by roughly four
+# to six weeks. February 2020 entries therefore reflect December-January
+# shipments, before Chinese production was disrupted; March 2020 entries reflect
+# January-February shipments and are unambiguously contaminated. Stopping at
+# 2020-02 keeps six post-List-4A months without importing a pandemic supply
+# shock into a tariff estimate.
+#
+# The 2020-02-14 reduction of List 4A from 15% to 7.5% falls inside the final
+# month. The panel's day-weighted statutory rate handles that correctly, and a
+# sensitivity ending 2019-12 -- before both the rate change and any plausible
+# COVID effect -- is reported alongside.
+
+estimation:
+  event_window_pre: 12
+  event_window_post: 10
+  reference_event_time: -1
+  cluster_on: ["hs6"]
+  winsorize_unit_value_pct: 1.0
+  min_pretreatment_months: 6
+  ppml_max_iter: 200
+  ppml_tol: 1.0e-9
+
+episodes: []

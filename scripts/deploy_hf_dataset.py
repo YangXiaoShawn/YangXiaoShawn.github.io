@@ -21,6 +21,11 @@ def main() -> None:
         action="store_true",
         help="Upload the publishable RealEstate package under its Dataset prefix.",
     )
+    parser.add_argument(
+        "--tariff-incidence",
+        action="store_true",
+        help="Upload the publishable tariff-incidence package under its Dataset prefix.",
+    )
     args = parser.parse_args()
     api = HfApi()
     api.create_repo(REPO_ID, repo_type="dataset", private=False, exist_ok=True)
@@ -48,12 +53,35 @@ def main() -> None:
                     "outputs/**",
                 ],
             )
+        if args.tariff_incidence:
+            api.upload_folder(
+                repo_id=REPO_ID,
+                repo_type="dataset",
+                folder_path=ROOT / "tariff-incidence",
+                path_in_repo="TariffIncidence",
+                commit_message="Publish Tariff Incidence research package",
+                ignore_patterns=[
+                    "**/.DS_Store",
+                    "**/.env*",
+                    "**/.mypy_cache/**",
+                    "**/.pytest_cache/**",
+                    "**/.ruff_cache/**",
+                    "**/.venv/**",
+                    "**/__pycache__/**",
+                    "data/raw/**",
+                    "data/staged/**",
+                    "data/normalized/**",
+                    "data/analytical/**",
+                    "data/results/**/*.parquet",
+                ],
+            )
         for name in ("README.md", "dataset_manifest.json"):
             path = args.source / name
             api.upload_file(path_or_fileobj=path, path_in_repo=name, repo_id=REPO_ID, repo_type="dataset", commit_message=f"Update {name}")
     print(
         f"hf-dataset-deploy-ok repo={REPO_ID} "
-        f"full={args.full} realestate={args.realestate}"
+        f"full={args.full} realestate={args.realestate} "
+        f"tariff_incidence={args.tariff_incidence}"
     )
 
 

@@ -1,17 +1,18 @@
 {
   "dataset": "ShawnChamberlain/open-economic-quant-research-data",
-  "generated_at": "2026-08-14T00:00:00Z",
-  "revision": "0852c8ced57637e84169a3fecbc70f1cbf81a7fd",
-  "remote_file_count": 3449,
-  "research_payload_file_count": 3446,
-  "research_payload_size_bytes": 2849960587,
+  "generated_at": "2026-08-17T17:42:44Z",
+  "revision": "38e373a5df14afb0cf10c1f008c188f4000ca8df",
+  "remote_file_count": 3571,
+  "research_payload_file_count": 3568,
+  "research_payload_size_bytes": 2851437514,
   "projects": [
     {"slug": "casuallab", "remote_prefix": "CasualLab/", "source": "workspace/CasualLab"},
     {"slug": "macroeconomics", "remote_prefix": "Macroeconomics/", "source": "workspace/Macroeconomics"},
-    {"slug": "realestate", "remote_prefix": "RealEstate/", "source": "website/realestate", "publication_policy": "tracked publishable files only; registered loan-level data excluded"}
+    {"slug": "realestate", "remote_prefix": "RealEstate/", "source": "website/realestate", "publication_policy": "tracked publishable files only; registered loan-level data excluded"},
+    {"slug": "tariff-incidence", "remote_prefix": "TariffIncidence/", "source": "workspace/claude test", "publication_policy": "tracked publishable files only; large raw, intermediate, analytical, and parquet result files excluded"}
   ],
   "root_metadata": [".gitattributes", "README.md", "dataset_manifest.json"],
   "excluded_non_research_paths": ["**/.venv/**", "**/.pytest_cache/**", "**/.ruff_cache/**", "**/__pycache__/**", "**/.DS_Store"],
   "status": "clean-full-research-content-live",
-  "notes": "CasualLab and Macroeconomics retain their prior clean research payloads. RealEstate adds only tracked publishable source, tests, synthetic fixtures, documentation, and aggregate reports; registered Freddie Mac records, loan-granular derivatives, caches, and generated outputs are excluded."
+  "notes": "CasualLab and Macroeconomics retain their prior clean research payloads. RealEstate includes tracked publishable source, tests, synthetic fixtures, documentation, and aggregate reports while excluding registered Freddie Mac records and loan-granular derivatives. TariffIncidence adds 122 tracked source, test, configuration, manifest, documentation, fixture, dashboard, and narrative report files while excluding large raw, intermediate, analytical, and parquet result files."
 }

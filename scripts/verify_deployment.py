@@ -27,11 +27,13 @@ PUBLIC_URLS = (
     "https://yangxiaoshawn.github.io/projects/casuallab/",
     "https://yangxiaoshawn.github.io/projects/macroeconomics/",
     "https://yangxiaoshawn.github.io/projects/realestate/",
+    "https://yangxiaoshawn.github.io/projects/tariff-incidence/",
     "https://yangxiaoshawn.github.io/robots.txt",
     "https://yangxiaoshawn.github.io/sitemap.xml",
     "https://github.com/YangXiaoShawn/open-economic-quant-casuallab",
     "https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics",
     "https://github.com/YangXiaoShawn/YangXiaoShawn.github.io/tree/main/realestate",
+    "https://github.com/YangXiaoShawn/open-economic-quant-tariff-incidence",
     "https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data",
     "https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory",
 )
@@ -64,6 +66,7 @@ def main() -> None:
         ROOT / "projects" / "casuallab" / "index.html",
         ROOT / "projects" / "macroeconomics" / "index.html",
         ROOT / "projects" / "realestate" / "index.html",
+        ROOT / "projects" / "tariff-incidence" / "index.html",
         ROOT / "apps" / "space" / "app.py",
         ROOT / "apps" / "space" / "README.md",
         ROOT / "apps" / "space" / "index.html",
@@ -75,9 +78,14 @@ def main() -> None:
     catalog_path = ROOT / "assets" / "data" / "projects.json"
     if catalog_path.exists():
         catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
-        expected_projects = {"casuallab", "macroeconomics", "realestate"}
+        expected_projects = {
+            "casuallab",
+            "macroeconomics",
+            "realestate",
+            "tariff-incidence",
+        }
         if {item.get("slug") for item in catalog.get("projects", [])} != expected_projects:
-            failures.append("generated catalog does not contain exactly the three published projects")
+            failures.append("generated catalog does not contain exactly the four published projects")
 
     public_text = "\n".join(
         path.read_text(encoding="utf-8", errors="ignore")

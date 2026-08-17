@@ -1,0 +1,79 @@
+{
+  "run": {
+    "run_id": "20260811T201502Z-b1495fb3",
+    "created_utc": "2026-08-11T20:15:02.125782+00:00",
+    "git_commit": "3c51a06-dirty",
+    "config_name": "sample_slice.yaml",
+    "config_sha256": "b1495fb3b363c158ae3b162babd17a515adfc9a8c26038b6c09edb9ec55652a3",
+    "data_provenance": "OFFICIAL",
+    "data_period_start": "2017",
+    "data_period_end": "2017",
+    "python_version": "3.12.13",
+    "platform": "macOS-26.6.1-arm64-arm-64bit",
+    "notes": "BEA 2017 summary IO; concordance status COARSE_APPROXIMATION"
+  },
+  "concordance": {
+    "concordance_method": "CENSUS_IMPORT_CONCORDANCE_2017_PRIMARY_2017_2020_HS10_TO_NAICS_TO_BEA",
+    "concordance_level": "HS10 -> NAICS 6-digit -> BEA summary industry",
+    "n_mapped_products": 4892,
+    "n_unmapped_products": 64,
+    "aggregation_loss": "Each 10-digit commodity line carries exactly one NAICS industry in the official concordance, so no within-line weighting assumption is made. Aggregation loss remains only where Census itself writes an 'X' in a NAICS code to hide undisclosed detail, and where a line's NAICS falls outside the BEA summary manufacturing and primary groups. 172 codes carry a different NAICS in a later vintage; the pre-treatment assignment governs, and that count bounds how much the choice matters.",
+    "concordance_source": "Census import concordances [2017, 2018, 2019, 2020], primary 2017",
+    "warnings": "64 products have no commodity mapping and are excluded"
+  },
+  "concordance_config_status": "CENSUS_IMPORT_CONCORDANCE_2017_PRIMARY_2017_2020_HS10_TO_NAICS_TO_BEA",
+  "official_concordance": {
+    "primary_vintage": 2017,
+    "vintages_used": [
+      2017,
+      2018,
+      2019,
+      2020
+    ],
+    "n_from_primary": 18982,
+    "n_from_later_vintages": 450,
+    "n_reclassified_vs_primary": 172,
+    "reclassified_examples": [
+      {
+        "hs10": "8504904100",
+        "naics_2017": "335999",
+        "naics_2018": "334419"
+      },
+      {
+        "hs10": "8518908100",
+        "naics_2017": "334310",
+        "naics_2018": "334220"
+      },
+      {
+        "hs10": "8716905056",
+        "naics_2017": "336390",
+        "naics_2018": "336214"
+      },
+      {
+        "hs10": "8451903000",
+        "naics_2017": "335224",
+        "naics_2019": "335220"
+      },
+      {
+        "hs10": "8451290010",
+        "naics_2017": "335224",
+        "naics_2019": "335220"
+      },
+      {
+        "hs10": "8413810040",
+        "naics_2017": "333911",
+        "naics_2019": "333914"
+      }
+    ],
+    "n_panel_lines_matched": 5182,
+    "n_panel_lines": 5253,
+    "warnings": [
+      "154 lines carried a NAICS code retired by the 2012->2017 classification revision; the successor code for the same line in the 2020 vintage was used (335221->335220, 333911->333914, 335228->335220, 335224->335220, 335222->335220, 211112->211130)",
+      "172 codes carry a different NAICS in a later vintage than in 2017; the pre-treatment assignment is used, and this count bounds how much that choice matters",
+      "450 codes are absent from the 2017 vintage and were taken from a later one; these are commodity lines created after the primary year"
+    ],
+    "method": "Official Census import concordances, one file per year, keyed on the 10-digit commodity code. The pre-treatment vintage governs the industry assignment so it is pre-determined like the weights; later vintages only supply codes created after that year."
+  },
+  "bea_level": "summary",
+  "naics_to_bea_detail": {}
+}

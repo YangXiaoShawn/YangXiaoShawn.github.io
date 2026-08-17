@@ -23,5 +23,5 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install -r requirements-dev.txt
-      - run: python scripts/deploy_hf_dataset.py --realestate
+      - run: python scripts/deploy_hf_dataset.py --realestate --tariff-incidence
       - run: python scripts/deploy_hf_space.py

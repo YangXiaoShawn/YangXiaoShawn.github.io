@@ -1,0 +1,50 @@
+{
+  "dataset_id": "ustr_exclusion_notice_coverage",
+  "layer": "results",
+  "source": "U.S. Federal Register (GPO typeset PDFs), USTR product-exclusion notices",
+  "source_url": "https://www.federalregister.gov/api/v1/documents",
+  "retrieval_timestamp_utc": "2026-08-10T19:44:51.483856+00:00",
+  "source_release_or_vintage": "2018-28277 (2018-12-28); 2019-05588 (2019-03-25); 2019-07758 (2019-04-18); 2019-09872 (2019-05-14); 2019-11573 (2019-06-04); 2019-14562 (2019-07-09); 2019-16256 (2019-07-31); 2019-16886 (2019-08-07); 2019-20440 (2019-09-20); 2019-20441 (2019-09-20); 2019-20442 (2019-09-20)",
+  "date_range_start": "2018-12-28",
+  "date_range_end": "2019-09-20",
+  "schema_version": "exclusion_coverage_v1",
+  "product_code_vintage": null,
+  "checksum_sha256": "951591f87a66a62def7a6f377a50893b55300456331c3f97c96354cd60b5239e",
+  "row_count": 11,
+  "partition_keys": [],
+  "transformation_version": "analyse_exclusions.py@v1",
+  "data_provenance": "OFFICIAL",
+  "known_limitations": [
+    "Only the notices' self-reported counts are extracted. The annexes listing the excluded products are embedded raster images with no text layer, and OCR is not used because it would introduce an unvalidatable transcription channel into a legal treatment variable.",
+    "1.9% of exclusions are expressed as a 10-digit subheading; the rest are product descriptions identifying a subset of a statistical reporting number, which published trade data cannot resolve.",
+    "The realised-versus-statutory gap is an UPPER bound on the exclusion effect: preference programmes and duty-free entry produce the same signature."
+  ],
+  "columns": {
+    "document_number": "String",
+    "publication_date": "String",
+    "citation": "String",
+    "n_ten_digit_exclusions": "Int64",
+    "n_prose_exclusions": "Int64",
+    "retroactive_to": "String",
+    "expires": "String",
+    "parsed_ten_digit_codes": "String",
+    "annex_is_image_only": "Boolean",
+    "checksum_sha256": "String",
+    "warnings": "String",
+    "n_total": "Int64",
+    "mappable_share": "Float64"
+  },
+  "extra": {
+    "n_notices": 11,
+    "n_ten_digit_exclusions": 16,
+    "n_prose_exclusions": 824,
+    "n_total_exclusions": 840,
+    "mappable_share": 0.01904761904761905,
+    "all_annexes_image_only": true,
+    "earliest_retroactive_to": "2018-07-06",
+    "conclusion": "Exclusions are granted at a finer granularity than U.S. import statistics are published. A specially prepared product description identifies a subset of a statistical reporting number, and trade data is reported at that number and no finer, so the share of a line's imports that was excluded is not observable. Exclusion adjustment therefore cannot be performed from published trade statistics, regardless of parsing effort. Estimates in this project remain intention-to-treat with respect to the statutory list, and that is a structural property of the data rather than an outstanding task.",
+    "itt_bound_before_first_exclusion": 0.10923919157221908,
+    "itt_bound_after_first_exclusion": 0.1996260976049513,
+    "first_exclusion_month": "2018-12-01"
+  }
+}

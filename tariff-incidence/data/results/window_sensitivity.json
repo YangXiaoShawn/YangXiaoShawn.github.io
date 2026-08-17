@@ -1,0 +1,53 @@
+{
+  "full window to 2020-02": {
+    "log_landed_unit_value": {
+      "mean_post": 0.15443458135633706,
+      "verdict": "CLEAN",
+      "n_obs": 395468
+    },
+    "log_customs_unit_value": {
+      "mean_post": 0.02528770824832153,
+      "verdict": "PRECISE_NULL_EFFECT_BOUNDED",
+      "n_obs": 395468
+    },
+    "log_quantity": {
+      "mean_post": -0.3793262158751936,
+      "verdict": "NOISY_PRE_PERIOD_NO_SLOPE",
+      "n_obs": 395468
+    }
+  },
+  "sensitivity: end 2019-12": {
+    "log_landed_unit_value": {
+      "mean_post": 0.1562345492930734,
+      "verdict": "CLEAN",
+      "n_obs": 388781
+    },
+    "log_customs_unit_value": {
+      "mean_post": 0.026291470164862718,
+      "verdict": "PRECISE_NULL_EFFECT_BOUNDED",
+      "n_obs": 388781
+    },
+    "log_quantity": {
+      "mean_post": -0.3793109337026985,
+      "verdict": "NOISY_PRE_PERIOD_NO_SLOPE",
+      "n_obs": 388781
+    }
+  },
+  "pre-List-4A window (to 2019-08)": {
+    "log_landed_unit_value": {
+      "mean_post": 0.15248347901352105,
+      "verdict": "CLEAN",
+      "n_obs": 341328
+    },
+    "log_customs_unit_value": {
+      "mean_post": 0.021638807601047947,
+      "verdict": "PRECISE_NULL_EFFECT_BOUNDED",
+      "n_obs": 341328
+    },
+    "log_quantity": {
+      "mean_post": -0.3567296790267862,
+      "verdict": "NOISY_PRE_PERIOD_NO_SLOPE",
+      "n_obs": 341328
+    }
+  }
+}

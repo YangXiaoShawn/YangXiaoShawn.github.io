@@ -3,10 +3,11 @@
   "projects": [
     "CasualLab",
     "Macroeconomics",
-    "RealEstate"
+    "RealEstate",
+    "TariffIncidence"
   ],
-  "file_count": 3446,
-  "size_bytes": 2849960587,
+  "file_count": 3568,
+  "size_bytes": 2851437514,
   "excluded_parts": [
     ".DS_Store",
     ".git",
@@ -13799,6 +13800,494 @@
     {
       "path": "RealEstate/src/lockin/survival/dataset.py",
       "size_bytes": 13042
+    },
+    {
+      "path": "TariffIncidence/project.yaml",
+      "size_bytes": 2891
+    },
+    {
+      "path": "TariffIncidence/Makefile",
+      "size_bytes": 3514
+    },
+    {
+      "path": "TariffIncidence/pyproject.toml",
+      "size_bytes": 2082
+    },
+    {
+      "path": "TariffIncidence/STATUS.md",
+      "size_bytes": 35260
+    },
+    {
+      "path": "TariffIncidence/README.md",
+      "size_bytes": 13705
+    },
+    {
+      "path": "TariffIncidence/.gitignore",
+      "size_bytes": 443
+    },
+    {
+      "path": "TariffIncidence/AGENTS.md",
+      "size_bytes": 4737
+    },
+    {
+      "path": "TariffIncidence/config/io_concordance.yaml",
+      "size_bytes": 3338
+    },
+    {
+      "path": "TariffIncidence/config/sample_slice.yaml",
+      "size_bytes": 3132
+    },
+    {
+      "path": "TariffIncidence/config/episodes/us_section301_china.yaml",
+      "size_bytes": 11676
+    },
+    {
+      "path": "TariffIncidence/tests/test_panel_and_quality.py",
+      "size_bytes": 14002
+    },
+    {
+      "path": "TariffIncidence/tests/test_ppi_propagation.py",
+      "size_bytes": 7656
+    },
+    {
+      "path": "TariffIncidence/tests/test_consistency.py",
+      "size_bytes": 12604
+    },
+    {
+      "path": "TariffIncidence/tests/test_estimators.py",
+      "size_bytes": 29570
+    },
+    {
+      "path": "TariffIncidence/tests/test_tariff_engine.py",
+      "size_bytes": 17107
+    },
+    {
+      "path": "TariffIncidence/tests/__init__.py",
+      "size_bytes": 0
+    },
+    {
+      "path": "TariffIncidence/tests/test_adapters_and_concordance.py",
+      "size_bytes": 13056
+    },
+    {
+      "path": "TariffIncidence/tests/test_bea_detail.py",
+      "size_bytes": 6348
+    },
+    {
+      "path": "TariffIncidence/tests/test_structural.py",
+      "size_bytes": 7521
+    },
+    {
+      "path": "TariffIncidence/tests/test_census_concordance.py",
+      "size_bytes": 10423
+    },
+    {
+      "path": "TariffIncidence/tests/test_exclusions.py",
+      "size_bytes": 5819
+    },
+    {
+      "path": "TariffIncidence/tests/fixtures/fr_2018-17709_annexA_excerpt.pdf",
+      "size_bytes": 269717
+    },
+    {
+      "path": "TariffIncidence/docs/PROJECT_PLAN.md",
+      "size_bytes": 9831
+    },
+    {
+      "path": "TariffIncidence/docs/DECISION_LOG.md",
+      "size_bytes": 85332
+    },
+    {
+      "path": "TariffIncidence/docs/RESEARCH_DESIGN.md",
+      "size_bytes": 7712
+    },
+    {
+      "path": "TariffIncidence/dashboard/app.py",
+      "size_bytes": 18431
+    },
+    {
+      "path": "TariffIncidence/scripts/generate_reports.py",
+      "size_bytes": 94039
+    },
+    {
+      "path": "TariffIncidence/scripts/download_sources.py",
+      "size_bytes": 4420
+    },
+    {
+      "path": "TariffIncidence/scripts/build_io_exposure.py",
+      "size_bytes": 14487
+    },
+    {
+      "path": "TariffIncidence/scripts/replicate.py",
+      "size_bytes": 19881
+    },
+    {
+      "path": "TariffIncidence/scripts/estimate_diversion.py",
+      "size_bytes": 11274
+    },
+    {
+      "path": "TariffIncidence/scripts/estimate_propagation.py",
+      "size_bytes": 12629
+    },
+    {
+      "path": "TariffIncidence/scripts/structural_counterfactual.py",
+      "size_bytes": 15699
+    },
+    {
+      "path": "TariffIncidence/scripts/check_consistency.py",
+      "size_bytes": 3748
+    },
+    {
+      "path": "TariffIncidence/scripts/estimate_incidence.py",
+      "size_bytes": 32521
+    },
+    {
+      "path": "TariffIncidence/scripts/descriptive.py",
+      "size_bytes": 5499
+    },
+    {
+      "path": "TariffIncidence/scripts/build_trade_panel.py",
+      "size_bytes": 19950
+    },
+    {
+      "path": "TariffIncidence/scripts/build_tariff_schedule.py",
+      "size_bytes": 9067
+    },
+    {
+      "path": "TariffIncidence/scripts/validate_data.py",
+      "size_bytes": 3306
+    },
+    {
+      "path": "TariffIncidence/scripts/analyse_exclusions.py",
+      "size_bytes": 7036
+    },
+    {
+      "path": "TariffIncidence/portfolio/interview_story.md",
+      "size_bytes": 5822
+    },
+    {
+      "path": "TariffIncidence/portfolio/ten_minute_presentation_outline.md",
+      "size_bytes": 4602
+    },
+    {
+      "path": "TariffIncidence/portfolio/thirty_minute_research_presentation.md",
+      "size_bytes": 10766
+    },
+    {
+      "path": "TariffIncidence/portfolio/resume_bullets.md",
+      "size_bytes": 6281
+    },
+    {
+      "path": "TariffIncidence/data/DATA_DICTIONARY.md",
+      "size_bytes": 9103
+    },
+    {
+      "path": "TariffIncidence/data/DATA_ACCESS.md",
+      "size_bytes": 6540
+    },
+    {
+      "path": "TariffIncidence/data/results/propagation_detail.runstamp.json",
+      "size_bytes": 503
+    },
+    {
+      "path": "TariffIncidence/data/results/window_sensitivity.json",
+      "size_bytes": 1352
+    },
+    {
+      "path": "TariffIncidence/data/results/io_exposure_quality_detail.json",
+      "size_bytes": 4559
+    },
+    {
+      "path": "TariffIncidence/data/results/identification_checks.json",
+      "size_bytes": 32989
+    },
+    {
+      "path": "TariffIncidence/data/results/propagation_quality.json",
+      "size_bytes": 1617
+    },
+    {
+      "path": "TariffIncidence/data/results/structural.runstamp.json",
+      "size_bytes": 518
+    },
+    {
+      "path": "TariffIncidence/data/results/io_exposure.runstamp.json",
+      "size_bytes": 500
+    },
+    {
+      "path": "TariffIncidence/data/results/diversion_interpretation.json",
+      "size_bytes": 2354
+    },
+    {
+      "path": "TariffIncidence/data/results/propagation_quality_detail.json",
+      "size_bytes": 19958
+    },
+    {
+      "path": "TariffIncidence/data/results/propagation.runstamp.json",
+      "size_bytes": 509
+    },
+    {
+      "path": "TariffIncidence/data/results/incidence.runstamp.json",
+      "size_bytes": 446
+    },
+    {
+      "path": "TariffIncidence/data/results/exclusion_coverage_summary.json",
+      "size_bytes": 1580
+    },
+    {
+      "path": "TariffIncidence/data/results/diversion.runstamp.json",
+      "size_bytes": 446
+    },
+    {
+      "path": "TariffIncidence/data/results/structural_summary.json",
+      "size_bytes": 1696
+    },
+    {
+      "path": "TariffIncidence/data/results/descriptive.runstamp.json",
+      "size_bytes": 446
+    },
+    {
+      "path": "TariffIncidence/data/results/data_quality_summary.json",
+      "size_bytes": 626
+    },
+    {
+      "path": "TariffIncidence/data/results/exclusions.runstamp.json",
+      "size_bytes": 507
+    },
+    {
+      "path": "TariffIncidence/data/results/io_exposure_detail.runstamp.json",
+      "size_bytes": 499
+    },
+    {
+      "path": "TariffIncidence/data/results/io_exposure_quality.json",
+      "size_bytes": 3483
+    },
+    {
+      "path": "TariffIncidence/data/results/consistency_summary.json",
+      "size_bytes": 672
+    },
+    {
+      "path": "TariffIncidence/data/manifests/trade_panel_hs10_country_month.manifest.json",
+      "size_bytes": 4203
+    },
+    {
+      "path": "TariffIncidence/data/manifests/structural_sourcing_counterfactual.manifest.json",
+      "size_bytes": 1742
+    },
+    {
+      "path": "TariffIncidence/data/manifests/tariff_schedule_section301_china.manifest.json",
+      "size_bytes": 10124
+    },
+    {
+      "path": "TariffIncidence/data/manifests/propagation_ppi_estimates.manifest.json",
+      "size_bytes": 1695
+    },
+    {
+      "path": "TariffIncidence/data/manifests/industry_tariff_exposure_detail.manifest.json",
+      "size_bytes": 2100
+    },
+    {
+      "path": "TariffIncidence/data/manifests/propagation_ppi_estimates_detail.manifest.json",
+      "size_bytes": 1703
+    },
+    {
+      "path": "TariffIncidence/data/manifests/ustr_exclusion_notice_coverage.manifest.json",
+      "size_bytes": 3094
+    },
+    {
+      "path": "TariffIncidence/data/manifests/industry_tariff_exposure.manifest.json",
+      "size_bytes": 2094
+    },
+    {
+      "path": "TariffIncidence/reports/methodology_and_limitations.md",
+      "size_bytes": 24153
+    },
+    {
+      "path": "TariffIncidence/reports/product_exclusions.md",
+      "size_bytes": 5200
+    },
+    {
+      "path": "TariffIncidence/reports/research_conclusions.md",
+      "size_bytes": 6932
+    },
+    {
+      "path": "TariffIncidence/reports/tariff_incidence_results.md",
+      "size_bytes": 50757
+    },
+    {
+      "path": "TariffIncidence/reports/failed_hypotheses.md",
+      "size_bytes": 3872
+    },
+    {
+      "path": "TariffIncidence/reports/structural_counterfactuals.md",
+      "size_bytes": 5775
+    },
+    {
+      "path": "TariffIncidence/reports/technical_report.md",
+      "size_bytes": 17053
+    },
+    {
+      "path": "TariffIncidence/reports/trade_diversion_results.md",
+      "size_bytes": 8354
+    },
+    {
+      "path": "TariffIncidence/reports/supply_chain_propagation.md",
+      "size_bytes": 17121
+    },
+    {
+      "path": "TariffIncidence/reports/executive_trade_policy_memo.md",
+      "size_bytes": 7151
+    },
+    {
+      "path": "TariffIncidence/reports/replication_protocol.md",
+      "size_bytes": 4671
+    },
+    {
+      "path": "TariffIncidence/reports/replication_comparison.md",
+      "size_bytes": 4719
+    },
+    {
+      "path": "TariffIncidence/src/tariff_incidence/config.py",
+      "size_bytes": 2606
+    },
+    {
+      "path": "TariffIncidence/src/tariff_incidence/paths.py",
+      "size_bytes": 1972
+    },
+    {
+      "path": "TariffIncidence/src/tariff_incidence/manifest.py",
+      "size_bytes": 3677
+    },
+    {
+      "path": "TariffIncidence/src/tariff_incidence/__init__.py",
+      "size_bytes": 100
+    },
+    {
+      "path": "TariffIncidence/src/tariff_incidence/provenance.py",
+      "size_bytes": 5794
+    },
+    {
+      "path": "TariffIncidence/src/tariff_incidence/reporting/render.py",
+      "size_bytes": 8042
+    },
+    {
+      "path": "TariffIncidence/src/tariff_incidence/reporting/__init__.py",
+      "size_bytes": 0
+    },
+    {
+      "path": "TariffIncidence/src/tariff_incidence/panel/build.py",
+      "size_bytes": 21370
+    },
+    {
+      "path": "TariffIncidence/src/tariff_incidence/panel/synthetic.py",
+      "size_bytes": 12027
+    },
+    {
+      "path": "TariffIncidence/src/tariff_incidence/panel/__init__.py",
+      "size_bytes": 0
+    },
+    {
+      "path": "TariffIncidence/src/tariff_incidence/io_exposure/exposure.py",
+      "size_bytes": 9955
+    },
+    {
+      "path": "TariffIncidence/src/tariff_incidence/io_exposure/__init__.py",
+      "size_bytes": 0
+    },
+    {
+      "path": "TariffIncidence/src/tariff_incidence/quality/consistency.py",
+      "size_bytes": 13061
+    },
+    {
+      "path": "TariffIncidence/src/tariff_incidence/quality/checks.py",
+      "size_bytes": 12817
+    },
+    {
+      "path": "TariffIncidence/src/tariff_incidence/quality/__init__.py",
+      "size_bytes": 0
+    },
+    {
+      "path": "TariffIncidence/src/tariff_incidence/tariff/records.py",
+      "size_bytes": 5214
+    },
+    {
+      "path": "TariffIncidence/src/tariff_incidence/tariff/__init__.py",
+      "size_bytes": 0
+    },
+    {
+      "path": "TariffIncidence/src/tariff_incidence/tariff/engine.py",
+      "size_bytes": 24707
+    },
+    {
+      "path": "TariffIncidence/src/tariff_incidence/tariff/schedule.py",
+      "size_bytes": 11725
+    },
+    {
+      "path": "TariffIncidence/src/tariff_incidence/econ/designs.py",
+      "size_bytes": 29729
+    },
+    {
+      "path": "TariffIncidence/src/tariff_incidence/econ/__init__.py",
+      "size_bytes": 0
+    },
+    {
+      "path": "TariffIncidence/src/tariff_incidence/econ/diversion.py",
+      "size_bytes": 15205
+    },
+    {
+      "path": "TariffIncidence/src/tariff_incidence/econ/hdfe.py",
+      "size_bytes": 15306
+    },
+    {
+      "path": "TariffIncidence/src/tariff_incidence/adapters/census_concordance.py",
+      "size_bytes": 19616
+    },
+    {
+      "path": "TariffIncidence/src/tariff_incidence/adapters/bls_ppi.py",
+      "size_bytes": 16545
+    },
+    {
+      "path": "TariffIncidence/src/tariff_incidence/adapters/census_trade.py",
+      "size_bytes": 11691
+    },
+    {
+      "path": "TariffIncidence/src/tariff_incidence/adapters/__init__.py",
+      "size_bytes": 0
+    },
+    {
+      "path": "TariffIncidence/src/tariff_incidence/adapters/federal_register.py",
+      "size_bytes": 24525
+    },
+    {
+      "path": "TariffIncidence/src/tariff_incidence/adapters/bea_io.py",
+      "size_bytes": 16559
+    },
+    {
+      "path": "TariffIncidence/src/tariff_incidence/adapters/usitc_hts.py",
+      "size_bytes": 6875
+    },
+    {
+      "path": "TariffIncidence/src/tariff_incidence/adapters/ustr_exclusions.py",
+      "size_bytes": 14973
+    },
+    {
+      "path": "TariffIncidence/src/tariff_incidence/adapters/base.py",
+      "size_bytes": 3757
+    },
+    {
+      "path": "TariffIncidence/src/tariff_incidence/structural/__init__.py",
+      "size_bytes": 0
+    },
+    {
+      "path": "TariffIncidence/src/tariff_incidence/structural/armington.py",
+      "size_bytes": 8912
+    },
+    {
+      "path": "TariffIncidence/src/tariff_incidence/concordance/hs.py",
+      "size_bytes": 9817
+    },
+    {
+      "path": "TariffIncidence/src/tariff_incidence/concordance/__init__.py",
+      "size_bytes": 0
     }
   ]
 }

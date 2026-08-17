@@ -1,0 +1,238 @@
+# U.S. Section 301 action against China (USTR investigation, 2018-2019).
+#
+# Every date and rate below was read out of the cited Federal Register document
+# and is reproduced verbatim in `verbatim_source_text`. Nothing here is recalled
+# from memory. `scripts/build_tariff_schedule.py` re-parses the covered tariff
+# lines from the notice PDFs on every run, so the product lists are never
+# transcribed by hand.
+#
+# Adding another episode (Section 232 steel/aluminium, an EU retaliation list,
+# a later IEEPA action) means adding a sibling file here, not editing code.
+
+episode_id: US_SECTION301_CHINA
+label: "U.S. Section 301 tariffs on imports from China (2018-2019)"
+imposing_country: USA
+target_country_code: "5700"        # Census country code for China
+target_country_note: >
+  Census code 5700 is mainland China and excludes Hong Kong (5820) and Macau
+  (5490). Section 301 duties apply to products *of* China by rule of origin,
+  which is not identical to the country of shipment recorded in trade data.
+
+product_code_vintage: HTS2018
+partner_country_code: "5700"
+
+actions:
+
+  - action_id: SEC301_LIST1
+    label: "List 1 ($34bn)"
+    chapter99_heading: "9903.88.01"
+    federal_register_document: "2018-13248"
+    citation: "83 FR 28710"
+    publication_date: "2018-06-20"
+    announcement_date: "2018-06-20"
+    effective_date: "2018-07-06"
+    ad_valorem_rate: 0.25
+    parse:
+      method: operative_anchor_hts8
+    verbatim_source_text: >
+      "DATES: Applicable date of duties: The additional duties set out in Annex
+      A to this notice are applicable with respect to products that are entered
+      for consumption, or withdrawn from warehouse for consumption, on or after
+      July 6, 2018."
+    notes: >
+      This notice also contains Annex C, a *proposed* list that later became
+      List 2. The parser anchors on the operative sentence for heading
+      9903.88.01, so only the lines actually subject to duty are captured.
+
+  - action_id: SEC301_LIST2
+    label: "List 2 ($16bn)"
+    chapter99_heading: "9903.88.02"
+    federal_register_document: "2018-17709"
+    citation: "83 FR 40823"
+    publication_date: "2018-08-16"
+    announcement_date: "2018-06-20"
+    announcement_date_note: >
+      The List 2 product list was first published as a proposal in the June 20,
+      2018 notice (83 FR 28710, Annex C). Firms could anticipate from that date,
+      so the announcement date is set to the proposal, not the final notice. The
+      effective date remains the date duties were collected. Both are carried
+      through the pipeline so anticipation and collection can be separated.
+    effective_date: "2018-08-23"
+    ad_valorem_rate: 0.25
+    parse:
+      method: operative_anchor_hts8
+    verbatim_source_text: >
+      "DATES: The additional duties set out in Annex A to this notice are
+      effective with respect to products that are entered for consumption, or
+      withdrawn from warehouse for consumption, on or after August 23, 2018."
+
+  - action_id: SEC301_LIST3
+    label: "List 3 ($200bn)"
+    chapter99_heading: "9903.88.03"
+    federal_register_document: "2018-20610"
+    citation: "83 FR 47974"
+    publication_date: "2018-09-21"
+    announcement_date: "2018-07-17"
+    announcement_date_note: >
+      Proposed in 83 FR 33608 (July 17, 2018), "Request for Comments Concerning
+      Proposed Modification of Action". Anticipation is dated from the proposal.
+    effective_date: "2018-09-24"
+    ad_valorem_rate: 0.10
+    parse:
+      method: operative_anchor_hts8
+    verbatim_source_text: >
+      "As set out in Annex A to this notice, the rate of additional duty is
+      initially 10 percent ad valorem, effective September 24, 2018."
+
+  # The List 3 increase is a separate legal instrument with its own date, and is
+  # modelled as a RATE_CHANGE against the same covered lines. Its history is the
+  # clearest example in this episode of why announcement and effective dates
+  # must not be conflated: the increase was announced for 1 Jan 2019, postponed
+  # twice, and finally took effect on 10 May 2019.
+  - action_id: SEC301_LIST3
+    label: "List 3 rate increase 10% -> 25%"
+    record_type: RATE_CHANGE
+    chapter99_heading: "9903.88.03"
+    federal_register_document: "2019-09681"
+    citation: "84 FR 20459"
+    publication_date: "2019-05-09"
+    announcement_date: "2018-09-21"
+    announcement_date_note: >
+      An increase to 25 percent was announced in the September 2018 notice for
+      1 January 2019, postponed to 2 March 2019 (84 FR 65198), then postponed
+      "until further notice" (84 FR 7966), and finally set for 10 May 2019.
+      Treating the announcement date as the effective date would place the cost
+      shock more than seven months too early.
+    effective_date: "2019-05-10"
+    ad_valorem_rate: 0.25
+    parse:
+      method: inherit_lines_from
+      inherit_from_action: SEC301_LIST3
+      inherit_from_document: "2018-20610"
+    verbatim_source_text: >
+      "DATES: The rate of additional duty will increase to 25 percent with
+      respect to products covered by the September 2018 action on May 10, 2019."
+
+  - action_id: SEC301_LIST4A
+    label: "List 4A ($300bn, Annex A)"
+    chapter99_heading: "9903.88.15"
+    federal_register_document: "2019-17865"
+    citation: "84 FR 43304"
+    publication_date: "2019-08-20"
+    announcement_date: "2019-05-17"
+    announcement_date_note: >
+      Proposed for comment on 17 May 2019 covering 3,805 full and partial
+      subheadings at "up to an additional 25 percent". The final action differs
+      from that proposal in both scope and rate, which is why the 3,805 figure
+      is not a validation target for the parsed list (see parse_note).
+    effective_date: "2019-09-01"
+    ad_valorem_rate: 0.15
+    rate_source_document: "2019-18838"
+    rate_source_citation: "84 FR 45821"
+    rate_note: >
+      The August 20 notice specified 10 percent, but that rate was NEVER
+      collected. 84 FR 45821 (30 August 2019) set the rate to 15 percent "on the
+      current effective date of September 1, 2019" and states the increase "does
+      not change the effective date of Annex A". List 4A was therefore 15 percent
+      from its first day, and modelling a 10 -> 15 transition would invent a rate
+      change that never happened.
+    parse:
+      method: operative_anchor_hts8_multi
+    parse_note: >
+      84 FR 43304 imposes two actions: Annex A under heading 9903.88.15 (this
+      one) and Annex C under 9903.88.16 (List 4B, never effective). The notice
+      states no line count for either annex, so the usual validation against a
+      notice-stated figure is unavailable. The parse is instead corroborated
+      internally: no truncated codes, no duplicates, Chapter 98/99 provisions
+      excluded, annex boundaries verified against the page structure, and the
+      operative annex cross-checked against its descriptive counterpart. Every
+      difference between the two was accounted for -- two codes appear only in
+      the descriptive annex, which by its own terms does not delimit scope, and
+      two others are placed in different annexes between the operative and
+      descriptive renderings, where the operative text governs.
+    verbatim_source_text: >
+      "Additional duties at a rate of 10 percent ad valorem on the tariff
+      subheadings set out in Annex A to this notice are applicable with respect
+      to products that are entered for consumption, or withdrawn from warehouse
+      for consumption, on or after September 1, 2019." (84 FR 43304); "For
+      products covered by Annex A of the August 20, 2019 notice (84 FR 43304),
+      the rate of additional duty will be 15 percent on the current effective
+      date of September 1, 2019." (84 FR 45821)
+
+  - action_id: SEC301_LIST4A
+    label: "List 4A rate reduction 15% -> 7.5%"
+    record_type: RATE_CHANGE
+    chapter99_heading: "9903.88.15"
+    federal_register_document: "2020-00904"
+    citation: "85 FR 3741"
+    publication_date: "2020-01-22"
+    announcement_date: "2020-01-22"
+    effective_date: "2020-02-14"
+    ad_valorem_rate: 0.075
+    parse:
+      method: inherit_lines_from
+      inherit_from_action: SEC301_LIST4A
+      inherit_from_document: "2019-17865"
+    verbatim_source_text: >
+      "the Trade Representative has determined to reduce the level of additional
+      duties from 15 percent to 7.5 percent on products of China covered by
+      Annex A of the August 20 notice, effective February 14, 2020."
+
+# Actions that were announced but never took effect. Recorded so they are not
+# mistaken for gaps, and so no future revision quietly treats them as imposed.
+suspended_actions:
+  - action_id: SEC301_LIST4B
+    label: "List 4B (Annex C of 84 FR 43304)"
+    chapter99_heading: "9903.88.16"
+    scheduled_effective_date: "2019-12-15"
+    scheduled_rate: 0.15
+    status: SUSPENDED_NEVER_EFFECTIVE
+    suspension_document: "2019-27306"
+    suspension_citation: "84 FR 69447"
+    verbatim_source_text: >
+      "the Trade Representative has determined to suspend indefinitely the
+      imposition of additional duties of 15 percent on products of China covered
+      by Annex C of the August 20 notice, which otherwise would have been
+      effective on December 15, 2019."
+    note: >
+      No duty was ever collected under this action. It must not be encoded as an
+      ADDITIONAL_DUTY record. The parser can read its annex (542 full + 8 partial
+      lines under heading 9903.88.16) and deliberately does not.
+
+# Known gaps, stated rather than silently omitted.
+known_gaps:
+  - id: LIST_4A_NOT_PARSED_SUPERSEDED
+    status: RESOLVED
+    description: >
+      SUPERSEDED. This gap recorded that List 4A was unparsed and assumed its
+      annex enumerated 10-digit statistical lines needing a separate parser. That
+      assumption was wrong: the annex is 8-digit, and the operative sentence
+      differs from Lists 1-3 only by an ": i)" enumeration prefix. List 4A is now
+      parsed by the same generalised parser and is in the schedule above.
+    impact: "None remaining for the schedule."
+    remedy: "Done. The sample window now runs to 2020-02."
+
+  - id: EXCLUSIONS_NOT_PARSED
+    status: CLOSED_NOT_ACHIEVABLE
+    description: >
+      CLOSED, not outstanding. USTR granted 840 product exclusions across 11
+      notices. Only 1.9% (16) name a 10-digit subheading; the remaining 824 are
+      specially prepared product descriptions identifying a SUBSET of a
+      statistical reporting number. U.S. import statistics are published at that
+      reporting number and no finer, so the excluded share of a line's imports is
+      not observable at any parsing effort. Every annex is additionally a raster
+      image with no text layer, and OCR was refused because it would introduce an
+      unvalidatable transcription channel into a legal treatment variable. This is
+      a property of what is published, not a task left undone.
+    impact: >
+      Every estimate is intention-to-treat with respect to the statutory list.
+      The gap is bounded rather than closed: observations whose realised duty
+      falls short of the statutory schedule are 10.9% of Section 301-dutied
+      value before the first exclusion took effect (2018-12) and 20.0% after. The
+      difference is what exclusions plausibly add; the pre-exclusion level is what
+      other causes -- preference programmes, duty-free entry -- account for, which
+      makes the realised-versus-statutory gap an UPPER bound.
+    remedy: >
+      Not available from published trade statistics. It would take entry-level
+      customs microdata, which is not public. Reporting the bound is the
+      substitute, and it is produced by scripts/analyse_exclusions.py.

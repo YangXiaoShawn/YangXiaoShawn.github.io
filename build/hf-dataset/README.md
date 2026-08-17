@@ -15,13 +15,14 @@ tags:
 
 # Open Economic & Quant Research Data
 
-Versioned research content for CasualLab, Macroeconomics, and Mortgage Rate Lock-In and Housing Market Dynamics, including project code, publishable data, fixtures, reports, tests, and reproducibility documentation.
+Versioned research content for CasualLab, Macroeconomics, Mortgage Rate Lock-In and Housing Market Dynamics, and Tariff Incidence, including project code, publishable data, fixtures, reports, tests, and reproducibility documentation.
 
 ## Repository structure
 
 - `CasualLab/`: causal inference and policy-simulation research content.
 - `Macroeconomics/`: vintage-aware forecasting and public-source adapter research content.
 - `RealEstate/`: housing-finance research on mortgage lock-in, mortgage exits, local activity, prices, and construction. Registered loan-level records and loan-granular derivatives are excluded.
+- `TariffIncidence/`: official-data research on U.S. Section 301 tariff pass-through, sourcing reallocation, and domestic input-output propagation. Large raw, intermediate, analytical, and parquet result files are excluded from the public package.
 - `dataset_manifest.json`: file counts, exclusions, and release metadata.
 
 ## Supported uses

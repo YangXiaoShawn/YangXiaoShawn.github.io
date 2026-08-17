@@ -9,7 +9,12 @@ from app import PROJECTS, explore
 
 
 def test_project_registry():
-    assert set(PROJECTS) == {"CasualLab", "Macroeconomics", "RealEstate"}
+    assert set(PROJECTS) == {
+        "CasualLab",
+        "Macroeconomics",
+        "RealEstate",
+        "TariffIncidence",
+    }
 
 
 def test_explorer_has_fallback(monkeypatch):
@@ -19,3 +24,10 @@ def test_explorer_has_fallback(monkeypatch):
     assert not rows.empty
     assert len(chart) == 4
     assert "evidence boundary" in methodology.lower()
+
+
+def test_tariff_project_uses_canonical_slug(monkeypatch):
+    monkeypatch.setattr("app._dataset_rows", lambda project: (app.FALLBACK_ROWS.copy(), "test"))
+    summary, _, _, _ = explore("TariffIncidence", "")
+    assert "/projects/tariff-incidence/" in summary
+    assert "open-economic-quant-tariff-incidence" in summary

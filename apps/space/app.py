@@ -10,7 +10,7 @@ import pandas as pd
 from huggingface_hub import HfApi
 
 DATASET_REPO = os.getenv("HF_DATASET_REPO", "ShawnChamberlain/open-economic-quant-research-data")
-DATASET_REVISION = os.getenv("HF_DATASET_REVISION", "ec14f18767cfae241862824119b05fced754b8b5")
+DATASET_REVISION = os.getenv("HF_DATASET_REVISION", "38e373a5df14afb0cf10c1f008c188f4000ca8df")
 SITE_URL = os.getenv("SITE_URL", "https://yangxiaoshawn.github.io")
 GITHUB_URL = os.getenv("GITHUB_REPOSITORY_URL", "https://github.com/YangXiaoShawn/YangXiaoShawn.github.io")
 
@@ -18,6 +18,7 @@ GITHUB_URL = os.getenv("GITHUB_REPOSITORY_URL", "https://github.com/YangXiaoShaw
 @dataclass(frozen=True)
 class Project:
     title: str
+    slug: str
     prefix: str
     field: str
     question: str
@@ -29,6 +30,7 @@ class Project:
 PROJECTS = {
     "CasualLab": Project(
         title="CasualLab",
+        slug="casuallab",
         prefix="CasualLab",
         field="Causal inference",
         question="How do causal mechanisms and heterogeneous treatment effects shape market outcomes and policy interventions?",
@@ -38,6 +40,7 @@ PROJECTS = {
     ),
     "Macroeconomics": Project(
         title="Macroeconomics",
+        slug="macroeconomics",
         prefix="Macroeconomics",
         field="Macroeconomic forecasting",
         question="How do release revisions and the information available at each vintage affect real-time forecast quality?",
@@ -47,12 +50,23 @@ PROJECTS = {
     ),
     "RealEstate": Project(
         title="Mortgage Rate Lock-In and Housing Market Dynamics",
+        slug="realestate",
         prefix="RealEstate",
         field="Housing economics and mortgage finance",
         question="How does the gap between existing mortgage rates and current market rates affect mortgage exits, local activity, prices, and construction?",
         summary="A reproducible housing-finance research system with registered-data analyses, public aggregate sources, explicit evidence tiers, and strict publication boundaries.",
         methodology="Construct point-in-time lock-in measures, model mortgage-exit hazards, freeze predetermined local exposure for event studies, auto-demote results when diagnostics fail, and label counterfactuals as simulations rather than forecasts.",
         source_url="https://github.com/YangXiaoShawn/YangXiaoShawn.github.io/tree/main/realestate",
+    ),
+    "TariffIncidence": Project(
+        title="Tariff Incidence, Supply-Chain Reallocation, and Domestic Propagation",
+        slug="tariff-incidence",
+        prefix="TariffIncidence",
+        field="International trade and applied econometrics",
+        question="How did U.S. product-level tariffs on imports from China pass through to importers, reshape sourcing, and propagate through domestic input-output linkages?",
+        summary="An official-data research system for the 2018–2019 U.S. Section 301 actions, with point-in-time tariff parsing, stacked multi-wave designs, sourcing analysis, and industry exposure.",
+        methodology="Parse legal notices against their stated line counts, construct a provenance-stamped HS10 panel, estimate each outcome under a stacked design, require pre-trend and placebo diagnostics before causal language, and keep observed evidence separate from model-implied counterfactuals.",
+        source_url="https://github.com/YangXiaoShawn/open-economic-quant-tariff-incidence",
     ),
 }
 
@@ -108,7 +122,7 @@ def explore(project_name: str, search: str = ""):
 
 **Dataset revision:** `{revision}`
 
-[Permanent project page]({SITE_URL}/projects/{project.prefix.lower()}/) | [GitHub source]({project.source_url}) | [Full Dataset](https://huggingface.co/datasets/{DATASET_REPO})
+[Permanent project page]({SITE_URL}/projects/{project.slug}/) | [GitHub source]({project.source_url}) | [Full Dataset](https://huggingface.co/datasets/{DATASET_REPO})
 """
     methodology = f"""### Methodology and evidence boundary
 

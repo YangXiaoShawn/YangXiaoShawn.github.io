@@ -1,0 +1,302 @@
+{
+  "dataset_id": "tariff_schedule_section301_china",
+  "layer": "normalized",
+  "source": "U.S. Federal Register (GPO typeset PDFs) via federalregister.gov API",
+  "source_url": "https://www.federalregister.gov/api/v1/documents",
+  "retrieval_timestamp_utc": "2026-08-11T20:06:42.026144+00:00",
+  "source_release_or_vintage": "83 FR 28710 (2018-13248); 83 FR 40823 (2018-17709); 83 FR 47974 (2018-20610); 84 FR 20459 (2019-09681); 84 FR 43304 (2019-17865); 85 FR 3741 (2020-00904)",
+  "date_range_start": "2018-07-06",
+  "date_range_end": "2020-02-14",
+  "schema_version": "tariff_schedule_v1",
+  "product_code_vintage": "HTS2018",
+  "checksum_sha256": "2c22bd7301699d7c577f7430749ea8e26e6a3b0ee138b75a45ac1e4b3a82d245",
+  "row_count": 19053,
+  "partition_keys": [],
+  "transformation_version": "build_tariff_schedule.py@v1",
+  "data_provenance": "OFFICIAL",
+  "known_limitations": [
+    "LIST_4A_NOT_PARSED_SUPERSEDED: SUPERSEDED. This gap recorded that List 4A was unparsed and assumed its annex enumerated 10-digit statistical lines needing a separate parser. That assumption was wrong: the annex is 8-digit, and the operative sentence differs from Lists 1-3 only by an \": i)\" enumeration prefix. List 4A is now parsed by the same generalised parser and is in the schedule above.",
+    "EXCLUSIONS_NOT_PARSED: CLOSED, not outstanding. USTR granted 840 product exclusions across 11 notices. Only 1.9% (16) name a 10-digit subheading; the remaining 824 are specially prepared product descriptions identifying a SUBSET of a statistical reporting number. U.S. import statistics are published at that reporting number and no finer, so the excluded share of a line's imports is not observable at any parsing effort. Every annex is additionally a raster image with no text layer, and OCR was refused because it would introduce an unvalidatable transcription channel into a legal treatment variable. This is a property of what is published, not a task left undone."
+  ],
+  "columns": {
+    "record_id": "String",
+    "episode_id": "String",
+    "action_id": "String",
+    "record_type": "String",
+    "product_code": "String",
+    "product_code_level": "Int8",
+    "product_code_vintage": "String",
+    "partner_country_code": "String",
+    "announcement_date": "Date",
+    "effective_date": "Date",
+    "expiry_date": "Date",
+    "ad_valorem_rate": "Float64",
+    "confidence": "String",
+    "partial_line": "Boolean",
+    "partial_line_note": "String",
+    "partial_line_excluded_codes": "String",
+    "notes": "String",
+    "tags": "String",
+    "source_document_id": "String",
+    "source_citation": "String",
+    "source_title": "String",
+    "source_url": "String",
+    "source_publication_date": "String",
+    "source_checksum_sha256": "String",
+    "source_locator": "String"
+  },
+  "extra": {
+    "parses": [
+      {
+        "document_number": "2018-13248",
+        "chapter99_heading": "9903.88.01",
+        "hts8_codes": 818,
+        "anchor_page": 4,
+        "last_page": 8,
+        "stated_line_count": 818,
+        "parsed_line_count": 818,
+        "count_matches_notice": true,
+        "warnings": [
+          "1 code(s) appear truncated in the source rendering (9033.00); NOT repaired by guessing, and therefore absent from the covered-line list. This is a known undercount.",
+          "notice preamble states several line counts [284, 818, 1333]; compared against the closest (818)",
+          "PARSED COUNT 817 (= 817 full + 0 partial) != COUNT STATED IN NOTICE 818 (difference -1). Treat this action's line list as provisional until reconciled."
+        ],
+        "partial_lines": {},
+        "annex_end_page": 9,
+        "unresolved_codes": [
+          "9033.00"
+        ],
+        "special_provision_codes": [
+          "99038801"
+        ]
+      },
+      {
+        "document_number": "2018-17709",
+        "chapter99_heading": "9903.88.02",
+        "hts8_codes": 279,
+        "anchor_page": 3,
+        "last_page": 4,
+        "stated_line_count": 279,
+        "parsed_line_count": 279,
+        "count_matches_notice": true,
+        "warnings": [
+          "notice preamble states several line counts [279, 284, 818, 1333]; compared against the closest (279)"
+        ],
+        "partial_lines": {},
+        "annex_end_page": 5,
+        "unresolved_codes": [],
+        "special_provision_codes": [
+          "98020080",
+          "99038802"
+        ]
+      },
+      {
+        "document_number": "2018-20610",
+        "chapter99_heading": "9903.88.03",
+        "hts8_codes": 5734,
+        "anchor_page": 3,
+        "last_page": 27,
+        "stated_line_count": 5745,
+        "parsed_line_count": 5745,
+        "count_matches_notice": true,
+        "warnings": [
+          "11 HS8 line(s) are covered only in part, with named 10-digit statistical numbers carved out; these are flagged partial_line and must not be treated as fully treated",
+          "notice preamble states several line counts [279, 818, 5745, 6031]; compared against the closest (5745)"
+        ],
+        "partial_lines": {
+          "29319090": [
+            "2931909051"
+          ],
+          "85176200": [
+            "8517620090"
+          ],
+          "94016140": [
+            "9401614001"
+          ],
+          "94016960": [
+            "9401696001"
+          ],
+          "94017100": [
+            "9401710001",
+            "9401710005",
+            "9401710006",
+            "9401710007"
+          ],
+          "94017900": [
+            "9401790001",
+            "9401790002",
+            "9401790003",
+            "9401790004"
+          ],
+          "94018020": [
+            "9401802001"
+          ],
+          "94018040": [
+            "9401804001"
+          ],
+          "94018060": [
+            "9401806021",
+            "9401806023"
+          ],
+          "94037040": [
+            "9403704003"
+          ],
+          "94037080": [
+            "9403708003"
+          ]
+        },
+        "annex_end_page": 29,
+        "unresolved_codes": [],
+        "special_provision_codes": [
+          "98020080",
+          "99038803",
+          "99038804"
+        ]
+      },
+      {
+        "document_number": "2019-09681",
+        "chapter99_heading": "9903.88.03",
+        "hts8_codes": 5734,
+        "anchor_page": -1,
+        "last_page": -1,
+        "stated_line_count": 5745,
+        "parsed_line_count": 5745,
+        "count_matches_notice": true,
+        "warnings": [
+          "lines inherited from SEC301_LIST3:2018-20610; this notice amends the rate for the already-covered lines and does not restate them"
+        ],
+        "partial_lines": {
+          "29319090": [
+            "2931909051"
+          ],
+          "85176200": [
+            "8517620090"
+          ],
+          "94016140": [
+            "9401614001"
+          ],
+          "94016960": [
+            "9401696001"
+          ],
+          "94017100": [
+            "9401710001",
+            "9401710005",
+            "9401710006",
+            "9401710007"
+          ],
+          "94017900": [
+            "9401790001",
+            "9401790002",
+            "9401790003",
+            "9401790004"
+          ],
+          "94018020": [
+            "9401802001"
+          ],
+          "94018040": [
+            "9401804001"
+          ],
+          "94018060": [
+            "9401806021",
+            "9401806023"
+          ],
+          "94037040": [
+            "9403704003"
+          ],
+          "94037080": [
+            "9403708003"
+          ]
+        },
+        "annex_end_page": -1,
+        "unresolved_codes": [],
+        "special_provision_codes": []
+      },
+      {
+        "document_number": "2019-17865",
+        "chapter99_heading": "9903.88.15",
+        "hts8_codes": 3229,
+        "anchor_page": 3,
+        "last_page": 24,
+        "stated_line_count": null,
+        "parsed_line_count": 3233,
+        "count_matches_notice": null,
+        "warnings": [
+          "4 HS8 line(s) are covered only in part, with named 10-digit statistical numbers carved out; these are flagged partial_line and must not be treated as fully treated",
+          "notice preamble states several line counts [279, 818, 3805, 5733]; compared against the closest (3805)",
+          "count validation deferred to the document level: this notice carries more than one action, so no single figure in its preamble refers to this annex alone"
+        ],
+        "partial_lines": {
+          "49019900": [
+            "4901990040"
+          ],
+          "85176200": [
+            "8517620010",
+            "8517620020"
+          ],
+          "94016960": [
+            "9401696011",
+            "9401696031"
+          ],
+          "94017100": [
+            "9401710001",
+            "9401710005",
+            "9401710006",
+            "9401710008",
+            "9401710011"
+          ]
+        },
+        "annex_end_page": 26,
+        "unresolved_codes": [],
+        "special_provision_codes": [
+          "98020050",
+          "98020060",
+          "98020080",
+          "99038815"
+        ]
+      },
+      {
+        "document_number": "2020-00904",
+        "chapter99_heading": "9903.88.15",
+        "hts8_codes": 3229,
+        "anchor_page": -1,
+        "last_page": -1,
+        "stated_line_count": null,
+        "parsed_line_count": 3233,
+        "count_matches_notice": null,
+        "warnings": [
+          "lines inherited from SEC301_LIST4A:2019-17865; this notice amends the rate for the already-covered lines and does not restate them"
+        ],
+        "partial_lines": {
+          "49019900": [
+            "4901990040"
+          ],
+          "85176200": [
+            "8517620010",
+            "8517620020"
+          ],
+          "94016960": [
+            "9401696011",
+            "9401696031"
+          ],
+          "94017100": [
+            "9401710001",
+            "9401710005",
+            "9401710006",
+            "9401710008",
+            "9401710011"
+          ]
+        },
+        "annex_end_page": -1,
+        "unresolved_codes": [],
+        "special_provision_codes": []
+      }
+    ],
+    "truncation_resolutions": [
+      {
+        "document": "2018-13248",
+        "truncated": "9033.00",
+        "resolved_to": "90330090"
+      }
+    ]
+  }
+}

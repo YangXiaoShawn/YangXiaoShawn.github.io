@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-14",
+  "generated_at": "2026-08-17",
   "projects": [
     {
       "title": "CasualLab",
@@ -77,6 +77,32 @@
       "site_url": "https://yangxiaoshawn.github.io/projects/realestate/",
       "github_url": "https://github.com/YangXiaoShawn/YangXiaoShawn.github.io/tree/main/realestate",
       "dataset_url": "https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/RealEstate",
+      "space_url": "https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory"
+    },
+    {
+      "title": "Tariff Incidence, Supply-Chain Reallocation, and Domestic Propagation",
+      "slug": "tariff-incidence",
+      "summary": "Reproducible research on how the 2018\u20132019 U.S. Section 301 tariffs affected landed costs, customs unit values, import quantities, sourcing, and downstream industry exposure.",
+      "research_question": "How did U.S. product-level tariffs on imports from China pass through to importers, reshape sourcing, and propagate through domestic input-output linkages?",
+      "research_fields": [
+        "International trade",
+        "Applied econometrics",
+        "Input-output economics"
+      ],
+      "project_type": "empirical-research",
+      "status": "public-live",
+      "last_updated": "2026-08-17",
+      "field": "trade",
+      "accent": "green",
+      "tags": [
+        "International Trade",
+        "Tariff Incidence",
+        "Supply Chains"
+      ],
+      "metric": "Official-data design",
+      "site_url": "https://yangxiaoshawn.github.io/projects/tariff-incidence/",
+      "github_url": "https://github.com/YangXiaoShawn/open-economic-quant-tariff-incidence",
+      "dataset_url": "https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/TariffIncidence",
       "space_url": "https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory"
     }
   ]

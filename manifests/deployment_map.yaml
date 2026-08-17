@@ -35,6 +35,14 @@ projects:
     dataset: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/RealEstate
     space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
     publication_rights: APPROVED_WITH_EXCLUSIONS
+  - slug: tariff-incidence
+    title: Tariff Incidence, Supply-Chain Reallocation, and Domestic Propagation
+    publication_status: public-live
+    github: https://github.com/YangXiaoShawn/open-economic-quant-tariff-incidence
+    pages: https://yangxiaoshawn.github.io/projects/tariff-incidence/
+    dataset: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/TariffIncidence
+    space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
+    publication_rights: APPROVED_WITH_EXCLUSIONS
 
 withheld_projects:
   - microstructure

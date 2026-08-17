@@ -37,6 +37,7 @@ def main() -> None:
         ("CasualLab", args.workspace / "CasualLab"),
         ("Macroeconomics", args.workspace / "Macroeconomics"),
         ("RealEstate", ROOT / "realestate"),
+        ("TariffIncidence", ROOT / "tariff-incidence"),
     )
     records = []
     for prefix, source in projects:

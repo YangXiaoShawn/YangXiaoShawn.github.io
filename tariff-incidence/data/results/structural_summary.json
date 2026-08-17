@@ -1,0 +1,33 @@
+{
+  "run": {
+    "run_id": "20260811T201505Z-b1495fb3",
+    "created_utc": "2026-08-11T20:15:05.747175+00:00",
+    "git_commit": "3c51a06-dirty",
+    "config_name": "sample_slice.yaml",
+    "config_sha256": "b1495fb3b363c158ae3b162babd17a515adfc9a8c26038b6c09edb9ec55652a3",
+    "data_provenance": "OFFICIAL",
+    "data_period_start": "2017-01",
+    "data_period_end": "2020-02",
+    "python_version": "3.12.13",
+    "platform": "macOS-26.6.1-arm64-arm-64bit",
+    "notes": "one-tier Armington sourcing counterfactual; no domestic nest, no welfare"
+  },
+  "scope": "One-tier CES nest across foreign source countries within a product. No domestic nest: U.S. import statistics cannot say how much of a fall in imports went to domestic producers rather than out of consumption, so that margin is outside the model rather than assumed. No welfare number is produced and none can be derived from these outputs alone.",
+  "premise": "Foreign producer prices are held fixed, so the tariff passes into the buyer's price one-for-one. In this project that is a reduced-form finding -- the customs unit value response is a bounded null, at most 0.076 log points -- rather than a free assumption. The structural and reduced-form modules are therefore not independent readings of the same data.",
+  "sigma_routes": {
+    "calibrated_grid": [
+      1.5,
+      2.0,
+      3.0,
+      4.0,
+      6.0,
+      8.0
+    ],
+    "inverted_from_ppml_quantity_response": 9.355914766408514,
+    "fitted_to_observed_reallocation": 4.25,
+    "ppml_beta_used": -1.7243848518677178,
+    "mean_log1p_tariff_on_treated_flows": 0.18430959397566885
+  },
+  "observed_treated_share_post": 0.25336151735217227,
+  "n_products": 4306
+}
