@@ -23,8 +23,8 @@ The Open Economic & Quant Research Observatory is fully public: the GitHub Pages
 - Full Dataset: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data
 - Live Space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
 - Static runtime: https://shawnchamberlain-open-economic-quant-research-ob-5271962.static.hf.space
-- Space revision: `faa3a3dbdfa9e95d34d5f58afa9431b42db21ab1`
-- GitHub Pages publication content commit: `d1805ec`.
+- Space revision: `6692d6263974b39b4ea1c5e3c6aae475bf5707c8`
+- GitHub Pages interactive redesign commit: `3ca1907e84d6242bcde6f1b84f83992cfd8196bd`.
 - CI verification: https://github.com/YangXiaoShawn/YangXiaoShawn.github.io/actions/runs/32052100067
 - Pages deployment: https://github.com/YangXiaoShawn/YangXiaoShawn.github.io/actions/runs/32052098987
 
@@ -41,15 +41,16 @@ The Open Economic & Quant Research Observatory is fully public: the GitHub Pages
 - TariffIncidence addition: 122 tracked public files (1,476,927 bytes); large raw, intermediate, analytical, and parquet result files are excluded.
 - Current Dataset revision: `38e373a5df14afb0cf10c1f008c188f4000ca8df`.
 
-## Website improvements prepared
+## Website improvements published
 
 - English-only public copy and documentation.
 - Catalog generated from `project.yaml` files.
 - Ten stable research section routes.
 - Complete project narratives covering question, importance, source, sample, methods, evidence status, robustness, reproduction, links, citation, limitations, update time, and status.
-- Search and metadata filters.
+- Question-led project switching with interactive question, design, evidence, and boundary views.
+- Space research-map navigation plus live Dataset path search and file-type filters.
 - Canonical metadata, Open Graph card, favicon, Atom feed, sitemap, robots policy, and 404 page.
-- Responsive shared visual system retained from the observatory demo.
+- Responsive shared visual system with a simplified editorial hierarchy and new social preview card.
 - GitHub Actions for CI, Pages deployment, Hugging Face synchronization, and safe daily validation.
 
 ## Security and rights findings

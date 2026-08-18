@@ -12,7 +12,7 @@ A public research platform for reproducible economics, finance, quantitative met
 - Tariff Incidence source: https://github.com/YangXiaoShawn/open-economic-quant-tariff-incidence
 - Full research dataset: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data
 - Interactive Hugging Face Space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
-- Static runtime revision: `faa3a3dbdfa9e95d34d5f58afa9431b42db21ab1`
+- Static runtime revision: `6692d6263974b39b4ea1c5e3c6aae475bf5707c8`
 
 ## Published projects
 
