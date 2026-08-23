@@ -25,7 +25,8 @@ Open Econ × Quant is fully public: the GitHub Pages site, five published projec
 - Full Dataset: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data
 - Live Space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
 - Static runtime: https://shawnchamberlain-open-economic-quant-research-ob-5271962.static.hf.space
-- Space revision: `3a7eb5c62272bde9387ca6c764b2bd81f8b52c02`
+- Space revision: `c7c8c3224e8cb2b55019bd88595c6ef0360925c5`
+- Evidence-first redesign commit: `87d659519f6a51445b4afe2f2aeeed9ae8520913`.
 - GitHub Pages interactive redesign commit: `3ca1907e84d6242bcde6f1b84f83992cfd8196bd`.
 - Chart-first release commit: `5cf8b1578683065d2b61c97049f08dc33a2763e2`.
 - RealEstate standalone repository release commit: `6d2dc30af09e8d38b50aa50267cd324cf35b4e0d`.
@@ -52,12 +53,12 @@ Open Econ × Quant is fully public: the GitHub Pages site, five published projec
 - Catalog generated from `project.yaml` files.
 - Ten stable research section routes.
 - Complete project narratives covering question, importance, source, sample, methods, evidence status, robustness, reproduction, links, citation, limitations, update time, and status.
-- Chart-first project switching with real mobility, vintage-leakage, mortgage-hazard, tariff-window, and Microstructure data-quality-gate evidence.
+- Question-first project switching with HTE recovery, vintage leakage, mortgage hazard, tariff incidence, and Microstructure data-quality-gate evidence.
 - Metric toggles, keyboard/touch chart tooltips, accessible data tables, and direct links to pinned evidence files.
 - Space signal, portfolio, file, and evidence-note views with shareable URL state.
 - Live Dataset path search, consistent file-type filters, and directory-size comparisons.
 - Canonical metadata, Open Graph card, favicon, Atom feed, sitemap, robots policy, and 404 page.
-- Responsive shared visual system with a simplified editorial hierarchy and new social preview card.
+- Responsive shared visual system with a simplified editorial hierarchy and Open Econ × Quant social preview.
 - GitHub Actions for CI, Pages deployment, Hugging Face synchronization, and safe daily validation.
 
 ## Security and rights findings

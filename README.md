@@ -13,7 +13,7 @@ A public research platform for reproducible economics, finance, quantitative met
 - Microstructure source: https://github.com/YangXiaoShawn/open-economic-quant-microstructure
 - Full research dataset: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data
 - Interactive Hugging Face Space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
-- Static runtime revision: `3a7eb5c62272bde9387ca6c764b2bd81f8b52c02`
+- Static runtime revision: `c7c8c3224e8cb2b55019bd88595c6ef0360925c5`
 
 ## Published projects
 
