@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Open Econ × Quant — Evidence Lab</title>
-  <meta name="description" content="Five economic questions, clear findings, and open evidence." />
+  <meta name="description" content="Explore five end-to-end economics and quantitative-research systems, then inspect the evidence behind each claim." />
   <meta name="theme-color" content="#071019" />
   <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="./styles.css" />
@@ -23,33 +23,37 @@
 
   <main class="shell">
     <section class="intro">
-      <div><div class="eyebrow">Interactive research console</div><h1>Change a view.<br /><span>Interrogate the evidence.</span></h1><p>Projects, metrics, and limits respond to every selection.</p></div>
-      <div class="intro-stats" aria-label="Published research collection"><div><strong>5</strong><span>parallel projects</span></div><div><strong data-active-metrics>1</strong><span>metrics in view</span></div><div><strong>1</strong><span>evidence trail</span></div></div>
+      <div><div class="eyebrow">Yang Xiao · @YangXiaoShawn · Applied economics + quant</div><h1>Explore what I built.<br /><span>Audit the evidence.</span></h1><p>Five end-to-end systems, from raw data and econometrics to interactive research products.</p></div>
+      <div class="intro-stats" aria-label="Published research collection"><div><strong>5</strong><span>research systems</span></div><div><strong>3,701</strong><span>public files</span></div><div><strong>144</strong><span>execution tests</span></div></div>
     </section>
 
     <section class="lab" id="lab" data-accent="teal" aria-label="Interactive research evidence explorer">
       <aside class="rail">
         <div class="rail-label">Choose a question</div>
         <div class="rail-projects" role="tablist" aria-label="Choose a research project">
-          <button class="project-button is-active" id="project-tab-casuallab" type="button" role="tab" data-project="casuallab" aria-selected="true" aria-controls="project-panel" tabindex="0"><span>01</span><strong>HTE recovery</strong><small>Known-truth test</small></button>
-          <button class="project-button" id="project-tab-macroeconomics" type="button" role="tab" data-project="macroeconomics" aria-selected="false" aria-controls="project-panel" tabindex="-1"><span>02</span><strong>Vintage leakage</strong><small>Backtest audit</small></button>
-          <button class="project-button" id="project-tab-realestate" type="button" role="tab" data-project="realestate" aria-selected="false" aria-controls="project-panel" tabindex="-1"><span>03</span><strong>Mortgage lock-in</strong><small>Exit hazard</small></button>
-          <button class="project-button" id="project-tab-tariff-incidence" type="button" role="tab" data-project="tariff-incidence" aria-selected="false" aria-controls="project-panel" tabindex="-1"><span>04</span><strong>Tariff incidence</strong><small>Price decomposition</small></button>
-          <button class="project-button" id="project-tab-microstructure" type="button" role="tab" data-project="microstructure" aria-selected="false" aria-controls="project-panel" tabindex="-1"><span>05</span><strong>Market backtest</strong><small>Return · drawdown</small></button>
+          <button class="project-button is-active" id="project-tab-casuallab" type="button" role="tab" data-project="casuallab" aria-selected="true" aria-controls="project-panel" tabindex="0"><span>01</span><strong>Experiment lab</strong><small>19.7M trips</small></button>
+          <button class="project-button" id="project-tab-macroeconomics" type="button" role="tab" data-project="macroeconomics" aria-selected="false" aria-controls="project-panel" tabindex="-1"><span>02</span><strong>Real-time macro</strong><small>626K archive rows</small></button>
+          <button class="project-button" id="project-tab-realestate" type="button" role="tab" data-project="realestate" aria-selected="false" aria-controls="project-panel" tabindex="-1"><span>03</span><strong>Lock-in analytics</strong><small>8 measures</small></button>
+          <button class="project-button" id="project-tab-tariff-incidence" type="button" role="tab" data-project="tariff-incidence" aria-selected="false" aria-controls="project-panel" tabindex="-1"><span>04</span><strong>Tariff engine</strong><small>12,587 records</small></button>
+          <button class="project-button" id="project-tab-microstructure" type="button" role="tab" data-project="microstructure" aria-selected="false" aria-controls="project-panel" tabindex="-1"><span>05</span><strong>Execution stress lab</strong><small>144 scenarios</small></button>
         </div>
         <div class="rail-status"><span>Dataset connected</span><div data-revision>Revision 5329ac0f88ba</div></div>
       </aside>
 
       <div class="workspace" id="project-panel" role="tabpanel" aria-labelledby="project-tab-casuallab">
+        <section class="portfolio-highlight" aria-label="Selected project portfolio highlight">
+          <div><span data-portfolio-field>Causal inference</span><h2 data-portfolio-title>Experiment design under spillovers</h2><p data-portfolio-summary>Built an estimand-first marketplace lab that benchmarks experiment designs and budget-constrained policies against known causal truth.</p></div>
+          <div class="portfolio-highlight-stat"><span>Scale</span><strong data-portfolio-value>19.7M</strong><small data-portfolio-label>NYC TLC records processed and quality-checked</small></div>
+        </section>
         <header class="project-head">
           <div class="head-meta"><span data-evidence>SEMI-SYNTHETIC · KNOWN-TRUTH VALIDATION</span><span data-period>Predeclared recovery audit</span></div>
           <div class="head-grid">
             <div><span class="question-label">Question</span><h2 data-question>Can a treatment-effect model identify who benefits most?</h2></div>
-            <div class="headline"><span>Result</span><strong data-headline>0.0417</strong><small data-headline-label>HTE learner RMSE · gate failed</small></div>
+            <div class="headline"><span>Result</span><strong data-headline>0.0417</strong><small data-headline-label>known-truth HTE RMSE measured</small></div>
           </div>
           <div class="story-grid" aria-label="Research summary">
             <article><span>Method</span><p data-method>Compare held-out predictions with known effects and a constant-effect oracle.</p></article>
-            <article class="finding"><span>Finding</span><p data-finding>The learner loses to the oracle and fails the predeclared recovery gate.</p></article>
+            <article class="finding"><span>Finding</span><p data-finding>The audit measures learner error against a predeclared oracle and correctly blocks an unsupported HTE claim.</p></article>
             <article><span>Limit</span><p data-note>Semi-synthetic validation—not a live-market effect estimate.</p></article>
           </div>
         </header>
@@ -66,10 +70,10 @@
           <section class="micro-performance" data-micro-performance aria-label="Exploratory strategy return and drawdown" hidden>
             <header><span>Exploratory simulation · reference only</span><strong>Nonconfirmatory · not live trading</strong></header>
             <div class="performance-grid">
-              <article><span>Positive after fees</span><strong>0 / 144</strong><small>Counterfactual scenarios</small></article>
-              <article><span>Median net edge</span><strong>−3.86 bp</strong><small>Per turnover</small></article>
+              <article><span>Execution grid</span><strong>144</strong><small>Complete scenarios</small></article>
+              <article><span>Gross-positive</span><strong>110</strong><small>Before fees</small></article>
               <article><span>Frozen fee</span><strong>4.00 bp</strong><small>All scenarios</small></article>
-              <article class="is-gate"><span>Median max drawdown</span><strong>3.92 bp</strong><small>Per turnover</small></article>
+              <article class="is-gate"><span>Artifact integrity</span><strong>476/476</strong><small>Files verified</small></article>
             </div>
             <div class="backtest-explorer" data-backtest-explorer><p>Loading the bounded scenario summary…</p></div>
             <p>Reference only. One four-hour capture, simulated market orders, adjacent pseudo-heldout phases, and no profitability or capacity claim.</p>
@@ -86,7 +90,7 @@
           <div class="trail-grid">
             <article><span>01 · Question</span><h3 data-trail-question>Can a treatment-effect model identify who benefits most?</h3></article>
             <article><span>02 · Method</span><p data-trail-method>Compare held-out predictions with known effects and a constant-effect oracle.</p></article>
-            <article class="trail-finding"><span>03 · Finding</span><p data-trail-finding>The learner loses to the oracle and fails the predeclared recovery gate.</p></article>
+            <article class="trail-finding"><span>03 · Finding</span><p data-trail-finding>The audit measures learner error against a predeclared oracle and correctly blocks an unsupported HTE claim.</p></article>
             <article><span>04 · Limit</span><p data-trail-boundary>Semi-synthetic validation—not a live-market effect estimate.</p></article>
           </div>
           <div class="trace-strip"><span>Chart → artifact → pinned revision → source</span><strong data-trail-source>hte_recovery.json</strong></div>

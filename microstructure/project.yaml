@@ -43,4 +43,4 @@ catalog:
     - Market Microstructure
     - Order Flow
     - Reproducible Research
-  metric: 0 of 144 scenarios positive after 4 bp fees
+  metric: 144 cost-aware execution scenarios

@@ -51,8 +51,8 @@ SECTIONS = {
         "Automated publication remains gated until each project has an audited refresh command and output manifest.",
     ),
     "about": (
-        "About the Observatory",
-        "A public economics and quantitative-research portfolio built around evidence, provenance, and maintainable releases.",
+        "About the Portfolio",
+        "An applied economics and quantitative-research portfolio spanning research design, data engineering, econometrics, validation, and interactive communication.",
     ),
 }
 
@@ -118,12 +118,18 @@ def section_page(slug: str, title: str, description: str, projects: list[dict]) 
     canonical = f"{SITE_URL}/{slug}/"
     cards = project_links(projects)
     extra = ""
+    hero_eyebrow = "Yang Xiao · Applied research portfolio"
+    hero_title = title
     if slug == "datasets":
         extra = '<a class="button button-primary" href="https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data">Open the full Dataset</a>'
     elif slug == "dashboards":
         extra = '<a class="button button-primary" href="https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory">Open the live interactive lab</a>'
     elif slug == "daily-reports":
         extra = '<a class="button button-secondary" href="../feed.xml">Subscribe to the update feed</a>'
+    elif slug == "about":
+        hero_eyebrow = "Yang Xiao · Applied economist · Quant research engineer"
+        hero_title = "Research systems, built end to end."
+        extra = '<a class="button button-primary" href="https://github.com/YangXiaoShawn">View GitHub profile</a><a class="button button-secondary" href="../index.html#research">Explore selected work</a>'
     else:
         extra = '<a class="button button-secondary" href="../index.html#research-lab">Browse the project signals</a>'
     return f"""<!doctype html>
@@ -140,12 +146,12 @@ def section_page(slug: str, title: str, description: str, projects: list[dict]) 
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
 <header class="site-header"><div class="container header-inner">
-  <a class="brand" href="../index.html"><span class="brand-mark">OQ</span><span class="brand-copy"><span class="brand-title">Open Econ × Quant</span><span class="brand-subtitle">Research Observatory</span></span></a>
+  <a class="brand" href="../index.html"><span class="brand-mark">OQ</span><span class="brand-copy"><span class="brand-title">Open Econ × Quant</span><span class="brand-subtitle">Applied research portfolio</span></span></a>
   <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation"><span></span></button>
   <nav class="site-nav" id="site-nav" aria-label="Primary navigation"><a href="../index.html">Home</a><a href="../research/">Research</a><a href="../datasets/">Datasets</a><a href="../methods/">Methods</a><a href="../about/">About</a></nav>
 </div></header>
 <main id="main">
-  <section class="page-hero"><div class="container"><div class="breadcrumbs"><a href="../index.html">Home</a><span>{html.escape(title)}</span></div><div class="eyebrow">Open research platform</div><h1>{html.escape(title)}</h1><p class="page-lead">{html.escape(description)}</p><div class="hero-actions">{extra}</div></div></section>
+  <section class="page-hero"><div class="container"><div class="breadcrumbs"><a href="../index.html">Home</a><span>{html.escape(title)}</span></div><div class="eyebrow">{html.escape(hero_eyebrow)}</div><h1>{html.escape(hero_title)}</h1><p class="page-lead">{html.escape(description)}</p><div class="hero-actions">{extra}</div></div></section>
   <section class="section section-border"><div class="container"><div class="section-header"><div><div class="section-kicker">Published work</div><h2 class="section-title">{len(projects)} projects, one evidence standard.</h2></div></div><div class="platform-grid">{cards}</div></div></section>
 </main>
 <footer class="site-footer"><div class="container"><div class="footer-bottom"><span>Open Econ × Quant</span><a class="text-link" href="../index.html">Back to homepage</a></div></div></footer>

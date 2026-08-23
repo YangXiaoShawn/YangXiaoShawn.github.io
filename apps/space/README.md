@@ -12,9 +12,10 @@ datasets:
 
 # Open Econ × Quant
 
-A public lab for five parallel economic questions, clear findings, and open evidence.
+An interactive portfolio for five end-to-end economics and quantitative-research systems.
 
-Each chart links to a named artifact, pinned revision, and public source. The
-microstructure explorer exposes gross P&L, frozen fees, net P&L, and marked
-drawdown from the current exploratory simulation, labeled research reference
-only.
+Start with what was built, the scale of the work, and the capabilities each
+project demonstrates. Then open the evidence layer to inspect a named artifact,
+pinned revision, and public source. The Microstructure lab stress-tests 144
+fee- and latency-aware execution scenarios and labels the exploratory backtest
+“research reference only.”

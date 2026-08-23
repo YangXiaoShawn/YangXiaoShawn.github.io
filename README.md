@@ -1,6 +1,6 @@
 # Open Econ × Quant
 
-A public research platform for reproducible economics, finance, quantitative methods, data releases, and interactive project exploration.
+Yang Xiao's applied economics and quantitative-research portfolio: five end-to-end systems spanning research design, data engineering, econometrics, validation, and interactive communication.
 
 ## Live resources
 
@@ -13,7 +13,7 @@ A public research platform for reproducible economics, finance, quantitative met
 - Microstructure source: https://github.com/YangXiaoShawn/open-economic-quant-microstructure
 - Full research dataset: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data
 - Interactive Hugging Face Space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
-- Static runtime revision: `79e02658284ec4d5b911514df9b6e9414c38e9bb`
+- Static runtime revision: `1dcb45aab5d2129ced14c8a46fd82f339ca8069f`
 
 ## Published projects
 
@@ -25,7 +25,7 @@ A public research platform for reproducible economics, finance, quantitative met
 | Tariff Incidence | International trade, tariff pass-through, supply-chain propagation | Public live | `make reproduce-sample` |
 | Order Flow to Price Impact | Market microstructure, exploratory execution simulation | Public live · reference only | `make reproduce-sample` |
 
-The public GitHub copies are intentionally compact. The full research payload is versioned in the Hugging Face Dataset. The Space reads its file catalogs from that release and includes one bounded, checksum-verified Microstructure scenario summary for interactive reference.
+The public GitHub copies are intentionally compact. The full research payload is versioned in the Hugging Face Dataset. The portfolio leads with contribution, scale, and capabilities; the interactive evidence layer preserves the exact findings and publication boundaries. The Space reads its file catalogs from that release and includes one bounded, checksum-verified Microstructure scenario summary for interactive reference.
 
 ## Repository architecture
 

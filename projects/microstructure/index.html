@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Order Flow to Price Impact | Open Econ × Quant</title>
-  <meta name="description" content="An interactive, research-only view of short-horizon market simulation results, including gross P&L, fees, net P&L, and drawdown." />
+  <meta name="description" content="A leakage-safe BTC/ETH L2 research system with 144 fee-, latency-, fill-, inventory-, and drawdown-aware execution scenarios." />
   <meta property="og:title" content="Order Flow to Price Impact" />
-  <meta property="og:description" content="Across 144 overlapping exploratory scenarios, 110 were gross-positive and none remained positive after a frozen 4 bp fee. Research reference only." />
+  <meta property="og:description" content="A signal-to-execution research system with 144 cost-aware scenarios and 476/476 checksummed files verified. Exploratory reference only." />
   <meta property="og:image" content="https://yangxiaoshawn.github.io/assets/og-visual-2026.png" />
   <link rel="canonical" href="https://yangxiaoshawn.github.io/projects/microstructure/" />
   <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml" />
@@ -15,7 +15,7 @@
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
 <header class="site-header"><div class="container header-inner">
-  <a class="brand" href="../../index.html"><span class="brand-mark">OQ</span><span class="brand-copy"><span class="brand-title">Open Econ × Quant</span><span class="brand-subtitle">Research Observatory</span></span></a>
+    <a class="brand" href="../../index.html"><span class="brand-mark">OQ</span><span class="brand-copy"><span class="brand-title">Open Econ × Quant</span><span class="brand-subtitle">Applied research portfolio</span></span></a>
   <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation"><span></span></button>
   <nav class="site-nav" id="site-nav" aria-label="Primary navigation"><a href="../../index.html">Home</a><a href="../../research/">Research</a><a href="../../datasets/">Datasets</a><a href="../../methods/">Methods</a><a href="../../about/">About</a></nav>
 </div></header>
@@ -25,29 +25,36 @@
     <div>
       <div class="breadcrumbs"><a href="../../index.html">Home</a><a href="../../research/">Research</a><span>Market microstructure</span></div>
       <h1>Order Flow to Price Impact</h1>
-      <p class="detail-lead">Did short-horizon predictive edge survive trading fees and drawdown? Explore the current four-hour deterministic simulation, then inspect exactly where gross edge disappeared.</p>
-      <div class="detail-tags tag-row"><span class="tag">Market microstructure</span><span class="tag">Order flow</span><span class="tag">Evidence gates</span></div>
+      <p class="detail-lead">I built a leakage-safe BTC/ETH L2 research system that carries short-horizon signals through explicit fees, latency, fills, inventory, liquidation, and drawdown stress tests.</p>
+      <div class="detail-tags tag-row"><span class="tag">Signal-to-execution</span><span class="tag">Event-time ML</span><span class="tag">Auditable simulation</span></div>
     </div>
     <aside class="detail-side">
       <div class="detail-side-row"><span>Status</span><strong>Public live</strong></div>
       <div class="detail-side-row"><span>Last updated</span><strong>2026-08-23</strong></div>
-      <div class="detail-side-row"><span>Evidence</span><strong>Exploratory reference</strong></div>
-      <div class="detail-side-row"><span>Public entry point</span><strong>make reproduce-sample</strong></div>
+      <div class="detail-side-row"><span>Execution grid</span><strong>144 scenarios</strong></div>
+      <div class="detail-side-row"><span>Artifact integrity</span><strong>476 / 476 verified</strong></div>
       <div class="detail-side-actions"><a class="button button-small" href="https://github.com/YangXiaoShawn/open-economic-quant-microstructure">GitHub</a><a class="button button-small" href="https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory?project=microstructure">Interactive lab</a></div>
     </aside>
   </div></section>
 
   <section class="section"><div class="container detail-layout">
     <article class="article">
+      <section id="contribution"><h2>What I built</h2><p>A reproducible signal-to-execution framework that separates predictive quality from economic viability. Every evaluation choice is explicit, every artifact is checksummed, and the simulator is designed to expose fragile edge before it can be mistaken for a trading result.</p><div class="project-achievements" role="list" aria-label="Microstructure project achievements">
+        <div role="listitem"><strong>144</strong><span>complete execution scenarios</span></div>
+        <div role="listitem"><strong>2 × 4</strong><span>symbols × prediction horizons</span></div>
+        <div role="listitem"><strong>3 × 3</strong><span>decision × order latency grid</span></div>
+        <div role="listitem"><strong>476/476</strong><span>bundle files checksum-verified</span></div>
+      </div><div class="detail-tags tag-row"><span class="tag">Market microstructure</span><span class="tag">Time-series ML</span><span class="tag">Execution simulation</span><span class="tag">Reproducible research</span></div></section>
+
       <section id="question"><h2>Research question</h2><p><strong>When do order-flow imbalance, liquidity, and limit-order-book conditions predict short-horizon price movement—and which claims survive data-quality and execution gates?</strong></p><p>Predictability, executability, and profitability are separate questions. The project makes event ordering, temporal leakage, gaps, fees, latency, uncertain fills, adverse selection, and inventory risk explicit before a claim can be promoted.</p></section>
 
-      <section id="performance"><h2>Current strategy simulation</h2><div class="micro-performance detail-performance" aria-label="Exploratory strategy profit and loss and drawdown">
+      <section id="performance"><h2>Execution stress test</h2><div class="micro-performance detail-performance" aria-label="Exploratory strategy profit and loss and drawdown">
         <header><span>Exploratory simulation · reference only</span><strong>Nonconfirmatory · not live trading</strong></header>
         <div class="performance-grid">
-          <article><span>Gross-positive</span><strong>110 / 144</strong><small>Counterfactual scenarios</small></article>
-          <article><span>Net-positive</span><strong>0 / 144</strong><small>After frozen fees</small></article>
-          <article><span>Median net edge</span><strong>−3.86 bp</strong><small>Per turnover</small></article>
-          <article class="is-gate"><span>Median max drawdown</span><strong>3.92 bp</strong><small>Per turnover</small></article>
+          <article><span>Execution grid</span><strong>144</strong><small>Complete scenarios</small></article>
+          <article><span>Gross-positive</span><strong>110</strong><small>Before fees</small></article>
+          <article><span>Frozen fee</span><strong>4.00 bp</strong><small>All scenarios</small></article>
+          <article class="is-gate"><span>Artifact integrity</span><strong>476/476</strong><small>Files verified</small></article>
         </div>
         <div class="performance-trace" aria-label="Gross edge to net result trace"><span class="is-pass">110 gross-positive</span><i aria-hidden="true">→</i><span>4 bp taker fee</span><i aria-hidden="true">→</i><span class="is-stop">0 net-positive</span></div>
         <article class="selected-scenario">
@@ -58,14 +65,14 @@
         <div class="backtest-provenance"><p><strong>Research reference only.</strong> One deterministic four-hour market-order simulation; not live trading. The two adjacent pseudo-heldout phases are neither prospectively untouched nor cross-day replication. The 144 scenarios overlap and must not be summed.</p><p>Drawdown is marked net equity from zero initial capital and normalized by turnover—not account return or capital-based drawdown. <a href="../../assets/data/microstructure_backtest_reference.json">Open the bounded result JSON</a>.</p></div>
       </div></section>
 
-      <section id="gate"><h2>Earlier trade-only protocol terminal</h2><p>This separate, earlier M8 study remains a valid <code>NOT_RUN</code> terminal. It should not be confused with the later nonconfirmatory continuous L2 pilot summarized above.</p><div class="table-wrap"><table class="data-table" data-sortable-table><thead><tr><th data-sort-key>Stage</th><th data-sort-key>Rows inspected</th><th data-sort-key>Warnings</th><th>Outcome</th></tr></thead><tbody>
+      <section id="gate"><details class="historical-gate"><summary>Earlier trade-only protocol terminal</summary><p>This separate, earlier M8 study remains a valid <code>NOT_RUN</code> terminal. It should not be confused with the later nonconfirmatory continuous L2 pilot summarized above.</p><div class="table-wrap"><table class="data-table" data-sortable-table><thead><tr><th data-sort-key>Stage</th><th data-sort-key>Rows inspected</th><th data-sort-key>Warnings</th><th>Outcome</th></tr></thead><tbody>
         <tr><td>BTCUSDT training</td><td>2,071,461</td><td>0</td><td>Normalization passed.</td></tr>
         <tr><td>ETHUSDT training</td><td>987,297</td><td>53</td><td>The predeclared zero-warning gate failed.</td></tr>
         <tr><td>Model selection</td><td>0</td><td>—</td><td>Not started.</td></tr>
         <tr><td>Held-out evaluation</td><td>0</td><td>—</td><td>Dates were not opened.</td></tr>
-      </tbody></table></div><p>The valid terminal is <code>INSUFFICIENT_DATA</code>. It is evidence that the protocol stopped correctly—not evidence for or against a market hypothesis. Execution and P&amp;L remain <code>NOT_RUN</code>.</p></section>
+      </tbody></table></div><p>The valid terminal is <code>INSUFFICIENT_DATA</code>. It is evidence that the protocol stopped correctly—not evidence for or against a market hypothesis. Execution and P&amp;L remain <code>NOT_RUN</code>.</p></details></section>
 
-      <section id="method"><h2>Methodology</h2><ol><li>Preserve exchange and receipt ordering with explicit continuity epochs.</li><li>Construct features only from information observable at decision time; labels begin strictly afterward.</li><li>Use purged, embargoed, time-ordered model selection and held-out evaluation.</li><li>Keep predictive diagnostics separate from fees, latency, fills, adverse selection, and inventory assumptions.</li><li>Freeze checksummed run bundles and generate reports from those artifacts instead of copying preferred metrics into prose.</li></ol></section>
+      <section id="method"><h2>Capabilities demonstrated</h2><ol><li>Preserve exchange and receipt ordering with explicit continuity epochs.</li><li>Construct features only from information observable at the decision point; labels begin strictly afterward.</li><li>Use purged, embargoed, time-ordered model selection and prediction-only evaluation.</li><li>Carry predictive diagnostics through fees, latency, fills, adverse selection, inventory, and liquidation assumptions.</li><li>Freeze checksummed run bundles and generate reports from artifacts instead of copying preferred metrics into prose.</li></ol></section>
 
       <section id="boundary"><h2>Public data boundary</h2><p>The public GitHub and Dataset packages contain source code, configuration, tests, protocols, and documentation. They do not redistribute exchange observations, normalized or derived events, fitted states, ingestion authorities, or generated run bundles. The website and Space expose one machine-generated, low-dimensional 144-scenario summary with checksummed provenance; it contains no raw events, ledgers, models, or local paths. Users obtain public market data independently under provider terms.</p></section>
 
@@ -73,7 +80,7 @@
 
       <section id="limitations"><h2>Limitations</h2><ul><li>The current result uses one continuous four-hour capture and deterministic market-order assumptions.</li><li>Its adjacent evaluation phases reuse overlapping source data; there is no prospectively untouched or cross-day confirmation.</li><li>The 144 latency, horizon, symbol, and phase scenarios are alternatives, not positions in a portfolio.</li><li>No result is a live-trading, significance, capacity, profitability, annualized-return, or investment claim.</li></ul></section>
     </article>
-    <aside class="article-nav"><div class="article-nav-title">On this page</div><a href="#question">Question</a><a href="#performance">Return &amp; drawdown</a><a href="#gate">Evidence gate</a><a href="#method">Methodology</a><a href="#boundary">Data boundary</a><a href="#reproduce">Reproduce</a><a href="#limitations">Limitations</a></aside>
+    <aside class="article-nav"><div class="article-nav-title">On this page</div><a href="#contribution">What I built</a><a href="#question">Question</a><a href="#performance">Execution stress test</a><a href="#method">Capabilities</a><a href="#gate">Earlier protocol</a><a href="#reproduce">Artifacts</a><a href="#limitations">Boundary</a></aside>
   </div></section>
 </main>
 

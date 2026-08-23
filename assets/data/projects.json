@@ -73,7 +73,7 @@
         "Order Flow",
         "Reproducible Research"
       ],
-      "metric": "0 of 144 scenarios positive after 4 bp fees",
+      "metric": "144 cost-aware execution scenarios",
       "site_url": "https://yangxiaoshawn.github.io/projects/microstructure/",
       "github_url": "https://github.com/YangXiaoShawn/open-economic-quant-microstructure",
       "dataset_url": "https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/Microstructure",

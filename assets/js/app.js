@@ -51,27 +51,57 @@
     casuallab: {
       short: 'HTE recovery', field: 'Causal inference', accent: 'teal', folder: 'CasualLab',
       page: 'projects/casuallab/',
-      data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/CasualLab'
+      data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/CasualLab',
+      portfolioTitle: 'Experiment design under spillovers', portfolioValue: '19.7M',
+      portfolioLabel: 'NYC TLC records processed and quality-checked',
+      portfolioProof: '194,928 zone-hour cells · 262-node exposure map · deterministic reproduction.',
+      portfolioSkills: 'Causal inference · Monte Carlo · policy learning · Python.',
+      portfolioSummary: 'Built an estimand-first marketplace lab that benchmarks experiment designs and budget-constrained policies against known causal truth.',
+      portfolioStats: [['19.7M', 'records processed'], ['194,928', 'zone-hour cells'], ['262', 'network nodes']]
     },
     macroeconomics: {
       short: 'Real-time macro', field: 'Macroeconomics', accent: 'blue', folder: 'Macroeconomics',
       page: 'projects/macroeconomics/',
-      data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/Macroeconomics'
+      data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/Macroeconomics',
+      portfolioTitle: 'Real-time forecasting without future-data leakage', portfolioValue: '626K',
+      portfolioLabel: 'official archive rows parsed and hashed',
+      portfolioProof: '21 official series · 15,264 real-data forecasts · zero strict timing violations.',
+      portfolioSkills: 'Nowcasting · vintage data · Polars · DuckDB · model evaluation.',
+      portfolioSummary: 'Built a vintage-aware nowcasting engine that reconstructs the information actually available at each historical forecast date.',
+      portfolioStats: [['626,304', 'archive rows'], ['21', 'official series'], ['0', 'timing violations']]
     },
     realestate: {
       short: 'Housing lock-in', field: 'Housing economics', accent: 'amber', folder: 'RealEstate',
       page: 'projects/realestate/',
-      data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/RealEstate'
+      data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/RealEstate',
+      portfolioTitle: 'Point-in-time mortgage lock-in analytics', portfolioValue: '8',
+      portfolioLabel: 'distinct lock-in measures designed',
+      portfolioProof: '107 automated tests · five source adapters · one-command public reproduction.',
+      portfolioSkills: 'Survival analysis · event studies · causal inference · data engineering.',
+      portfolioSummary: 'Built a point-in-time housing-finance system linking mortgage rate gaps to exits, local activity, prices, and construction.',
+      portfolioStats: [['8', 'lock-in measures'], ['107', 'automated tests'], ['5', 'source adapters']]
     },
     'tariff-incidence': {
       short: 'Tariff incidence', field: 'International trade', accent: 'green', folder: 'TariffIncidence',
       page: 'projects/tariff-incidence/',
-      data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/TariffIncidence'
+      data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/TariffIncidence',
+      portfolioTitle: 'A point-in-time tariff policy engine', portfolioValue: '12,587',
+      portfolioLabel: 'tariff records parsed from legal notices',
+      portfolioProof: '219-page annex parsed · statutory line counts reconciled · 60+ tests.',
+      portfolioSkills: 'Trade econometrics · policy parsing · PPML · data provenance.',
+      portfolioSummary: 'Built a point-in-time Section 301 policy engine that traces legal notices into incidence, sourcing, and industry-exposure analysis.',
+      portfolioStats: [['12,587', 'tariff records'], ['219', 'annex pages'], ['60+', 'automated tests']]
     },
     microstructure: {
       short: 'Microstructure', field: 'Quantitative finance', accent: 'violet', folder: 'Microstructure',
       page: 'projects/microstructure/',
-      data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/Microstructure'
+      data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/Microstructure',
+      portfolioTitle: 'Signal-to-execution stress testing', portfolioValue: '144',
+      portfolioLabel: 'fee- and latency-aware scenarios audited',
+      portfolioProof: 'Two symbols · four horizons · 3×3 latency grid · 476/476 files verified.',
+      portfolioSkills: 'Market microstructure · event-time ML · execution simulation · audit trails.',
+      portfolioSummary: 'Built a leakage-safe signal-to-execution framework that stress-tests apparent edge against fees, latency, fills, inventory, and drawdown.',
+      portfolioStats: [['144', 'execution scenarios'], ['476/476', 'files verified'], ['3×3', 'latency grid']]
     }
   };
 
@@ -350,37 +380,15 @@
     root.innerHTML = PROJECT_ORDER.map((slug, index) => {
       const project = evidencePayload.projects[slug];
       const meta = PROJECT_META[slug];
-      const metric = project.metrics.find((item) => item.id === project.default_metric) || project.metrics[0];
-      const rows = project.series;
-      const referenceMax = slug === 'tariff-incidence' && metric.id === 'customs' ? project.reference?.customs_bound || 0 : 0;
-      const max = Math.max(referenceMax, ...rows.map((row) => Math.abs(Number(row[metric.id]))), 1e-9);
-      const caseCaption = slug === 'tariff-incidence'
-        ? 'Three customs-value estimates; the dashed marker is the 0.076 absolute bound.'
-        : project.chart_caption;
-      const bars = rows.map((row) => {
-        const notRun = slug === 'microstructure' && row.status === 'not_run';
-        const value = Number(row[metric.id]);
-        const size = Math.max(value === 0 && !notRun ? 2 : 0, Math.abs(value) / max * 100);
-        const display = notRun ? 'NOT RUN' : formatValue(value, metric);
-        const reference = slug === 'tariff-incidence' ? '<em class="case-reference" aria-hidden="true"></em>' : '';
-        return `<div class="case-bar${notRun ? ' is-not-run' : ''}"><span>${escapeHTML(caseRowLabel(slug, row))}</span><i><b style="--case-size:${size.toFixed(2)}%"></b>${reference}</i><strong>${escapeHTML(display)}</strong></div>`;
-      }).join('');
-      const figure = slug === 'microstructure'
-        ? `<div class="case-performance-status" role="group" aria-label="Exploratory strategy simulation, research reference only">
-            <div><span>Gross-positive</span><strong>110 / 144</strong></div>
-            <div><span>Net-positive</span><strong>0 / 144</strong></div>
-            <div class="is-evidence"><span>Median net edge</span><strong>−3.86 bp</strong></div>
-          </div>
-          <div class="case-gate-line"><span class="is-pass">Gross edge</span><i></i><span>4 bp fee</span><i></i><span class="is-stop">Net negative</span></div>`
-        : `<div class="case-figure" role="img" aria-label="${escapeHTML(`${project.title}. ${caseCaption}`)}">${bars}</div>`;
+      const stats = meta.portfolioStats.map(([value, label]) => `<div role="listitem"><strong>${escapeHTML(value)}</strong><span>${escapeHTML(label)}</span></div>`).join('');
       return `<article class="case-card" data-accent="${meta.accent}">
-        <header><span>0${index + 1} · ${escapeHTML(meta.field)}</span><small>${escapeHTML(project.evidence)}</small></header>
-        <h3>${escapeHTML(project.question)}</h3>
-        <div class="case-answer"><span>Finding</span><p>${escapeHTML(project.finding)}</p></div>
-        ${figure}
-        <p class="case-chart-note">${escapeHTML(caseCaption)}</p>
-        <div class="case-method"><span>Method</span><p>${escapeHTML(project.method)}</p></div>
-        <footer><a href="#research-lab" data-case-project="${slug}">Inspect this evidence <span aria-hidden="true">→</span></a><a href="${meta.page}">Read study</a></footer>
+        <header><span>0${index + 1} · ${escapeHTML(meta.field)}</span><small>Selected portfolio project</small></header>
+        <h3>${escapeHTML(meta.portfolioTitle)}</h3>
+        <div class="case-answer"><span>Built</span><p>${escapeHTML(meta.portfolioSummary)}</p></div>
+        <div class="case-achievement-stats" role="list" aria-label="Project proof points">${stats}</div>
+        <div class="case-method"><span>Skills</span><p>${escapeHTML(meta.portfolioSkills)}</p></div>
+        <details class="case-evidence-boundary"><summary>Evidence snapshot</summary><p><strong>${escapeHTML(`${project.headline.value} · ${project.headline.label}`)}</strong> ${escapeHTML(project.finding)} <span>${escapeHTML(project.note)}</span></p></details>
+        <footer><a href="#research-lab" data-case-project="${slug}">Inspect evidence <span aria-hidden="true">→</span></a><a href="${meta.page}">Open project</a></footer>
       </article>`;
     }).join('');
     root.querySelectorAll('[data-case-project]').forEach((link) => link.addEventListener('click', (event) => {
@@ -504,13 +512,13 @@
     });
     const heroFields = {
       '[data-hero-field]': meta.field,
-      '[data-hero-evidence]': project.evidence,
-      '[data-hero-question]': project.question,
-      '[data-hero-result]': project.headline.value,
-      '[data-hero-result-label]': project.headline.label,
-      '[data-hero-finding]': project.finding,
-      '[data-hero-method]': project.method,
-      '[data-hero-boundary]': project.note
+      '[data-hero-evidence]': 'End-to-end research system',
+      '[data-hero-question]': meta.portfolioTitle,
+      '[data-hero-result]': meta.portfolioValue,
+      '[data-hero-result-label]': meta.portfolioLabel,
+      '[data-hero-finding]': meta.portfolioProof,
+      '[data-hero-method]': meta.portfolioSkills,
+      '[data-hero-boundary]': 'Public code · checksummed inputs · explicit evidence boundaries.'
     };
     Object.entries(heroFields).forEach(([selector, value]) => {
       const node = document.querySelector(selector);

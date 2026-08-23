@@ -73,8 +73,8 @@ PROJECTS = {
         slug="microstructure",
         prefix="Microstructure",
         field="Market microstructure and quantitative finance",
-        question="Did short-horizon predictive edge survive frozen fees and marked drawdown in the current exploratory simulation?",
-        summary="A reproducibility-first market-microstructure system whose current four-hour reference result shows 110 of 144 scenarios gross-positive and 0 of 144 positive after a frozen 4 bp fee.",
+        question="Can a short-horizon order-flow signal survive explicit fees, latency, fills, inventory, and drawdown?",
+        summary="A reproducibility-first market-microstructure system that audits 144 cost-aware execution scenarios and verifies all 476 files in the bounded reference bundle.",
         methodology="Preserve event ordering, prevent temporal leakage, evaluate pseudoheldout phases separately, expose fees and turnover-normalized marked drawdown, and label the result as nonconfirmatory simulation rather than live performance.",
         source_url="https://github.com/YangXiaoShawn/open-economic-quant-microstructure",
     ),
@@ -158,7 +158,7 @@ CSS = """
 
 with gr.Blocks(title="Open Econ × Quant", css=CSS) as demo:
     gr.Markdown(
-        f"""<div class="hero-panel"><h1>Open Econ × Quant</h1><p>Explore five questions and trace each result to open evidence.</p><p><a href="{SITE_URL}">Website</a> &middot; <a href="{GITHUB_URL}">GitHub</a> &middot; <a href="https://huggingface.co/datasets/{DATASET_REPO}">Dataset</a></p></div>"""
+        f"""<div class="hero-panel"><h1>Open Econ × Quant</h1><p>Explore five end-to-end research systems, then trace every claim to open evidence.</p><p><a href="{SITE_URL}">Website</a> &middot; <a href="{GITHUB_URL}">GitHub</a> &middot; <a href="https://huggingface.co/datasets/{DATASET_REPO}">Dataset</a></p></div>"""
     )
     with gr.Row():
         project_input = gr.Dropdown(list(PROJECTS), value="CasualLab", label="Project")

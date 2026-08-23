@@ -146,8 +146,8 @@ def main() -> None:
                     failures.append(f"evidence series omits a metric for {slug}")
                     break
         micro = evidence.get("projects", {}).get("microstructure", {})
-        if micro.get("headline", {}).get("value") != "0 / 144" or micro.get("default_metric") != "net_edge_bps":
-            failures.append("microstructure evidence does not lead with the current fee-adjusted scenario result")
+        if micro.get("headline", {}).get("value") != "144" or micro.get("default_metric") != "net_edge_bps":
+            failures.append("microstructure evidence does not lead with the audited scenario grid")
         tariff = evidence.get("projects", {}).get("tariff-incidence", {})
         if tariff.get("default_metric") != "customs" or not tariff.get("reference", {}).get("customs_bound"):
             failures.append("tariff evidence does not lead with the customs-value bound")

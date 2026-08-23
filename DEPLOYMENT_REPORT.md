@@ -25,7 +25,7 @@ Open Econ × Quant is fully public: the GitHub Pages site, five published projec
 - Full Dataset: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data
 - Live Space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
 - Static runtime: https://shawnchamberlain-open-economic-quant-research-ob-5271962.static.hf.space
-- Space revision: `79e02658284ec4d5b911514df9b6e9414c38e9bb`
+- Space revision: `1dcb45aab5d2129ced14c8a46fd82f339ca8069f`
 - Evidence-first redesign commit: `87d659519f6a51445b4afe2f2aeeed9ae8520913`.
 - GitHub Pages interactive redesign commit: `3ca1907e84d6242bcde6f1b84f83992cfd8196bd`.
 - Chart-first release commit: `5cf8b1578683065d2b61c97049f08dc33a2763e2`.
@@ -49,6 +49,8 @@ Open Econ × Quant is fully public: the GitHub Pages site, five published projec
 
 ## Website improvements published
 
+- Recruiter-first portfolio hierarchy: role positioning, five quantified systems, contribution summaries, capability tags, and direct GitHub routes appear before the detailed evidence layer.
+- Positive proof points lead each project while exact findings, limitations, and publication boundaries remain available in secondary evidence views.
 - English-only public copy and documentation.
 - Catalog generated from `project.yaml` files.
 - Ten stable research section routes.
