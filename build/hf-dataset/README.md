@@ -47,7 +47,11 @@ Project-owned code and fixtures follow project-local terms. Third-party data and
 ## Related resources
 
 - Website: https://yangxiaoshawn.github.io/
-- GitHub: https://github.com/YangXiaoShawn/YangXiaoShawn.github.io
+- CasualLab repository: https://github.com/YangXiaoShawn/open-economic-quant-casuallab
+- Macroeconomics repository: https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics
+- Mortgage Rate Lock-In repository: https://github.com/YangXiaoShawn/open-economic-quant-realestate
+- Tariff Incidence repository: https://github.com/YangXiaoShawn/open-economic-quant-tariff-incidence
+- Website repository: https://github.com/YangXiaoShawn/YangXiaoShawn.github.io
 - Interactive observatory: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
 
 ## Citation

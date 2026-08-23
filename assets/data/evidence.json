@@ -1,14 +1,14 @@
 {
   "generated_at": "2026-08-23",
-  "dataset_revision": "38e373a5df14afb0cf10c1f008c188f4000ca8df",
+  "dataset_revision": "1afb02359baa39ef8ee658c734195f01de28abf5",
   "portfolio": {
     "total_files": 3568,
-    "total_bytes": 2851437514,
+    "total_bytes": 2851437468,
     "categories": {"code": 331, "data": 3090, "reports": 61, "tests": 86},
     "projects": {
       "casuallab": {"files": 414, "bytes": 1433514227, "code": 137, "data": 232, "reports": 17, "tests": 28},
       "macroeconomics": {"files": 2931, "bytes": 1415262436, "code": 66, "data": 2822, "reports": 13, "tests": 30},
-      "realestate": {"files": 101, "bytes": 1183924, "code": 63, "data": 6, "reports": 16, "tests": 16},
+      "realestate": {"files": 101, "bytes": 1183878, "code": 63, "data": 6, "reports": 16, "tests": 16},
       "tariff-incidence": {"files": 122, "bytes": 1476927, "code": 65, "data": 30, "reports": 15, "tests": 12}
     }
   },

@@ -1,14 +1,14 @@
 {
   "dataset": "ShawnChamberlain/open-economic-quant-research-data",
-  "generated_at": "2026-08-17T17:42:44Z",
-  "revision": "38e373a5df14afb0cf10c1f008c188f4000ca8df",
+  "generated_at": "2026-08-23T15:46:15Z",
+  "revision": "1afb02359baa39ef8ee658c734195f01de28abf5",
   "remote_file_count": 3571,
   "research_payload_file_count": 3568,
-  "research_payload_size_bytes": 2851437514,
+  "research_payload_size_bytes": 2851437468,
   "projects": [
     {"slug": "casuallab", "remote_prefix": "CasualLab/", "source": "workspace/CasualLab"},
     {"slug": "macroeconomics", "remote_prefix": "Macroeconomics/", "source": "workspace/Macroeconomics"},
-    {"slug": "realestate", "remote_prefix": "RealEstate/", "source": "website/realestate", "publication_policy": "tracked publishable files only; registered loan-level data excluded"},
+    {"slug": "realestate", "remote_prefix": "RealEstate/", "source": "github/YangXiaoShawn/open-economic-quant-realestate", "publish_mirror": "website/realestate", "publication_policy": "tracked publishable files only; registered loan-level data excluded"},
     {"slug": "tariff-incidence", "remote_prefix": "TariffIncidence/", "source": "workspace/claude test", "publication_policy": "tracked publishable files only; large raw, intermediate, analytical, and parquet result files excluded"}
   ],
   "root_metadata": [".gitattributes", "README.md", "dataset_manifest.json"],

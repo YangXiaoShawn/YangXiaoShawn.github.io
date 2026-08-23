@@ -54,7 +54,7 @@
       "reproduction_command": "make reproduce-sample",
       "code_license": "MIT",
       "publication_rights": "APPROVED_WITH_EXCLUSIONS",
-      "github_destination": "https://github.com/YangXiaoShawn/YangXiaoShawn.github.io/tree/main/realestate",
+      "github_destination": "https://github.com/YangXiaoShawn/open-economic-quant-realestate",
       "github_pages_destination": "https://yangxiaoshawn.github.io/projects/realestate/",
       "hf_dataset_destination": "https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/RealEstate",
       "hf_space_destination": "https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory",

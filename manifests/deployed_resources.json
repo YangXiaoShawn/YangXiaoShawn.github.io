@@ -1,25 +1,25 @@
 {
-  "generated_at": "2026-08-23T14:49:55Z",
+  "generated_at": "2026-08-23T15:47:14Z",
   "repository": {
     "github_repository": "https://github.com/YangXiaoShawn/YangXiaoShawn.github.io",
     "github_pages_url": "https://yangxiaoshawn.github.io/",
     "casuallab_repository": "https://github.com/YangXiaoShawn/open-economic-quant-casuallab",
     "macroeconomics_repository": "https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics",
-    "realestate_source": "https://github.com/YangXiaoShawn/YangXiaoShawn.github.io/tree/main/realestate",
+    "realestate_repository": "https://github.com/YangXiaoShawn/open-economic-quant-realestate",
     "tariff_incidence_repository": "https://github.com/YangXiaoShawn/open-economic-quant-tariff-incidence",
     "default_branch": "main"
   },
   "huggingface": {
     "dataset_repo": "https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data",
-    "dataset_revision": "38e373a5df14afb0cf10c1f008c188f4000ca8df",
+    "dataset_revision": "1afb02359baa39ef8ee658c734195f01de28abf5",
     "dataset_files": 3571,
     "research_payload_files": 3568,
-    "research_payload_bytes": 2851437514,
+    "research_payload_bytes": 2851437468,
     "realestate_files": 101,
     "tariff_incidence_files": 122,
     "space_repo": "https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory",
     "space_runtime": "https://shawnchamberlain-open-economic-quant-research-ob-5271962.static.hf.space",
-    "space_revision": "1ae7cf2ff59ebbff79f84df08d3966a37575a77c"
+    "space_revision": "c6eca688fb58f043bbeeabf47a20a88a4f2eb91d"
   },
   "commit_hashes": {
     "site_pre_optimization": "3fa4c1711868ae9b9a376fb4138c0bd913e01a09",

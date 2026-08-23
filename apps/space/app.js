@@ -7,7 +7,7 @@
   const META = {
     casuallab: { folder: 'CasualLab', accent: 'teal', page: 'https://yangxiaoshawn.github.io/projects/casuallab/', data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/CasualLab', source: 'https://github.com/YangXiaoShawn/open-economic-quant-casuallab' },
     macroeconomics: { folder: 'Macroeconomics', accent: 'blue', page: 'https://yangxiaoshawn.github.io/projects/macroeconomics/', data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/Macroeconomics', source: 'https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics' },
-    realestate: { folder: 'RealEstate', accent: 'amber', page: 'https://yangxiaoshawn.github.io/projects/realestate/', data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/RealEstate', source: 'https://github.com/YangXiaoShawn/YangXiaoShawn.github.io/tree/main/realestate' },
+    realestate: { folder: 'RealEstate', accent: 'amber', page: 'https://yangxiaoshawn.github.io/projects/realestate/', data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/RealEstate', source: 'https://github.com/YangXiaoShawn/open-economic-quant-realestate' },
     'tariff-incidence': { folder: 'TariffIncidence', accent: 'green', page: 'https://yangxiaoshawn.github.io/projects/tariff-incidence/', data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/TariffIncidence', source: 'https://github.com/YangXiaoShawn/open-economic-quant-tariff-incidence' }
   };
   const COLORS = { code: '#6ee7d8', data: '#8eb8ff', reports: '#ffca6a', tests: '#7fe4aa' };
@@ -282,7 +282,7 @@
       }
       if (slug !== activeProject) return;
       rows = cache[slug].map((item) => ({ path: item.path || '', size: item.size ?? null, category: item.category || category(item.path || '') }));
-      const revision = (evidence?.dataset_revision || '38e373a5df14').slice(0, 12);
+      const revision = (evidence?.dataset_revision || '1afb02359baa').slice(0, 12);
       one('[data-file-status]').textContent = `Connected to ${REPO} at ${revision}.`;
       renderFiles();
       renderDirectories();

@@ -10,7 +10,7 @@ import pandas as pd
 from huggingface_hub import HfApi
 
 DATASET_REPO = os.getenv("HF_DATASET_REPO", "ShawnChamberlain/open-economic-quant-research-data")
-DATASET_REVISION = os.getenv("HF_DATASET_REVISION", "38e373a5df14afb0cf10c1f008c188f4000ca8df")
+DATASET_REVISION = os.getenv("HF_DATASET_REVISION", "1afb02359baa39ef8ee658c734195f01de28abf5")
 SITE_URL = os.getenv("SITE_URL", "https://yangxiaoshawn.github.io")
 GITHUB_URL = os.getenv("GITHUB_REPOSITORY_URL", "https://github.com/YangXiaoShawn/YangXiaoShawn.github.io")
 
@@ -56,7 +56,7 @@ PROJECTS = {
         question="How does the gap between existing mortgage rates and current market rates affect mortgage exits, local activity, prices, and construction?",
         summary="A reproducible housing-finance research system with registered-data analyses, public aggregate sources, explicit evidence tiers, and strict publication boundaries.",
         methodology="Construct point-in-time lock-in measures, model mortgage-exit hazards, freeze predetermined local exposure for event studies, auto-demote results when diagnostics fail, and label counterfactuals as simulations rather than forecasts.",
-        source_url="https://github.com/YangXiaoShawn/YangXiaoShawn.github.io/tree/main/realestate",
+        source_url="https://github.com/YangXiaoShawn/open-economic-quant-realestate",
     ),
     "TariffIncidence": Project(
         title="Tariff Incidence, Supply-Chain Reallocation, and Domestic Propagation",

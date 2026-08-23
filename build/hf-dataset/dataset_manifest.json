@@ -7,7 +7,7 @@
     "TariffIncidence"
   ],
   "file_count": 3568,
-  "size_bytes": 2851437514,
+  "size_bytes": 2851437468,
   "excluded_parts": [
     ".DS_Store",
     ".git",
@@ -13399,7 +13399,7 @@
     },
     {
       "path": "RealEstate/project.yaml",
-      "size_bytes": 2955
+      "size_bytes": 2941
     },
     {
       "path": "RealEstate/LICENSE",
@@ -13419,7 +13419,7 @@
     },
     {
       "path": "RealEstate/README.md",
-      "size_bytes": 7697
+      "size_bytes": 7683
     },
     {
       "path": "RealEstate/.gitignore",
@@ -13495,7 +13495,7 @@
     },
     {
       "path": "RealEstate/docs/PUBLICATION.md",
-      "size_bytes": 1634
+      "size_bytes": 1620
     },
     {
       "path": "RealEstate/docs/PROJECT_PLAN.md",
@@ -13507,7 +13507,7 @@
     },
     {
       "path": "RealEstate/docs/DECISION_LOG.md",
-      "size_bytes": 59379
+      "size_bytes": 59375
     },
     {
       "path": "RealEstate/docs/RESEARCH_DESIGN.md",

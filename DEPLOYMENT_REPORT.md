@@ -16,14 +16,14 @@ The Open Economic & Quant Research Observatory is fully public: the GitHub Pages
 - Upgraded Pages site: https://yangxiaoshawn.github.io/
 - CasualLab repository: https://github.com/YangXiaoShawn/open-economic-quant-casuallab
 - Macroeconomics repository: https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics
-- Mortgage Rate Lock-In source: https://github.com/YangXiaoShawn/YangXiaoShawn.github.io/tree/main/realestate
+- Mortgage Rate Lock-In repository: https://github.com/YangXiaoShawn/open-economic-quant-realestate
 - Mortgage Rate Lock-In page: https://yangxiaoshawn.github.io/projects/realestate/
 - Tariff Incidence repository: https://github.com/YangXiaoShawn/open-economic-quant-tariff-incidence
 - Tariff Incidence page: https://yangxiaoshawn.github.io/projects/tariff-incidence/
 - Full Dataset: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data
 - Live Space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
 - Static runtime: https://shawnchamberlain-open-economic-quant-research-ob-5271962.static.hf.space
-- Space revision: `1ae7cf2ff59ebbff79f84df08d3966a37575a77c`
+- Space revision: `c6eca688fb58f043bbeeabf47a20a88a4f2eb91d`
 - GitHub Pages interactive redesign commit: `3ca1907e84d6242bcde6f1b84f83992cfd8196bd`.
 - CI verification: https://github.com/YangXiaoShawn/YangXiaoShawn.github.io/actions/runs/32052100067
 - Pages deployment: https://github.com/YangXiaoShawn/YangXiaoShawn.github.io/actions/runs/32052098987
@@ -39,7 +39,7 @@ The Open Economic & Quant Research Observatory is fully public: the GitHub Pages
 - Dataset Card and detailed file manifest: uploaded after cleanup.
 - RealEstate addition: 101 tracked public files; registered loan-level data and loan-granular derivatives are excluded.
 - TariffIncidence addition: 122 tracked public files (1,476,927 bytes); large raw, intermediate, analytical, and parquet result files are excluded.
-- Current Dataset revision: `38e373a5df14afb0cf10c1f008c188f4000ca8df`.
+- Current Dataset revision: `1afb02359baa39ef8ee658c734195f01de28abf5`.
 
 ## Website improvements published
 
