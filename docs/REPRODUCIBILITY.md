@@ -12,7 +12,7 @@
 
 - Each project retains a `pyproject.toml` and project-specific setup notes.
 - Compact public copies include fixtures and small samples for smoke tests.
-- Publishable research content is versioned in the Hugging Face Dataset. Microstructure's mirror intentionally contains code and documentation only, not local market observations or generated runs.
+- Publishable research content is versioned in the Hugging Face Dataset. Microstructure's Dataset mirror intentionally contains code and documentation only, not local market observations or generated runs. The website and Space additionally contain one machine-generated, checksum-verified, low-dimensional exploratory summary; they do not contain its source run bundle.
 - Local `.venv`, `.pytest_cache`, `.ruff_cache`, `__pycache__`, and operating-system metadata are never research inputs and are excluded from releases.
 
 ## Evidence standard

@@ -20,7 +20,7 @@ RealEstate is `PUBLIC_OK` for project-owned source, tests, documentation, synthe
 
 Tariff Incidence is `PUBLIC_OK` for tracked source and narrative reports, with large raw, staged, normalized, analytical, and parquet result files excluded.
 
-Microstructure is `PUBLIC_OK` for its canonical Git-tracked MIT source, tests, configuration, protocols, and documentation. Exchange observations and locally generated research state are `METADATA_ONLY` in this release: `data/raw/`, normalized and derived tables, model states, M8/L2 authorities, and `artifacts/runs/` are excluded from GitHub's publication mirror and the Hugging Face Dataset. Low-dimensional row and warning counts already recorded in tracked status prose may be displayed with their evidence tier and source link.
+Microstructure is `PUBLIC_OK` for its canonical Git-tracked MIT source, tests, configuration, protocols, and documentation. Exchange observations and locally generated research state are `METADATA_ONLY`: `data/raw/`, normalized and derived tables, model states, M8/L2 authorities, and `artifacts/runs/` are excluded from GitHub's publication mirror and the Hugging Face Dataset. A single machine-generated, low-dimensional scenario summary is `PUBLIC_DERIVED_ONLY` for the website and Space. It carries the nonconfirmatory evidence label, checksum provenance, and reference-only disclaimer, and excludes events, ledgers, models, local paths, and run files.
 
 ## Required release record
 

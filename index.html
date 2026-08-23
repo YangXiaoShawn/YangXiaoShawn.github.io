@@ -42,37 +42,29 @@
         <div class="eyebrow">Interactive economics + quant</div>
         <h1>Research you can <span>operate.</span></h1>
         <p>Switch the question. Test the assumptions. Inspect what the evidence permits.</p>
-        <div class="hero-actions"><a class="button button-primary" href="#research-lab" data-open-micro>Open strategy evidence</a><a class="button button-secondary" href="https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory?project=microstructure">Open full lab</a></div>
-        <div class="hero-topics" aria-label="Research areas"><span>Causal inference</span><span>Macroeconomics</span><span>Housing</span><span>Trade</span><span>Markets</span></div>
+        <div class="hero-actions"><a class="button button-primary" href="#research-lab">Open evidence canvas</a><a class="button button-secondary" href="https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory">Open full lab</a></div>
+        <nav class="hero-project-dock" aria-label="Choose one of five research projects">
+          <a class="is-active" href="#casuallab" data-hero-jump="casuallab"><span>01</span><strong>Causal</strong><small>0.0417 RMSE</small></a>
+          <a href="#macroeconomics" data-hero-jump="macroeconomics"><span>02</span><strong>Macro</strong><small>863 leaked cells</small></a>
+          <a href="#realestate" data-hero-jump="realestate"><span>03</span><strong>Housing</strong><small>0.817 hazard ratio</small></a>
+          <a href="#tariff-incidence" data-hero-jump="tariff-incidence"><span>04</span><strong>Trade</strong><small>≤ 0.076 bound</small></a>
+          <a href="#microstructure" data-hero-jump="microstructure"><span>05</span><strong>Microstructure</strong><small>0 / 144 net-positive</small></a>
+        </nav>
       </div>
-      <figure class="hero-research-brief hero-strategy-console" aria-labelledby="hero-brief-title" data-hero-console>
-        <div class="brief-label"><span>Strategy evidence</span><span class="console-status">Stopped at data gate</span></div>
+      <figure class="hero-research-brief hero-shared-console" aria-labelledby="hero-brief-title" data-hero-brief>
+        <div class="brief-label"><span data-hero-field>Causal inference</span><span data-hero-evidence>Known-truth validation</span></div>
         <figcaption>
-          <small>Central question</small>
-          <h2 id="hero-brief-title">Did the strategy survive costs and drawdowns?</h2>
+          <small>Selected question</small>
+          <h2 id="hero-brief-title" data-hero-question>Can a treatment-effect model identify who benefits most?</h2>
         </figcaption>
-        <div class="console-switcher" role="tablist" aria-label="Strategy evidence view">
-          <button class="is-active" id="console-tab-performance" type="button" role="tab" aria-selected="true" aria-controls="console-performance" data-console-view="performance">Return &amp; drawdown</button>
-          <button id="console-tab-gates" type="button" role="tab" aria-selected="false" aria-controls="console-gates" tabindex="-1" data-console-view="gates">Gate trace</button>
+        <div class="hero-evidence-result">
+          <span>Published result</span>
+          <strong data-hero-result>0.0417</strong>
+          <small data-hero-result-label>HTE learner RMSE · gate failed</small>
         </div>
-        <div class="console-panel" id="console-performance" role="tabpanel" aria-labelledby="console-tab-performance" data-console-panel="performance">
-          <div class="strategy-kpis" aria-label="Strategy performance status">
-            <article><span>Net return</span><strong>NOT RUN</strong><small>No claim</small></article>
-            <article><span>Max drawdown</span><strong>NOT RUN</strong><small>No claim</small></article>
-            <article><span>Turnover</span><strong>NOT RUN</strong><small>No claim</small></article>
-          </div>
-          <p class="console-explanation">The zero-warning gate failed before selection, held-out testing, execution, or P&amp;L.</p>
-        </div>
-        <div class="console-panel" id="console-gates" role="tabpanel" aria-labelledby="console-tab-gates" data-console-panel="gates" hidden>
-          <ol class="gate-trace">
-            <li class="is-pass"><span>01</span><strong>BTC train</strong><small>0 warnings · PASS</small></li>
-            <li class="is-stop"><span>02</span><strong>ETH train</strong><small>53 warnings · STOP</small></li>
-            <li><span>03</span><strong>Selection</strong><small>LOCKED</small></li>
-            <li><span>04</span><strong>P&amp;L</strong><small>NOT RUN</small></li>
-          </ol>
-        </div>
-        <div class="brief-takeaway"><span>Finding</span><p><strong>Research stopped correctly.</strong> Zero return is not the result; no return was estimated.</p></div>
-        <div class="brief-boundary">Public market data · predeclared gate · no profitability claim</div>
+        <div class="brief-takeaway"><span>Finding</span><p data-hero-finding>The learner loses to the oracle and fails the predeclared recovery gate.</p></div>
+        <div class="hero-method-line"><span>Method</span><p data-hero-method>Compare held-out predictions with known effects and a constant-effect oracle.</p></div>
+        <div class="brief-boundary" data-hero-boundary>Semi-synthetic validation—not a live-market effect estimate.</div>
       </figure>
     </div>
   </section>
@@ -84,46 +76,46 @@
         <p>Select a project, switch the metric, focus any mark.</p>
       </div>
 
-      <div class="signal-lab" data-signal-lab data-accent="violet">
+      <div class="signal-lab" data-signal-lab data-accent="teal">
         <div class="signal-tabs" role="tablist" aria-label="Choose a research signal">
-          <button class="signal-tab is-active" id="signal-tab-microstructure" type="button" role="tab" aria-selected="true" aria-controls="signal-panel" data-signal-project="microstructure"><span>01</span><strong>Strategy performance</strong><small>Return · drawdown gate</small></button>
-          <button class="signal-tab" id="signal-tab-casuallab" type="button" role="tab" aria-selected="false" aria-controls="signal-panel" tabindex="-1" data-signal-project="casuallab"><span>02</span><strong>HTE recovery</strong><small>Model validation</small></button>
-          <button class="signal-tab" id="signal-tab-macroeconomics" type="button" role="tab" aria-selected="false" aria-controls="signal-panel" tabindex="-1" data-signal-project="macroeconomics"><span>03</span><strong>Vintage leakage</strong><small>Backtest audit</small></button>
-          <button class="signal-tab" id="signal-tab-realestate" type="button" role="tab" aria-selected="false" aria-controls="signal-panel" tabindex="-1" data-signal-project="realestate"><span>04</span><strong>Mortgage lock-in</strong><small>Exit hazard</small></button>
-          <button class="signal-tab" id="signal-tab-tariff-incidence" type="button" role="tab" aria-selected="false" aria-controls="signal-panel" tabindex="-1" data-signal-project="tariff-incidence"><span>05</span><strong>Tariff burden</strong><small>Price decomposition</small></button>
+          <button class="signal-tab is-active" id="signal-tab-casuallab" type="button" role="tab" aria-selected="true" aria-controls="signal-panel" data-signal-project="casuallab"><span>01</span><strong>HTE recovery</strong><small>0.0417 RMSE</small></button>
+          <button class="signal-tab" id="signal-tab-macroeconomics" type="button" role="tab" aria-selected="false" aria-controls="signal-panel" tabindex="-1" data-signal-project="macroeconomics"><span>02</span><strong>Vintage leakage</strong><small>863 leaked cells</small></button>
+          <button class="signal-tab" id="signal-tab-realestate" type="button" role="tab" aria-selected="false" aria-controls="signal-panel" tabindex="-1" data-signal-project="realestate"><span>03</span><strong>Mortgage lock-in</strong><small>0.817 hazard ratio</small></button>
+          <button class="signal-tab" id="signal-tab-tariff-incidence" type="button" role="tab" aria-selected="false" aria-controls="signal-panel" tabindex="-1" data-signal-project="tariff-incidence"><span>04</span><strong>Tariff burden</strong><small>≤ 0.076 bound</small></button>
+          <button class="signal-tab" id="signal-tab-microstructure" type="button" role="tab" aria-selected="false" aria-controls="signal-panel" tabindex="-1" data-signal-project="microstructure"><span>05</span><strong>Market backtest</strong><small>0 / 144 net-positive</small></button>
         </div>
 
-        <article class="signal-panel" id="signal-panel" role="tabpanel" aria-labelledby="signal-tab-microstructure" aria-live="polite">
+        <article class="signal-panel" id="signal-panel" role="tabpanel" aria-labelledby="signal-tab-casuallab" aria-live="polite">
           <header class="signal-panel-head">
             <div class="signal-copy">
-              <div class="signal-meta"><span data-signal-evidence>PUBLIC MARKET DATA · DECLARED QUALITY GATE</span><span data-signal-period>Frozen M8 trade-only protocol</span></div>
-              <h3 data-signal-question>Did the strategy survive costs and drawdowns?</h3>
-              <p data-signal-note>NOT RUN is not zero performance; no profitability claim is authorized.</p>
+              <div class="signal-meta"><span data-signal-evidence>SEMI-SYNTHETIC · KNOWN-TRUTH VALIDATION</span><span data-signal-period>Predeclared recovery audit</span></div>
+              <h3 data-signal-question>Can a treatment-effect model identify who benefits most?</h3>
+              <p data-signal-note>Semi-synthetic validation—not a live-market effect estimate.</p>
             </div>
-            <div class="signal-stat"><strong data-signal-headline>NOT RUN</strong><span data-signal-headline-label>net return · max drawdown</span></div>
+            <div class="signal-stat"><strong data-signal-headline>0.0417</strong><span data-signal-headline-label>HTE learner RMSE · gate failed</span></div>
           </header>
 
-          <section class="micro-performance" data-micro-performance aria-label="Strategy return and drawdown status">
-            <header><span>Strategy performance status</span><strong>Stopped before estimation</strong></header>
+          <section class="micro-performance" data-micro-performance data-backtest-root aria-label="Exploratory strategy return and drawdown" hidden>
+            <header><span>Exploratory simulation · reference only</span><strong>Nonconfirmatory · not live trading</strong></header>
             <div class="performance-grid">
-              <article><span>Net return</span><strong>NOT RUN</strong><small>No profitability estimate</small></article>
-              <article><span>Max drawdown</span><strong>NOT RUN</strong><small>No risk estimate</small></article>
-              <article><span>Turnover</span><strong>NOT RUN</strong><small>No execution estimate</small></article>
-              <article class="is-gate"><span>Blocking evidence</span><strong>53</strong><small>ETH quality warnings</small></article>
+              <article><span>Positive after fees</span><strong>0 / 144</strong><small>Counterfactual scenarios</small></article>
+              <article><span>Median net edge</span><strong>−3.86 bp</strong><small>Per turnover</small></article>
+              <article><span>Frozen fee</span><strong>4.00 bp</strong><small>All scenarios</small></article>
+              <article class="is-gate"><span>Median max drawdown</span><strong>3.92 bp</strong><small>Per turnover</small></article>
             </div>
-            <div class="performance-trace" aria-label="Quality gate trace"><span class="is-pass">BTC · 0 warnings</span><i aria-hidden="true">→</i><span class="is-stop">ETH · 53 warnings</span><i aria-hidden="true">→</i><span>Selection locked</span><i aria-hidden="true">→</i><span>P&amp;L not run</span></div>
-            <p>Direct conclusion: the study stopped at the declared data gate. No value is presented as a zero return.</p>
+            <div class="backtest-explorer" data-backtest-explorer><p>Loading the bounded scenario summary…</p></div>
+            <p>Reference only. One four-hour capture, simulated market orders, adjacent pseudo-heldout phases, and no profitability or capacity claim.</p>
           </section>
 
           <div class="research-story" aria-label="Research summary">
-            <article><span>Method</span><p data-signal-method>Require a zero-warning data gate before selection, held-out testing, execution, or P&amp;L.</p></article>
-            <article class="story-finding"><span>Finding</span><p data-signal-finding>ETH raised 53 warnings, so strategy return and drawdown were never estimated.</p></article>
-            <article><span>Limit</span><p data-signal-boundary>NOT RUN is not zero performance; no profitability claim is authorized.</p></article>
+            <article><span>Method</span><p data-signal-method>Compare held-out predictions with known effects and a constant-effect oracle.</p></article>
+            <article class="story-finding"><span>Finding</span><p data-signal-finding>The learner loses to the oracle (0.0417 vs 0.0247 RMSE) and fails the gate.</p></article>
+            <article><span>Limit</span><p data-signal-boundary>Semi-synthetic validation—not a live-market effect estimate.</p></article>
           </div>
 
           <div class="signal-toolbar">
             <div class="metric-switcher" data-signal-metrics role="group" aria-label="Chart metric"></div>
-            <span class="signal-source" data-signal-source>Microstructure/STATUS.md</span>
+            <span class="signal-source" data-signal-source>CasualLab/artifacts/benchmarks/heterogeneity/hte_recovery.json</span>
           </div>
 
           <div class="signal-chart-wrap">
@@ -131,7 +123,7 @@
               <div class="chart-loading">Loading the published signal…</div>
             </div>
             <div class="chart-legend" data-chart-legend></div>
-            <p class="chart-caption" data-signal-chart-caption>The gate passed for BTC, failed for ETH, and blocked every performance stage.</p>
+            <p class="chart-caption" data-signal-chart-caption>Lower RMSE is better; the learner must beat the oracle.</p>
           </div>
 
           <details class="signal-table" data-signal-table>
@@ -140,9 +132,9 @@
           </details>
 
           <div class="signal-actions">
-            <a class="button button-primary" data-signal-page href="projects/microstructure/">Read the study</a>
-            <a class="button button-secondary" data-signal-space href="https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory?project=microstructure">Stress-test in the lab</a>
-            <a class="signal-inline-link" data-signal-data href="https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/blob/main/Microstructure/STATUS.md">Open evidence <span aria-hidden="true">↗</span></a>
+            <a class="button button-primary" data-signal-page href="projects/casuallab/">Read the study</a>
+            <a class="button button-secondary" data-signal-space href="https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory?project=casuallab">Stress-test in the lab</a>
+            <a class="signal-inline-link" data-signal-data href="https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/CasualLab">Open evidence <span aria-hidden="true">↗</span></a>
           </div>
         </article>
       </div>

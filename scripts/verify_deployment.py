@@ -34,6 +34,7 @@ PUBLIC_URLS = (
     "https://yangxiaoshawn.github.io/projects/realestate/",
     "https://yangxiaoshawn.github.io/projects/tariff-incidence/",
     "https://yangxiaoshawn.github.io/projects/microstructure/",
+    "https://yangxiaoshawn.github.io/assets/data/microstructure_backtest_reference.json",
     "https://yangxiaoshawn.github.io/robots.txt",
     "https://yangxiaoshawn.github.io/sitemap.xml",
     "https://github.com/YangXiaoShawn/open-economic-quant-casuallab",
@@ -77,6 +78,7 @@ def main() -> None:
         ROOT / "assets" / "css" / "styles.css",
         ROOT / "assets" / "js" / "app.js",
         ROOT / "assets" / "data" / "evidence.json",
+        ROOT / "assets" / "data" / "microstructure_backtest_reference.json",
         ROOT / "assets" / "data" / "projects.json",
         ROOT / "assets" / "og-visual-2026.png",
         ROOT / "projects" / "casuallab" / "index.html",
@@ -90,6 +92,7 @@ def main() -> None:
         ROOT / "apps" / "space" / "styles.css",
         ROOT / "apps" / "space" / "app.js",
         ROOT / "apps" / "space" / "evidence.json",
+        ROOT / "apps" / "space" / "microstructure_backtest_reference.json",
         ROOT / "apps" / "space" / "favicon.svg",
         ROOT / "apps" / "space" / "catalog" / "Microstructure.json",
     ]
@@ -142,15 +145,40 @@ def main() -> None:
                 if not metric_ids.issubset(row):
                     failures.append(f"evidence series omits a metric for {slug}")
                     break
-        micro_rows = evidence.get("projects", {}).get("microstructure", {}).get("series", [])
-        if {row.get("status") for row in micro_rows if row.get("stage") in {"Selection", "Held-out"}} != {"not_run"}:
-            failures.append("microstructure stopped stages are not explicitly marked not_run")
+        micro = evidence.get("projects", {}).get("microstructure", {})
+        if micro.get("headline", {}).get("value") != "0 / 144" or micro.get("default_metric") != "net_edge_bps":
+            failures.append("microstructure evidence does not lead with the current fee-adjusted scenario result")
         tariff = evidence.get("projects", {}).get("tariff-incidence", {})
         if tariff.get("default_metric") != "customs" or not tariff.get("reference", {}).get("customs_bound"):
             failures.append("tariff evidence does not lead with the customs-value bound")
         space_evidence = ROOT / "apps" / "space" / "evidence.json"
         if space_evidence.exists() and json.loads(space_evidence.read_text(encoding="utf-8")) != evidence:
             failures.append("website and Space evidence catalogs differ")
+
+    reference_path = ROOT / "assets" / "data" / "microstructure_backtest_reference.json"
+    space_reference_path = ROOT / "apps" / "space" / "microstructure_backtest_reference.json"
+    if reference_path.exists() and space_reference_path.exists():
+        reference = json.loads(reference_path.read_text(encoding="utf-8"))
+        space_reference = json.loads(space_reference_path.read_text(encoding="utf-8"))
+        if space_reference != reference:
+            failures.append("website and Space microstructure reference summaries differ")
+        scenarios = reference.get("scenarios", [])
+        overview = reference.get("overview", {})
+        if len(scenarios) != 144 or overview.get("scenario_count") != 144:
+            failures.append("microstructure reference summary does not contain exactly 144 scenarios")
+        if overview.get("gross_positive_count") != 110 or overview.get("net_positive_count") != 0:
+            failures.append("microstructure reference summary has unexpected gross/net positive counts")
+        if {row.get("fee_edge_bps") for row in scenarios} != {4.0}:
+            failures.append("microstructure reference summary does not preserve the frozen 4 bp fee")
+        if any(abs(row.get("gross_pnl_usdt", 0) - row.get("fees_usdt", 0) - row.get("net_pnl_usdt", 0)) > 2e-6 for row in scenarios):
+            failures.append("microstructure reference summary violates gross minus fees equals net P&L")
+        if any(reference.get("claim_boundary", {}).values()):
+            failures.append("microstructure reference summary authorizes a prohibited claim")
+        if reference.get("provenance", {}).get("source_commit") != "b918673405226467d6e5c2fa1f2fac59cca19d03":
+            failures.append("microstructure reference summary source commit changed unexpectedly")
+        disclaimer = str(reference.get("disclaimer", "")).lower()
+        if "research reference only" not in disclaimer or "not live trading" not in disclaimer or "must not be summed" not in disclaimer:
+            failures.append("microstructure reference summary is missing required public warnings")
 
     home_path = ROOT / "index.html"
     if home_path.exists() and "assets/og-visual-2026.png" not in home_path.read_text(encoding="utf-8"):
@@ -212,6 +240,9 @@ def main() -> None:
             remote_space_evidence = online_json(f"{space_base}/evidence.json")
             if remote_space_evidence != evidence:
                 failures.append("remote Space evidence does not match the website or pinned Dataset revision")
+            remote_space_reference = online_json(f"{space_base}/microstructure_backtest_reference.json")
+            if remote_space_reference != reference:
+                failures.append("remote Space microstructure reference differs from the verified local summary")
             status_url = f"https://huggingface.co/datasets/{DATASET_ID}/resolve/{revision}/Microstructure/STATUS.md"
             if online_status(status_url) != 200:
                 failures.append("pinned Microstructure STATUS evidence is not available from the Dataset")

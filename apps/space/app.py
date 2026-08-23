@@ -73,9 +73,9 @@ PROJECTS = {
         slug="microstructure",
         prefix="Microstructure",
         field="Market microstructure and quantitative finance",
-        question="When should an apparent short-horizon market signal be stopped by a predeclared evidence gate?",
-        summary="A reproducibility-first market-microstructure system that separates data quality, leakage-safe prediction, execution assumptions, and simulated outcomes.",
-        methodology="Preserve event ordering, prevent temporal leakage, evaluate with purged time-ordered splits, keep execution assumptions separate, and stop publication when a declared data-quality gate fails.",
+        question="Did short-horizon predictive edge survive frozen fees and marked drawdown in the current exploratory simulation?",
+        summary="A reproducibility-first market-microstructure system whose current four-hour reference result shows 110 of 144 scenarios gross-positive and 0 of 144 positive after a frozen 4 bp fee.",
+        methodology="Preserve event ordering, prevent temporal leakage, evaluate pseudoheldout phases separately, expose fees and turnover-normalized marked drawdown, and label the result as nonconfirmatory simulation rather than live performance.",
         source_url="https://github.com/YangXiaoShawn/open-economic-quant-microstructure",
     ),
 }

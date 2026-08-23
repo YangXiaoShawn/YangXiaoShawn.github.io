@@ -3,7 +3,7 @@ casuallab,Causal Marketplace Lab,RIGHTS_UNKNOWN,Requires explicit rights review 
 macroeconomics,Real-Time Macro Nowcasting and Policy Shock Engine,RIGHTS_UNKNOWN,Requires explicit rights review before publishing raw datasets/reports
 realestate,Mortgage Rate Lock-In and Housing Market Dynamics,APPROVED_WITH_EXCLUSIONS,Publish tracked source and aggregate reports only; exclude registered Freddie Mac records and loan-granular derivatives
 tariff-incidence,"Tariff Incidence, Supply-Chain Reallocation, and Domestic Propagation",APPROVED_WITH_EXCLUSIONS,Publish tracked source and narrative reports; exclude large raw staged normalized analytical files and parquet result tables
-microstructure,Order Flow to Price Impact,APPROVED_WITH_EXCLUSIONS,Publish canonical Git-tracked MIT source and documentation only; exclude exchange data derived tables fitted states ingestion authorities and generated run bundles
+microstructure,Order Flow to Price Impact,APPROVED_WITH_EXCLUSIONS,Publish canonical Git-tracked MIT source and documentation plus the bounded PUBLIC_DERIVED_ONLY site/Space scenario summary; exclude exchange data event tables fitted states ledgers ingestion authorities and generated run bundles
 microstructure-cleanroom-3f0f278,Order Flow to Price Impact,RIGHTS_UNKNOWN,Requires explicit rights review before publishing raw datasets/reports
 microstructure-m8-l2-2026-08-10-13,Order Flow to Price Impact,RIGHTS_UNKNOWN,Requires explicit rights review before publishing raw datasets/reports
 microstructure-m8-l2-frozen,Order Flow to Price Impact,RIGHTS_UNKNOWN,Requires explicit rights review before publishing raw datasets/reports

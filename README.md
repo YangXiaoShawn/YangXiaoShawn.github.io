@@ -13,7 +13,7 @@ A public research platform for reproducible economics, finance, quantitative met
 - Microstructure source: https://github.com/YangXiaoShawn/open-economic-quant-microstructure
 - Full research dataset: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data
 - Interactive Hugging Face Space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
-- Static runtime revision: `aa3a21af0a35a736d1d6aae55bf0bc3f20ab3aa5`
+- Static runtime revision: `79e02658284ec4d5b911514df9b6e9414c38e9bb`
 
 ## Published projects
 
@@ -23,9 +23,9 @@ A public research platform for reproducible economics, finance, quantitative met
 | Macroeconomics | Real-time macro forecasting and vintage analysis | Public live | `python -m macro_nowcast.pipeline` |
 | Mortgage Rate Lock-In | Housing economics, mortgage finance, applied econometrics | Public live | `make reproduce-sample` |
 | Tariff Incidence | International trade, tariff pass-through, supply-chain propagation | Public live | `make reproduce-sample` |
-| Order Flow to Price Impact | Market microstructure, evidence gates, execution research | Public live | `make reproduce-sample` |
+| Order Flow to Price Impact | Market microstructure, exploratory execution simulation | Public live · reference only | `make reproduce-sample` |
 
-The public GitHub copies are intentionally compact. The full research payload is versioned in the Hugging Face Dataset, while the Space reads from that dataset instead of duplicating it.
+The public GitHub copies are intentionally compact. The full research payload is versioned in the Hugging Face Dataset. The Space reads its file catalogs from that release and includes one bounded, checksum-verified Microstructure scenario summary for interactive reference.
 
 ## Repository architecture
 

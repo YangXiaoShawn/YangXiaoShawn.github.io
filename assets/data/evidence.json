@@ -82,26 +82,27 @@
       ]
     },
     "microstructure": {
-      "title": "Strategy return & drawdown gate",
-      "question": "Did the strategy survive costs and drawdowns?",
-      "evidence": "PUBLIC MARKET DATA · DECLARED QUALITY GATE",
-      "period": "Frozen M8 trade-only protocol",
-      "headline": {"value": "NOT RUN", "label": "net return · max drawdown"},
-      "method": "Require a zero-warning data gate before selection, held-out testing, execution, or P&L.",
-      "finding": "ETH raised 53 warnings, so strategy return and drawdown were never estimated.",
-      "note": "NOT RUN is not zero performance; no profitability claim is authorized.",
-      "chart_caption": "The gate passed for BTC, failed for ETH, and blocked every performance stage.",
-      "source": "Microstructure/STATUS.md",
-      "default_metric": "warnings",
+      "title": "Exploratory strategy simulation",
+      "question": "Did the predictive edge survive fees and drawdown?",
+      "evidence": "EXPLORATORY SIMULATION · REFERENCE ONLY",
+      "period": "One continuous 4-hour L2 pilot · 2026-08-13/14 UTC",
+      "headline": {"value": "0 / 144", "label": "scenarios positive after fees"},
+      "method": "Compare 144 deterministic market-order scenarios across two symbols, two pseudo-heldout phases, four horizons, and a 3×3 latency grid under a frozen 4 bp taker fee.",
+      "finding": "110 scenarios are gross-positive, but none remain positive after the frozen fee; median net edge is −3.855 bp per turnover.",
+      "note": "Research reference only: one nonconfirmatory capture, simulated execution, no profitability or capacity claim.",
+      "chart_caption": "Metric-wise minimum, median, and maximum across 144 mutually exclusive counterfactual scenarios; values must not be summed.",
+      "source": "assets/data/microstructure_backtest_reference.json",
+      "source_url": "https://yangxiaoshawn.github.io/assets/data/microstructure_backtest_reference.json",
+      "default_metric": "net_edge_bps",
       "metrics": [
-        {"id": "warnings", "label": "Quality warnings", "unit": "warnings", "type": "bar"},
-        {"id": "rows", "label": "Rows inspected", "unit": "rows", "type": "bar"}
+        {"id": "net_edge_bps", "label": "Net edge", "unit": "bp / turnover", "type": "bar"},
+        {"id": "drawdown_bps", "label": "Max drawdown", "unit": "bp / turnover", "type": "bar"},
+        {"id": "net_pnl_usdt", "label": "Net P&L", "unit": "USDT", "type": "bar"}
       ],
       "series": [
-        {"stage":"BTC train","warnings":0,"rows":2071461,"status":"passed","outcome":"normalization passed"},
-        {"stage":"ETH train","warnings":53,"rows":987297,"status":"failed","outcome":"zero-warning gate failed"},
-        {"stage":"Selection","warnings":0,"rows":0,"status":"not_run","outcome":"not started"},
-        {"stage":"Held-out","warnings":0,"rows":0,"status":"not_run","outcome":"not opened"}
+        {"stage":"Minimum","net_edge_bps":-8.768465,"drawdown_bps":3.248657,"net_pnl_usdt":-244.553335,"outcome":"metric-wise lower endpoint"},
+        {"stage":"Median","net_edge_bps":-3.855473,"drawdown_bps":3.923118,"net_pnl_usdt":-23.101318,"outcome":"median across 144 scenarios"},
+        {"stage":"Maximum","net_edge_bps":-1.614769,"drawdown_bps":15.762424,"net_pnl_usdt":-0.322313,"outcome":"metric-wise upper endpoint"}
       ]
     },
     "tariff-incidence": {

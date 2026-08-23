@@ -2,7 +2,7 @@
   'use strict';
 
   const REPO = 'ShawnChamberlain/open-economic-quant-research-data';
-  const ORDER = ['microstructure', 'casuallab', 'macroeconomics', 'realestate', 'tariff-incidence'];
+  const ORDER = ['casuallab', 'macroeconomics', 'realestate', 'tariff-incidence', 'microstructure'];
   const VIEWS = ['signal', 'portfolio', 'files', 'notes'];
   const META = {
     casuallab: { folder: 'CasualLab', accent: 'teal', page: 'https://yangxiaoshawn.github.io/projects/casuallab/', data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/CasualLab', source: 'https://github.com/YangXiaoShawn/open-economic-quant-casuallab' },
@@ -13,11 +13,12 @@
   };
   const COLORS = { code: '#6ee7d8', data: '#8eb8ff', reports: '#ffca6a', tests: '#7fe4aa' };
   const params = new URLSearchParams(location.search);
-  let activeProject = ORDER.includes(params.get('project')) ? params.get('project') : 'microstructure';
+  let activeProject = ORDER.includes(params.get('project')) ? params.get('project') : 'casuallab';
   let activeMetric = params.get('metric');
   let activeView = VIEWS.includes(params.get('view')) ? params.get('view') : 'signal';
   let activeFilter = ['all', 'code', 'data', 'reports', 'tests'].includes(params.get('filter')) ? params.get('filter') : 'all';
   let evidence = null;
+  let backtestReference = null;
   let rows = [];
   const cache = {};
   const categoryLabel = (category) => activeProject === 'microstructure' && category === 'data' ? 'data paths' : category;
@@ -38,6 +39,8 @@
     const numeric = Number(value);
     if (metric.unit === 'trips') return compact(numeric, 2);
     if (metric.unit === 'USD') return `$${numeric.toFixed(2)}`;
+    if (metric.unit === 'USDT') return `${numeric < 0 ? '−' : numeric > 0 ? '+' : ''}$${Math.abs(numeric).toFixed(2)}`;
+    if (metric.unit === 'bp / turnover') return `${numeric > 0 ? '+' : ''}${numeric.toFixed(2)} bp`;
     if (metric.unit === '%') return `${numeric.toFixed(metric.id === 'hazard' ? 3 : 2)}%`;
     if (['cells', 'rows', 'warnings'].includes(metric.unit)) return Math.round(numeric).toLocaleString('en-US');
     if (metric.unit === 'log points') return signed(numeric);
@@ -49,6 +52,8 @@
     const numeric = Number(value);
     if (['trips', 'cells', 'rows', 'warnings'].includes(metric.unit)) return compact(numeric, 1);
     if (metric.unit === 'USD') return `$${numeric.toFixed(0)}`;
+    if (metric.unit === 'USDT') return `${numeric < 0 ? '−' : ''}$${Math.abs(numeric).toFixed(0)}`;
+    if (metric.unit === 'bp / turnover') return `${numeric.toFixed(1)} bp`;
     if (metric.unit === '%') return `${numeric.toFixed(numeric >= 10 ? 0 : 1)}%`;
     if (metric.unit === 'log points') return signed(numeric, 2);
     if (metric.unit === 'effect units') return numeric.toFixed(3);
@@ -110,7 +115,7 @@
     if (activeProject === 'macroeconomics') first = 'Backtest mode';
     if (activeProject === 'realestate') first = 'Rate-gap bucket';
     if (activeProject === 'tariff-incidence') first = 'Window';
-    if (activeProject === 'microstructure') first = 'Pipeline gate';
+    if (activeProject === 'microstructure') first = 'Distribution point';
     head.innerHTML = `<tr><th>${first}</th><th>${escapeHTML(metric.label)}</th><th>Context</th></tr>`;
     body.innerHTML = project.series.map((row) => {
       const x = xDescriptor(activeProject, row);
@@ -225,6 +230,73 @@
     renderTable(project, metric);
   };
 
+  const money = (value) => `${Number(value) < 0 ? '−' : Number(value) > 0 ? '+' : ''}$${Math.abs(Number(value)).toFixed(2)}`;
+  const basisPoints = (value) => `${Number(value) > 0 ? '+' : ''}${Number(value).toFixed(2)} bp`;
+  const endpointLabel = (value) => ({ event_20: '20 events', event_100: '100 events', clock_1000ms: '1 second', clock_5000ms: '5 seconds' }[value] || value);
+  const phaseLabel = (value) => value === 'primary_test' ? 'Primary pseudo-heldout' : 'Replication pseudo-heldout';
+  let backtestSelection = { symbol: 'BTCUSDT', phase: 'primary_test', endpoint: 'clock_1000ms', decision: 1, order: 1 };
+
+  const renderBacktestExplorer = () => {
+    const root = one('[data-backtest-explorer]');
+    if (!root || activeProject !== 'microstructure') return;
+    if (!backtestReference) {
+      root.innerHTML = '<p class="backtest-unavailable">The bounded scenario summary could not load. The distribution chart remains available.</p>';
+      return;
+    }
+    const { design, overview, scenarios, disclaimer, provenance } = backtestReference;
+    const option = (value, selected, label = value) => `<option value="${escapeHTML(value)}"${value === selected ? ' selected' : ''}>${escapeHTML(label)}</option>`;
+    const match = scenarios.find((row) => row.symbol === backtestSelection.symbol && row.phase === backtestSelection.phase
+      && row.endpoint === backtestSelection.endpoint && row.decision_latency_events === backtestSelection.decision
+      && row.order_latency_events === backtestSelection.order) || backtestReference.default_scenario;
+    backtestSelection = { symbol: match.symbol, phase: match.phase, endpoint: match.endpoint, decision: match.decision_latency_events, order: match.order_latency_events };
+    const latencyButtons = design.decision_latency_events.flatMap((decision) => design.order_latency_events.map((order) => {
+      const selected = decision === backtestSelection.decision && order === backtestSelection.order;
+      return `<button type="button" role="radio" aria-checked="${selected}" tabindex="${selected ? 0 : -1}" data-latency-cell data-decision="${decision}" data-order="${order}"><span>d${decision}</span><small>o${order}</small></button>`;
+    })).join('');
+    root.innerHTML = `<div class="backtest-overview" aria-label="Scenario distribution overview">
+        <div><span>Gross-positive</span><strong>${overview.gross_positive_count} / ${overview.scenario_count}</strong></div>
+        <div><span>Net-positive</span><strong>${overview.net_positive_count} / ${overview.scenario_count}</strong></div>
+        <div><span>Median net edge</span><strong>${basisPoints(overview.net_edge_bps.median)}</strong></div>
+        <div><span>Median max drawdown</span><strong>${basisPoints(overview.max_drawdown_bps_of_turnover.median)}</strong></div>
+      </div>
+      <div class="backtest-controls">
+        <div class="backtest-selects">
+          <label>Symbol<select data-backtest-filter="symbol">${design.symbols.map((value) => option(value, backtestSelection.symbol)).join('')}</select></label>
+          <label>Phase<select data-backtest-filter="phase">${design.evaluation_phases.map((value) => option(value, backtestSelection.phase, phaseLabel(value))).join('')}</select></label>
+          <label>Horizon<select data-backtest-filter="endpoint">${design.endpoints.map((value) => option(value, backtestSelection.endpoint, endpointLabel(value))).join('')}</select></label>
+        </div>
+        <div class="latency-control"><div><span>Latency grid</span><small>decision × order events</small></div><div class="latency-grid" role="radiogroup" aria-label="Decision and order latency event grid">${latencyButtons}</div></div>
+      </div>
+      <article class="selected-scenario" aria-live="polite">
+        <header><div><span>Selected scenario</span><strong>${escapeHTML(match.symbol)} · ${escapeHTML(phaseLabel(match.phase))} · ${escapeHTML(endpointLabel(match.endpoint))}</strong></div><small>d${match.decision_latency_events} / o${match.order_latency_events}</small></header>
+        <div class="scenario-flow" aria-label="Gross profit and loss minus fees approximately equals net profit and loss after display rounding"><div><span>Gross P&amp;L</span><strong>${money(match.gross_pnl_usdt)}</strong></div><i aria-hidden="true">−</i><div><span>Fees</span><strong>$${Math.abs(Number(match.fees_usdt)).toFixed(2)}</strong></div><i aria-hidden="true" title="Rounded display">≈</i><div class="is-net"><span>Net P&amp;L</span><strong>${money(match.net_pnl_usdt)}</strong></div></div>
+        <div class="scenario-metrics"><div><span>Net edge</span><strong>${basisPoints(match.net_edge_bps)}</strong></div><div><span>Max drawdown</span><strong>${money(-Math.abs(match.max_drawdown_usdt))}</strong></div><div><span>Drawdown / turnover</span><strong>${basisPoints(match.max_drawdown_bps_of_turnover)}</strong></div><div><span>Orders / fills</span><strong>${Number(match.orders).toLocaleString('en-US')} / ${Number(match.fills).toLocaleString('en-US')}</strong></div></div>
+      </article>
+      <div class="backtest-provenance"><p><strong>Exploratory simulation · research reference only.</strong> ${escapeHTML(disclaimer)}</p><p>${provenance.verified_files} files verified, ${provenance.failed_files} failures. Scenarios overlap and are a distribution, not a portfolio total. <a href="./microstructure_backtest_reference.json">Open bounded JSON</a>.</p></div>`;
+    root.querySelectorAll('[data-backtest-filter]').forEach((select) => select.addEventListener('change', () => {
+      backtestSelection[select.dataset.backtestFilter] = select.value;
+      renderBacktestExplorer();
+    }));
+    const cells = [...root.querySelectorAll('[data-latency-cell]')];
+    cells.forEach((button) => {
+      button.addEventListener('click', () => {
+        backtestSelection.decision = Number(button.dataset.decision);
+        backtestSelection.order = Number(button.dataset.order);
+        renderBacktestExplorer();
+        root.querySelector(`[data-decision="${backtestSelection.decision}"][data-order="${backtestSelection.order}"]`)?.focus();
+      });
+      button.addEventListener('keydown', (event) => {
+        if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End'].includes(event.key)) return;
+        event.preventDefault();
+        const current = cells.indexOf(button);
+        const columns = design.order_latency_events.length;
+        const delta = event.key === 'ArrowLeft' ? -1 : event.key === 'ArrowRight' ? 1 : event.key === 'ArrowUp' ? -columns : columns;
+        const next = event.key === 'Home' ? 0 : event.key === 'End' ? cells.length - 1 : Math.max(0, Math.min(cells.length - 1, current + delta));
+        cells[next].click();
+      });
+    });
+  };
+
   const renderEvidence = () => {
     if (!evidence) return;
     const project = evidence.projects[activeProject];
@@ -256,7 +328,7 @@
     };
     Object.entries(text).forEach(([selector, value]) => { one(selector).textContent = value; });
     one('[data-project-page]').href = meta.page;
-    one('[data-dataset]').href = datasetFileURL(project.source, evidence.dataset_revision);
+    one('[data-dataset]').href = project.source_url || datasetFileURL(project.source, evidence.dataset_revision);
     one('[data-source-code]').href = meta.source;
     const performance = one('[data-micro-performance]');
     if (performance) performance.hidden = activeProject !== 'microstructure';
@@ -276,6 +348,7 @@
       button.addEventListener('keydown', (event) => moveFocus(metricButtons, index, event));
     });
     renderChart(project, metric);
+    renderBacktestExplorer();
     renderPortfolio();
   };
 
@@ -414,7 +487,7 @@
   });
 
   one('[data-reset]').addEventListener('click', () => {
-    activeProject = 'microstructure';
+    activeProject = 'casuallab';
     activeMetric = null;
     activeFilter = 'all';
     search.value = '';
@@ -429,7 +502,7 @@
 
   window.addEventListener('popstate', () => {
     const next = new URLSearchParams(location.search);
-    activeProject = ORDER.includes(next.get('project')) ? next.get('project') : 'microstructure';
+    activeProject = ORDER.includes(next.get('project')) ? next.get('project') : 'casuallab';
     activeMetric = next.get('metric');
     activeView = VIEWS.includes(next.get('view')) ? next.get('view') : 'signal';
     activeFilter = ['all', 'code', 'data', 'reports', 'tests'].includes(next.get('filter')) ? next.get('filter') : 'all';
@@ -445,13 +518,16 @@
     setView(activeView, 'none');
   });
 
-  fetch('./evidence.json')
-    .then((response) => {
+  Promise.all([
+    fetch('./evidence.json').then((response) => {
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       return response.json();
-    })
-    .then((payload) => {
+    }),
+    fetch('./microstructure_backtest_reference.json').then((response) => response.ok ? response.json() : null).catch(() => null)
+  ])
+    .then(([payload, reference]) => {
       evidence = payload;
+      backtestReference = reference;
       all('[data-revision]').forEach((node) => { node.textContent = `Dataset revision ${payload.dataset_revision.slice(0, 12)}`; });
       renderEvidence();
       setView(activeView, 'replace');

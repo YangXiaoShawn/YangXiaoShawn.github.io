@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-23T20:23:24Z",
+  "generated_at": "2026-08-23T21:05:22Z",
   "repository": {
     "github_repository": "https://github.com/YangXiaoShawn/YangXiaoShawn.github.io",
     "github_pages_url": "https://yangxiaoshawn.github.io/",
@@ -21,7 +21,7 @@
     "microstructure_files": 133,
     "space_repo": "https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory",
     "space_runtime": "https://shawnchamberlain-open-economic-quant-research-ob-5271962.static.hf.space",
-    "space_revision": "aa3a21af0a35a736d1d6aae55bf0bc3f20ab3aa5"
+    "space_revision": "79e02658284ec4d5b911514df9b6e9414c38e9bb"
   },
   "commit_hashes": {
     "site_pre_optimization": "3fa4c1711868ae9b9a376fb4138c0bd913e01a09",

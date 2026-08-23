@@ -10,7 +10,7 @@ Only assets with documented redistribution permission are classified `PUBLIC_OK`
 - Macroeconomics: project code, synthetic fixtures, and guarded public-source adapters are public; agency data retain provider terms and provenance requirements.
 - RealEstate: tracked source, synthetic fixtures, documentation, and aggregate reports are public; registered loan-level records and loan-granular derivatives are excluded.
 - Tariff Incidence: tracked source and narrative reports are public; large raw, intermediate, analytical, and parquet result files are excluded.
-- Microstructure: the canonical Git-tracked source and documentation history is public under MIT. Exchange observations, normalized or derived events, fitted states, ingestion authorities, and generated run bundles are excluded; users obtain public market data independently under provider terms.
+- Microstructure: the canonical Git-tracked source and documentation history is public under MIT. Exchange observations, normalized or derived events, fitted states, ingestion authorities, and generated run bundles are excluded; users obtain public market data independently under provider terms. One bounded, machine-generated 144-scenario exploratory summary is approved as `PUBLIC_DERIVED_ONLY` for the website and Space, with reference-only language and checksum provenance.
 
 ## Dataset limitation
 

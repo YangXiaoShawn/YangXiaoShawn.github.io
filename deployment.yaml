@@ -12,7 +12,7 @@ HUGGINGFACE_DATASET: ShawnChamberlain/open-economic-quant-research-data
 HUGGINGFACE_SPACE: ShawnChamberlain/open-economic-quant-research-observatory
 HF_DATASET_REVISION: 5329ac0f88bae309d6e37eb8fdaefc0f60754f4c
 HF_DATASET_HEAD_REVISION: 5329ac0f88bae309d6e37eb8fdaefc0f60754f4c
-HF_SPACE_REVISION: aa3a21af0a35a736d1d6aae55bf0bc3f20ab3aa5
+HF_SPACE_REVISION: 79e02658284ec4d5b911514df9b6e9414c38e9bb
 DEFAULT_VISIBILITY: public
 DEFAULT_BRANCH: main
 CUSTOM_DOMAIN: ''

@@ -25,7 +25,7 @@ Open Econ × Quant is fully public: the GitHub Pages site, five published projec
 - Full Dataset: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data
 - Live Space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
 - Static runtime: https://shawnchamberlain-open-economic-quant-research-ob-5271962.static.hf.space
-- Space revision: `aa3a21af0a35a736d1d6aae55bf0bc3f20ab3aa5`
+- Space revision: `79e02658284ec4d5b911514df9b6e9414c38e9bb`
 - Evidence-first redesign commit: `87d659519f6a51445b4afe2f2aeeed9ae8520913`.
 - GitHub Pages interactive redesign commit: `3ca1907e84d6242bcde6f1b84f83992cfd8196bd`.
 - Chart-first release commit: `5cf8b1578683065d2b61c97049f08dc33a2763e2`.
@@ -53,8 +53,9 @@ Open Econ × Quant is fully public: the GitHub Pages site, five published projec
 - Catalog generated from `project.yaml` files.
 - Ten stable research section routes.
 - Complete project narratives covering question, importance, source, sample, methods, evidence status, robustness, reproduction, links, citation, limitations, update time, and status.
-- Question-first project switching with HTE recovery, vintage leakage, mortgage hazard, tariff incidence, and Microstructure data-quality-gate evidence.
-- Strategy-performance lead views on the homepage, Microstructure page, and Space make Net return and Max drawdown status explicit while distinguishing `NOT RUN` from zero performance.
+- Five equal, question-first project routes with HTE recovery, vintage leakage, mortgage hazard, tariff incidence, and Microstructure strategy evidence.
+- The Microstructure view exposes the current 144-scenario distribution, frozen 4 bp fees, net P&L, and turnover-normalized marked drawdown through symbol, phase, horizon, and latency controls.
+- The current Microstructure result is labeled “research reference only”; the earlier trade-only `NOT_RUN` data-gate terminal remains separately documented.
 - Metric toggles, keyboard/touch chart tooltips, accessible data tables, and direct links to pinned evidence files.
 - Space signal, portfolio, file, and evidence-note views with shareable URL state and browser back/forward restoration.
 - Live Dataset path search, consistent file-type filters, and directory-size comparisons.
@@ -73,12 +74,12 @@ Open Econ × Quant is fully public: the GitHub Pages site, five published projec
 
 - Catalog generation check: passed, 5 projects, no stale generated output.
 - Compact project validation: passed, 5 projects.
-- Local deployment verification: passed, 32 required artifacts.
+- Local deployment verification: passed, 34 required artifacts.
 - Python syntax compilation: passed using an isolated writable bytecode cache.
-- Hugging Face release-integrity check: passed; the Dataset tree, Space catalog, pinned evidence revision, and all 133 Microstructure records match exactly.
+- Hugging Face release-integrity check: passed; the Dataset tree, Space catalog, pinned evidence revision, all 133 Microstructure records, and the bounded 144-scenario summary match exactly.
 - Interaction checks: passed for the five-project switching logic, keyboard-focusable chart marks, accessible data tables, shareable URL state, and JavaScript syntax.
 - Public homepage, project pages, research routes, dashboard status page, `robots.txt`, and `sitemap.xml`: HTTP 200.
-- Automated online verifier: passed, 15 public resources.
+- Automated online verifier: passed, 16 public resources.
 - GitHub CI: passed for the 2026-08-23 five-project release.
 - GitHub Pages build and deployment: passed for the same release.
 - HF Space: successful, public, and running.

@@ -12,6 +12,9 @@ datasets:
 
 # Open Econ × Quant
 
-A public lab for five economic questions, clear findings, and open evidence.
+A public lab for five parallel economic questions, clear findings, and open evidence.
 
-Each chart links to a named artifact, pinned Dataset revision, and public source.
+Each chart links to a named artifact, pinned revision, and public source. The
+microstructure explorer exposes gross P&L, frozen fees, net P&L, and marked
+drawdown from the current exploratory simulation, labeled research reference
+only.
