@@ -10,7 +10,8 @@ from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
-from huggingface_hub import HfApi, RepoFile
+from huggingface_hub import HfApi
+from huggingface_hub.hf_api import RepoFile
 
 ROOT = Path(__file__).resolve().parents[1]
 DATASET_ID = "ShawnChamberlain/open-economic-quant-research-data"
