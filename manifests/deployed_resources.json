@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-23T15:47:14Z",
+  "generated_at": "2026-08-23T15:52:37Z",
   "repository": {
     "github_repository": "https://github.com/YangXiaoShawn/YangXiaoShawn.github.io",
     "github_pages_url": "https://yangxiaoshawn.github.io/",
@@ -27,7 +27,9 @@
     "site_realestate_release": "f3003b6a3e5f86a7a8bc2c91f52246325782cd7b",
     "tariff_incidence_source_release": "729ebb821bf5b982b5a7d2ec2bd6086a8d7c2df2",
     "site_tariff_incidence_release": "d1805eceff65f1f3ec6b5b22c7e2c7e070e3e895",
-    "site_interactive_redesign": "3ca1907e84d6242bcde6f1b84f83992cfd8196bd"
+    "site_interactive_redesign": "3ca1907e84d6242bcde6f1b84f83992cfd8196bd",
+    "site_chart_first_release": "5cf8b1578683065d2b61c97049f08dc33a2763e2",
+    "site_realestate_repository_release": "6d2dc30af09e8d38b50aa50267cd324cf35b4e0d"
   },
   "deployment_status": {
     "github_repository": "SUCCESS",

@@ -25,8 +25,10 @@ The Open Economic & Quant Research Observatory is fully public: the GitHub Pages
 - Static runtime: https://shawnchamberlain-open-economic-quant-research-ob-5271962.static.hf.space
 - Space revision: `c6eca688fb58f043bbeeabf47a20a88a4f2eb91d`
 - GitHub Pages interactive redesign commit: `3ca1907e84d6242bcde6f1b84f83992cfd8196bd`.
-- CI verification: https://github.com/YangXiaoShawn/YangXiaoShawn.github.io/actions/runs/32052100067
-- Pages deployment: https://github.com/YangXiaoShawn/YangXiaoShawn.github.io/actions/runs/32052098987
+- Chart-first release commit: `5cf8b1578683065d2b61c97049f08dc33a2763e2`.
+- RealEstate standalone repository release commit: `6d2dc30af09e8d38b50aa50267cd324cf35b4e0d`.
+- RealEstate repository release CI: https://github.com/YangXiaoShawn/YangXiaoShawn.github.io/actions/runs/32649726249
+- RealEstate repository Pages deployment: https://github.com/YangXiaoShawn/YangXiaoShawn.github.io/actions/runs/32649725687
 
 ## Dataset release
 
