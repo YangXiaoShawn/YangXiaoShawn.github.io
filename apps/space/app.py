@@ -34,7 +34,7 @@ PROJECTS = {
         prefix="CasualLab",
         field="Causal inference",
         question="How do causal mechanisms and heterogeneous treatment effects shape market outcomes and policy interventions?",
-        summary="A reproducible causal-inference and policy-simulation toolkit with public examples and estimator validation workflows.",
+        summary="Known-truth HTE RMSE is 0.0417 versus 0.0247 for the oracle; the recovery gate is not met.",
         methodology="Define an estimand, document identification assumptions, recover effects on fixtures or authorized public data, validate estimator behavior, and publish a traceable result manifest.",
         source_url="https://github.com/YangXiaoShawn/open-economic-quant-casuallab",
     ),
@@ -44,7 +44,7 @@ PROJECTS = {
         prefix="Macroeconomics",
         field="Macroeconomic forecasting",
         question="How do release revisions and the information available at each vintage affect real-time forecast quality?",
-        summary="A vintage-aware nowcasting and policy-shock research engine with guarded public-source adapters and reproducible fixtures.",
+        summary="Valid modes use zero future cells; the naive revised-data benchmark changes model rankings.",
         methodology="Record source availability, align observations to their real-time vintage, prevent revised-data leakage, backtest models on comparable information sets, and label current revised APIs honestly.",
         source_url="https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics",
     ),
@@ -54,7 +54,7 @@ PROJECTS = {
         prefix="RealEstate",
         field="Housing economics and mortgage finance",
         question="How does the gap between existing mortgage rates and current market rates affect mortgage exits, local activity, prices, and construction?",
-        summary="A reproducible housing-finance research system with registered-data analyses, public aggregate sources, explicit evidence tiers, and strict publication boundaries.",
+        summary="Each +1 pp rate gap is associated with a 0.817 exit-hazard ratio; the estimate is not causal.",
         methodology="Construct point-in-time lock-in measures, model mortgage-exit hazards, freeze predetermined local exposure for event studies, auto-demote results when diagnostics fail, and label counterfactuals as simulations rather than forecasts.",
         source_url="https://github.com/YangXiaoShawn/open-economic-quant-realestate",
     ),
@@ -64,7 +64,7 @@ PROJECTS = {
         prefix="TariffIncidence",
         field="International trade and applied econometrics",
         question="How did U.S. product-level tariffs on imports from China pass through to importers, reshape sourcing, and propagate through domestic input-output linkages?",
-        summary="An official-data research system for the 2018–2019 U.S. Section 301 actions, with point-in-time tariff parsing, stacked multi-wave designs, sourcing analysis, and industry exposure.",
+        summary="Customs values stay near +0.025 within ±0.076; landed values track the tariff.",
         methodology="Parse legal notices against their stated line counts, construct a provenance-stamped HS10 panel, estimate each outcome under a stacked design, require pre-trend and placebo diagnostics before causal language, and keep observed evidence separate from model-implied counterfactuals.",
         source_url="https://github.com/YangXiaoShawn/open-economic-quant-tariff-incidence",
     ),
@@ -74,7 +74,7 @@ PROJECTS = {
         prefix="Microstructure",
         field="Market microstructure and quantitative finance",
         question="Can a short-horizon order-flow signal survive explicit fees, latency, fills, inventory, and drawdown?",
-        summary="A reproducibility-first market-microstructure system that audits 144 cost-aware execution scenarios and verifies all 476 files. Research reference only.",
+        summary="Research reference only: 110 of 144 scenarios are gross-positive; none remain net-positive after the 4 bp fee.",
         methodology="Preserve event ordering, prevent temporal leakage, evaluate pseudoheldout phases separately, and expose fees and turnover-normalized marked drawdown. Research reference only—not live performance.",
         source_url="https://github.com/YangXiaoShawn/open-economic-quant-microstructure",
     ),
@@ -158,7 +158,7 @@ CSS = """
 
 with gr.Blocks(title="Open Quant & Econ — Evidence Lab", css=CSS) as demo:
     gr.Markdown(
-        f"""<div class="hero-panel"><p>Yang Xiao · Applied Economics &amp; Quant</p><h1>Open Quant &amp; Econ</h1><p>Explore the work. Verify the evidence.</p><p>Five systems, from raw data to interactive results.</p><p><a href="{SITE_URL}">Website</a> &middot; <a href="{GITHUB_URL}">GitHub</a> &middot; <a href="https://huggingface.co/datasets/{DATASET_REPO}">Dataset</a></p></div>"""
+        f"""<div class="hero-panel"><p>Yang Xiao · Applied Economics &amp; Quant</p><h1>Open Quant &amp; Econ</h1><p>Explore the work. Verify the evidence.</p><p>Five questions, methods, and evidence-backed findings.</p><p><a href="{SITE_URL}">Website</a> &middot; <a href="{GITHUB_URL}">GitHub</a> &middot; <a href="https://huggingface.co/datasets/{DATASET_REPO}">Dataset</a></p></div>"""
     )
     with gr.Row():
         project_input = gr.Dropdown(list(PROJECTS), value="CasualLab", label="Project")

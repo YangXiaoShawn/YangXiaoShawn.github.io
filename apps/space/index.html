@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Open Quant &amp; Econ — Evidence Lab</title>
-  <meta name="description" content="Explore five research systems and verify every result." />
+  <meta name="description" content="Explore five research conclusions and verify every result." />
   <meta name="theme-color" content="#071019" />
   <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="./styles.css" />
@@ -23,28 +23,24 @@
 
   <main class="shell">
     <section class="intro">
-      <div><div class="eyebrow">Yang Xiao · Applied Economics &amp; Quant</div><h1>Explore the work.<br /><span>Verify the evidence.</span></h1><p>Five systems, from raw data to interactive results.</p></div>
-      <div class="intro-stats" aria-label="Published research collection"><div><strong>5</strong><span>systems</span></div><div><strong>3,701</strong><span>files</span></div><div><strong>144</strong><span>scenarios</span></div></div>
+      <div><div class="eyebrow">Yang Xiao · Applied Economics &amp; Quant</div><h1>Explore the work.<br /><span>Verify the evidence.</span></h1><p>Five questions, methods, and evidence-backed findings.</p></div>
+      <div class="intro-stats" aria-label="Research story"><div><strong>Question</strong><span>what matters</span></div><div><strong>Method</strong><span>what identifies it</span></div><div><strong>Finding</strong><span>what the evidence says</span></div></div>
     </section>
 
     <section class="lab" id="lab" data-accent="teal" aria-label="Interactive research evidence explorer">
       <aside class="rail">
         <div class="rail-label">Choose a project</div>
         <div class="rail-projects" role="tablist" aria-label="Choose a research project">
-          <button class="project-button is-active" id="project-tab-casuallab" type="button" role="tab" data-project="casuallab" aria-selected="true" aria-controls="project-panel" tabindex="0"><span>01</span><strong>Experiment lab</strong><small>19.7M trips</small></button>
-          <button class="project-button" id="project-tab-macroeconomics" type="button" role="tab" data-project="macroeconomics" aria-selected="false" aria-controls="project-panel" tabindex="-1"><span>02</span><strong>Real-time macro</strong><small>626K archive rows</small></button>
-          <button class="project-button" id="project-tab-realestate" type="button" role="tab" data-project="realestate" aria-selected="false" aria-controls="project-panel" tabindex="-1"><span>03</span><strong>Lock-in analytics</strong><small>8 measures</small></button>
-          <button class="project-button" id="project-tab-tariff-incidence" type="button" role="tab" data-project="tariff-incidence" aria-selected="false" aria-controls="project-panel" tabindex="-1"><span>04</span><strong>Tariff engine</strong><small>12,587 records</small></button>
-          <button class="project-button" id="project-tab-microstructure" type="button" role="tab" data-project="microstructure" aria-selected="false" aria-controls="project-panel" tabindex="-1"><span>05</span><strong>Execution stress lab</strong><small>144 scenarios</small></button>
+          <button class="project-button is-active" id="project-tab-casuallab" type="button" role="tab" data-project="casuallab" aria-selected="true" aria-controls="project-panel" tabindex="0"><span>01</span><strong>Experiment lab</strong><small>0.0417 vs 0.0247 oracle</small></button>
+          <button class="project-button" id="project-tab-macroeconomics" type="button" role="tab" data-project="macroeconomics" aria-selected="false" aria-controls="project-panel" tabindex="-1"><span>02</span><strong>Real-time macro</strong><small>0 future cells</small></button>
+          <button class="project-button" id="project-tab-realestate" type="button" role="tab" data-project="realestate" aria-selected="false" aria-controls="project-panel" tabindex="-1"><span>03</span><strong>Lock-in analytics</strong><small>0.817 exit-hazard ratio</small></button>
+          <button class="project-button" id="project-tab-tariff-incidence" type="button" role="tab" data-project="tariff-incidence" aria-selected="false" aria-controls="project-panel" tabindex="-1"><span>04</span><strong>Tariff engine</strong><small>Customs near +0.025</small></button>
+          <button class="project-button" id="project-tab-microstructure" type="button" role="tab" data-project="microstructure" aria-selected="false" aria-controls="project-panel" tabindex="-1"><span>05</span><strong>Execution stress lab</strong><small>110/144 gross-positive</small></button>
         </div>
         <div class="rail-status"><span>Dataset connected</span><div data-revision>Revision 5329ac0f88ba</div></div>
       </aside>
 
       <div class="workspace" id="project-panel" role="tabpanel" aria-labelledby="project-tab-casuallab">
-        <section class="portfolio-highlight" aria-label="Selected project portfolio highlight">
-          <div><span data-portfolio-field>Causal inference</span><h2 data-portfolio-title>Spillover-Aware Experiments</h2><p data-portfolio-summary>An estimand-first lab for experiments and policy tests.</p></div>
-          <div class="portfolio-highlight-stat"><span>Scale</span><strong data-portfolio-value>19.7M</strong><small data-portfolio-label>NYC TLC records validated</small></div>
-        </section>
         <header class="project-head">
           <div class="head-meta"><span data-evidence>SEMI-SYNTHETIC · KNOWN-TRUTH VALIDATION</span><span data-period>Predeclared recovery audit</span></div>
           <div class="head-grid">
@@ -70,10 +66,10 @@
           <section class="micro-performance" data-micro-performance aria-label="Exploratory strategy return and drawdown" hidden>
             <header><span>Exploratory simulation · research reference only</span><strong>Nonconfirmatory · not live trading</strong></header>
             <div class="performance-grid">
-              <article><span>Execution grid</span><strong>144</strong><small>Complete scenarios</small></article>
-              <article><span>Gross-positive</span><strong>110</strong><small>Before fees</small></article>
+              <article><span>Gross-positive</span><strong>110 / 144</strong><small>Before fees</small></article>
+              <article><span>Net-positive</span><strong>0 / 144</strong><small>After 4 bp</small></article>
               <article><span>Frozen fee</span><strong>4.00 bp</strong><small>All scenarios</small></article>
-              <article class="is-gate"><span>Artifact integrity</span><strong>476/476</strong><small>Files verified</small></article>
+              <article class="is-gate"><span>Median max drawdown</span><strong>3.92 bp</strong><small>Per turnover</small></article>
             </div>
             <div class="backtest-explorer" data-backtest-explorer><p>Loading the bounded scenario summary…</p></div>
             <p>Research reference only. One four-hour capture, simulated market orders, adjacent pseudo-heldout phases, and no profitability or capacity claim.</p>

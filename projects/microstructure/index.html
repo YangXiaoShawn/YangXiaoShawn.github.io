@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Order Flow to Price Impact | Open Quant &amp; Econ</title>
-  <meta name="description" content="A leakage-safe BTC/ETH L2 research system with 144 fee-, latency-, fill-, inventory-, and drawdown-aware execution scenarios." />
+  <meta name="description" content="Research reference only: 110 of 144 scenarios are gross-positive; none remain net-positive after the 4 bp fee." />
   <meta property="og:title" content="Order Flow to Price Impact" />
-  <meta property="og:description" content="A signal-to-execution research system with 144 cost-aware scenarios and 476/476 checksummed files verified. Exploratory research reference only." />
+  <meta property="og:description" content="Research reference only: 110 of 144 scenarios are gross-positive; none remain net-positive after the 4 bp fee." />
   <meta property="og:image" content="https://yangxiaoshawn.github.io/assets/og-visual-2026.png" />
   <link rel="canonical" href="https://yangxiaoshawn.github.io/projects/microstructure/" />
   <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml" />
@@ -29,10 +29,10 @@
       <div class="detail-tags tag-row"><span class="tag">Signal-to-execution</span><span class="tag">Event-time ML</span><span class="tag">Auditable simulation</span></div>
     </div>
     <aside class="detail-side">
-      <div class="detail-side-row"><span>Status</span><strong>Public live</strong></div>
-      <div class="detail-side-row"><span>Last updated</span><strong>2026-08-23</strong></div>
-      <div class="detail-side-row"><span>Execution grid</span><strong>144 scenarios</strong></div>
-      <div class="detail-side-row"><span>Artifact integrity</span><strong>476 / 476 verified</strong></div>
+      <div class="detail-side-row"><span>Evidence</span><strong>Research reference only</strong></div>
+      <div class="detail-side-row"><span>Gross-positive</span><strong>110 / 144</strong></div>
+      <div class="detail-side-row"><span>Net-positive after 4 bp</span><strong>0 / 144</strong></div>
+      <div class="detail-side-row"><span>Median max drawdown</span><strong>3.92 bp / turnover</strong></div>
       <div class="detail-side-actions"><a class="button button-small" href="https://github.com/YangXiaoShawn/open-economic-quant-microstructure">GitHub</a><a class="button button-small" href="https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory?project=microstructure">Interactive lab</a></div>
     </aside>
   </div></section>
@@ -40,10 +40,10 @@
   <section class="section"><div class="container detail-layout">
     <article class="article">
       <section id="contribution"><h2>What I built</h2><p>I built the leakage-safe signal-to-execution path with frozen assumptions, auditable scenarios, and checksummed artifacts.</p><div class="project-achievements" role="list" aria-label="Microstructure project achievements">
-        <div role="listitem"><strong>144</strong><span>complete execution scenarios</span></div>
-        <div role="listitem"><strong>2 × 4</strong><span>symbols × prediction horizons</span></div>
-        <div role="listitem"><strong>3 × 3</strong><span>decision × order latency grid</span></div>
-        <div role="listitem"><strong>476/476</strong><span>bundle files checksum-verified</span></div>
+        <div role="listitem"><strong>110 / 144</strong><span>gross-positive before fees</span></div>
+        <div role="listitem"><strong>0 / 144</strong><span>net-positive after 4 bp</span></div>
+        <div role="listitem"><strong>−3.86 bp</strong><span>median net edge</span></div>
+        <div role="listitem"><strong>3.92 bp</strong><span>median max drawdown / turnover</span></div>
       </div><div class="detail-tags tag-row"><span class="tag">Market microstructure</span><span class="tag">Time-series ML</span><span class="tag">Execution simulation</span><span class="tag">Reproducible research</span></div></section>
 
       <section id="question"><h2>Research question</h2><p><strong>When do order-flow imbalance, liquidity, and limit-order-book conditions predict short-horizon price movement—and which claims survive data-quality and execution gates?</strong></p><p>Predictability, executability, and profitability are separate questions. The project makes event ordering, temporal leakage, gaps, fees, latency, uncertain fills, adverse selection, and inventory risk explicit before a claim can be promoted.</p></section>
@@ -51,10 +51,10 @@
       <section id="performance"><h2>Execution stress test</h2><div class="micro-performance detail-performance" aria-label="Exploratory strategy profit and loss and drawdown">
         <header><span>Exploratory simulation · research reference only</span><strong>Nonconfirmatory · not live trading</strong></header>
         <div class="performance-grid">
-          <article><span>Execution grid</span><strong>144</strong><small>Complete scenarios</small></article>
-          <article><span>Gross-positive</span><strong>110</strong><small>Before fees</small></article>
+          <article><span>Gross-positive</span><strong>110 / 144</strong><small>Before fees</small></article>
+          <article><span>Net-positive</span><strong>0 / 144</strong><small>After 4 bp</small></article>
           <article><span>Frozen fee</span><strong>4.00 bp</strong><small>All scenarios</small></article>
-          <article class="is-gate"><span>Artifact integrity</span><strong>476/476</strong><small>Files verified</small></article>
+          <article class="is-gate"><span>Median max drawdown</span><strong>3.92 bp</strong><small>Per turnover</small></article>
         </div>
         <div class="performance-trace" aria-label="Gross edge to net result trace"><span class="is-pass">110 gross-positive</span><i aria-hidden="true">→</i><span>4 bp taker fee</span><i aria-hidden="true">→</i><span class="is-stop">0 net-positive</span></div>
         <article class="selected-scenario">

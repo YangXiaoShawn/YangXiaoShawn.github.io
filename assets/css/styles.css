@@ -3405,6 +3405,13 @@ a {
 
 .case-answer p { color: var(--text); }
 
+.case-answer p strong {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--case-accent);
+  font: 680 .68rem/1.4 ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
 .case-achievement-stats {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

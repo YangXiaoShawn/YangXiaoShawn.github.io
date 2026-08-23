@@ -5,11 +5,11 @@
   const ORDER = ['casuallab', 'macroeconomics', 'realestate', 'tariff-incidence', 'microstructure'];
   const VIEWS = ['signal', 'portfolio', 'files', 'notes'];
   const META = {
-    casuallab: { folder: 'CasualLab', accent: 'teal', field: 'Causal inference', portfolioTitle: 'Spillover-aware experiments', portfolioValue: '19.7M', portfolioLabel: 'NYC TLC records processed and checked', portfolioSummary: 'An estimand-first lab for experiments and policy tests.', page: 'https://yangxiaoshawn.github.io/projects/casuallab/', data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/CasualLab', source: 'https://github.com/YangXiaoShawn/open-economic-quant-casuallab' },
-    macroeconomics: { folder: 'Macroeconomics', accent: 'blue', field: 'Macroeconomics', portfolioTitle: 'Real-time macro', portfolioValue: '626K', portfolioLabel: 'official rows parsed and hashed', portfolioSummary: 'A vintage-aware engine that reconstructs each forecast date.', page: 'https://yangxiaoshawn.github.io/projects/macroeconomics/', data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/Macroeconomics', source: 'https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics' },
-    realestate: { folder: 'RealEstate', accent: 'amber', field: 'Housing economics', portfolioTitle: 'Mortgage lock-in', portfolioValue: '8', portfolioLabel: 'lock-in measures designed', portfolioSummary: 'A point-in-time system linking rate gaps to housing outcomes.', page: 'https://yangxiaoshawn.github.io/projects/realestate/', data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/RealEstate', source: 'https://github.com/YangXiaoShawn/open-economic-quant-realestate' },
-    'tariff-incidence': { folder: 'TariffIncidence', accent: 'green', field: 'International trade', portfolioTitle: 'Tariff policy engine', portfolioValue: '12,587', portfolioLabel: 'legal-notice tariff records', portfolioSummary: 'A Section 301 engine for incidence, sourcing, and exposure.', page: 'https://yangxiaoshawn.github.io/projects/tariff-incidence/', data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/TariffIncidence', source: 'https://github.com/YangXiaoShawn/open-economic-quant-tariff-incidence' },
-    microstructure: { folder: 'Microstructure', accent: 'violet', field: 'Market microstructure', portfolioTitle: 'Execution stress test', portfolioValue: '144', portfolioLabel: 'fee- and latency-aware scenarios', portfolioSummary: 'A leakage-safe framework for fees, latency, fills, and drawdown.', page: 'https://yangxiaoshawn.github.io/projects/microstructure/', data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/Microstructure', source: 'https://github.com/YangXiaoShawn/open-economic-quant-microstructure' }
+    casuallab: { folder: 'CasualLab', accent: 'teal', page: 'https://yangxiaoshawn.github.io/projects/casuallab/', data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/CasualLab', source: 'https://github.com/YangXiaoShawn/open-economic-quant-casuallab' },
+    macroeconomics: { folder: 'Macroeconomics', accent: 'blue', page: 'https://yangxiaoshawn.github.io/projects/macroeconomics/', data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/Macroeconomics', source: 'https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics' },
+    realestate: { folder: 'RealEstate', accent: 'amber', page: 'https://yangxiaoshawn.github.io/projects/realestate/', data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/RealEstate', source: 'https://github.com/YangXiaoShawn/open-economic-quant-realestate' },
+    'tariff-incidence': { folder: 'TariffIncidence', accent: 'green', page: 'https://yangxiaoshawn.github.io/projects/tariff-incidence/', data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/TariffIncidence', source: 'https://github.com/YangXiaoShawn/open-economic-quant-tariff-incidence' },
+    microstructure: { folder: 'Microstructure', accent: 'violet', page: 'https://yangxiaoshawn.github.io/projects/microstructure/', data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/Microstructure', source: 'https://github.com/YangXiaoShawn/open-economic-quant-microstructure' }
   };
   const COLORS = { code: '#6ee7d8', data: '#8eb8ff', reports: '#ffca6a', tests: '#7fe4aa' };
   const params = new URLSearchParams(location.search);
@@ -307,11 +307,6 @@
     const metricCount = one('[data-active-metrics]');
     if (metricCount) metricCount.textContent = project.metrics.length.toLocaleString('en-US');
     const text = {
-      '[data-portfolio-field]': meta.field,
-      '[data-portfolio-title]': meta.portfolioTitle,
-      '[data-portfolio-summary]': meta.portfolioSummary,
-      '[data-portfolio-value]': meta.portfolioValue,
-      '[data-portfolio-label]': meta.portfolioLabel,
       '[data-evidence]': project.evidence,
       '[data-period]': project.period,
       '[data-question]': project.question,

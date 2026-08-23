@@ -57,11 +57,11 @@ SECTIONS = {
 }
 
 DISPLAY_COPY = {
-    "casuallab": ("Spillover-Aware Experiments", "An estimand-first lab for experiments and policy tests."),
-    "macroeconomics": ("Real-Time Macro", "A vintage-aware engine that reconstructs each forecast date."),
-    "realestate": ("Mortgage Lock-In", "A point-in-time system linking rate gaps to housing outcomes."),
-    "tariff-incidence": ("Tariff Policy Engine", "A Section 301 engine for incidence, sourcing, and exposure."),
-    "microstructure": ("Execution Stress Test", "A leakage-safe framework for fees, latency, fills, and drawdown."),
+    "casuallab": ("Spillover-Aware Experiments", "HTE RMSE is 0.0417 versus a 0.0247 oracle; the recovery gate is not met."),
+    "macroeconomics": ("Real-Time Macro", "Valid modes use zero future cells; naive revised data changes model rankings."),
+    "realestate": ("Mortgage Lock-In", "Each +1 pp rate gap is associated with a 0.817 exit-hazard ratio."),
+    "tariff-incidence": ("Tariff Policy Engine", "Customs values stay near +0.025 within ±0.076; landed values track the tariff."),
+    "microstructure": ("Execution Stress Test", "Research reference only: 110 of 144 are gross-positive; none remain net-positive after 4 bp."),
 }
 
 
@@ -111,7 +111,7 @@ def project_links(projects: list[dict]) -> str:
         title = html.escape(display_title)
         summary = html.escape(display_summary)
         slug = html.escape(project["slug"])
-        status = "Published"
+        status = "Conclusion"
         fields = " / ".join(html.escape(value) for value in project["research_fields"])
         cards.append(
             f"""<article class="platform-card">

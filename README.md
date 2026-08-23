@@ -13,7 +13,7 @@ Yang Xiao's portfolio of five reproducible applied economics and quantitative re
 - Microstructure source: https://github.com/YangXiaoShawn/open-economic-quant-microstructure
 - Full research dataset: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data
 - Interactive Hugging Face Space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
-- Static runtime revision: `ff146d8f51850a7b8284d1f47db5aed019c9fa6a`
+- Static runtime revision: `f11a1152395482c7bda42308bc153fd49dc274d3`
 
 ## Published projects
 
