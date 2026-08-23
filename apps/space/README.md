@@ -1,5 +1,5 @@
 ---
-title: Open Economic and Quant Research Observatory
+title: Open Econ × Quant — Evidence Lab
 colorFrom: blue
 colorTo: green
 sdk: static
@@ -10,8 +10,8 @@ datasets:
   - ShawnChamberlain/open-economic-quant-research-data
 ---
 
-# Open Economic & Quant Research Observatory
+# Open Econ × Quant
 
-A free public Static Space for interrogating five published economic and quantitative research signals. Switch projects and metrics, compare the versioned research footprint, then trace any chart back to its evidence file, study page, or source repository.
+A public lab for five economic questions, clear findings, and open evidence.
 
-The chart evidence is generated from named research artifacts and the file explorer reads the pinned Dataset catalog. The static deployment uses no server-side credentials or persistent storage.
+Each chart links to a named artifact, pinned Dataset revision, and public source.

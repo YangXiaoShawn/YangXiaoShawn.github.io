@@ -132,6 +132,9 @@ def main() -> None:
             if sum(item.get(category, 0) for category in ("code", "data", "reports", "tests")) != item.get("files"):
                 failures.append(f"portfolio category counts do not sum for {slug}")
         for slug, project in evidence.get("projects", {}).items():
+            for field in ("question", "method", "finding", "note", "chart_caption", "source"):
+                if not str(project.get(field, "")).strip():
+                    failures.append(f"evidence story omits {field} for {slug}")
             metric_ids = {item.get("id") for item in project.get("metrics", [])}
             if not project.get("series") or project.get("default_metric") not in metric_ids:
                 failures.append(f"evidence series or default metric is invalid for {slug}")
@@ -139,6 +142,12 @@ def main() -> None:
                 if not metric_ids.issubset(row):
                     failures.append(f"evidence series omits a metric for {slug}")
                     break
+        micro_rows = evidence.get("projects", {}).get("microstructure", {}).get("series", [])
+        if {row.get("status") for row in micro_rows if row.get("stage") in {"Selection", "Held-out"}} != {"not_run"}:
+            failures.append("microstructure stopped stages are not explicitly marked not_run")
+        tariff = evidence.get("projects", {}).get("tariff-incidence", {})
+        if tariff.get("default_metric") != "customs" or not tariff.get("reference", {}).get("customs_bound"):
+            failures.append("tariff evidence does not lead with the customs-value bound")
         space_evidence = ROOT / "apps" / "space" / "evidence.json"
         if space_evidence.exists() and json.loads(space_evidence.read_text(encoding="utf-8")) != evidence:
             failures.append("website and Space evidence catalogs differ")

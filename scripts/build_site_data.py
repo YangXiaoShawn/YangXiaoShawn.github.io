@@ -131,7 +131,7 @@ def section_page(slug: str, title: str, description: str, projects: list[dict]) 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{html.escape(title)} | Open Economic &amp; Quant Research Observatory</title>
+  <title>{html.escape(title)} | Open Econ × Quant</title>
   <meta name="description" content="{html.escape(description)}" />
   <link rel="canonical" href="{canonical}" />
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
@@ -140,7 +140,7 @@ def section_page(slug: str, title: str, description: str, projects: list[dict]) 
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
 <header class="site-header"><div class="container header-inner">
-  <a class="brand" href="../index.html"><span class="brand-mark">OQ</span><span class="brand-copy"><span class="brand-title">Open Econ x Quant</span><span class="brand-subtitle">Research Observatory</span></span></a>
+  <a class="brand" href="../index.html"><span class="brand-mark">OQ</span><span class="brand-copy"><span class="brand-title">Open Econ × Quant</span><span class="brand-subtitle">Research Observatory</span></span></a>
   <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation"><span></span></button>
   <nav class="site-nav" id="site-nav" aria-label="Primary navigation"><a href="../index.html">Home</a><a href="../research/">Research</a><a href="../datasets/">Datasets</a><a href="../methods/">Methods</a><a href="../about/">About</a></nav>
 </div></header>
@@ -148,7 +148,7 @@ def section_page(slug: str, title: str, description: str, projects: list[dict]) 
   <section class="page-hero"><div class="container"><div class="breadcrumbs"><a href="../index.html">Home</a><span>{html.escape(title)}</span></div><div class="eyebrow">Open research platform</div><h1>{html.escape(title)}</h1><p class="page-lead">{html.escape(description)}</p><div class="hero-actions">{extra}</div></div></section>
   <section class="section section-border"><div class="container"><div class="section-header"><div><div class="section-kicker">Published work</div><h2 class="section-title">{len(projects)} projects, one evidence standard.</h2></div></div><div class="platform-grid">{cards}</div></div></section>
 </main>
-<footer class="site-footer"><div class="container"><div class="footer-bottom"><span>Open Economic &amp; Quant Research Observatory</span><a class="text-link" href="../index.html">Back to homepage</a></div></div></footer>
+<footer class="site-footer"><div class="container"><div class="footer-bottom"><span>Open Econ × Quant</span><a class="text-link" href="../index.html">Back to homepage</a></div></div></footer>
 <script src="../assets/js/app.js"></script>
 </body>
 </html>
@@ -173,7 +173,7 @@ def feed(projects: list[dict], release_date: str) -> str:
             f"""  <entry><title>{html.escape(project['title'])}</title><id>{SITE_URL}/projects/{project['slug']}/</id><link href="{SITE_URL}/projects/{project['slug']}/"/><updated>{updated_at}</updated><summary>{html.escape(project['summary'])}</summary></entry>"""
         )
     return f'''<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Open Economic &amp; Quant Research Observatory Updates</title><id>{SITE_URL}/</id><link href="{SITE_URL}/feed.xml" rel="self"/><updated>{updated_at}</updated>{''.join(entries)}</feed>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Open Econ × Quant Updates</title><id>{SITE_URL}/</id><link href="{SITE_URL}/feed.xml" rel="self"/><updated>{updated_at}</updated>{''.join(entries)}</feed>
 '''
 
 

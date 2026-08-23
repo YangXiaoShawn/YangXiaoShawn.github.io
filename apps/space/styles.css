@@ -226,3 +226,237 @@ button:focus-visible, a:focus-visible, input:focus-visible, summary:focus-visibl
 @media (prefers-reduced-motion: reduce) {
   * { scroll-behavior: auto !important; transition: none !important; }
 }
+
+/* Personal research evidence lab — 2026 narrative refresh */
+.brand > span:last-child {
+  display: grid;
+  line-height: 1.15;
+}
+
+.brand strong { font-size: .82rem; }
+.brand small { margin-top: 3px; color: var(--muted); font-size: .56rem; font-weight: 650; letter-spacing: .08em; text-transform: uppercase; }
+
+.intro {
+  align-items: center;
+  padding: 62px 0 38px;
+}
+
+.intro h1 {
+  max-width: 960px;
+  font-size: clamp(3.4rem, 6.7vw, 6.7rem);
+  line-height: .92;
+}
+
+.intro > div:first-child > p {
+  max-width: 700px;
+  margin: 24px 0 0;
+  color: var(--soft);
+  font-size: .92rem;
+}
+
+.lab { grid-template-columns: 270px minmax(0, 1fr); }
+
+.rail { padding: 22px 14px; }
+.rail-label { padding: 5px 12px 17px; }
+
+.project-button {
+  grid-template-columns: 27px 1fr;
+  min-height: 66px;
+  padding: 14px 12px;
+}
+
+.project-button strong { font-size: .8rem; line-height: 1.3; }
+.project-button small { margin-top: 3px; font-size: .66rem; }
+
+.project-head { padding: 38px 44px 32px; }
+
+.question-label {
+  display: block;
+  margin-top: 22px;
+  color: var(--project-accent);
+  font-size: .62rem;
+  font-weight: 730;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.project-head h2 { margin-top: 10px; }
+
+.headline > span {
+  display: block;
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: .59rem;
+  font-weight: 720;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.headline small {
+  display: block;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: .66rem;
+  line-height: 1.45;
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  margin-top: 32px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--line);
+}
+
+.story-grid article {
+  min-width: 0;
+  padding: 19px;
+  background: #0b1925;
+}
+
+.story-grid article.finding { background: color-mix(in srgb, var(--project-accent) 8%, #0b1925); }
+
+.story-grid span,
+.trail-grid article > span {
+  color: var(--project-accent);
+  font-size: .61rem;
+  font-weight: 730;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.story-grid p {
+  margin: 9px 0 0;
+  color: var(--soft);
+  font-size: .73rem;
+  line-height: 1.55;
+}
+
+.workspace-tabs { padding: 14px 24px; }
+.view-tab { min-height: 38px; padding: 8px 13px; font-size: .74rem; }
+
+.chart-caption {
+  max-width: 780px;
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: .68rem;
+}
+
+.chart-reference-line {
+  stroke: var(--amber);
+  stroke-width: 1.4;
+  stroke-dasharray: 7 6;
+}
+
+.chart-reference-text,
+.chart-status-text {
+  fill: var(--amber);
+  font: 650 10px ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.chart-not-run {
+  fill: rgba(174, 204, 219, .06);
+  stroke: rgba(174, 204, 219, .28);
+  stroke-dasharray: 3 3;
+}
+
+.chart-pass {
+  fill: rgba(127, 228, 170, .1);
+  stroke: var(--green);
+}
+
+.chart-status-mark .chart-status-text { fill: var(--muted); }
+.chart-status-mark:hover .chart-not-run,
+.chart-status-mark:focus .chart-not-run,
+.chart-status-mark:hover .chart-pass,
+.chart-status-mark:focus .chart-pass {
+  fill: rgba(238,244,247,.14);
+  stroke: #f8ffff;
+  stroke-width: 2.5;
+}
+.chart-status-mark:hover .chart-status-text,
+.chart-status-mark:focus .chart-status-text { fill: #f8ffff; }
+
+.trail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.trail-grid article {
+  min-height: 210px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(255,255,255,.018);
+}
+
+.trail-grid article.trail-finding {
+  border-color: color-mix(in srgb, var(--project-accent) 30%, transparent);
+  background: color-mix(in srgb, var(--project-accent) 7%, transparent);
+}
+
+.trail-grid h3 {
+  max-width: 680px;
+  margin: 28px 0 0;
+  font: 500 clamp(1.5rem, 2.5vw, 2.35rem)/1.08 Georgia, serif;
+  letter-spacing: -.04em;
+}
+
+.trail-grid p {
+  margin: 28px 0 0;
+  color: var(--soft);
+  font-size: .8rem;
+}
+
+.trace-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 14px;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  color: var(--muted);
+  font-size: .67rem;
+}
+
+.trace-strip strong { color: var(--project-accent); font: 600 .65rem ui-monospace, monospace; }
+
+.search-label {
+  display: grid;
+  gap: 7px;
+  color: var(--muted);
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+
+.file-link { color: var(--soft); text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 3px; }
+.file-link:hover { color: var(--project-accent); text-decoration-color: currentColor; }
+
+@media (max-width: 1000px) {
+  .story-grid { grid-template-columns: 1fr; }
+  .project-button { min-width: 210px; }
+}
+
+@media (max-width: 760px) {
+  .trail-grid { grid-template-columns: 1fr; }
+  .trail-grid article { min-height: auto; }
+  .trace-strip { align-items: flex-start; flex-direction: column; }
+}
+
+@media (max-width: 620px) {
+  .intro { padding-top: 48px; }
+  .intro h1 { font-size: clamp(3.1rem, 15vw, 4.8rem); }
+  .intro > div:first-child > p { font-size: .82rem; }
+  .project-head { padding: 28px 20px 24px; }
+  .story-grid article { padding: 17px; }
+  .workspace-tabs { padding-inline: 10px; }
+  .view-tab { flex: 0 0 auto; }
+}

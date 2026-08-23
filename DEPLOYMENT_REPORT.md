@@ -2,7 +2,7 @@
 
 ## Executive summary
 
-The Open Economic & Quant Research Observatory is fully public: the GitHub Pages site, five published project source locations, versioned Hugging Face Dataset, and interactive Hugging Face Space are live and cross-linked.
+Open Econ × Quant is fully public: the GitHub Pages site, five published project source locations, versioned Hugging Face Dataset, and interactive Hugging Face Space are live and cross-linked.
 
 ## Projects discovered and published
 

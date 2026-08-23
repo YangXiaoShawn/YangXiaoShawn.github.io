@@ -1,4 +1,4 @@
-# Open Economic & Quant Research Observatory
+# Open Econ × Quant
 
 A public research platform for reproducible economics, finance, quantitative methods, data releases, and interactive project exploration.
 

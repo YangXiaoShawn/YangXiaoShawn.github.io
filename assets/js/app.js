@@ -26,27 +26,27 @@
   const PROJECT_ORDER = ['casuallab', 'macroeconomics', 'realestate', 'tariff-incidence', 'microstructure'];
   const PROJECT_META = {
     casuallab: {
-      short: 'NYC mobility', accent: 'teal', folder: 'CasualLab',
+      short: 'HTE recovery', field: 'Causal inference', accent: 'teal', folder: 'CasualLab',
       page: 'projects/casuallab/',
       data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/CasualLab'
     },
     macroeconomics: {
-      short: 'Real-time macro', accent: 'blue', folder: 'Macroeconomics',
+      short: 'Real-time macro', field: 'Macroeconomics', accent: 'blue', folder: 'Macroeconomics',
       page: 'projects/macroeconomics/',
       data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/Macroeconomics'
     },
     realestate: {
-      short: 'Housing lock-in', accent: 'amber', folder: 'RealEstate',
+      short: 'Housing lock-in', field: 'Housing economics', accent: 'amber', folder: 'RealEstate',
       page: 'projects/realestate/',
       data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/RealEstate'
     },
     'tariff-incidence': {
-      short: 'Tariff incidence', accent: 'green', folder: 'TariffIncidence',
+      short: 'Tariff incidence', field: 'International trade', accent: 'green', folder: 'TariffIncidence',
       page: 'projects/tariff-incidence/',
       data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/TariffIncidence'
     },
     microstructure: {
-      short: 'Microstructure', accent: 'violet', folder: 'Microstructure',
+      short: 'Microstructure', field: 'Quantitative finance', accent: 'violet', folder: 'Microstructure',
       page: 'projects/microstructure/',
       data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/Microstructure'
     }
@@ -76,6 +76,7 @@
     if (metric.unit === '%') return `${numeric.toFixed(metric.id === 'hazard' ? 3 : 2)}%`;
     if (['cells', 'rows', 'warnings'].includes(metric.unit)) return Math.round(numeric).toLocaleString('en-US');
     if (metric.unit === 'log points') return signed(numeric);
+    if (metric.unit === 'effect units') return numeric.toFixed(4);
     return numeric.toLocaleString('en-US');
   };
 
@@ -85,6 +86,7 @@
     if (metric.unit === 'USD') return `$${numeric.toFixed(0)}`;
     if (metric.unit === '%') return `${numeric.toFixed(numeric >= 10 ? 0 : 1)}%`;
     if (metric.unit === 'log points') return signed(numeric, 2);
+    if (metric.unit === 'effect units') return numeric.toFixed(3);
     return numeric.toFixed(1);
   };
 
@@ -149,7 +151,7 @@
   }));
 
   const xDescriptor = (slug, row) => {
-    if (slug === 'casuallab') return { numeric: row.hour, label: `${String(row.hour).padStart(2, '0')}:00` };
+    if (slug === 'casuallab') return { numeric: null, label: row.model };
     if (slug === 'macroeconomics') return { numeric: null, label: row.mode };
     if (slug === 'realestate') return { numeric: row.mean_gap, label: `${row.mean_gap > 0 ? '+' : ''}${row.mean_gap.toFixed(2)} pp` };
     if (slug === 'microstructure') return { numeric: null, label: row.stage };
@@ -161,7 +163,8 @@
     if (slug === 'realestate') return `${row.bucket} · ${row.events.toLocaleString('en-US')} events`;
     if (slug === 'tariff-incidence') return `N = ${row.n.toLocaleString('en-US')}`;
     if (slug === 'microstructure') return row.outcome;
-    return 'NYC TLC completed trips';
+    if (slug === 'casuallab') return row.outcome;
+    return 'Published research observation';
   };
 
   const renderSignalTable = (project, metric) => {
@@ -169,7 +172,7 @@
     const body = document.querySelector('[data-signal-table-body]');
     if (!head || !body) return;
     let firstLabel = 'Observation';
-    if (activeProject === 'casuallab') firstLabel = 'Hour';
+    if (activeProject === 'casuallab') firstLabel = 'Model';
     if (activeProject === 'macroeconomics') firstLabel = 'Backtest mode';
     if (activeProject === 'realestate') firstLabel = 'Rate-gap bucket';
     if (activeProject === 'tariff-incidence') firstLabel = 'Window';
@@ -193,15 +196,26 @@
     const values = project.series.map((row) => Number(row[metric.id]));
     const rawMin = Math.min(...values);
     const rawMax = Math.max(...values);
-    let yMin = Math.min(0, rawMin);
-    let yMax = Math.max(0, rawMax);
+    let referenceValues = [];
+    let referenceLabel = '';
+    if (activeProject === 'tariff-incidence' && project.reference) {
+      if (metric.id === 'landed') {
+        referenceValues = [project.reference.mechanical_log];
+        referenceLabel = `Mechanical tariff: ${signed(project.reference.mechanical_log)}`;
+      } else if (metric.id === 'customs') {
+        referenceValues = [-project.reference.customs_bound, project.reference.customs_bound];
+        referenceLabel = `Bound: ±${project.reference.customs_bound.toFixed(3)}`;
+      }
+    }
+    let yMin = Math.min(0, rawMin, ...referenceValues);
+    let yMax = Math.max(0, rawMax, ...referenceValues);
     if (yMin === yMax) yMax = yMin + 1;
     const span = yMax - yMin;
     yMax += span * 0.08;
     if (yMin < 0) yMin -= span * 0.05;
     const y = (value) => pad.top + (yMax - value) / (yMax - yMin) * plotHeight;
     const zeroY = y(0);
-    const isNumericX = ['casuallab', 'realestate'].includes(activeProject);
+    const isNumericX = activeProject === 'realestate';
     const xValues = project.series.map((row, index) => isNumericX ? xDescriptor(activeProject, row).numeric : index);
     const xMin = Math.min(...xValues);
     const xMax = Math.max(...xValues);
@@ -223,9 +237,7 @@
       const py = pad.top + ratio * plotHeight;
       return `<line class="chart-grid-line" x1="${pad.left}" y1="${py}" x2="${width - pad.right}" y2="${py}"></line><text class="chart-axis-text" x="${pad.left - 10}" y="${py + 3}" text-anchor="end">${escapeHTML(formatAxis(value, metric))}</text>`;
     }).join('');
-    let xTickIndices;
-    if (activeProject === 'casuallab') xTickIndices = [0, 6, 12, 18, 23];
-    else xTickIndices = points.map((point) => point.index);
+    const xTickIndices = points.map((point) => point.index);
     const ticks = xTickIndices.map((index) => {
       const point = points[index];
       return `<text class="chart-axis-text" x="${point.x}" y="${height - 25}" text-anchor="middle">${escapeHTML(point.label)}</text>`;
@@ -238,7 +250,14 @@
         const top = Math.min(point.y, zeroY);
         const barHeight = Math.max(2, Math.abs(zeroY - point.y));
         const aria = `${point.label}, ${metric.label}: ${formatValue(point.value, metric)}, ${supplementalTooltip(activeProject, point.row)}`;
-        return `<g class="chart-mark" tabindex="0" role="img" aria-label="${escapeHTML(aria)}" data-cx="${point.x}" data-cy="${top}" data-tip="${escapeHTML(`<strong>${point.label}</strong><br>${metric.label}: ${formatValue(point.value, metric)}<br>${supplementalTooltip(activeProject, point.row)}`)}"><rect class="chart-bar" x="${point.x - barWidth / 2}" y="${top}" width="${barWidth}" height="${barHeight}" rx="6"></rect></g>`;
+        const tip = escapeHTML(`<strong>${point.label}</strong><br>${metric.label}: ${formatValue(point.value, metric)}<br>${supplementalTooltip(activeProject, point.row)}`);
+        if (activeProject === 'microstructure' && point.row.status === 'not_run') {
+          return `<g class="chart-mark chart-status-mark" tabindex="0" role="img" aria-label="${escapeHTML(`${point.label}: not run; ${point.row.outcome}`)}" data-cx="${point.x}" data-cy="${zeroY - 13}" data-tip="${tip}"><rect class="chart-not-run" x="${point.x - 39}" y="${zeroY - 24}" width="78" height="22" rx="11"></rect><text class="chart-status-text" x="${point.x}" y="${zeroY - 9}" text-anchor="middle">NOT RUN</text></g>`;
+        }
+        if (activeProject === 'microstructure' && point.row.status === 'passed' && point.value === 0) {
+          return `<g class="chart-mark chart-status-mark" tabindex="0" role="img" aria-label="${escapeHTML(aria)}" data-cx="${point.x}" data-cy="${zeroY - 13}" data-tip="${tip}"><rect class="chart-pass" x="${point.x - 29}" y="${zeroY - 24}" width="58" height="22" rx="11"></rect><text class="chart-status-text" x="${point.x}" y="${zeroY - 9}" text-anchor="middle">0 · PASS</text></g>`;
+        }
+        return `<g class="chart-mark" tabindex="0" role="img" aria-label="${escapeHTML(aria)}" data-cx="${point.x}" data-cy="${top}" data-tip="${tip}"><rect class="chart-bar" x="${point.x - barWidth / 2}" y="${top}" width="${barWidth}" height="${barHeight}" rx="6"></rect></g>`;
       }).join('');
     } else {
       const linePoints = points.map((point) => `${point.x},${point.y}`).join(' ');
@@ -251,10 +270,15 @@
       }).join('');
     }
     const zeroLine = yMin < 0 || rawMin < 0 ? `<line class="chart-zero-line" x1="${pad.left}" y1="${zeroY}" x2="${width - pad.right}" y2="${zeroY}"></line>` : '';
-    const title = `${project.title}: ${metric.label} by ${activeProject === 'casuallab' ? 'hour' : activeProject === 'macroeconomics' ? 'backtest mode' : activeProject === 'realestate' ? 'rate gap' : activeProject === 'microstructure' ? 'pipeline gate' : 'analysis window'}`;
+    const referenceGraphic = referenceValues.map((value, index) => {
+      const py = y(value);
+      const label = referenceValues.length > 1 ? `${value > 0 ? '+' : '−'} bound` : referenceLabel;
+      return `<line class="chart-reference-line" x1="${pad.left}" y1="${py}" x2="${width - pad.right}" y2="${py}"></line><text class="chart-reference-text" x="${width - pad.right}" y="${py - (index ? 6 : 6)}" text-anchor="end">${escapeHTML(label)}</text>`;
+    }).join('');
+    const title = `${project.title}: ${metric.label} by ${activeProject === 'casuallab' ? 'validation model' : activeProject === 'macroeconomics' ? 'backtest mode' : activeProject === 'realestate' ? 'rate gap' : activeProject === 'microstructure' ? 'pipeline gate' : 'analysis window'}`;
     chart.setAttribute('aria-label', title);
-    chart.innerHTML = `<svg viewBox="0 0 ${width} ${height}" role="group" aria-label="${escapeHTML(title)}">${grid}${zeroLine}${seriesGraphic}${marks}${ticks}</svg><div class="chart-tooltip" data-chart-tooltip hidden></div>`;
-    if (legend) legend.innerHTML = `<span>${escapeHTML(metric.label)} · ${escapeHTML(metric.unit)}</span><span>${project.series.length.toLocaleString('en-US')} observations · hover, tap, or focus a mark</span>`;
+    chart.innerHTML = `<svg viewBox="0 0 ${width} ${height}" role="group" aria-label="${escapeHTML(title)}">${grid}${zeroLine}${referenceGraphic}${seriesGraphic}${marks}${ticks}</svg><div class="chart-tooltip" data-chart-tooltip hidden></div>`;
+    if (legend) legend.innerHTML = `<span>${escapeHTML(metric.label)} · ${escapeHTML(metric.unit)}${referenceLabel ? ` · ${escapeHTML(referenceLabel)}` : ''}</span><span>${project.series.length.toLocaleString('en-US')} observations · hover, tap, or focus a mark</span>`;
     const tooltip = chart.querySelector('[data-chart-tooltip]');
     const show = (mark) => {
       if (!tooltip) return;
@@ -281,6 +305,52 @@
     renderSignalTable(project, metric);
   };
 
+  const caseRowLabel = (slug, row) => {
+    if (slug === 'casuallab') return row.model;
+    if (slug === 'macroeconomics') return row.mode;
+    if (slug === 'realestate') return row.bucket;
+    if (slug === 'microstructure') return row.stage;
+    return row.window;
+  };
+
+  const renderCases = () => {
+    const root = document.querySelector('[data-case-grid]');
+    if (!root || !evidencePayload) return;
+    root.innerHTML = PROJECT_ORDER.map((slug, index) => {
+      const project = evidencePayload.projects[slug];
+      const meta = PROJECT_META[slug];
+      const metric = project.metrics.find((item) => item.id === project.default_metric) || project.metrics[0];
+      const rows = project.series;
+      const referenceMax = slug === 'tariff-incidence' && metric.id === 'customs' ? project.reference?.customs_bound || 0 : 0;
+      const max = Math.max(referenceMax, ...rows.map((row) => Math.abs(Number(row[metric.id]))), 1e-9);
+      const caseCaption = slug === 'tariff-incidence'
+        ? 'Three customs-value estimates; the dashed marker is the 0.076 absolute bound.'
+        : project.chart_caption;
+      const bars = rows.map((row) => {
+        const notRun = slug === 'microstructure' && row.status === 'not_run';
+        const value = Number(row[metric.id]);
+        const size = Math.max(value === 0 && !notRun ? 2 : 0, Math.abs(value) / max * 100);
+        const display = notRun ? 'NOT RUN' : formatValue(value, metric);
+        const reference = slug === 'tariff-incidence' ? '<em class="case-reference" aria-hidden="true"></em>' : '';
+        return `<div class="case-bar${notRun ? ' is-not-run' : ''}"><span>${escapeHTML(caseRowLabel(slug, row))}</span><i><b style="--case-size:${size.toFixed(2)}%"></b>${reference}</i><strong>${escapeHTML(display)}</strong></div>`;
+      }).join('');
+      return `<article class="case-card" data-accent="${meta.accent}">
+        <header><span>0${index + 1} · ${escapeHTML(meta.field)}</span><small>${escapeHTML(project.evidence)}</small></header>
+        <h3>${escapeHTML(project.question)}</h3>
+        <div class="case-answer"><span>Finding</span><p>${escapeHTML(project.finding)}</p></div>
+        <div class="case-figure" role="img" aria-label="${escapeHTML(`${project.title}. ${caseCaption}`)}">${bars}</div>
+        <p class="case-chart-note">${escapeHTML(caseCaption)}</p>
+        <div class="case-method"><span>Method</span><p>${escapeHTML(project.method)}</p></div>
+        <footer><a href="#research-lab" data-case-project="${slug}">Inspect this evidence <span aria-hidden="true">→</span></a><a href="${meta.page}">Read study</a></footer>
+      </article>`;
+    }).join('');
+    root.querySelectorAll('[data-case-project]').forEach((link) => link.addEventListener('click', (event) => {
+      event.preventDefault();
+      selectProject(link.dataset.caseProject);
+      document.getElementById('research-lab')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }));
+  };
+
   const renderSignal = () => {
     if (!signalLab || !evidencePayload) return;
     const project = evidencePayload.projects[activeProject];
@@ -294,6 +364,10 @@
       '[data-signal-period]': project.period,
       '[data-signal-question]': project.question,
       '[data-signal-note]': project.note,
+      '[data-signal-method]': project.method,
+      '[data-signal-finding]': project.finding,
+      '[data-signal-boundary]': project.note,
+      '[data-signal-chart-caption]': project.chart_caption,
       '[data-signal-headline]': project.headline.value,
       '[data-signal-headline-label]': project.headline.label,
       '[data-signal-source]': project.source
@@ -353,12 +427,15 @@
       })
       .then((payload) => {
         evidencePayload = payload;
+        renderCases();
         renderSignal();
         renderHero();
       })
       .catch(() => {
         const chart = document.querySelector('[data-signal-chart]');
         if (chart) chart.innerHTML = '<div class="chart-loading">The chart could not load. Open the live lab to inspect the published evidence.</div>';
+        const cases = document.querySelector('[data-case-grid]');
+        if (cases) cases.innerHTML = '<div class="chart-loading">The research summaries could not load. Open the project pages to inspect the published evidence.</div>';
       });
   }
 

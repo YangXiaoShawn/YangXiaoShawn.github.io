@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Open Econ × Quant — Interactive Evidence Lab</title>
-  <meta name="description" content="Interrogate five published economic and quantitative research signals, compare the evidence footprint, and trace every mark to versioned files." />
+  <title>Open Econ × Quant — Evidence Lab</title>
+  <meta name="description" content="Five economic questions, clear findings, and open evidence." />
   <meta name="theme-color" content="#071019" />
   <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="./styles.css" />
@@ -12,7 +12,7 @@
 <body>
   <a class="skip-link" href="#lab">Skip to the evidence lab</a>
   <header class="shell topbar">
-    <a class="brand" href="https://yangxiaoshawn.github.io/"><span class="mark">OQ</span><span>Open Econ × Quant</span></a>
+    <a class="brand" href="https://yangxiaoshawn.github.io/"><span class="mark">OQ</span><span><strong>Open Econ × Quant</strong><small>Evidence Lab</small></span></a>
     <div class="top-actions">
       <a href="https://yangxiaoshawn.github.io/">Website</a>
       <a href="https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data">Dataset</a>
@@ -23,35 +23,40 @@
 
   <main class="shell">
     <section class="intro">
-      <div><div class="eyebrow">Interactive evidence lab</div><h1>Interrogate<br /><span>one signal.</span></h1></div>
-      <div class="intro-stats" aria-label="Published research footprint"><div><strong>5</strong><span>questions</span></div><div><strong>3,701</strong><span>files</span></div><div><strong>2.85 GB</strong><span>evidence</span></div></div>
+      <div><div class="eyebrow">Interactive evidence lab</div><h1>One question.<br /><span>One chart.</span></h1><p>See the finding, then inspect the source.</p></div>
+      <div class="intro-stats" aria-label="Published research collection"><div><strong>5</strong><span>questions</span></div><div><strong>5</strong><span>direct charts</span></div><div><strong>1</strong><span>pinned dataset</span></div></div>
     </section>
 
     <section class="lab" id="lab" data-accent="teal" aria-label="Interactive research evidence explorer">
       <aside class="rail">
-        <div class="rail-label">Choose a signal</div>
-        <button class="project-button is-active" id="project-tab-casuallab" type="button" data-project="casuallab" aria-pressed="true"><span>01</span><strong>NYC mobility</strong><small>24-hour rhythm</small></button>
+        <div class="rail-label">Choose a question</div>
+        <button class="project-button is-active" id="project-tab-casuallab" type="button" data-project="casuallab" aria-pressed="true"><span>01</span><strong>HTE recovery</strong><small>Known-truth test</small></button>
         <button class="project-button" id="project-tab-macroeconomics" type="button" data-project="macroeconomics" aria-pressed="false"><span>02</span><strong>Vintage leakage</strong><small>Backtest audit</small></button>
         <button class="project-button" id="project-tab-realestate" type="button" data-project="realestate" aria-pressed="false"><span>03</span><strong>Mortgage lock-in</strong><small>Exit hazard</small></button>
-        <button class="project-button" id="project-tab-tariff-incidence" type="button" data-project="tariff-incidence" aria-pressed="false"><span>04</span><strong>Tariff windows</strong><small>Sensitivity</small></button>
+        <button class="project-button" id="project-tab-tariff-incidence" type="button" data-project="tariff-incidence" aria-pressed="false"><span>04</span><strong>Tariff incidence</strong><small>Price decomposition</small></button>
         <button class="project-button" id="project-tab-microstructure" type="button" data-project="microstructure" aria-pressed="false"><span>05</span><strong>Quality gate</strong><small>Publication stop</small></button>
         <div class="rail-status"><span>Dataset connected</span><div data-revision>Revision 5329ac0f88ba</div></div>
       </aside>
 
       <div class="workspace">
         <header class="project-head">
-          <div class="head-meta"><span data-evidence>DESCRIPTIVE REAL DATA</span><span data-period>NYC TLC HVFHV · Jan 2024</span></div>
+          <div class="head-meta"><span data-evidence>SEMI-SYNTHETIC · KNOWN-TRUTH VALIDATION</span><span data-period>Predeclared recovery audit</span></div>
           <div class="head-grid">
-            <div><h2 data-question>When does New York move?</h2><p data-note>19,663,930 completed trips. Descriptive activity, not demand or a causal effect.</p></div>
-            <div class="headline"><strong data-headline>1.22M</strong><span data-headline-label>trips at the 18:00 peak</span></div>
+            <div><span class="question-label">Question</span><h2 data-question>Can a treatment-effect model identify who benefits most?</h2></div>
+            <div class="headline"><span>Result</span><strong data-headline>0.0417</strong><small data-headline-label>HTE learner RMSE · gate failed</small></div>
+          </div>
+          <div class="story-grid" aria-label="Research summary">
+            <article><span>Method</span><p data-method>Compare held-out predictions with known effects and a constant-effect oracle.</p></article>
+            <article class="finding"><span>Finding</span><p data-finding>The learner loses to the oracle (0.0417 vs 0.0247 RMSE) and fails the gate.</p></article>
+            <article><span>Limit</span><p data-note>Semi-synthetic validation—not a live-market effect estimate.</p></article>
           </div>
         </header>
 
         <div class="workspace-tabs" role="tablist" aria-label="Evidence views">
-          <button class="view-tab is-active" id="view-tab-signal" type="button" role="tab" aria-selected="true" aria-controls="view-signal" data-view="signal">Signal</button>
-          <button class="view-tab" id="view-tab-portfolio" type="button" role="tab" aria-selected="false" aria-controls="view-portfolio" data-view="portfolio">Portfolio</button>
+          <button class="view-tab is-active" id="view-tab-signal" type="button" role="tab" aria-selected="true" aria-controls="view-signal" data-view="signal">Evidence</button>
+          <button class="view-tab" id="view-tab-portfolio" type="button" role="tab" aria-selected="false" aria-controls="view-portfolio" data-view="portfolio">Summary</button>
           <button class="view-tab" id="view-tab-files" type="button" role="tab" aria-selected="false" aria-controls="view-files" data-view="files">Files</button>
-          <button class="view-tab" id="view-tab-notes" type="button" role="tab" aria-selected="false" aria-controls="view-notes" data-view="notes">Notes</button>
+          <button class="view-tab" id="view-tab-notes" type="button" role="tab" aria-selected="false" aria-controls="view-notes" data-view="notes">Limits</button>
           <span class="share-status" role="status" data-share-status></span>
         </div>
 
@@ -59,23 +64,24 @@
           <div class="signal-toolbar"><div class="metric-switcher" data-metrics role="group" aria-label="Chart metric"></div><span class="source-path" data-source></span></div>
           <div class="chart" data-chart role="group" aria-label="Loading published research signal"><div class="loading">Loading published evidence…</div></div>
           <div class="chart-legend" data-chart-legend></div>
+          <p class="chart-caption" data-chart-caption>Lower RMSE is better; the learner must beat the oracle.</p>
           <details class="data-table" data-table><summary>Read chart as a table</summary><div class="table-wrap"><table><thead data-table-head></thead><tbody data-table-body></tbody></table></div></details>
           <div class="view-actions"><a class="button button-primary" data-project-page href="https://yangxiaoshawn.github.io/projects/casuallab/">Read study</a><a class="button" data-dataset href="https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/CasualLab">Open evidence</a><a class="button" data-source-code href="https://github.com/YangXiaoShawn/open-economic-quant-casuallab">Source</a></div>
         </section>
 
         <section class="view" id="view-portfolio" role="tabpanel" aria-labelledby="view-tab-portfolio" data-view-panel="portfolio" hidden>
-          <div class="portfolio-grid">
-            <div class="mix-card">
-              <div class="donut" data-donut role="img" aria-label="File type mix"><div><strong data-file-total>414</strong><span>files</span></div></div>
-              <div class="mix-legend" data-mix-legend></div>
-            </div>
-            <div class="directory-card"><div class="card-heading"><span>Largest directories</span><small>from the pinned catalog</small></div><div class="directory-bars" data-directory-bars><div class="loading small">Loading file paths…</div></div></div>
+          <div class="trail-grid">
+            <article><span>01 · Question</span><h3 data-trail-question>Can a treatment-effect model identify who benefits most?</h3></article>
+            <article><span>02 · Method</span><p data-trail-method>Compare held-out predictions with known effects and a constant-effect oracle.</p></article>
+            <article class="trail-finding"><span>03 · Finding</span><p data-trail-finding>The learner loses to the oracle and fails the gate.</p></article>
+            <article><span>04 · Limit</span><p data-trail-boundary>Semi-synthetic validation—not a live-market effect estimate.</p></article>
           </div>
+          <div class="trace-strip"><span>Chart → artifact → pinned revision → source</span><strong data-trail-source>hte_recovery.json</strong></div>
         </section>
 
         <section class="view" id="view-files" role="tabpanel" aria-labelledby="view-tab-files" data-view-panel="files" hidden>
           <div class="files-toolbar">
-            <input class="search" data-search type="search" placeholder="Search paths: reports, tests, fixtures…" aria-label="Search Dataset paths" />
+            <label class="search-label"><span>Search the pinned evidence</span><input class="search" data-search type="search" placeholder="reports, tests, fixtures…" aria-label="Search Dataset paths" /></label>
             <div class="filters" role="group" aria-label="Filter file types"><button class="filter is-active" type="button" data-filter="all" aria-pressed="true">All</button><button class="filter" type="button" data-filter="code" aria-pressed="false">Code</button><button class="filter" type="button" data-filter="data" aria-pressed="false">Data</button><button class="filter" type="button" data-filter="reports" aria-pressed="false">Reports</button><button class="filter" type="button" data-filter="tests" aria-pressed="false">Tests</button></div>
           </div>
           <div class="files-meta"><span data-file-status role="status">Connecting to the pinned Dataset revision…</span><span data-result-count></span></div>
@@ -84,8 +90,8 @@
 
         <section class="view" id="view-notes" role="tabpanel" aria-labelledby="view-tab-notes" data-view-panel="notes" hidden>
           <div class="notes-grid">
-            <article><span>Evidence label</span><strong data-note-evidence>DESCRIPTIVE REAL DATA</strong><p data-note-boundary>Descriptive activity, not demand or a causal effect.</p></article>
-            <article><span>Published artifact</span><strong data-note-source>hourly_summary.csv</strong><p>Chart values are bundled from the named, versioned research artifact.</p></article>
+            <article><span>Evidence label</span><strong data-note-evidence>SEMI-SYNTHETIC · KNOWN-TRUTH VALIDATION</strong><p data-note-boundary>Semi-synthetic validation—not a live-market effect estimate.</p></article>
+            <article><span>Published artifact</span><strong data-note-source>hte_recovery.json</strong><p>Chart values are bundled from the named, versioned research artifact.</p></article>
             <article><span>Open route</span><strong>Chart → file → source</strong><p>No account, hidden state, or private data is required to inspect this release.</p></article>
           </div>
         </section>
@@ -93,7 +99,7 @@
     </section>
   </main>
 
-  <footer class="shell"><span>Open Economic &amp; Quant Research Observatory</span><span data-revision>Dataset revision 5329ac0f88ba</span></footer>
+  <footer class="shell"><span>Open Econ × Quant</span><span data-revision>Dataset revision 5329ac0f88ba</span></footer>
   <script src="./app.js"></script>
 </body>
 </html>

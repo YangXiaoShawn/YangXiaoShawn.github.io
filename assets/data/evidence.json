@@ -15,30 +15,35 @@
   },
   "projects": {
     "casuallab": {
-      "title": "NYC mobility rhythm",
-      "question": "When does New York move?",
-      "evidence": "DESCRIPTIVE REAL DATA",
-      "period": "NYC TLC HVFHV · Jan 2024",
-      "headline": {"value": "1.22M", "label": "trips at the 18:00 peak"},
-      "note": "19,663,930 completed trips. Descriptive activity, not demand or a causal effect.",
-      "source": "CasualLab/artifacts/nyc_full/hourly_summary.csv",
-      "default_metric": "trips",
+      "title": "HTE recovery gate",
+      "question": "Can a treatment-effect model identify who benefits most?",
+      "evidence": "SEMI-SYNTHETIC · KNOWN-TRUTH VALIDATION",
+      "period": "Predeclared recovery audit",
+      "headline": {"value": "0.0417", "label": "HTE learner RMSE · gate failed"},
+      "method": "Compare held-out predictions with known effects and a constant-effect oracle.",
+      "finding": "The learner loses to the oracle (0.0417 vs 0.0247 RMSE) and fails the gate.",
+      "note": "Semi-synthetic validation—not a live-market effect estimate.",
+      "chart_caption": "Lower RMSE is better; the learner must beat the oracle.",
+      "source": "CasualLab/artifacts/benchmarks/heterogeneity/hte_recovery.json",
+      "default_metric": "rmse",
       "metrics": [
-        {"id": "trips", "label": "Trips", "unit": "trips", "type": "line"},
-        {"id": "fare", "label": "Avg fare", "unit": "USD", "type": "line"},
-        {"id": "airport_pct", "label": "Airport share", "unit": "%", "type": "line"}
+        {"id": "rmse", "label": "Effect RMSE", "unit": "effect units", "type": "bar"}
       ],
       "series": [
-        {"hour":0,"trips":697067,"fare":23.35,"airport_pct":4.82},{"hour":1,"trips":492869,"fare":23.93,"airport_pct":2.76},{"hour":2,"trips":368463,"fare":24.39,"airport_pct":3.10},{"hour":3,"trips":296869,"fare":25.07,"airport_pct":9.78},{"hour":4,"trips":295770,"fare":27.55,"airport_pct":21.22},{"hour":5,"trips":344232,"fare":28.06,"airport_pct":23.43},{"hour":6,"trips":548915,"fare":25.96,"airport_pct":13.06},{"hour":7,"trips":863545,"fare":24.28,"airport_pct":8.02},{"hour":8,"trips":1040792,"fare":23.06,"airport_pct":6.37},{"hour":9,"trips":915835,"fare":23.13,"airport_pct":7.72},{"hour":10,"trips":820397,"fare":23.79,"airport_pct":8.93},{"hour":11,"trips":806770,"fare":23.96,"airport_pct":8.77},{"hour":12,"trips":832440,"fare":24.06,"airport_pct":9.11},{"hour":13,"trips":867183,"fare":24.56,"airport_pct":9.92},{"hour":14,"trips":957194,"fare":24.85,"airport_pct":10.01},{"hour":15,"trips":983663,"fare":25.31,"airport_pct":9.90},{"hour":16,"trips":1018763,"fare":25.03,"airport_pct":9.26},{"hour":17,"trips":1169233,"fare":23.60,"airport_pct":6.91},{"hour":18,"trips":1217661,"fare":22.51,"airport_pct":5.76},{"hour":19,"trips":1156888,"fare":22.19,"airport_pct":5.98},{"hour":20,"trips":1059668,"fare":23.11,"airport_pct":5.88},{"hour":21,"trips":1016300,"fare":23.82,"airport_pct":5.51},{"hour":22,"trips":1001910,"fare":23.79,"airport_pct":5.62},{"hour":23,"trips":891503,"fare":23.39,"airport_pct":5.95}
+        {"model":"HTE learner","rmse":0.0417,"outcome":"failed predeclared recovery gate"},
+        {"model":"Constant oracle","rmse":0.0247,"outcome":"simple benchmark performed better"}
       ]
     },
     "macroeconomics": {
       "title": "Vintage leakage audit",
-      "question": "What did the forecaster know then?",
+      "question": "Did the backtest use future data?",
       "evidence": "OFFICIAL AGENCY ARCHIVE",
       "period": "Declared multi-target pilot",
       "headline": {"value": "863", "label": "future-eligibility cells in a naive backtest"},
-      "note": "The vintage-aware and fixed-mask modes expose zero future-eligibility cells. Naive latest-revised is intentionally invalid.",
+      "method": "Rebuild 7,985 inputs under three data-vintage rules and audit availability.",
+      "finding": "Valid modes leak 0 cells; naive revised leaks 863 and changes 2 of 3 model rankings.",
+      "note": "Naive revised is a leakage benchmark, not a valid backtest.",
+      "chart_caption": "Valid backtests use no inputs unavailable at the forecast date.",
       "source": "Macroeconomics/data/generated/official_pilot/feature_leakage_audit.parquet",
       "default_metric": "future_eligibility",
       "metrics": [
@@ -54,11 +59,14 @@
     },
     "realestate": {
       "title": "Mortgage lock-in profile",
-      "question": "How does the rate gap relate to mortgage exit?",
+      "question": "How does the mortgage-rate gap relate to loan exits?",
       "evidence": "REGISTERED · HAZARD ASSOCIATION",
       "period": "2021-01 → 2024-12",
       "headline": {"value": "0.817", "label": "hazard ratio per +1 pp rate gap"},
-      "note": "Prepayment pools refinance, sale payoff, and maturity. Association—not a causal elasticity or a measure of moving.",
+      "method": "Compare monthly exits by rate gap, then fit an adjusted discrete-time logit.",
+      "finding": "Each +1 pp gap is associated with a 0.817 exit-hazard ratio.",
+      "note": "Exits include refinancing, sale payoff, and maturity; the association is not causal.",
+      "chart_caption": "Points show raw exit rates; 0.817 is the adjusted estimate.",
       "source": "RealEstate/reports/loan_hazard_analysis.md",
       "default_metric": "hazard",
       "metrics": [{"id": "hazard", "label": "Monthly hazard", "unit": "%", "type": "line"}],
@@ -75,11 +83,14 @@
     },
     "microstructure": {
       "title": "Declared data-quality gate",
-      "question": "When should a market prediction not be published?",
+      "question": "When should a market study stop?",
       "evidence": "PUBLIC MARKET DATA · DECLARED QUALITY GATE",
       "period": "Frozen M8 trade-only protocol",
       "headline": {"value": "53", "label": "warnings stopped the study"},
-      "note": "3,058,758 training rows were normalized. The zero-warning gate failed on ETHUSDT, so selection, held-out evaluation, execution, and P&L did not run.",
+      "method": "Apply a zero-warning gate to 3.06M training rows before model selection.",
+      "finding": "BTC passes; 53 ETH warnings stop the study before selection or testing.",
+      "note": "No held-out test, execution, or P&L ran, so there is no performance claim.",
+      "chart_caption": "NOT RUN marks stages blocked by the ETH quality gate.",
       "source": "Microstructure/STATUS.md",
       "default_metric": "warnings",
       "metrics": [
@@ -87,21 +98,24 @@
         {"id": "rows", "label": "Rows inspected", "unit": "rows", "type": "bar"}
       ],
       "series": [
-        {"stage":"BTC train","warnings":0,"rows":2071461,"outcome":"normalization passed"},
-        {"stage":"ETH train","warnings":53,"rows":987297,"outcome":"zero-warning gate failed"},
-        {"stage":"Selection","warnings":0,"rows":0,"outcome":"not started"},
-        {"stage":"Held-out","warnings":0,"rows":0,"outcome":"not opened"}
+        {"stage":"BTC train","warnings":0,"rows":2071461,"status":"passed","outcome":"normalization passed"},
+        {"stage":"ETH train","warnings":53,"rows":987297,"status":"failed","outcome":"zero-warning gate failed"},
+        {"stage":"Selection","warnings":0,"rows":0,"status":"not_run","outcome":"not started"},
+        {"stage":"Held-out","warnings":0,"rows":0,"status":"not_run","outcome":"not opened"}
       ]
     },
     "tariff-incidence": {
-      "title": "Tariff window sensitivity",
-      "question": "Do the incidence estimates survive the window?",
+      "title": "Tariff incidence decomposition",
+      "question": "Did exporters cut prices, or did U.S. importers absorb the tariff?",
       "evidence": "OFFICIAL · STACKED MULTI-WAVE",
       "period": "2017-01 → 2020-02",
-      "headline": {"value": "+0.154", "label": "landed unit-value estimate, full window"},
-      "note": "Landed value includes the duty mechanically. Customs is bounded near-null; quantity remains qualified after a failed date placebo.",
+      "headline": {"value": "≤ 0.076", "label": "absolute customs-value effect bound"},
+      "method": "Estimate landed, customs, and quantity effects across three windows, with diagnostic checks.",
+      "finding": "Customs values stay near +0.025 and within ±0.076; landed values track the tariff.",
+      "note": "The duty enters landed values mechanically; quantity fails its date placebo.",
+      "chart_caption": "Lines show three windows; references mark the tariff change or customs bound.",
       "source": "TariffIncidence/data/results/window_sensitivity.json",
-      "default_metric": "landed",
+      "default_metric": "customs",
       "metrics": [
         {"id": "landed", "label": "Landed value", "unit": "log points", "type": "line"},
         {"id": "customs", "label": "Customs value", "unit": "log points", "type": "line"},

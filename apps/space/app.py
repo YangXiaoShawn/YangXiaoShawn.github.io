@@ -1,4 +1,4 @@
-"""Interactive explorer for the Open Economic & Quant Research Observatory."""
+"""Interactive explorer for Open Econ × Quant."""
 
 from __future__ import annotations
 
@@ -156,9 +156,9 @@ CSS = """
 .hero-panel h1 { font-family: Georgia, serif; letter-spacing: -0.04em; }
 """
 
-with gr.Blocks(title="Open Economic & Quant Research Observatory", css=CSS) as demo:
+with gr.Blocks(title="Open Econ × Quant", css=CSS) as demo:
     gr.Markdown(
-        f"""<div class="hero-panel"><h1>Open Economic &amp; Quant Research Observatory</h1><p>Explore reproducible economics projects, inspect representative Dataset content, and follow each result back to code and provenance.</p><p><a href="{SITE_URL}">Website</a> &middot; <a href="{GITHUB_URL}">GitHub</a> &middot; <a href="https://huggingface.co/datasets/{DATASET_REPO}">Dataset</a></p></div>"""
+        f"""<div class="hero-panel"><h1>Open Econ × Quant</h1><p>Explore five questions and trace each result to open evidence.</p><p><a href="{SITE_URL}">Website</a> &middot; <a href="{GITHUB_URL}">GitHub</a> &middot; <a href="https://huggingface.co/datasets/{DATASET_REPO}">Dataset</a></p></div>"""
     )
     with gr.Row():
         project_input = gr.Dropdown(list(PROJECTS), value="CasualLab", label="Project")
