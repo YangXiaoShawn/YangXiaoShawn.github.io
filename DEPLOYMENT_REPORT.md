@@ -2,7 +2,7 @@
 
 ## Executive summary
 
-Open Econ × Quant is fully public: the GitHub Pages site, five published project source locations, versioned Hugging Face Dataset, and interactive Hugging Face Space are live and cross-linked.
+Open Quant & Econ is public across GitHub Pages, five project repositories, a versioned Hugging Face Dataset, and an interactive Space.
 
 ## Projects discovered and published
 
@@ -25,7 +25,7 @@ Open Econ × Quant is fully public: the GitHub Pages site, five published projec
 - Full Dataset: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data
 - Live Space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
 - Static runtime: https://shawnchamberlain-open-economic-quant-research-ob-5271962.static.hf.space
-- Space revision: `1dcb45aab5d2129ced14c8a46fd82f339ca8069f`
+- Space revision: `ff146d8f51850a7b8284d1f47db5aed019c9fa6a`
 - Evidence-first redesign commit: `87d659519f6a51445b4afe2f2aeeed9ae8520913`.
 - GitHub Pages interactive redesign commit: `3ca1907e84d6242bcde6f1b84f83992cfd8196bd`.
 - Chart-first release commit: `5cf8b1578683065d2b61c97049f08dc33a2763e2`.
@@ -62,7 +62,7 @@ Open Econ × Quant is fully public: the GitHub Pages site, five published projec
 - Space signal, portfolio, file, and evidence-note views with shareable URL state and browser back/forward restoration.
 - Live Dataset path search, consistent file-type filters, and directory-size comparisons.
 - Canonical metadata, Open Graph card, favicon, Atom feed, sitemap, robots policy, and 404 page.
-- Responsive shared visual system with a simplified editorial hierarchy and Open Econ × Quant social preview.
+- Responsive shared visual system with a simplified editorial hierarchy and Open Quant & Econ social preview.
 - GitHub Actions for CI, Pages deployment, Hugging Face synchronization, and safe daily validation.
 
 ## Security and rights findings

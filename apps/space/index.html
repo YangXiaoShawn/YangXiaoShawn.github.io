@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Open Econ × Quant — Evidence Lab</title>
-  <meta name="description" content="Explore five end-to-end economics and quantitative-research systems, then inspect the evidence behind each claim." />
+  <title>Open Quant &amp; Econ — Evidence Lab</title>
+  <meta name="description" content="Explore five research systems and verify every result." />
   <meta name="theme-color" content="#071019" />
   <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="./styles.css" />
@@ -12,7 +12,7 @@
 <body>
   <a class="skip-link" href="#lab">Skip to the evidence lab</a>
   <header class="shell topbar">
-    <a class="brand" href="https://yangxiaoshawn.github.io/"><span class="mark">OQ</span><span><strong>Open Econ × Quant</strong><small>Evidence Lab</small></span></a>
+    <a class="brand" href="https://yangxiaoshawn.github.io/"><span class="mark">OQ</span><span><strong>Open Quant &amp; Econ</strong><small>Evidence Lab</small></span></a>
     <div class="top-actions">
       <a href="https://yangxiaoshawn.github.io/">Website</a>
       <a href="https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data">Dataset</a>
@@ -23,13 +23,13 @@
 
   <main class="shell">
     <section class="intro">
-      <div><div class="eyebrow">Yang Xiao · @YangXiaoShawn · Applied economics + quant</div><h1>Explore what I built.<br /><span>Audit the evidence.</span></h1><p>Five end-to-end systems, from raw data and econometrics to interactive research products.</p></div>
-      <div class="intro-stats" aria-label="Published research collection"><div><strong>5</strong><span>research systems</span></div><div><strong>3,701</strong><span>public files</span></div><div><strong>144</strong><span>execution tests</span></div></div>
+      <div><div class="eyebrow">Yang Xiao · Applied Economics &amp; Quant</div><h1>Explore the work.<br /><span>Verify the evidence.</span></h1><p>Five systems, from raw data to interactive results.</p></div>
+      <div class="intro-stats" aria-label="Published research collection"><div><strong>5</strong><span>systems</span></div><div><strong>3,701</strong><span>files</span></div><div><strong>144</strong><span>scenarios</span></div></div>
     </section>
 
     <section class="lab" id="lab" data-accent="teal" aria-label="Interactive research evidence explorer">
       <aside class="rail">
-        <div class="rail-label">Choose a question</div>
+        <div class="rail-label">Choose a project</div>
         <div class="rail-projects" role="tablist" aria-label="Choose a research project">
           <button class="project-button is-active" id="project-tab-casuallab" type="button" role="tab" data-project="casuallab" aria-selected="true" aria-controls="project-panel" tabindex="0"><span>01</span><strong>Experiment lab</strong><small>19.7M trips</small></button>
           <button class="project-button" id="project-tab-macroeconomics" type="button" role="tab" data-project="macroeconomics" aria-selected="false" aria-controls="project-panel" tabindex="-1"><span>02</span><strong>Real-time macro</strong><small>626K archive rows</small></button>
@@ -42,19 +42,19 @@
 
       <div class="workspace" id="project-panel" role="tabpanel" aria-labelledby="project-tab-casuallab">
         <section class="portfolio-highlight" aria-label="Selected project portfolio highlight">
-          <div><span data-portfolio-field>Causal inference</span><h2 data-portfolio-title>Experiment design under spillovers</h2><p data-portfolio-summary>Built an estimand-first marketplace lab that benchmarks experiment designs and budget-constrained policies against known causal truth.</p></div>
-          <div class="portfolio-highlight-stat"><span>Scale</span><strong data-portfolio-value>19.7M</strong><small data-portfolio-label>NYC TLC records processed and quality-checked</small></div>
+          <div><span data-portfolio-field>Causal inference</span><h2 data-portfolio-title>Spillover-Aware Experiments</h2><p data-portfolio-summary>An estimand-first lab for experiments and policy tests.</p></div>
+          <div class="portfolio-highlight-stat"><span>Scale</span><strong data-portfolio-value>19.7M</strong><small data-portfolio-label>NYC TLC records validated</small></div>
         </section>
         <header class="project-head">
           <div class="head-meta"><span data-evidence>SEMI-SYNTHETIC · KNOWN-TRUTH VALIDATION</span><span data-period>Predeclared recovery audit</span></div>
           <div class="head-grid">
-            <div><span class="question-label">Question</span><h2 data-question>Can a treatment-effect model identify who benefits most?</h2></div>
-            <div class="headline"><span>Result</span><strong data-headline>0.0417</strong><small data-headline-label>known-truth HTE RMSE measured</small></div>
+            <div><span class="question-label">Question</span><h2 data-question>Can a model identify who benefits most?</h2></div>
+            <div class="headline"><span>Result</span><strong data-headline>0.0417</strong><small data-headline-label>known-truth HTE RMSE</small></div>
           </div>
           <div class="story-grid" aria-label="Research summary">
-            <article><span>Method</span><p data-method>Compare held-out predictions with known effects and a constant-effect oracle.</p></article>
-            <article class="finding"><span>Finding</span><p data-finding>The audit measures learner error against a predeclared oracle and correctly blocks an unsupported HTE claim.</p></article>
-            <article><span>Limit</span><p data-note>Semi-synthetic validation—not a live-market effect estimate.</p></article>
+            <article><span>Method</span><p data-method>Compare held-out effects with known truth and a constant oracle.</p></article>
+            <article class="finding"><span>Finding</span><p data-finding>RMSE is 0.0417 versus 0.0247 for the oracle; no HTE claim is made.</p></article>
+            <article><span>Limit</span><p data-note>Semi-synthetic; not a live-market effect.</p></article>
           </div>
         </header>
 
@@ -68,7 +68,7 @@
 
         <section class="view" id="view-signal" role="tabpanel" aria-labelledby="view-tab-signal" data-view-panel="signal">
           <section class="micro-performance" data-micro-performance aria-label="Exploratory strategy return and drawdown" hidden>
-            <header><span>Exploratory simulation · reference only</span><strong>Nonconfirmatory · not live trading</strong></header>
+            <header><span>Exploratory simulation · research reference only</span><strong>Nonconfirmatory · not live trading</strong></header>
             <div class="performance-grid">
               <article><span>Execution grid</span><strong>144</strong><small>Complete scenarios</small></article>
               <article><span>Gross-positive</span><strong>110</strong><small>Before fees</small></article>
@@ -76,7 +76,7 @@
               <article class="is-gate"><span>Artifact integrity</span><strong>476/476</strong><small>Files verified</small></article>
             </div>
             <div class="backtest-explorer" data-backtest-explorer><p>Loading the bounded scenario summary…</p></div>
-            <p>Reference only. One four-hour capture, simulated market orders, adjacent pseudo-heldout phases, and no profitability or capacity claim.</p>
+            <p>Research reference only. One four-hour capture, simulated market orders, adjacent pseudo-heldout phases, and no profitability or capacity claim.</p>
           </section>
           <div class="signal-toolbar"><div class="metric-switcher" data-metrics role="group" aria-label="Chart metric"></div><span class="source-path" data-source></span></div>
           <div class="chart" data-chart role="group" aria-label="Loading published research signal"><div class="loading">Loading published evidence…</div></div>
@@ -88,10 +88,10 @@
 
         <section class="view" id="view-portfolio" role="tabpanel" aria-labelledby="view-tab-portfolio" data-view-panel="portfolio" hidden>
           <div class="trail-grid">
-            <article><span>01 · Question</span><h3 data-trail-question>Can a treatment-effect model identify who benefits most?</h3></article>
-            <article><span>02 · Method</span><p data-trail-method>Compare held-out predictions with known effects and a constant-effect oracle.</p></article>
-            <article class="trail-finding"><span>03 · Finding</span><p data-trail-finding>The audit measures learner error against a predeclared oracle and correctly blocks an unsupported HTE claim.</p></article>
-            <article><span>04 · Limit</span><p data-trail-boundary>Semi-synthetic validation—not a live-market effect estimate.</p></article>
+            <article><span>01 · Question</span><h3 data-trail-question>Can a model identify who benefits most?</h3></article>
+            <article><span>02 · Method</span><p data-trail-method>Compare held-out effects with known truth and a constant oracle.</p></article>
+            <article class="trail-finding"><span>03 · Finding</span><p data-trail-finding>RMSE is 0.0417 versus 0.0247 for the oracle; no HTE claim is made.</p></article>
+            <article><span>04 · Limit</span><p data-trail-boundary>Semi-synthetic; not a live-market effect.</p></article>
           </div>
           <div class="trace-strip"><span>Chart → artifact → pinned revision → source</span><strong data-trail-source>hte_recovery.json</strong></div>
         </section>
@@ -107,7 +107,7 @@
 
         <section class="view" id="view-notes" role="tabpanel" aria-labelledby="view-tab-notes" data-view-panel="notes" hidden>
           <div class="notes-grid">
-            <article><span>Evidence label</span><strong data-note-evidence>SEMI-SYNTHETIC · KNOWN-TRUTH VALIDATION</strong><p data-note-boundary>Semi-synthetic validation—not a live-market effect estimate.</p></article>
+            <article><span>Evidence label</span><strong data-note-evidence>SEMI-SYNTHETIC · KNOWN-TRUTH VALIDATION</strong><p data-note-boundary>Semi-synthetic; not a live-market effect.</p></article>
             <article><span>Published artifact</span><strong data-note-source>hte_recovery.json</strong><p>Chart values are bundled from the named, versioned research artifact.</p></article>
             <article><span>Open route</span><strong>Chart → file → source</strong><p>No account, hidden state, or private data is required to inspect this release.</p></article>
           </div>
@@ -116,7 +116,7 @@
     </section>
   </main>
 
-  <footer class="shell"><span>Open Econ × Quant</span><span data-revision>Dataset revision 5329ac0f88ba</span></footer>
+  <footer class="shell"><span>Open Quant &amp; Econ</span><span data-revision>Dataset revision 5329ac0f88ba</span></footer>
   <script src="./app.js"></script>
 </body>
 </html>

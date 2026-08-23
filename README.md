@@ -1,6 +1,6 @@
-# Open Econ × Quant
+# Open Quant & Econ
 
-Yang Xiao's applied economics and quantitative-research portfolio: five end-to-end systems spanning research design, data engineering, econometrics, validation, and interactive communication.
+Yang Xiao's portfolio of five reproducible applied economics and quantitative research systems.
 
 ## Live resources
 
@@ -13,7 +13,7 @@ Yang Xiao's applied economics and quantitative-research portfolio: five end-to-e
 - Microstructure source: https://github.com/YangXiaoShawn/open-economic-quant-microstructure
 - Full research dataset: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data
 - Interactive Hugging Face Space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
-- Static runtime revision: `1dcb45aab5d2129ced14c8a46fd82f339ca8069f`
+- Static runtime revision: `ff146d8f51850a7b8284d1f47db5aed019c9fa6a`
 
 ## Published projects
 
@@ -25,7 +25,7 @@ Yang Xiao's applied economics and quantitative-research portfolio: five end-to-e
 | Tariff Incidence | International trade, tariff pass-through, supply-chain propagation | Public live | `make reproduce-sample` |
 | Order Flow to Price Impact | Market microstructure, exploratory execution simulation | Public live · reference only | `make reproduce-sample` |
 
-The public GitHub copies are intentionally compact. The full research payload is versioned in the Hugging Face Dataset. The portfolio leads with contribution, scale, and capabilities; the interactive evidence layer preserves the exact findings and publication boundaries. The Space reads its file catalogs from that release and includes one bounded, checksum-verified Microstructure scenario summary for interactive reference.
+GitHub hosts compact public code, while Hugging Face provides the full research data and interactive evidence. Findings and publication boundaries remain explicit, including a checksum-verified Microstructure scenario summary.
 
 ## Repository architecture
 

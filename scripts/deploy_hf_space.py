@@ -19,7 +19,7 @@ def main() -> None:
         repo_id=REPO_ID,
         repo_type="space",
         folder_path=ROOT / "apps" / "space",
-        commit_message="Deploy static interactive research observatory",
+        commit_message="Deploy Open Quant & Econ Evidence Lab",
         allow_patterns=["README.md", "index.html", "styles.css", "app.js", "evidence.json", "microstructure_backtest_reference.json", "favicon.svg", "catalog/*.json"],
         delete_patterns=["*", "**/*"],
     )

@@ -52,55 +52,55 @@
       short: 'HTE recovery', field: 'Causal inference', accent: 'teal', folder: 'CasualLab',
       page: 'projects/casuallab/',
       data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/CasualLab',
-      portfolioTitle: 'Experiment design under spillovers', portfolioValue: '19.7M',
-      portfolioLabel: 'NYC TLC records processed and quality-checked',
-      portfolioProof: '194,928 zone-hour cells · 262-node exposure map · deterministic reproduction.',
-      portfolioSkills: 'Causal inference · Monte Carlo · policy learning · Python.',
-      portfolioSummary: 'Built an estimand-first marketplace lab that benchmarks experiment designs and budget-constrained policies against known causal truth.',
+      portfolioTitle: 'Spillover-aware experiments', portfolioValue: '19.7M',
+      portfolioLabel: 'NYC TLC records processed and checked',
+      portfolioProof: '194,928 zone-hours · 262-node exposure map · deterministic replay.',
+      portfolioSkills: 'Causal inference · simulation · policy learning.',
+      portfolioSummary: 'An estimand-first lab for experiments and budgeted policy tests.',
       portfolioStats: [['19.7M', 'records processed'], ['194,928', 'zone-hour cells'], ['262', 'network nodes']]
     },
     macroeconomics: {
       short: 'Real-time macro', field: 'Macroeconomics', accent: 'blue', folder: 'Macroeconomics',
       page: 'projects/macroeconomics/',
       data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/Macroeconomics',
-      portfolioTitle: 'Real-time forecasting without future-data leakage', portfolioValue: '626K',
-      portfolioLabel: 'official archive rows parsed and hashed',
-      portfolioProof: '21 official series · 15,264 real-data forecasts · zero strict timing violations.',
-      portfolioSkills: 'Nowcasting · vintage data · Polars · DuckDB · model evaluation.',
-      portfolioSummary: 'Built a vintage-aware nowcasting engine that reconstructs the information actually available at each historical forecast date.',
+      portfolioTitle: 'Real-time macro', portfolioValue: '626K',
+      portfolioLabel: 'official rows parsed and hashed',
+      portfolioProof: '21 series · 15,264 forecasts · 0 timing violations.',
+      portfolioSkills: 'Nowcasting · vintage data · Polars · DuckDB.',
+      portfolioSummary: 'A vintage-aware engine that reconstructs each forecast date.',
       portfolioStats: [['626,304', 'archive rows'], ['21', 'official series'], ['0', 'timing violations']]
     },
     realestate: {
       short: 'Housing lock-in', field: 'Housing economics', accent: 'amber', folder: 'RealEstate',
       page: 'projects/realestate/',
       data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/RealEstate',
-      portfolioTitle: 'Point-in-time mortgage lock-in analytics', portfolioValue: '8',
-      portfolioLabel: 'distinct lock-in measures designed',
-      portfolioProof: '107 automated tests · five source adapters · one-command public reproduction.',
-      portfolioSkills: 'Survival analysis · event studies · causal inference · data engineering.',
-      portfolioSummary: 'Built a point-in-time housing-finance system linking mortgage rate gaps to exits, local activity, prices, and construction.',
+      portfolioTitle: 'Mortgage lock-in', portfolioValue: '8',
+      portfolioLabel: 'lock-in measures designed',
+      portfolioProof: '107 tests · 5 adapters · one-command reproduction.',
+      portfolioSkills: 'Survival analysis · event studies · data engineering.',
+      portfolioSummary: 'A point-in-time system linking rate gaps to housing outcomes.',
       portfolioStats: [['8', 'lock-in measures'], ['107', 'automated tests'], ['5', 'source adapters']]
     },
     'tariff-incidence': {
       short: 'Tariff incidence', field: 'International trade', accent: 'green', folder: 'TariffIncidence',
       page: 'projects/tariff-incidence/',
       data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/TariffIncidence',
-      portfolioTitle: 'A point-in-time tariff policy engine', portfolioValue: '12,587',
-      portfolioLabel: 'tariff records parsed from legal notices',
-      portfolioProof: '219-page annex parsed · statutory line counts reconciled · 60+ tests.',
-      portfolioSkills: 'Trade econometrics · policy parsing · PPML · data provenance.',
-      portfolioSummary: 'Built a point-in-time Section 301 policy engine that traces legal notices into incidence, sourcing, and industry-exposure analysis.',
+      portfolioTitle: 'Tariff policy engine', portfolioValue: '12,587',
+      portfolioLabel: 'legal-notice tariff records',
+      portfolioProof: '219-page annex · 923,440 panel rows · 60+ tests.',
+      portfolioSkills: 'Trade econometrics · policy parsing · PPML.',
+      portfolioSummary: 'A Section 301 engine for incidence, sourcing, and exposure.',
       portfolioStats: [['12,587', 'tariff records'], ['219', 'annex pages'], ['60+', 'automated tests']]
     },
     microstructure: {
       short: 'Microstructure', field: 'Quantitative finance', accent: 'violet', folder: 'Microstructure',
       page: 'projects/microstructure/',
       data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/Microstructure',
-      portfolioTitle: 'Signal-to-execution stress testing', portfolioValue: '144',
-      portfolioLabel: 'fee- and latency-aware scenarios audited',
-      portfolioProof: 'Two symbols · four horizons · 3×3 latency grid · 476/476 files verified.',
-      portfolioSkills: 'Market microstructure · event-time ML · execution simulation · audit trails.',
-      portfolioSummary: 'Built a leakage-safe signal-to-execution framework that stress-tests apparent edge against fees, latency, fills, inventory, and drawdown.',
+      portfolioTitle: 'Execution stress test', portfolioValue: '144',
+      portfolioLabel: 'fee- and latency-aware scenarios',
+      portfolioProof: '476/476 files · 3×3 latency grid · 2 symbols × 4 horizons.',
+      portfolioSkills: 'Market microstructure · event-time ML · simulation.',
+      portfolioSummary: 'A leakage-safe framework for fees, latency, fills, and drawdown.',
       portfolioStats: [['144', 'execution scenarios'], ['476/476', 'files verified'], ['3×3', 'latency grid']]
     }
   };
@@ -382,12 +382,12 @@
       const meta = PROJECT_META[slug];
       const stats = meta.portfolioStats.map(([value, label]) => `<div role="listitem"><strong>${escapeHTML(value)}</strong><span>${escapeHTML(label)}</span></div>`).join('');
       return `<article class="case-card" data-accent="${meta.accent}">
-        <header><span>0${index + 1} · ${escapeHTML(meta.field)}</span><small>Selected portfolio project</small></header>
+        <header><span>0${index + 1} · ${escapeHTML(meta.field)}</span><small>Selected work</small></header>
         <h3>${escapeHTML(meta.portfolioTitle)}</h3>
         <div class="case-answer"><span>Built</span><p>${escapeHTML(meta.portfolioSummary)}</p></div>
         <div class="case-achievement-stats" role="list" aria-label="Project proof points">${stats}</div>
         <div class="case-method"><span>Skills</span><p>${escapeHTML(meta.portfolioSkills)}</p></div>
-        <details class="case-evidence-boundary"><summary>Evidence snapshot</summary><p><strong>${escapeHTML(`${project.headline.value} · ${project.headline.label}`)}</strong> ${escapeHTML(project.finding)} <span>${escapeHTML(project.note)}</span></p></details>
+        <details class="case-evidence-boundary"><summary>Evidence</summary><p><strong>${escapeHTML(`${project.headline.value} · ${project.headline.label}`)}</strong> ${escapeHTML(project.finding)} <span>${escapeHTML(project.note)}</span></p></details>
         <footer><a href="#research-lab" data-case-project="${slug}">Inspect evidence <span aria-hidden="true">→</span></a><a href="${meta.page}">Open project</a></footer>
       </article>`;
     }).join('');

@@ -1,4 +1,4 @@
-"""Interactive explorer for Open Econ × Quant."""
+"""Interactive explorer for Open Quant & Econ."""
 
 from __future__ import annotations
 
@@ -74,8 +74,8 @@ PROJECTS = {
         prefix="Microstructure",
         field="Market microstructure and quantitative finance",
         question="Can a short-horizon order-flow signal survive explicit fees, latency, fills, inventory, and drawdown?",
-        summary="A reproducibility-first market-microstructure system that audits 144 cost-aware execution scenarios and verifies all 476 files in the bounded reference bundle.",
-        methodology="Preserve event ordering, prevent temporal leakage, evaluate pseudoheldout phases separately, expose fees and turnover-normalized marked drawdown, and label the result as nonconfirmatory simulation rather than live performance.",
+        summary="A reproducibility-first market-microstructure system that audits 144 cost-aware execution scenarios and verifies all 476 files. Research reference only.",
+        methodology="Preserve event ordering, prevent temporal leakage, evaluate pseudoheldout phases separately, and expose fees and turnover-normalized marked drawdown. Research reference only—not live performance.",
         source_url="https://github.com/YangXiaoShawn/open-economic-quant-microstructure",
     ),
 }
@@ -156,9 +156,9 @@ CSS = """
 .hero-panel h1 { font-family: Georgia, serif; letter-spacing: -0.04em; }
 """
 
-with gr.Blocks(title="Open Econ × Quant", css=CSS) as demo:
+with gr.Blocks(title="Open Quant & Econ — Evidence Lab", css=CSS) as demo:
     gr.Markdown(
-        f"""<div class="hero-panel"><h1>Open Econ × Quant</h1><p>Explore five end-to-end research systems, then trace every claim to open evidence.</p><p><a href="{SITE_URL}">Website</a> &middot; <a href="{GITHUB_URL}">GitHub</a> &middot; <a href="https://huggingface.co/datasets/{DATASET_REPO}">Dataset</a></p></div>"""
+        f"""<div class="hero-panel"><p>Yang Xiao · Applied Economics &amp; Quant</p><h1>Open Quant &amp; Econ</h1><p>Explore the work. Verify the evidence.</p><p>Five systems, from raw data to interactive results.</p><p><a href="{SITE_URL}">Website</a> &middot; <a href="{GITHUB_URL}">GitHub</a> &middot; <a href="https://huggingface.co/datasets/{DATASET_REPO}">Dataset</a></p></div>"""
     )
     with gr.Row():
         project_input = gr.Dropdown(list(PROJECTS), value="CasualLab", label="Project")
