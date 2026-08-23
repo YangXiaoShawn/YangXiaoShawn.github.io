@@ -460,3 +460,110 @@ button:focus-visible, a:focus-visible, input:focus-visible, summary:focus-visibl
   .workspace-tabs { padding-inline: 10px; }
   .view-tab { flex: 0 0 auto; }
 }
+
+/* Strategy-performance interaction — microstructure lead project */
+.rail-projects { min-width: 0; }
+
+.micro-performance {
+  margin-bottom: 18px;
+  padding: 18px;
+  border: 1px solid color-mix(in srgb, var(--project-accent) 28%, var(--line));
+  border-radius: 16px;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--project-accent) 7%, transparent), rgba(255,255,255,.012));
+}
+
+.micro-performance[hidden] { display: none; }
+
+.micro-performance > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 13px;
+}
+
+.micro-performance > header span {
+  color: var(--project-accent);
+  font-size: .6rem;
+  font-weight: 730;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.micro-performance > header strong {
+  color: #ffb37d;
+  font: 680 .65rem ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.performance-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(4, 13, 21, .32);
+}
+
+.performance-grid article {
+  min-width: 0;
+  padding: 15px 13px;
+  border-right: 1px solid var(--line);
+}
+
+.performance-grid article:last-child { border-right: 0; }
+.performance-grid span,
+.performance-grid small { display: block; color: var(--muted); font-size: .58rem; }
+.performance-grid strong { display: block; margin: 8px 0 5px; color: #ffb37d; font: 720 .77rem ui-monospace, SFMono-Regular, Menlo, monospace; }
+.performance-grid .is-gate strong { color: var(--project-accent); font: 500 1.55rem/.8 Georgia, serif; }
+
+.performance-trace {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  overflow-x: auto;
+  color: var(--muted);
+  font: 650 .59rem ui-monospace, SFMono-Regular, Menlo, monospace;
+  white-space: nowrap;
+}
+
+.performance-trace span {
+  padding: 7px 9px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255,255,255,.02);
+}
+
+.performance-trace .is-pass { color: var(--green); border-color: color-mix(in srgb, var(--green) 34%, transparent); }
+.performance-trace .is-stop { color: #ffb37d; border-color: rgba(255, 150, 104, .36); }
+.performance-trace i { color: var(--muted); font-style: normal; }
+.micro-performance > p { margin: 12px 0 0; color: var(--soft); font-size: .66rem; }
+
+.top-actions a,
+.top-actions button,
+.view-tab,
+.metric-switcher button,
+.filter,
+.data-table summary,
+.button { min-height: 44px; }
+.data-table summary { display: inline-flex; align-items: center; }
+.search { min-height: 44px; }
+
+@media (max-width: 760px) {
+  .performance-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .performance-grid article:nth-child(2) { border-right: 0; }
+  .performance-grid article:nth-child(-n + 2) { border-bottom: 1px solid var(--line); }
+}
+
+@media (max-width: 1000px) {
+  .lab { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 620px) {
+  .micro-performance { padding: 15px; }
+  .micro-performance > header { align-items: flex-start; flex-direction: column; gap: 5px; }
+  .performance-grid { grid-template-columns: 1fr; }
+  .performance-grid article { border-right: 0; border-bottom: 1px solid var(--line); }
+  .performance-grid article:nth-child(3) { border-bottom: 1px solid var(--line); }
+  .performance-grid article:last-child { border-bottom: 0; }
+}

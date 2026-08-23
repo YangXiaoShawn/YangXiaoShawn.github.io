@@ -19,11 +19,34 @@
     node.textContent = new Date().getFullYear();
   });
 
+  const consoleTabs = [...document.querySelectorAll('[data-console-view]')];
+  const consolePanels = [...document.querySelectorAll('[data-console-panel]')];
+  consoleTabs.forEach((button, index) => {
+    button.tabIndex = button.getAttribute('aria-selected') === 'true' ? 0 : -1;
+    button.addEventListener('click', () => {
+      consoleTabs.forEach((candidate) => {
+        const selected = candidate === button;
+        candidate.classList.toggle('is-active', selected);
+        candidate.setAttribute('aria-selected', String(selected));
+        candidate.tabIndex = selected ? 0 : -1;
+      });
+      consolePanels.forEach((panel) => { panel.hidden = panel.dataset.consolePanel !== button.dataset.consoleView; });
+    });
+    button.addEventListener('keydown', (event) => {
+      if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+      event.preventDefault();
+      const offset = event.key === 'ArrowRight' ? 1 : -1;
+      const next = event.key === 'Home' ? 0 : event.key === 'End' ? consoleTabs.length - 1 : (index + offset + consoleTabs.length) % consoleTabs.length;
+      consoleTabs[next].focus();
+      consoleTabs[next].click();
+    });
+  });
+
   const escapeHTML = (value) => String(value ?? '').replace(/[&<>'"]/g, (character) => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
   }[character]));
 
-  const PROJECT_ORDER = ['casuallab', 'macroeconomics', 'realestate', 'tariff-incidence', 'microstructure'];
+  const PROJECT_ORDER = ['microstructure', 'casuallab', 'macroeconomics', 'realestate', 'tariff-incidence'];
   const PROJECT_META = {
     casuallab: {
       short: 'HTE recovery', field: 'Causal inference', accent: 'teal', folder: 'CasualLab',
@@ -100,7 +123,7 @@
   const signalLab = document.querySelector('[data-signal-lab]');
   const signalTabs = [...document.querySelectorAll('[data-signal-project]')];
   let evidencePayload = null;
-  let activeProject = PROJECT_ORDER.includes(location.hash.slice(1)) ? location.hash.slice(1) : 'casuallab';
+  let activeProject = PROJECT_ORDER.includes(location.hash.slice(1)) ? location.hash.slice(1) : 'microstructure';
   let activeMetric = null;
   let heroMode = 'files';
   const categoryLabel = (slug, category) => slug === 'microstructure' && category === 'data' ? 'data paths' : category;
@@ -180,7 +203,8 @@
     head.innerHTML = `<tr><th>${firstLabel}</th><th>${escapeHTML(metric.label)}</th><th>Context</th></tr>`;
     body.innerHTML = project.series.map((row) => {
       const x = xDescriptor(activeProject, row);
-      return `<tr><td>${escapeHTML(activeProject === 'realestate' ? row.bucket : x.label)}</td><td>${escapeHTML(formatValue(row[metric.id], metric))}</td><td>${escapeHTML(supplementalTooltip(activeProject, row))}</td></tr>`;
+      const value = activeProject === 'microstructure' && row.status === 'not_run' ? 'NOT RUN' : formatValue(row[metric.id], metric);
+      return `<tr><td>${escapeHTML(activeProject === 'realestate' ? row.bucket : x.label)}</td><td>${escapeHTML(value)}</td><td>${escapeHTML(supplementalTooltip(activeProject, row))}</td></tr>`;
     }).join('');
   };
 
@@ -297,11 +321,13 @@
     chart.querySelectorAll('.chart-mark').forEach((mark) => {
       mark.addEventListener('pointerenter', () => show(mark));
       mark.addEventListener('pointerleave', () => { if (tooltip) tooltip.hidden = true; });
+      mark.addEventListener('pointercancel', () => { if (tooltip) tooltip.hidden = true; });
       mark.addEventListener('focus', () => show(mark));
       mark.addEventListener('blur', () => { if (tooltip) tooltip.hidden = true; });
       mark.addEventListener('click', (event) => { event.stopPropagation(); show(mark); });
     });
     chart.onclick = (event) => { if (!event.target.closest('.chart-mark') && tooltip) tooltip.hidden = true; };
+    chart.onkeydown = (event) => { if (event.key === 'Escape' && tooltip) tooltip.hidden = true; };
     renderSignalTable(project, metric);
   };
 
@@ -334,11 +360,19 @@
         const reference = slug === 'tariff-incidence' ? '<em class="case-reference" aria-hidden="true"></em>' : '';
         return `<div class="case-bar${notRun ? ' is-not-run' : ''}"><span>${escapeHTML(caseRowLabel(slug, row))}</span><i><b style="--case-size:${size.toFixed(2)}%"></b>${reference}</i><strong>${escapeHTML(display)}</strong></div>`;
       }).join('');
-      return `<article class="case-card" data-accent="${meta.accent}">
+      const figure = slug === 'microstructure'
+        ? `<div class="case-performance-status" role="group" aria-label="Strategy performance was not estimated">
+            <div><span>Net return</span><strong>NOT RUN</strong></div>
+            <div><span>Max drawdown</span><strong>NOT RUN</strong></div>
+            <div class="is-evidence"><span>Blocking evidence</span><strong>53 ETH warnings</strong></div>
+          </div>
+          <div class="case-gate-line"><span class="is-pass">BTC pass</span><i></i><span class="is-stop">ETH stop</span><i></i><span>P&amp;L locked</span></div>`
+        : `<div class="case-figure" role="img" aria-label="${escapeHTML(`${project.title}. ${caseCaption}`)}">${bars}</div>`;
+      return `<article class="case-card${slug === 'microstructure' ? ' is-featured' : ''}" data-accent="${meta.accent}">
         <header><span>0${index + 1} · ${escapeHTML(meta.field)}</span><small>${escapeHTML(project.evidence)}</small></header>
         <h3>${escapeHTML(project.question)}</h3>
         <div class="case-answer"><span>Finding</span><p>${escapeHTML(project.finding)}</p></div>
-        <div class="case-figure" role="img" aria-label="${escapeHTML(`${project.title}. ${caseCaption}`)}">${bars}</div>
+        ${figure}
         <p class="case-chart-note">${escapeHTML(caseCaption)}</p>
         <div class="case-method"><span>Method</span><p>${escapeHTML(project.method)}</p></div>
         <footer><a href="#research-lab" data-case-project="${slug}">Inspect this evidence <span aria-hidden="true">→</span></a><a href="${meta.page}">Read study</a></footer>
@@ -347,7 +381,8 @@
     root.querySelectorAll('[data-case-project]').forEach((link) => link.addEventListener('click', (event) => {
       event.preventDefault();
       selectProject(link.dataset.caseProject);
-      document.getElementById('research-lab')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      document.getElementById('research-lab')?.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
     }));
   };
 
@@ -384,6 +419,8 @@
     if (space) space.href = `https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory?project=${encodeURIComponent(activeProject)}`;
     const panel = document.getElementById('signal-panel');
     if (panel) panel.setAttribute('aria-labelledby', `signal-tab-${activeProject}`);
+    const performance = document.querySelector('[data-micro-performance]');
+    if (performance) performance.hidden = activeProject !== 'microstructure';
     signalTabs.forEach((tab) => {
       const selected = tab.dataset.signalProject === activeProject;
       tab.classList.toggle('is-active', selected);
@@ -406,18 +443,32 @@
     renderHero();
   };
 
-  const selectProject = (slug) => {
+  const selectProject = (slug, updateHistory = true) => {
     if (!PROJECT_ORDER.includes(slug)) return;
     activeProject = slug;
     activeMetric = null;
-    history.replaceState(null, '', `#${slug}`);
+    if (updateHistory && location.hash !== `#${slug}`) history.pushState({ project: slug }, '', `#${slug}`);
     renderSignal();
+  };
+
+  const syncProjectFromLocation = () => {
+    const slug = location.hash.slice(1);
+    selectProject(PROJECT_ORDER.includes(slug) ? slug : 'microstructure', false);
   };
 
   signalTabs.forEach((button, index) => {
     button.addEventListener('click', () => selectProject(button.dataset.signalProject));
     button.addEventListener('keydown', (event) => moveTabFocus(signalTabs, index, event));
   });
+
+  document.querySelectorAll('[data-open-micro]').forEach((link) => link.addEventListener('click', (event) => {
+    event.preventDefault();
+    selectProject('microstructure');
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.getElementById('research-lab')?.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
+  }));
+  window.addEventListener('popstate', syncProjectFromLocation);
+  window.addEventListener('hashchange', syncProjectFromLocation);
 
   if (heroBars || signalLab) {
     fetch('assets/data/evidence.json')

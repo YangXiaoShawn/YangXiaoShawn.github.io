@@ -25,7 +25,7 @@ Open Econ × Quant is fully public: the GitHub Pages site, five published projec
 - Full Dataset: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data
 - Live Space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
 - Static runtime: https://shawnchamberlain-open-economic-quant-research-ob-5271962.static.hf.space
-- Space revision: `c7c8c3224e8cb2b55019bd88595c6ef0360925c5`
+- Space revision: `aa3a21af0a35a736d1d6aae55bf0bc3f20ab3aa5`
 - Evidence-first redesign commit: `87d659519f6a51445b4afe2f2aeeed9ae8520913`.
 - GitHub Pages interactive redesign commit: `3ca1907e84d6242bcde6f1b84f83992cfd8196bd`.
 - Chart-first release commit: `5cf8b1578683065d2b61c97049f08dc33a2763e2`.
@@ -54,8 +54,9 @@ Open Econ × Quant is fully public: the GitHub Pages site, five published projec
 - Ten stable research section routes.
 - Complete project narratives covering question, importance, source, sample, methods, evidence status, robustness, reproduction, links, citation, limitations, update time, and status.
 - Question-first project switching with HTE recovery, vintage leakage, mortgage hazard, tariff incidence, and Microstructure data-quality-gate evidence.
+- Strategy-performance lead views on the homepage, Microstructure page, and Space make Net return and Max drawdown status explicit while distinguishing `NOT RUN` from zero performance.
 - Metric toggles, keyboard/touch chart tooltips, accessible data tables, and direct links to pinned evidence files.
-- Space signal, portfolio, file, and evidence-note views with shareable URL state.
+- Space signal, portfolio, file, and evidence-note views with shareable URL state and browser back/forward restoration.
 - Live Dataset path search, consistent file-type filters, and directory-size comparisons.
 - Canonical metadata, Open Graph card, favicon, Atom feed, sitemap, robots policy, and 404 page.
 - Responsive shared visual system with a simplified editorial hierarchy and Open Econ × Quant social preview.

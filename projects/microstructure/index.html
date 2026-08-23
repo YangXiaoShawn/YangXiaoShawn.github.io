@@ -6,7 +6,7 @@
   <title>Order Flow to Price Impact | Open Econ × Quant</title>
   <meta name="description" content="Research-only market-microstructure system with explicit data-quality gates, leakage-safe evaluation, execution assumptions, and strict publication boundaries." />
   <meta property="og:title" content="Order Flow to Price Impact" />
-  <meta property="og:description" content="When should an apparent market signal be stopped before publication?" />
+  <meta property="og:description" content="Did the strategy survive costs and drawdowns? The declared quality gate stopped the study before either could be estimated." />
   <meta property="og:image" content="https://yangxiaoshawn.github.io/assets/og-visual-2026.png" />
   <link rel="canonical" href="https://yangxiaoshawn.github.io/projects/microstructure/" />
   <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml" />
@@ -41,6 +41,18 @@
     <article class="article">
       <section id="question"><h2>Research question</h2><p><strong>When do order-flow imbalance, liquidity, and limit-order-book conditions predict short-horizon price movement—and which claims survive data-quality and execution gates?</strong></p><p>Predictability, executability, and profitability are separate questions. The project makes event ordering, temporal leakage, gaps, fees, latency, uncertain fills, adverse selection, and inventory risk explicit before a claim can be promoted.</p></section>
 
+      <section id="performance"><h2>Strategy return and drawdown</h2><div class="micro-performance detail-performance" aria-label="Strategy return and drawdown status">
+        <header><span>Performance status</span><strong>Stopped before estimation</strong></header>
+        <div class="performance-grid">
+          <article><span>Net return</span><strong>NOT RUN</strong><small>No profitability estimate</small></article>
+          <article><span>Max drawdown</span><strong>NOT RUN</strong><small>No risk estimate</small></article>
+          <article><span>Turnover</span><strong>NOT RUN</strong><small>No execution estimate</small></article>
+          <article class="is-gate"><span>Blocking evidence</span><strong>53</strong><small>ETH quality warnings</small></article>
+        </div>
+        <div class="performance-trace" aria-label="Quality gate trace"><span class="is-pass">BTC · 0 warnings</span><i aria-hidden="true">→</i><span class="is-stop">ETH · 53 warnings</span><i aria-hidden="true">→</i><span>Selection locked</span><i aria-hidden="true">→</i><span>P&amp;L not run</span></div>
+        <p>NOT RUN is not a zero return or zero drawdown. The protocol authorized no performance estimate.</p>
+      </div></section>
+
       <section id="gate"><h2>The published gate result</h2><div class="table-wrap"><table class="data-table" data-sortable-table><thead><tr><th data-sort-key>Stage</th><th data-sort-key>Rows inspected</th><th data-sort-key>Warnings</th><th>Outcome</th></tr></thead><tbody>
         <tr><td>BTCUSDT training</td><td>2,071,461</td><td>0</td><td>Normalization passed.</td></tr>
         <tr><td>ETHUSDT training</td><td>987,297</td><td>53</td><td>The predeclared zero-warning gate failed.</td></tr>
@@ -56,7 +68,7 @@
 
       <section id="limitations"><h2>Limitations</h2><ul><li>Public trades do not reveal true queue priority, hidden liquidity, or cancellations.</li><li>Exchange timestamps are not colocated receipt times.</li><li>The frozen trade study stopped before selection and held-out evaluation.</li><li>No result is a live-trading, significance, capacity, profitability, or investment claim.</li></ul></section>
     </article>
-    <aside class="article-nav"><div class="article-nav-title">On this page</div><a href="#question">Question</a><a href="#gate">Evidence gate</a><a href="#method">Methodology</a><a href="#boundary">Data boundary</a><a href="#reproduce">Reproduce</a><a href="#limitations">Limitations</a></aside>
+    <aside class="article-nav"><div class="article-nav-title">On this page</div><a href="#question">Question</a><a href="#performance">Return &amp; drawdown</a><a href="#gate">Evidence gate</a><a href="#method">Methodology</a><a href="#boundary">Data boundary</a><a href="#reproduce">Reproduce</a><a href="#limitations">Limitations</a></aside>
   </div></section>
 </main>
 

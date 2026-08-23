@@ -23,60 +23,73 @@
 
   <main class="shell">
     <section class="intro">
-      <div><div class="eyebrow">Interactive evidence lab</div><h1>One question.<br /><span>One chart.</span></h1><p>See the finding, then inspect the source.</p></div>
-      <div class="intro-stats" aria-label="Published research collection"><div><strong>5</strong><span>questions</span></div><div><strong>5</strong><span>direct charts</span></div><div><strong>1</strong><span>pinned dataset</span></div></div>
+      <div><div class="eyebrow">Interactive research console</div><h1>Change a view.<br /><span>Interrogate the evidence.</span></h1><p>Projects, metrics, and limits respond to every selection.</p></div>
+      <div class="intro-stats" aria-label="Published research collection"><div><strong>5</strong><span>projects</span></div><div><strong data-active-metrics>2</strong><span>metrics in view</span></div><div><strong>1</strong><span>evidence trail</span></div></div>
     </section>
 
-    <section class="lab" id="lab" data-accent="teal" aria-label="Interactive research evidence explorer">
+    <section class="lab" id="lab" data-accent="violet" aria-label="Interactive research evidence explorer">
       <aside class="rail">
         <div class="rail-label">Choose a question</div>
-        <button class="project-button is-active" id="project-tab-casuallab" type="button" data-project="casuallab" aria-pressed="true"><span>01</span><strong>HTE recovery</strong><small>Known-truth test</small></button>
-        <button class="project-button" id="project-tab-macroeconomics" type="button" data-project="macroeconomics" aria-pressed="false"><span>02</span><strong>Vintage leakage</strong><small>Backtest audit</small></button>
-        <button class="project-button" id="project-tab-realestate" type="button" data-project="realestate" aria-pressed="false"><span>03</span><strong>Mortgage lock-in</strong><small>Exit hazard</small></button>
-        <button class="project-button" id="project-tab-tariff-incidence" type="button" data-project="tariff-incidence" aria-pressed="false"><span>04</span><strong>Tariff incidence</strong><small>Price decomposition</small></button>
-        <button class="project-button" id="project-tab-microstructure" type="button" data-project="microstructure" aria-pressed="false"><span>05</span><strong>Quality gate</strong><small>Publication stop</small></button>
+        <div class="rail-projects" role="tablist" aria-label="Choose a research project">
+          <button class="project-button is-active" id="project-tab-microstructure" type="button" role="tab" data-project="microstructure" aria-selected="true" aria-controls="project-panel" tabindex="0"><span>01</span><strong>Strategy performance</strong><small>Return · drawdown gate</small></button>
+          <button class="project-button" id="project-tab-casuallab" type="button" role="tab" data-project="casuallab" aria-selected="false" aria-controls="project-panel" tabindex="-1"><span>02</span><strong>HTE recovery</strong><small>Known-truth test</small></button>
+          <button class="project-button" id="project-tab-macroeconomics" type="button" role="tab" data-project="macroeconomics" aria-selected="false" aria-controls="project-panel" tabindex="-1"><span>03</span><strong>Vintage leakage</strong><small>Backtest audit</small></button>
+          <button class="project-button" id="project-tab-realestate" type="button" role="tab" data-project="realestate" aria-selected="false" aria-controls="project-panel" tabindex="-1"><span>04</span><strong>Mortgage lock-in</strong><small>Exit hazard</small></button>
+          <button class="project-button" id="project-tab-tariff-incidence" type="button" role="tab" data-project="tariff-incidence" aria-selected="false" aria-controls="project-panel" tabindex="-1"><span>05</span><strong>Tariff incidence</strong><small>Price decomposition</small></button>
+        </div>
         <div class="rail-status"><span>Dataset connected</span><div data-revision>Revision 5329ac0f88ba</div></div>
       </aside>
 
-      <div class="workspace">
+      <div class="workspace" id="project-panel" role="tabpanel" aria-labelledby="project-tab-microstructure">
         <header class="project-head">
-          <div class="head-meta"><span data-evidence>SEMI-SYNTHETIC · KNOWN-TRUTH VALIDATION</span><span data-period>Predeclared recovery audit</span></div>
+          <div class="head-meta"><span data-evidence>PUBLIC MARKET DATA · DECLARED QUALITY GATE</span><span data-period>Frozen M8 trade-only protocol</span></div>
           <div class="head-grid">
-            <div><span class="question-label">Question</span><h2 data-question>Can a treatment-effect model identify who benefits most?</h2></div>
-            <div class="headline"><span>Result</span><strong data-headline>0.0417</strong><small data-headline-label>HTE learner RMSE · gate failed</small></div>
+            <div><span class="question-label">Question</span><h2 data-question>Did the strategy survive costs and drawdowns?</h2></div>
+            <div class="headline"><span>Result</span><strong data-headline>NOT RUN</strong><small data-headline-label>net return · max drawdown</small></div>
           </div>
           <div class="story-grid" aria-label="Research summary">
-            <article><span>Method</span><p data-method>Compare held-out predictions with known effects and a constant-effect oracle.</p></article>
-            <article class="finding"><span>Finding</span><p data-finding>The learner loses to the oracle (0.0417 vs 0.0247 RMSE) and fails the gate.</p></article>
-            <article><span>Limit</span><p data-note>Semi-synthetic validation—not a live-market effect estimate.</p></article>
+            <article><span>Method</span><p data-method>Require a zero-warning data gate before selection, held-out testing, execution, or P&amp;L.</p></article>
+            <article class="finding"><span>Finding</span><p data-finding>ETH raised 53 warnings, so strategy return and drawdown were never estimated.</p></article>
+            <article><span>Limit</span><p data-note>NOT RUN is not zero performance; no profitability claim is authorized.</p></article>
           </div>
         </header>
 
         <div class="workspace-tabs" role="tablist" aria-label="Evidence views">
           <button class="view-tab is-active" id="view-tab-signal" type="button" role="tab" aria-selected="true" aria-controls="view-signal" data-view="signal">Evidence</button>
-          <button class="view-tab" id="view-tab-portfolio" type="button" role="tab" aria-selected="false" aria-controls="view-portfolio" data-view="portfolio">Summary</button>
-          <button class="view-tab" id="view-tab-files" type="button" role="tab" aria-selected="false" aria-controls="view-files" data-view="files">Files</button>
-          <button class="view-tab" id="view-tab-notes" type="button" role="tab" aria-selected="false" aria-controls="view-notes" data-view="notes">Limits</button>
+          <button class="view-tab" id="view-tab-portfolio" type="button" role="tab" aria-selected="false" aria-controls="view-portfolio" tabindex="-1" data-view="portfolio">Summary</button>
+          <button class="view-tab" id="view-tab-files" type="button" role="tab" aria-selected="false" aria-controls="view-files" tabindex="-1" data-view="files">Files</button>
+          <button class="view-tab" id="view-tab-notes" type="button" role="tab" aria-selected="false" aria-controls="view-notes" tabindex="-1" data-view="notes">Limits</button>
           <span class="share-status" role="status" data-share-status></span>
         </div>
 
         <section class="view" id="view-signal" role="tabpanel" aria-labelledby="view-tab-signal" data-view-panel="signal">
+          <section class="micro-performance" data-micro-performance aria-label="Strategy return and drawdown status">
+            <header><span>Strategy performance status</span><strong>Stopped before estimation</strong></header>
+            <div class="performance-grid">
+              <article><span>Net return</span><strong>NOT RUN</strong><small>No profitability estimate</small></article>
+              <article><span>Max drawdown</span><strong>NOT RUN</strong><small>No risk estimate</small></article>
+              <article><span>Turnover</span><strong>NOT RUN</strong><small>No execution estimate</small></article>
+              <article class="is-gate"><span>Blocking evidence</span><strong>53</strong><small>ETH quality warnings</small></article>
+            </div>
+            <div class="performance-trace" aria-label="Quality gate trace"><span class="is-pass">BTC · 0 warnings</span><i aria-hidden="true">→</i><span class="is-stop">ETH · 53 warnings</span><i aria-hidden="true">→</i><span>Selection locked</span><i aria-hidden="true">→</i><span>P&amp;L not run</span></div>
+            <p>Direct conclusion: the study stopped at the declared data gate. No value is presented as a zero return.</p>
+          </section>
           <div class="signal-toolbar"><div class="metric-switcher" data-metrics role="group" aria-label="Chart metric"></div><span class="source-path" data-source></span></div>
           <div class="chart" data-chart role="group" aria-label="Loading published research signal"><div class="loading">Loading published evidence…</div></div>
           <div class="chart-legend" data-chart-legend></div>
-          <p class="chart-caption" data-chart-caption>Lower RMSE is better; the learner must beat the oracle.</p>
+          <p class="chart-caption" data-chart-caption>The gate passed for BTC, failed for ETH, and blocked every performance stage.</p>
           <details class="data-table" data-table><summary>Read chart as a table</summary><div class="table-wrap"><table><thead data-table-head></thead><tbody data-table-body></tbody></table></div></details>
-          <div class="view-actions"><a class="button button-primary" data-project-page href="https://yangxiaoshawn.github.io/projects/casuallab/">Read study</a><a class="button" data-dataset href="https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/CasualLab">Open evidence</a><a class="button" data-source-code href="https://github.com/YangXiaoShawn/open-economic-quant-casuallab">Source</a></div>
+          <div class="view-actions"><a class="button button-primary" data-project-page href="https://yangxiaoshawn.github.io/projects/microstructure/">Read study</a><a class="button" data-dataset href="https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/blob/main/Microstructure/STATUS.md">Open evidence</a><a class="button" data-source-code href="https://github.com/YangXiaoShawn/open-economic-quant-microstructure">Source</a></div>
         </section>
 
         <section class="view" id="view-portfolio" role="tabpanel" aria-labelledby="view-tab-portfolio" data-view-panel="portfolio" hidden>
           <div class="trail-grid">
-            <article><span>01 · Question</span><h3 data-trail-question>Can a treatment-effect model identify who benefits most?</h3></article>
-            <article><span>02 · Method</span><p data-trail-method>Compare held-out predictions with known effects and a constant-effect oracle.</p></article>
-            <article class="trail-finding"><span>03 · Finding</span><p data-trail-finding>The learner loses to the oracle and fails the gate.</p></article>
-            <article><span>04 · Limit</span><p data-trail-boundary>Semi-synthetic validation—not a live-market effect estimate.</p></article>
+            <article><span>01 · Question</span><h3 data-trail-question>Did the strategy survive costs and drawdowns?</h3></article>
+            <article><span>02 · Method</span><p data-trail-method>Require a zero-warning data gate before selection, held-out testing, execution, or P&amp;L.</p></article>
+            <article class="trail-finding"><span>03 · Finding</span><p data-trail-finding>ETH raised 53 warnings, so strategy return and drawdown were never estimated.</p></article>
+            <article><span>04 · Limit</span><p data-trail-boundary>NOT RUN is not zero performance; no profitability claim is authorized.</p></article>
           </div>
-          <div class="trace-strip"><span>Chart → artifact → pinned revision → source</span><strong data-trail-source>hte_recovery.json</strong></div>
+          <div class="trace-strip"><span>Chart → artifact → pinned revision → source</span><strong data-trail-source>STATUS.md</strong></div>
         </section>
 
         <section class="view" id="view-files" role="tabpanel" aria-labelledby="view-tab-files" data-view-panel="files" hidden>
@@ -90,8 +103,8 @@
 
         <section class="view" id="view-notes" role="tabpanel" aria-labelledby="view-tab-notes" data-view-panel="notes" hidden>
           <div class="notes-grid">
-            <article><span>Evidence label</span><strong data-note-evidence>SEMI-SYNTHETIC · KNOWN-TRUTH VALIDATION</strong><p data-note-boundary>Semi-synthetic validation—not a live-market effect estimate.</p></article>
-            <article><span>Published artifact</span><strong data-note-source>hte_recovery.json</strong><p>Chart values are bundled from the named, versioned research artifact.</p></article>
+            <article><span>Evidence label</span><strong data-note-evidence>PUBLIC MARKET DATA · DECLARED QUALITY GATE</strong><p data-note-boundary>NOT RUN is not zero performance; no profitability claim is authorized.</p></article>
+            <article><span>Published artifact</span><strong data-note-source>STATUS.md</strong><p>Chart values are bundled from the named, versioned research artifact.</p></article>
             <article><span>Open route</span><strong>Chart → file → source</strong><p>No account, hidden state, or private data is required to inspect this release.</p></article>
           </div>
         </section>

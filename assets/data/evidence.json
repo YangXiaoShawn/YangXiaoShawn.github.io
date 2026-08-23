@@ -82,15 +82,15 @@
       ]
     },
     "microstructure": {
-      "title": "Declared data-quality gate",
-      "question": "When should a market study stop?",
+      "title": "Strategy return & drawdown gate",
+      "question": "Did the strategy survive costs and drawdowns?",
       "evidence": "PUBLIC MARKET DATA · DECLARED QUALITY GATE",
       "period": "Frozen M8 trade-only protocol",
-      "headline": {"value": "53", "label": "warnings stopped the study"},
-      "method": "Apply a zero-warning gate to 3.06M training rows before model selection.",
-      "finding": "BTC passes; 53 ETH warnings stop the study before selection or testing.",
-      "note": "No held-out test, execution, or P&L ran, so there is no performance claim.",
-      "chart_caption": "NOT RUN marks stages blocked by the ETH quality gate.",
+      "headline": {"value": "NOT RUN", "label": "net return · max drawdown"},
+      "method": "Require a zero-warning data gate before selection, held-out testing, execution, or P&L.",
+      "finding": "ETH raised 53 warnings, so strategy return and drawdown were never estimated.",
+      "note": "NOT RUN is not zero performance; no profitability claim is authorized.",
+      "chart_caption": "The gate passed for BTC, failed for ETH, and blocked every performance stage.",
       "source": "Microstructure/STATUS.md",
       "default_metric": "warnings",
       "metrics": [

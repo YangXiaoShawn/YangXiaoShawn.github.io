@@ -2,7 +2,7 @@
   'use strict';
 
   const REPO = 'ShawnChamberlain/open-economic-quant-research-data';
-  const ORDER = ['casuallab', 'macroeconomics', 'realestate', 'tariff-incidence', 'microstructure'];
+  const ORDER = ['microstructure', 'casuallab', 'macroeconomics', 'realestate', 'tariff-incidence'];
   const VIEWS = ['signal', 'portfolio', 'files', 'notes'];
   const META = {
     casuallab: { folder: 'CasualLab', accent: 'teal', page: 'https://yangxiaoshawn.github.io/projects/casuallab/', data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/CasualLab', source: 'https://github.com/YangXiaoShawn/open-economic-quant-casuallab' },
@@ -13,7 +13,7 @@
   };
   const COLORS = { code: '#6ee7d8', data: '#8eb8ff', reports: '#ffca6a', tests: '#7fe4aa' };
   const params = new URLSearchParams(location.search);
-  let activeProject = ORDER.includes(params.get('project')) ? params.get('project') : 'casuallab';
+  let activeProject = ORDER.includes(params.get('project')) ? params.get('project') : 'microstructure';
   let activeMetric = params.get('metric');
   let activeView = VIEWS.includes(params.get('view')) ? params.get('view') : 'signal';
   let activeFilter = ['all', 'code', 'data', 'reports', 'tests'].includes(params.get('filter')) ? params.get('filter') : 'all';
@@ -90,7 +90,8 @@
     buttons[next].click();
   };
 
-  const updateURL = () => {
+  const updateURL = (mode = 'replace') => {
+    if (mode === 'none') return;
     const url = new URL(location.href);
     url.searchParams.set('project', activeProject);
     url.searchParams.set('view', activeView);
@@ -98,7 +99,7 @@
     if (activeFilter !== 'all') url.searchParams.set('filter', activeFilter); else url.searchParams.delete('filter');
     const query = one('[data-search]')?.value.trim();
     if (query) url.searchParams.set('q', query); else url.searchParams.delete('q');
-    history.replaceState(null, '', url);
+    history[mode === 'push' ? 'pushState' : 'replaceState']({ project: activeProject, view: activeView }, '', url);
   };
 
   const renderTable = (project, metric) => {
@@ -113,7 +114,8 @@
     head.innerHTML = `<tr><th>${first}</th><th>${escapeHTML(metric.label)}</th><th>Context</th></tr>`;
     body.innerHTML = project.series.map((row) => {
       const x = xDescriptor(activeProject, row);
-      return `<tr><td>${escapeHTML(activeProject === 'realestate' ? row.bucket : x.label)}</td><td>${escapeHTML(formatValue(row[metric.id], metric))}</td><td>${escapeHTML(context(activeProject, row))}</td></tr>`;
+      const value = activeProject === 'microstructure' && row.status === 'not_run' ? 'NOT RUN' : formatValue(row[metric.id], metric);
+      return `<tr><td>${escapeHTML(activeProject === 'realestate' ? row.bucket : x.label)}</td><td>${escapeHTML(value)}</td><td>${escapeHTML(context(activeProject, row))}</td></tr>`;
     }).join('');
   };
 
@@ -213,11 +215,13 @@
     chart.querySelectorAll('.chart-mark').forEach((mark) => {
       mark.addEventListener('pointerenter', () => show(mark));
       mark.addEventListener('pointerleave', () => { tooltip.hidden = true; });
+      mark.addEventListener('pointercancel', () => { tooltip.hidden = true; });
       mark.addEventListener('focus', () => show(mark));
       mark.addEventListener('blur', () => { tooltip.hidden = true; });
       mark.addEventListener('click', (event) => { event.stopPropagation(); show(mark); });
     });
     chart.onclick = (event) => { if (!event.target.closest('.chart-mark')) tooltip.hidden = true; };
+    chart.onkeydown = (event) => { if (event.key === 'Escape') tooltip.hidden = true; };
     renderTable(project, metric);
   };
 
@@ -228,6 +232,8 @@
     if (!project.metrics.some((item) => item.id === activeMetric)) activeMetric = project.default_metric;
     const metric = project.metrics.find((item) => item.id === activeMetric) || project.metrics[0];
     one('#lab').dataset.accent = meta.accent;
+    const metricCount = one('[data-active-metrics]');
+    if (metricCount) metricCount.textContent = project.metrics.length.toLocaleString('en-US');
     const text = {
       '[data-evidence]': project.evidence,
       '[data-period]': project.period,
@@ -252,10 +258,15 @@
     one('[data-project-page]').href = meta.page;
     one('[data-dataset]').href = datasetFileURL(project.source, evidence.dataset_revision);
     one('[data-source-code]').href = meta.source;
+    const performance = one('[data-micro-performance]');
+    if (performance) performance.hidden = activeProject !== 'microstructure';
+    const projectPanel = one('#project-panel');
+    if (projectPanel) projectPanel.setAttribute('aria-labelledby', `project-tab-${activeProject}`);
     all('[data-project]').forEach((button) => {
       const selected = button.dataset.project === activeProject;
       button.classList.toggle('is-active', selected);
-      button.setAttribute('aria-pressed', String(selected));
+      button.setAttribute('aria-selected', String(selected));
+      button.tabIndex = selected ? 0 : -1;
     });
     const metricRoot = one('[data-metrics]');
     metricRoot.innerHTML = project.metrics.map((item) => `<button type="button" class="${item.id === metric.id ? 'is-active' : ''}" data-metric="${escapeHTML(item.id)}" aria-pressed="${item.id === metric.id}">${escapeHTML(item.label)}</button>`).join('');
@@ -266,7 +277,6 @@
     });
     renderChart(project, metric);
     renderPortfolio();
-    updateURL();
   };
 
   const renderPortfolio = () => {
@@ -324,7 +334,7 @@
     }
   };
 
-  const setView = (view) => {
+  const setView = (view, historyMode = 'replace') => {
     activeView = VIEWS.includes(view) ? view : 'signal';
     all('[data-view-panel]').forEach((panel) => { panel.hidden = panel.dataset.viewPanel !== activeView; });
     const buttons = all('[data-view]');
@@ -335,16 +345,20 @@
       button.tabIndex = selected ? 0 : -1;
     });
     if (activeView === 'files') loadCatalog();
-    updateURL();
+    updateURL(historyMode);
   };
 
-  const selectProject = (slug) => {
+  const selectProject = (slug, historyMode = 'push') => {
     if (!ORDER.includes(slug)) return;
     activeProject = slug;
     activeMetric = null;
     rows = cache[slug] || [];
     renderEvidence();
     if (activeView === 'files') loadCatalog();
+    updateURL(historyMode);
+    const selectedButton = one(`[data-project="${slug}"]`);
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    selectedButton?.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'nearest', inline: 'center' });
   };
 
   const projectButtons = all('[data-project]');
@@ -354,7 +368,7 @@
   });
   const viewButtons = all('[data-view]');
   viewButtons.forEach((button, index) => {
-    button.addEventListener('click', () => setView(button.dataset.view));
+    button.addEventListener('click', () => setView(button.dataset.view, 'push'));
     button.addEventListener('keydown', (event) => moveFocus(viewButtons, index, event));
   });
   all('[data-filter]').forEach((button) => button.addEventListener('click', () => {
@@ -400,7 +414,7 @@
   });
 
   one('[data-reset]').addEventListener('click', () => {
-    activeProject = 'casuallab';
+    activeProject = 'microstructure';
     activeMetric = null;
     activeFilter = 'all';
     search.value = '';
@@ -409,8 +423,26 @@
       button.classList.toggle('is-active', selected);
       button.setAttribute('aria-pressed', String(selected));
     });
-    selectProject(activeProject);
-    setView('signal');
+    selectProject(activeProject, 'none');
+    setView('signal', 'push');
+  });
+
+  window.addEventListener('popstate', () => {
+    const next = new URLSearchParams(location.search);
+    activeProject = ORDER.includes(next.get('project')) ? next.get('project') : 'microstructure';
+    activeMetric = next.get('metric');
+    activeView = VIEWS.includes(next.get('view')) ? next.get('view') : 'signal';
+    activeFilter = ['all', 'code', 'data', 'reports', 'tests'].includes(next.get('filter')) ? next.get('filter') : 'all';
+    search.value = next.get('q') || '';
+    all('[data-filter]').forEach((button) => {
+      const selected = button.dataset.filter === activeFilter;
+      button.classList.toggle('is-active', selected);
+      button.setAttribute('aria-pressed', String(selected));
+    });
+    if (!evidence) return;
+    rows = cache[activeProject] || [];
+    renderEvidence();
+    setView(activeView, 'none');
   });
 
   fetch('./evidence.json')
@@ -422,7 +454,7 @@
       evidence = payload;
       all('[data-revision]').forEach((node) => { node.textContent = `Dataset revision ${payload.dataset_revision.slice(0, 12)}`; });
       renderEvidence();
-      setView(activeView);
+      setView(activeView, 'replace');
     })
     .catch(() => {
       one('[data-chart]').innerHTML = '<div class="loading">Evidence failed to load. The linked Dataset remains available.</div>';
