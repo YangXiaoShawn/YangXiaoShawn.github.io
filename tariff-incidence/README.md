@@ -106,23 +106,23 @@ ever used as a control:
 
 | Outcome | Mean post effect | Verdict |
 |---|---|---|
-| log landed unit value (duty-**inclusive**) | **+0.149** | **CLEAN** |
-| log customs unit value (tariff-**exclusive**) | +0.023 | PRECISE_NULL, bounded at 0.072 |
-| log quantity | −0.350 | NOISY_PRE_PERIOD_NO_SLOPE (qualified) |
+| log landed unit value (duty-**inclusive**) | **+0.154** | **CLEAN** |
+| log customs unit value (tariff-**exclusive**) | +0.025 | PRECISE_NULL, bounded at 0.076 |
+| log quantity | −0.379 | NOISY_PRE_PERIOD_NO_SLOPE (qualified) |
 
 ### Incidence: who paid
 
 The value-weighted additional duty actually in force on treated flows is
-**15.3%**. If the exporter absorbed none of it, the duty-inclusive landed unit
-value would rise by log(1.153) = **0.1424**. Observed: **+0.1494**.
+**17.7%**. If the exporter absorbed none of it, the duty-inclusive landed unit
+value would rise by log(1.177) = **0.1626**. Observed: **+0.1544**.
 
 But that figure is **not independent evidence** — the landed measure contains
 the duty by construction, so most of its rise is arithmetic, and quoting it
 alone is close to quoting the tariff rate back.
 
 The behavioural quantity is the **customs unit value**, which falls only if the
-exporter cuts its border price. It did not: the point estimate is +0.023,
-slightly *positive*, and the effect is bounded at 0.072 in absolute value.
+exporter cuts its border price. It did not: the point estimate is +0.025,
+slightly *positive*, and the effect is bounded at 0.076 in absolute value.
 
 **The tariff was passed through to the U.S. importer close to in full over this
 window, with no detectable exporter absorption.** It is the bound that carries

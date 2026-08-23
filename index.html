@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Open Economic &amp; Quant Research Observatory</title>
-  <meta name="description" content="Choose an economic question, inspect the research design, and follow the evidence to code and versioned data." />
+  <meta name="description" content="Four open economic questions, explored through interactive charts and linked evidence." />
   <meta property="og:title" content="Open Economic &amp; Quant Research Observatory" />
-  <meta property="og:description" content="Start with a question. Follow the evidence." />
+  <meta property="og:description" content="Four questions. Interactive charts. Open evidence." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://yangxiaoshawn.github.io/" />
-  <meta property="og:image" content="https://yangxiaoshawn.github.io/assets/og-2026.png" />
-  <meta property="og:image:alt" content="Open Economic and Quant Research Observatory — start with a question and follow the evidence" />
+  <meta property="og:image" content="https://yangxiaoshawn.github.io/assets/og-visual-2026.png" />
+  <meta property="og:image:alt" content="Open Econ x Quant — research you can interrogate, with four chart signals and open evidence" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#071019" />
   <link rel="canonical" href="https://yangxiaoshawn.github.io/" />
@@ -33,82 +33,84 @@
   </div>
 </header>
 <main id="main">
-  <section class="home-hero">
-    <div class="container home-hero-inner">
-      <div class="eyebrow">Four live research systems</div>
-      <h1>Start with a question.<br /><span>Follow the evidence.</span></h1>
-      <p>Explore causal inference, real-time macro, housing finance, and international trade through the decisions that make each result credible.</p>
-      <div class="hero-actions"><a class="button button-primary" href="#research-lab">Choose a question</a><a class="button button-secondary" href="https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory">Explore the live Dataset</a></div>
-      <div class="home-hero-meta" aria-label="Research areas"><span>Causal inference</span><span>Macroeconomics</span><span>Housing</span><span>Trade</span></div>
+  <section class="visual-hero">
+    <div class="container visual-hero-grid">
+      <div class="visual-hero-copy">
+        <div class="eyebrow">Open economics lab</div>
+        <h1>Research you can <span>interrogate.</span></h1>
+        <p>Four questions. Public data. Every claim linked to its evidence.</p>
+        <div class="hero-actions"><a class="button button-primary" href="#research-lab">Explore the signals</a><a class="button button-secondary" href="https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory">Open live lab</a></div>
+      </div>
+      <div class="hero-chart" aria-label="Interactive index of public research files by project">
+        <div class="hero-chart-head"><div><span>Research index</span><strong>3,568</strong><small>public files</small></div><div class="chart-mode" role="group" aria-label="Chart view"><button class="is-active" type="button" data-chart-mode="files" aria-pressed="true">Files</button><button type="button" data-chart-mode="types" aria-pressed="false">Mix</button></div></div>
+        <div class="hero-bars" data-hero-bars>
+          <button class="hero-bar-row" type="button" data-hero-project="macroeconomics" aria-pressed="false"><span class="bar-name">Real-time macro</span><span class="bar-track"><i style="--bar-size:100%"></i></span><strong>2,931</strong></button>
+          <button class="hero-bar-row is-active" type="button" data-hero-project="casuallab" aria-pressed="true"><span class="bar-name">NYC mobility</span><span class="bar-track"><i style="--bar-size:14.1%"></i></span><strong>414</strong></button>
+          <button class="hero-bar-row" type="button" data-hero-project="tariff-incidence" aria-pressed="false"><span class="bar-name">Tariff incidence</span><span class="bar-track"><i style="--bar-size:4.2%"></i></span><strong>122</strong></button>
+          <button class="hero-bar-row" type="button" data-hero-project="realestate" aria-pressed="false"><span class="bar-name">Housing lock-in</span><span class="bar-track"><i style="--bar-size:3.4%"></i></span><strong>101</strong></button>
+        </div>
+        <div class="hero-chart-foot"><span><i></i>Versioned Dataset</span><span data-hero-caption>Files at the published revision</span></div>
+      </div>
     </div>
   </section>
 
-  <section class="studio-section" id="research-lab" aria-labelledby="studio-title">
+  <section class="signal-section" id="research-lab" aria-labelledby="signal-title">
     <div class="container">
-      <div class="studio-heading">
-        <div><div class="section-kicker">Question explorer</div><h2 id="studio-title">Pick the question that matters to you.</h2></div>
-        <p>Select a project, then move through its research design. Every route ends at the public narrative, code, and versioned data.</p>
+      <div class="signal-heading">
+        <div><div class="section-kicker">Live evidence</div><h2 id="signal-title">Four questions. One signal at a time.</h2></div>
+        <p>Switch the project or metric. Every mark comes from a published research artifact.</p>
       </div>
 
-      <div class="research-studio" data-research-studio>
-        <div class="studio-projects" role="tablist" aria-label="Choose a research project">
-          <button class="studio-project is-active" type="button" role="tab" aria-selected="true" data-studio-project="casuallab"><span>01</span>Causal effects</button>
-          <button class="studio-project" type="button" role="tab" aria-selected="false" data-studio-project="macroeconomics"><span>02</span>Real-time macro</button>
-          <button class="studio-project" type="button" role="tab" aria-selected="false" data-studio-project="realestate"><span>03</span>Housing lock-in</button>
-          <button class="studio-project" type="button" role="tab" aria-selected="false" data-studio-project="tariff-incidence"><span>04</span>Tariff incidence</button>
+      <div class="signal-lab" data-signal-lab data-accent="teal">
+        <div class="signal-tabs" role="tablist" aria-label="Choose a research signal">
+          <button class="signal-tab is-active" id="signal-tab-casuallab" type="button" role="tab" aria-selected="true" aria-controls="signal-panel" data-signal-project="casuallab"><span>01</span><strong>NYC mobility</strong><small>24-hour rhythm</small></button>
+          <button class="signal-tab" id="signal-tab-macroeconomics" type="button" role="tab" aria-selected="false" aria-controls="signal-panel" data-signal-project="macroeconomics"><span>02</span><strong>Vintage leakage</strong><small>Backtest audit</small></button>
+          <button class="signal-tab" id="signal-tab-realestate" type="button" role="tab" aria-selected="false" aria-controls="signal-panel" data-signal-project="realestate"><span>03</span><strong>Mortgage lock-in</strong><small>Exit hazard</small></button>
+          <button class="signal-tab" id="signal-tab-tariff-incidence" type="button" role="tab" aria-selected="false" aria-controls="signal-panel" data-signal-project="tariff-incidence"><span>04</span><strong>Tariff windows</strong><small>Sensitivity</small></button>
         </div>
 
-        <div class="studio-body" role="tabpanel" aria-live="polite">
-          <div class="studio-question">
-            <div class="studio-overline"><span data-studio-field>Causal inference</span><span class="studio-counter" data-studio-counter>01 / 04</span></div>
-            <h3 data-studio-question>How do causal mechanisms and heterogeneous treatment effects shape market outcomes?</h3>
-            <p data-studio-summary>Loading the public research catalog…</p>
-            <div class="studio-tags" data-studio-tags></div>
+        <article class="signal-panel" id="signal-panel" role="tabpanel" aria-labelledby="signal-tab-casuallab" aria-live="polite">
+          <header class="signal-panel-head">
+            <div class="signal-copy">
+              <div class="signal-meta"><span data-signal-evidence>DESCRIPTIVE REAL DATA</span><span data-signal-period>NYC TLC HVFHV · Jan 2024</span></div>
+              <h3 data-signal-question>When does New York move?</h3>
+              <p data-signal-note>19,663,930 completed trips. Descriptive activity, not demand or a causal effect.</p>
+            </div>
+            <div class="signal-stat"><strong data-signal-headline>1.22M</strong><span data-signal-headline-label>trips at the 18:00 peak</span></div>
+          </header>
+
+          <div class="signal-toolbar">
+            <div class="metric-switcher" data-signal-metrics role="group" aria-label="Chart metric"></div>
+            <span class="signal-source" data-signal-source>CasualLab/artifacts/nyc_full/hourly_summary.csv</span>
           </div>
 
-          <div class="studio-inspector">
-            <div class="inspector-tabs" role="tablist" aria-label="Inspect the research path">
-              <button class="inspector-tab is-active" type="button" role="tab" aria-selected="true" data-studio-stage="question">Question</button>
-              <button class="inspector-tab" type="button" role="tab" aria-selected="false" data-studio-stage="design">Design</button>
-              <button class="inspector-tab" type="button" role="tab" aria-selected="false" data-studio-stage="evidence">Evidence</button>
-              <button class="inspector-tab" type="button" role="tab" aria-selected="false" data-studio-stage="boundary">Boundary</button>
+          <div class="signal-chart-wrap">
+            <div class="signal-chart" data-signal-chart role="group" aria-label="Loading research chart" tabindex="0">
+              <div class="chart-loading">Loading the published signal…</div>
             </div>
-            <div class="inspector-content">
-              <span class="inspector-index" data-stage-index>01</span>
-              <div><h4 data-stage-title>What the project asks</h4><p data-stage-copy>Choose a project to inspect the research question and the public evidence behind it.</p></div>
-            </div>
-            <div class="evidence-path" aria-label="Evidence workflow">
-              <span class="is-current">Frame</span><span>Build</span><span>Test</span><span>Publish</span>
-            </div>
+            <div class="chart-legend" data-chart-legend></div>
           </div>
 
-          <div class="studio-actions">
-            <a class="button button-primary" data-studio-page href="projects/casuallab/">Open project</a>
-            <a class="button button-secondary" data-studio-data href="https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data">Inspect data</a>
-            <a class="studio-source-link" data-studio-source href="https://github.com/YangXiaoShawn/open-economic-quant-casuallab">View source <span aria-hidden="true">↗</span></a>
+          <details class="signal-table" data-signal-table>
+            <summary>Read the chart as a table</summary>
+            <div class="table-wrap"><table><thead data-signal-table-head></thead><tbody data-signal-table-body></tbody></table></div>
+          </details>
+
+          <div class="signal-actions">
+            <a class="button button-primary" data-signal-page href="projects/casuallab/">Read the study</a>
+            <a class="button button-secondary" href="https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory">Stress-test in the lab</a>
+            <a class="signal-inline-link" data-signal-data href="https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/CasualLab">Open evidence <span aria-hidden="true">↗</span></a>
           </div>
-        </div>
+        </article>
       </div>
     </div>
   </section>
 
-  <section class="route-section">
-    <div class="container route-grid">
-      <div class="route-intro"><div class="section-kicker">One connected route</div><h2>From claim to proof, without losing the thread.</h2></div>
-      <ol class="route-steps">
-        <li><span>01</span><div><strong>Read the question</strong><p>Begin with the economic decision or mechanism—not a list of features.</p></div></li>
-        <li><span>02</span><div><strong>Inspect the design</strong><p>See the estimand, information set, diagnostics, and evidence limits.</p></div></li>
-        <li><span>03</span><div><strong>Open the proof</strong><p>Continue directly into public code, versioned data, and reproducible artifacts.</p></div></li>
-      </ol>
-    </div>
-  </section>
-
-  <section class="home-cta-section">
-    <div class="container">
-      <div class="home-cta">
-        <div><div class="section-kicker">Interactive research lab</div><h2>Browse the actual research files.</h2><p>Filter the pinned Dataset by project, file type, or keyword in the Hugging Face Space.</p></div>
-        <a class="button button-primary" href="https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory">Launch the explorer <span aria-hidden="true">↗</span></a>
-      </div>
+  <section class="evidence-route" aria-label="Ways to inspect the research">
+    <div class="container evidence-route-grid">
+      <a href="research/"><span>01</span><strong>Read</strong><small>Questions + findings</small></a>
+      <a href="https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory"><span>02</span><strong>Test</strong><small>Charts + filters</small></a>
+      <a href="https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data"><span>03</span><strong>Trace</strong><small>3,568 public files</small></a>
     </div>
   </section>
 </main>

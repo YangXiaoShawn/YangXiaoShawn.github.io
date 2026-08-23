@@ -1,0 +1,97 @@
+{
+  "generated_at": "2026-08-23",
+  "dataset_revision": "38e373a5df14afb0cf10c1f008c188f4000ca8df",
+  "portfolio": {
+    "total_files": 3568,
+    "total_bytes": 2851437514,
+    "categories": {"code": 331, "data": 3090, "reports": 61, "tests": 86},
+    "projects": {
+      "casuallab": {"files": 414, "bytes": 1433514227, "code": 137, "data": 232, "reports": 17, "tests": 28},
+      "macroeconomics": {"files": 2931, "bytes": 1415262436, "code": 66, "data": 2822, "reports": 13, "tests": 30},
+      "realestate": {"files": 101, "bytes": 1183924, "code": 63, "data": 6, "reports": 16, "tests": 16},
+      "tariff-incidence": {"files": 122, "bytes": 1476927, "code": 65, "data": 30, "reports": 15, "tests": 12}
+    }
+  },
+  "projects": {
+    "casuallab": {
+      "title": "NYC mobility rhythm",
+      "question": "When does New York move?",
+      "evidence": "DESCRIPTIVE REAL DATA",
+      "period": "NYC TLC HVFHV · Jan 2024",
+      "headline": {"value": "1.22M", "label": "trips at the 18:00 peak"},
+      "note": "19,663,930 completed trips. Descriptive activity, not demand or a causal effect.",
+      "source": "CasualLab/artifacts/nyc_full/hourly_summary.csv",
+      "default_metric": "trips",
+      "metrics": [
+        {"id": "trips", "label": "Trips", "unit": "trips", "type": "line"},
+        {"id": "fare", "label": "Avg fare", "unit": "USD", "type": "line"},
+        {"id": "airport_pct", "label": "Airport share", "unit": "%", "type": "line"}
+      ],
+      "series": [
+        {"hour":0,"trips":697067,"fare":23.35,"airport_pct":4.82},{"hour":1,"trips":492869,"fare":23.93,"airport_pct":2.76},{"hour":2,"trips":368463,"fare":24.39,"airport_pct":3.10},{"hour":3,"trips":296869,"fare":25.07,"airport_pct":9.78},{"hour":4,"trips":295770,"fare":27.55,"airport_pct":21.22},{"hour":5,"trips":344232,"fare":28.06,"airport_pct":23.43},{"hour":6,"trips":548915,"fare":25.96,"airport_pct":13.06},{"hour":7,"trips":863545,"fare":24.28,"airport_pct":8.02},{"hour":8,"trips":1040792,"fare":23.06,"airport_pct":6.37},{"hour":9,"trips":915835,"fare":23.13,"airport_pct":7.72},{"hour":10,"trips":820397,"fare":23.79,"airport_pct":8.93},{"hour":11,"trips":806770,"fare":23.96,"airport_pct":8.77},{"hour":12,"trips":832440,"fare":24.06,"airport_pct":9.11},{"hour":13,"trips":867183,"fare":24.56,"airport_pct":9.92},{"hour":14,"trips":957194,"fare":24.85,"airport_pct":10.01},{"hour":15,"trips":983663,"fare":25.31,"airport_pct":9.90},{"hour":16,"trips":1018763,"fare":25.03,"airport_pct":9.26},{"hour":17,"trips":1169233,"fare":23.60,"airport_pct":6.91},{"hour":18,"trips":1217661,"fare":22.51,"airport_pct":5.76},{"hour":19,"trips":1156888,"fare":22.19,"airport_pct":5.98},{"hour":20,"trips":1059668,"fare":23.11,"airport_pct":5.88},{"hour":21,"trips":1016300,"fare":23.82,"airport_pct":5.51},{"hour":22,"trips":1001910,"fare":23.79,"airport_pct":5.62},{"hour":23,"trips":891503,"fare":23.39,"airport_pct":5.95}
+      ]
+    },
+    "macroeconomics": {
+      "title": "Vintage leakage audit",
+      "question": "What did the forecaster know then?",
+      "evidence": "OFFICIAL AGENCY ARCHIVE",
+      "period": "Declared multi-target pilot",
+      "headline": {"value": "863", "label": "future-eligibility cells in a naive backtest"},
+      "note": "The vintage-aware and fixed-mask modes expose zero future-eligibility cells. Naive latest-revised is intentionally invalid.",
+      "source": "Macroeconomics/data/generated/official_pilot/feature_leakage_audit.parquet",
+      "default_metric": "future_eligibility",
+      "metrics": [
+        {"id": "future_eligibility", "label": "Future eligibility", "unit": "cells", "type": "bar"},
+        {"id": "revised_after_origin", "label": "Revised after origin", "unit": "cells", "type": "bar"},
+        {"id": "missing", "label": "Missing", "unit": "cells", "type": "bar"}
+      ],
+      "series": [
+        {"mode":"As-of","future_eligibility":0,"revised_after_origin":0,"missing":299,"feature_cells":7985},
+        {"mode":"Fixed mask","future_eligibility":0,"revised_after_origin":5464,"missing":299,"feature_cells":7985},
+        {"mode":"Naive revised","future_eligibility":863,"revised_after_origin":6311,"missing":225,"feature_cells":7985}
+      ]
+    },
+    "realestate": {
+      "title": "Mortgage lock-in profile",
+      "question": "How does the rate gap relate to mortgage exit?",
+      "evidence": "REGISTERED · HAZARD ASSOCIATION",
+      "period": "2021-01 → 2024-12",
+      "headline": {"value": "0.817", "label": "hazard ratio per +1 pp rate gap"},
+      "note": "Prepayment pools refinance, sale payoff, and maturity. Association—not a causal elasticity or a measure of moving.",
+      "source": "RealEstate/reports/loan_hazard_analysis.md",
+      "default_metric": "hazard",
+      "metrics": [{"id": "hazard", "label": "Monthly hazard", "unit": "%", "type": "line"}],
+      "series": [
+        {"bucket":"< −200 bp","mean_gap":-2.32,"hazard":6.909,"loan_months":120158,"events":8302},
+        {"bucket":"−200 to −100","mean_gap":-1.40,"hazard":7.886,"loan_months":654515,"events":51615},
+        {"bucket":"−100 to 0","mean_gap":-0.48,"hazard":5.918,"loan_months":991436,"events":58677},
+        {"bucket":"0 to +100","mean_gap":0.39,"hazard":3.660,"loan_months":650129,"events":23793},
+        {"bucket":"+100 to +200","mean_gap":1.53,"hazard":3.890,"loan_months":370268,"events":14404},
+        {"bucket":"+200 to +300","mean_gap":2.50,"hazard":3.433,"loan_months":498736,"events":17122},
+        {"bucket":"+300 to +400","mean_gap":3.49,"hazard":3.215,"loan_months":518394,"events":16666},
+        {"bucket":"> +400 bp","mean_gap":4.41,"hazard":3.077,"loan_months":208188,"events":6406}
+      ]
+    },
+    "tariff-incidence": {
+      "title": "Tariff window sensitivity",
+      "question": "Do the incidence estimates survive the window?",
+      "evidence": "OFFICIAL · STACKED MULTI-WAVE",
+      "period": "2017-01 → 2020-02",
+      "headline": {"value": "+0.154", "label": "landed unit-value estimate, full window"},
+      "note": "Landed value includes the duty mechanically. Customs is bounded near-null; quantity remains qualified after a failed date placebo.",
+      "source": "TariffIncidence/data/results/window_sensitivity.json",
+      "default_metric": "landed",
+      "metrics": [
+        {"id": "landed", "label": "Landed value", "unit": "log points", "type": "line"},
+        {"id": "customs", "label": "Customs value", "unit": "log points", "type": "line"},
+        {"id": "quantity", "label": "Quantity", "unit": "log points", "type": "line"}
+      ],
+      "series": [
+        {"window":"Pre-4A","landed":0.152483,"customs":0.021639,"quantity":-0.356730,"n":341328},
+        {"window":"End 2019","landed":0.156235,"customs":0.026291,"quantity":-0.379311,"n":388781},
+        {"window":"Full","landed":0.154435,"customs":0.025288,"quantity":-0.379326,"n":395468}
+      ],
+      "reference": {"duty_rate":0.176527,"mechanical_log":0.162567,"customs_bound":0.075997}
+    }
+  }
+}

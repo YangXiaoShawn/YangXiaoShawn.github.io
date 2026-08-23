@@ -3,114 +3,96 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Open Economic &amp; Quant Research Lab</title>
-  <meta name="description" content="Interactively explore the questions, methods, boundaries, and versioned files behind four economic research systems." />
-  <style>
-    :root{--bg:#071019;--surface:#0d1a26;--surface2:#112333;--text:#f1f5f6;--soft:#a9bac7;--muted:#748997;--line:rgba(174,204,219,.16);--line2:rgba(174,204,219,.28);--accent:#6ee7d8;--blue:#8eb8ff;--amber:#ffca6a;--green:#7fe4aa;--radius:18px;--shadow:0 28px 80px rgba(0,0,0,.3)}
-    *{box-sizing:border-box}html{color-scheme:dark;scroll-behavior:smooth}body{margin:0;min-height:100vh;color:var(--text);background:radial-gradient(circle at 50% -25%,rgba(110,231,216,.15),transparent 38%),var(--bg);font:15px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}body::before{content:"";position:fixed;inset:0;z-index:-1;opacity:.12;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:64px 64px;mask-image:linear-gradient(to bottom,#000,transparent 75%)}a{color:inherit;text-decoration:none}button,input{font:inherit}button{color:inherit}.shell{width:min(1280px,calc(100% - 32px));margin:auto}.topbar{height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:11px;font-weight:760;letter-spacing:-.02em}.mark{width:36px;height:36px;display:grid;place-items:center;border:1px solid rgba(110,231,216,.28);border-radius:11px;color:var(--accent);background:rgba(110,231,216,.08);font-size:.76rem}.toplinks{display:flex;align-items:center;gap:6px}.toplinks a{padding:8px 10px;border-radius:9px;color:var(--soft);font-size:.8rem}.toplinks a:hover{color:var(--text);background:rgba(255,255,255,.05)}.toplinks .primary-link{border:1px solid rgba(110,231,216,.22);color:var(--accent)}.intro{max-width:780px;padding:62px 0 34px}.eyebrow{color:var(--accent);font-size:.7rem;font-weight:760;letter-spacing:.14em;text-transform:uppercase}.intro h1{margin:13px 0 18px;font:500 clamp(3.1rem,7vw,6.6rem)/.9 Georgia,serif;letter-spacing:-.065em}.intro h1 span{color:var(--accent)}.intro p{max-width:660px;margin:0;color:var(--soft);font-size:1rem}.lab{--project-accent:var(--accent);display:grid;grid-template-columns:236px minmax(0,1fr);min-height:670px;margin:0 0 32px;overflow:hidden;border:1px solid var(--line2);border-radius:24px;background:rgba(10,22,33,.91);box-shadow:var(--shadow)}.lab[data-accent=blue]{--project-accent:var(--blue)}.lab[data-accent=amber]{--project-accent:var(--amber)}.lab[data-accent=green]{--project-accent:var(--green)}.rail{display:flex;flex-direction:column;padding:20px 14px;border-right:1px solid var(--line);background:rgba(255,255,255,.018)}.rail-label{padding:4px 10px 14px;color:var(--muted);font-size:.64rem;font-weight:720;letter-spacing:.14em;text-transform:uppercase}.project-button{display:grid;grid-template-columns:28px 1fr;gap:7px;width:100%;padding:14px 10px;border:0;border-radius:11px;color:var(--muted);background:transparent;text-align:left;cursor:pointer}.project-button span{color:var(--project-accent);font:600 .65rem/1.6 ui-monospace,monospace}.project-button strong{font-size:.8rem;font-weight:650}.project-button:hover,.project-button.is-active{color:var(--text);background:rgba(255,255,255,.06)}.rail-status{margin-top:auto;padding:14px 10px 5px;border-top:1px solid var(--line);color:var(--muted);font-size:.68rem}.rail-status span{display:flex;align-items:center;gap:7px;margin-bottom:5px;color:var(--green)}.rail-status span::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;box-shadow:0 0 0 4px rgba(127,228,170,.08)}.workspace{min-width:0}.project-head{padding:42px 46px 32px;border-bottom:1px solid var(--line)}.head-meta{display:flex;align-items:center;justify-content:space-between;gap:20px;color:var(--project-accent);font-size:.68rem;font-weight:720;letter-spacing:.1em;text-transform:uppercase}.head-meta span:last-child{color:var(--muted)}.project-head h2{max-width:900px;margin:22px 0 16px;font:500 clamp(2.4rem,5vw,4.7rem)/.98 Georgia,serif;letter-spacing:-.055em}.project-head p{max-width:830px;margin:0;color:var(--soft);font-size:.94rem}.workspace-tabs{display:flex;gap:4px;padding:14px 20px;border-bottom:1px solid var(--line)}.view-tab{padding:9px 13px;border:0;border-radius:9px;color:var(--muted);background:transparent;font-size:.76rem;cursor:pointer}.view-tab:hover,.view-tab.is-active{color:var(--text);background:rgba(255,255,255,.065)}.view{padding:34px 46px 42px}.view[hidden]{display:none}.map-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(320px,1.2fr);gap:30px}.map-nav{display:grid;gap:8px}.map-step{display:grid;grid-template-columns:34px 1fr;gap:12px;padding:17px;border:1px solid var(--line);border-radius:12px;color:var(--muted);background:transparent;text-align:left;cursor:pointer}.map-step span{color:var(--project-accent);font:600 .68rem/1.7 ui-monospace,monospace}.map-step strong{display:block;color:inherit;font-size:.82rem}.map-step small{display:block;margin-top:3px;color:var(--muted);font-size:.7rem}.map-step:hover,.map-step.is-active{border-color:var(--line2);color:var(--text);background:rgba(255,255,255,.045)}.map-detail{min-height:310px;display:flex;flex-direction:column;padding:30px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.025)}.map-index{color:var(--project-accent);font:600 .7rem ui-monospace,monospace}.map-detail h3{margin:42px 0 0;font:500 clamp(1.8rem,3.5vw,3rem)/1.04 Georgia,serif;letter-spacing:-.045em}.map-detail p{margin:16px 0 0;color:var(--soft)}.detail-links{display:flex;flex-wrap:wrap;gap:9px;margin-top:auto;padding-top:30px}.button{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:0 14px;border:1px solid var(--line2);border-radius:10px;color:var(--text);background:rgba(255,255,255,.025);font-size:.75rem;font-weight:700}.button:hover{border-color:var(--project-accent)}.button-primary{border-color:transparent;color:#03120f;background:var(--project-accent)}.files-toolbar{display:grid;grid-template-columns:minmax(220px,1fr) auto;align-items:center;gap:14px;margin-bottom:16px}.search{width:100%;padding:12px 14px;border:1px solid var(--line2);border-radius:11px;outline:0;color:var(--text);background:#08131d}.search:focus{border-color:var(--project-accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--project-accent) 12%,transparent)}.filters{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:5px}.filter{padding:8px 10px;border:1px solid transparent;border-radius:9px;color:var(--muted);background:transparent;font-size:.7rem;cursor:pointer}.filter:hover,.filter.is-active{border-color:var(--line);color:var(--text);background:rgba(255,255,255,.055)}.files-meta{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:12px;color:var(--muted);font-size:.7rem}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:13px;background:rgba(0,0,0,.1)}table{width:100%;min-width:650px;border-collapse:collapse}th,td{padding:11px 13px;border-bottom:1px solid var(--line);text-align:left}th{position:sticky;top:0;color:var(--muted);background:#0d1a26;font-size:.64rem;letter-spacing:.08em;text-transform:uppercase}td{font:400 .72rem/1.45 ui-monospace,SFMono-Regular,Menlo,monospace}td:first-child{color:var(--soft)}tbody tr:hover{background:rgba(255,255,255,.025)}tbody tr:last-child td{border-bottom:0}.empty{padding:44px;text-align:center;color:var(--muted)}.about-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.about-card{padding:20px;border:1px solid var(--line);border-radius:13px}.about-card span{color:var(--project-accent);font:600 .68rem ui-monospace,monospace}.about-card strong{display:block;margin-top:22px;font-size:.8rem}.about-card p{margin:6px 0 0;color:var(--muted);font-size:.74rem}footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 42px;color:var(--muted);font-size:.7rem}@media(max-width:900px){.lab{grid-template-columns:1fr}.rail{display:block;padding:12px;border-right:0;border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap}.rail-label,.rail-status{display:none}.project-button{display:inline-grid;width:auto;min-width:150px;margin-right:4px}.map-grid{grid-template-columns:1fr}.map-detail{min-height:280px}.about-grid{grid-template-columns:1fr}.files-toolbar{grid-template-columns:1fr}.filters{justify-content:flex-start}}@media(max-width:640px){.shell{width:min(100% - 20px,1280px)}.topbar{height:62px}.toplinks a:not(.primary-link){display:none}.intro{padding:44px 4px 26px}.intro h1{font-size:clamp(3rem,17vw,5rem)}.project-head{padding:30px 22px 24px}.project-head h2{font-size:clamp(2.35rem,12vw,3.7rem)}.workspace-tabs{padding-inline:12px}.view{padding:24px 18px 30px}.map-detail{padding:24px}.map-detail h3{margin-top:30px}.detail-links .button{width:100%}.files-meta{align-items:flex-start;flex-direction:column}.filters{overflow-x:auto;flex-wrap:nowrap;width:100%;padding-bottom:4px}footer{align-items:flex-start;flex-direction:column}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
-  </style>
+  <title>Open Econ × Quant — Interactive Evidence Lab</title>
+  <meta name="description" content="Interrogate four published economic research signals, compare the evidence footprint, and trace every mark to versioned files." />
+  <meta name="theme-color" content="#071019" />
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
+  <a class="skip-link" href="#lab">Skip to the evidence lab</a>
   <header class="shell topbar">
-    <a class="brand" href="https://yangxiaoshawn.github.io/"><span class="mark">OQ</span><span>Open Econ x Quant</span></a>
-    <nav class="toplinks" aria-label="Related resources"><a href="https://yangxiaoshawn.github.io/">Website</a><a href="https://github.com/YangXiaoShawn">GitHub</a><a class="primary-link" href="https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data">Full Dataset</a></nav>
+    <a class="brand" href="https://yangxiaoshawn.github.io/"><span class="mark">OQ</span><span>Open Econ × Quant</span></a>
+    <div class="top-actions">
+      <a href="https://yangxiaoshawn.github.io/">Website</a>
+      <a href="https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data">Dataset</a>
+      <button type="button" data-share>Share view</button>
+      <button type="button" data-reset>Reset</button>
+    </div>
   </header>
+
   <main class="shell">
     <section class="intro">
-      <div class="eyebrow">Interactive research lab</div>
-      <h1>Choose a question.<br /><span>Open the proof.</span></h1>
-      <p>Move from research design to the actual versioned files behind four economic research systems. Nothing here is a detached project pitch.</p>
+      <div><div class="eyebrow">Interactive evidence lab</div><h1>Interrogate<br /><span>one signal.</span></h1></div>
+      <div class="intro-stats" aria-label="Published research footprint"><div><strong>4</strong><span>questions</span></div><div><strong>3,568</strong><span>files</span></div><div><strong>2.85 GB</strong><span>evidence</span></div></div>
     </section>
 
-    <section class="lab" id="lab" data-accent="teal" aria-label="Research explorer">
+    <section class="lab" id="lab" data-accent="teal" aria-label="Interactive research evidence explorer">
       <aside class="rail">
-        <div class="rail-label">Research questions</div>
-        <button class="project-button is-active" type="button" data-project="CasualLab"><span>01</span><strong>Causal effects</strong></button>
-        <button class="project-button" type="button" data-project="Macroeconomics"><span>02</span><strong>Real-time macro</strong></button>
-        <button class="project-button" type="button" data-project="RealEstate"><span>03</span><strong>Housing lock-in</strong></button>
-        <button class="project-button" type="button" data-project="TariffIncidence"><span>04</span><strong>Tariff incidence</strong></button>
-        <div class="rail-status"><span>Dataset connected</span><div id="revision-side">Revision 38e373a5df14</div></div>
+        <div class="rail-label">Choose a signal</div>
+        <button class="project-button is-active" id="project-tab-casuallab" type="button" data-project="casuallab" aria-pressed="true"><span>01</span><strong>NYC mobility</strong><small>24-hour rhythm</small></button>
+        <button class="project-button" id="project-tab-macroeconomics" type="button" data-project="macroeconomics" aria-pressed="false"><span>02</span><strong>Vintage leakage</strong><small>Backtest audit</small></button>
+        <button class="project-button" id="project-tab-realestate" type="button" data-project="realestate" aria-pressed="false"><span>03</span><strong>Mortgage lock-in</strong><small>Exit hazard</small></button>
+        <button class="project-button" id="project-tab-tariff-incidence" type="button" data-project="tariff-incidence" aria-pressed="false"><span>04</span><strong>Tariff windows</strong><small>Sensitivity</small></button>
+        <div class="rail-status"><span>Dataset connected</span><div data-revision>Revision 38e373a5df14</div></div>
       </aside>
 
       <div class="workspace">
         <header class="project-head">
-          <div class="head-meta"><span id="field">Causal inference / Market design</span><span id="project-count">Project 01 / 04</span></div>
-          <h2 id="question">How do causal mechanisms and heterogeneous treatment effects shape market outcomes?</h2>
-          <p id="summary">A reproducible causal-inference and policy-simulation toolkit with public examples and estimator validation workflows.</p>
+          <div class="head-meta"><span data-evidence>DESCRIPTIVE REAL DATA</span><span data-period>NYC TLC HVFHV · Jan 2024</span></div>
+          <div class="head-grid">
+            <div><h2 data-question>When does New York move?</h2><p data-note>19,663,930 completed trips. Descriptive activity, not demand or a causal effect.</p></div>
+            <div class="headline"><strong data-headline>1.22M</strong><span data-headline-label>trips at the 18:00 peak</span></div>
+          </div>
         </header>
-        <div class="workspace-tabs" role="tablist" aria-label="Explorer views">
-          <button class="view-tab is-active" type="button" role="tab" aria-selected="true" data-view="map">Research map</button>
-          <button class="view-tab" type="button" role="tab" aria-selected="false" data-view="files">Dataset files <span id="file-count-label"></span></button>
-          <button class="view-tab" type="button" role="tab" aria-selected="false" data-view="about">Release notes</button>
+
+        <div class="workspace-tabs" role="tablist" aria-label="Evidence views">
+          <button class="view-tab is-active" id="view-tab-signal" type="button" role="tab" aria-selected="true" aria-controls="view-signal" data-view="signal">Signal</button>
+          <button class="view-tab" id="view-tab-portfolio" type="button" role="tab" aria-selected="false" aria-controls="view-portfolio" data-view="portfolio">Portfolio</button>
+          <button class="view-tab" id="view-tab-files" type="button" role="tab" aria-selected="false" aria-controls="view-files" data-view="files">Files</button>
+          <button class="view-tab" id="view-tab-notes" type="button" role="tab" aria-selected="false" aria-controls="view-notes" data-view="notes">Notes</button>
+          <span class="share-status" role="status" data-share-status></span>
         </div>
 
-        <section class="view" id="view-map" data-view-panel="map">
-          <div class="map-grid">
-            <div class="map-nav" role="tablist" aria-label="Research stages">
-              <button class="map-step is-active" type="button" data-stage="question"><span>01</span><div><strong>Question</strong><small>What does the project ask?</small></div></button>
-              <button class="map-step" type="button" data-stage="design"><span>02</span><div><strong>Design</strong><small>How is the claim identified?</small></div></button>
-              <button class="map-step" type="button" data-stage="evidence"><span>03</span><div><strong>Evidence</strong><small>What can you inspect?</small></div></button>
-              <button class="map-step" type="button" data-stage="boundary"><span>04</span><div><strong>Boundary</strong><small>Where does the claim stop?</small></div></button>
+        <section class="view" id="view-signal" role="tabpanel" aria-labelledby="view-tab-signal" data-view-panel="signal">
+          <div class="signal-toolbar"><div class="metric-switcher" data-metrics role="group" aria-label="Chart metric"></div><span class="source-path" data-source></span></div>
+          <div class="chart" data-chart role="group" aria-label="Loading published research signal" tabindex="0"><div class="loading">Loading published evidence…</div></div>
+          <div class="chart-legend" data-chart-legend></div>
+          <details class="data-table" data-table><summary>Read chart as a table</summary><div class="table-wrap"><table><thead data-table-head></thead><tbody data-table-body></tbody></table></div></details>
+          <div class="view-actions"><a class="button button-primary" data-project-page href="https://yangxiaoshawn.github.io/projects/casuallab/">Read study</a><a class="button" data-dataset href="https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/CasualLab">Open evidence</a><a class="button" data-source-code href="https://github.com/YangXiaoShawn/open-economic-quant-casuallab">Source</a></div>
+        </section>
+
+        <section class="view" id="view-portfolio" role="tabpanel" aria-labelledby="view-tab-portfolio" data-view-panel="portfolio" hidden>
+          <div class="portfolio-grid">
+            <div class="mix-card">
+              <div class="donut" data-donut role="img" aria-label="File type mix"><div><strong data-file-total>414</strong><span>files</span></div></div>
+              <div class="mix-legend" data-mix-legend></div>
             </div>
-            <article class="map-detail" aria-live="polite">
-              <span class="map-index" id="stage-index">01 / QUESTION</span>
-              <h3 id="stage-title">Start with the research question.</h3>
-              <p id="stage-copy">The project is organized around an economic question, not a list of capabilities.</p>
-              <div class="detail-links"><a class="button button-primary" id="browse-files" href="#files">Browse project files</a><a class="button" id="project-page" href="https://yangxiaoshawn.github.io/projects/casuallab/">Read project</a><a class="button" id="source" href="https://github.com/YangXiaoShawn/open-economic-quant-casuallab">View source</a></div>
-            </article>
+            <div class="directory-card"><div class="card-heading"><span>Largest directories</span><small>from the pinned catalog</small></div><div class="directory-bars" data-directory-bars><div class="loading small">Loading file paths…</div></div></div>
           </div>
         </section>
 
-        <section class="view" id="view-files" data-view-panel="files" hidden>
+        <section class="view" id="view-files" role="tabpanel" aria-labelledby="view-tab-files" data-view-panel="files" hidden>
           <div class="files-toolbar">
-            <input class="search" id="search" type="search" placeholder="Search paths: reports, tests, fixtures…" aria-label="Search Dataset paths" />
-            <div class="filters" aria-label="Filter file types"><button class="filter is-active" type="button" data-filter="all">All</button><button class="filter" type="button" data-filter="code">Code</button><button class="filter" type="button" data-filter="data">Data</button><button class="filter" type="button" data-filter="reports">Reports</button><button class="filter" type="button" data-filter="tests">Tests</button></div>
+            <input class="search" data-search type="search" placeholder="Search paths: reports, tests, fixtures…" aria-label="Search Dataset paths" />
+            <div class="filters" role="group" aria-label="Filter file types"><button class="filter is-active" type="button" data-filter="all" aria-pressed="true">All</button><button class="filter" type="button" data-filter="code" aria-pressed="false">Code</button><button class="filter" type="button" data-filter="data" aria-pressed="false">Data</button><button class="filter" type="button" data-filter="reports" aria-pressed="false">Reports</button><button class="filter" type="button" data-filter="tests" aria-pressed="false">Tests</button></div>
           </div>
-          <div class="files-meta"><span id="status" role="status">Connecting to the pinned Dataset revision…</span><span id="result-count"></span></div>
-          <div class="table-wrap"><table><thead><tr><th>Path</th><th>Kind</th><th>Size</th></tr></thead><tbody id="files"></tbody></table><div class="empty" id="empty" hidden>No paths match this search and filter.</div></div>
+          <div class="files-meta"><span data-file-status role="status">Connecting to the pinned Dataset revision…</span><span data-result-count></span></div>
+          <div class="table-wrap file-table"><table><thead><tr><th>Path</th><th>Kind</th><th>Size</th></tr></thead><tbody data-files></tbody></table><div class="empty" data-empty hidden>No paths match this view.</div></div>
         </section>
 
-        <section class="view" id="view-about" data-view-panel="about" hidden>
-          <div class="about-grid">
-            <article class="about-card"><span>01 / SOURCE</span><strong>Public, pinned Dataset</strong><p>Every file shown comes from the named Dataset revision rather than a hidden copy.</p></article>
-            <article class="about-card"><span>02 / ACCESS</span><strong>No credentials required</strong><p>The interface is static and stores no private research data or account credentials.</p></article>
-            <article class="about-card"><span>03 / SCOPE</span><strong>Evidence boundaries stay visible</strong><p>Observed results, public demonstrations, and model-implied counterfactuals remain distinct.</p></article>
+        <section class="view" id="view-notes" role="tabpanel" aria-labelledby="view-tab-notes" data-view-panel="notes" hidden>
+          <div class="notes-grid">
+            <article><span>Evidence label</span><strong data-note-evidence>DESCRIPTIVE REAL DATA</strong><p data-note-boundary>Descriptive activity, not demand or a causal effect.</p></article>
+            <article><span>Published artifact</span><strong data-note-source>hourly_summary.csv</strong><p>Chart values are bundled from the named, versioned research artifact.</p></article>
+            <article><span>Open route</span><strong>Chart → file → source</strong><p>No account, hidden state, or private data is required to inspect this release.</p></article>
           </div>
         </section>
       </div>
     </section>
   </main>
-  <footer class="shell"><span>Open Economic &amp; Quant Research Observatory</span><span>Dataset revision <span id="revision-footer">38e373a5df14</span></span></footer>
-  <script>
-    const REPO='ShawnChamberlain/open-economic-quant-research-data';
-    const REVISION='38e373a5df14afb0cf10c1f008c188f4000ca8df';
-    const ORDER=['CasualLab','Macroeconomics','RealEstate','TariffIncidence'];
-    const PROJECTS={
-      CasualLab:{accent:'teal',field:'Causal inference / Market design',question:'How do causal mechanisms and heterogeneous treatment effects shape market outcomes and policy interventions?',summary:'A reproducible causal-inference and policy-simulation toolkit with public examples and estimator validation workflows.',design:'Define the estimand first, document identification assumptions, recover effects on fixtures or authorized public data, and validate estimator behavior.',evidence:'Estimator checks, heterogeneous-effect diagnostics, reproducible fixtures, and traceable result manifests connect the method to its outputs.',boundary:'Public examples demonstrate workflow and estimator behavior; they do not claim effects for populations the data do not represent.',page:'https://yangxiaoshawn.github.io/projects/casuallab/',source:'https://github.com/YangXiaoShawn/open-economic-quant-casuallab'},
-      Macroeconomics:{accent:'blue',field:'Real-time macro / Forecasting',question:'How do release revisions and the information available at each vintage affect nowcast and forecast quality?',summary:'A vintage-aware forecasting and policy-shock engine with guarded public-source adapters and reproducible fixtures.',design:'Align every observation to what was knowable at the forecast date, then compare models on the same vintage-consistent information set.',evidence:'Release clocks, guarded agency adapters, rolling backtests, and revision audits expose where apparent forecast accuracy comes from.',boundary:'A revised public series is not treated as real-time evidence when an archival vintage is unavailable; that limitation remains visible.',page:'https://yangxiaoshawn.github.io/projects/macroeconomics/',source:'https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics'},
-      RealEstate:{accent:'amber',field:'Housing economics / Mortgage finance',question:'How does the gap between homeowners’ existing mortgage rates and current market rates affect mortgage exits and housing activity?',summary:'A housing-finance research system with registered-data analyses, public aggregates, explicit evidence tiers, and strict publication boundaries.',design:'Construct point-in-time lock-in measures, model mortgage exits, and freeze local exposure before event-study outcomes are observed.',evidence:'Hazard estimates, aggregate responses, pre-trend checks, and tiered evidence labels separate supported findings from illustration.',boundary:'Registered microdata and public aggregates have different inferential reach; simulations are labeled as simulations, never forecasts.',page:'https://yangxiaoshawn.github.io/projects/realestate/',source:'https://github.com/YangXiaoShawn/YangXiaoShawn.github.io/tree/main/realestate'},
-      TariffIncidence:{accent:'green',field:'International trade / Applied econometrics',question:'How did U.S. product-level tariffs on imports from China pass through to importers, reshape sourcing, and propagate domestically?',summary:'An official-data research system for the 2018–2019 Section 301 actions, with point-in-time tariff parsing and stacked multi-wave designs.',design:'Parse legal notices into a provenance-stamped HS10 panel, then estimate each tariff wave in a stacked research design.',evidence:'Pass-through, quantities, sourcing, and downstream exposure are tested outcome by outcome with pre-trends, placebos, and sensitivity checks.',boundary:'Causal language is licensed only where diagnostics pass; structural counterfactuals remain distinct from directly observed evidence.',page:'https://yangxiaoshawn.github.io/projects/tariff-incidence/',source:'https://github.com/YangXiaoShawn/open-economic-quant-tariff-incidence'}
-    };
-    const STAGES={question:['Start with the research question.','The project is organized around an economic question, not a list of capabilities.'],design:['Inspect the identification path.',null],evidence:['Open the supporting evidence.',null],boundary:['See exactly where the claim stops.',null]};
-    const fallback=[{path:'data/fixtures/',type:'sample data',size:null},{path:'src/',type:'research code',size:null},{path:'tests/',type:'validation',size:null}];
-    const cache={};
-    let activeProject='CasualLab',activeStage='question',activeView='map',activeFilter='all',rows=[];
-    const byId=id=>document.getElementById(id);
-    const escapeHTML=value=>String(value).replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
-    const size=value=>Number.isFinite(value)?new Intl.NumberFormat('en',{notation:'compact',maximumFractionDigits:1}).format(value)+'B':'—';
-    function category(path){const value=path.toLowerCase();if(value.includes('/tests/')||value.startsWith('tests/'))return'tests';if(value.includes('/reports/')||value.includes('/docs/')||value.startsWith('reports/')||value.startsWith('docs/'))return'reports';if(value.includes('/data/')||value.startsWith('data/')||value.includes('fixture'))return'data';return'code';}
-    function renderFiles(){const query=byId('search').value.trim().toLowerCase();const visible=rows.filter(row=>(!query||row.path.toLowerCase().includes(query))&&(activeFilter==='all'||category(row.path)===activeFilter));const shown=visible.slice(0,160);byId('files').innerHTML=shown.map(row=>`<tr><td>${escapeHTML(row.path)}</td><td>${escapeHTML(row.type)}</td><td>${size(row.size)}</td></tr>`).join('');byId('empty').hidden=visible.length>0;byId('result-count').textContent=`${visible.length.toLocaleString()} match${visible.length===1?'':'es'}${visible.length>shown.length?` · first ${shown.length} shown`:''}`;}
-    function renderStage(){const project=PROJECTS[activeProject],base=STAGES[activeStage],copy=activeStage==='question'?project.question:project[activeStage];byId('stage-index').textContent=`${String(['question','design','evidence','boundary'].indexOf(activeStage)+1).padStart(2,'0')} / ${activeStage.toUpperCase()}`;byId('stage-title').textContent=base[0];byId('stage-copy').textContent=base[1]||copy;document.querySelectorAll('[data-stage]').forEach(button=>button.classList.toggle('is-active',button.dataset.stage===activeStage));}
-    function setView(view){activeView=view;document.querySelectorAll('[data-view-panel]').forEach(panel=>panel.hidden=panel.dataset.viewPanel!==view);document.querySelectorAll('[data-view]').forEach(button=>{const selected=button.dataset.view===view;button.classList.toggle('is-active',selected);button.setAttribute('aria-selected',String(selected));});if(view==='files')byId('search').focus({preventScroll:true});}
-    async function loadFiles(){const projectName=activeProject;byId('status').textContent='Loading the versioned file index…';try{if(!cache[projectName]){const response=await fetch(`./catalog/${projectName}.json`);if(!response.ok)throw new Error(`HTTP ${response.status}`);cache[projectName]=await response.json();}if(activeProject!==projectName)return;rows=cache[projectName].map(item=>({path:item.path||'',type:item.type||((item.size===undefined)?'directory':'file'),size:item.size??null}));byId('status').textContent=`Connected to ${REPO} at ${REVISION.slice(0,12)}.`;}catch(error){if(activeProject!==projectName)return;rows=fallback;byId('status').textContent=`Preview fallback active (${error.message}). Public links remain available.`;}byId('file-count-label').textContent=`(${rows.length.toLocaleString()})`;renderFiles();}
-    function selectProject(name){activeProject=name;activeStage='question';const project=PROJECTS[name],index=ORDER.indexOf(name);byId('lab').dataset.accent=project.accent;byId('field').textContent=project.field;byId('project-count').textContent=`Project ${String(index+1).padStart(2,'0')} / 04`;byId('question').textContent=project.question;byId('summary').textContent=project.summary;byId('project-page').href=project.page;byId('source').href=project.source;document.querySelectorAll('[data-project]').forEach(button=>button.classList.toggle('is-active',button.dataset.project===name));renderStage();loadFiles();}
-    document.querySelectorAll('[data-project]').forEach(button=>button.addEventListener('click',()=>selectProject(button.dataset.project)));
-    document.querySelectorAll('[data-stage]').forEach(button=>button.addEventListener('click',()=>{activeStage=button.dataset.stage;renderStage();}));
-    document.querySelectorAll('[data-view]').forEach(button=>button.addEventListener('click',()=>setView(button.dataset.view)));
-    document.querySelectorAll('[data-filter]').forEach(button=>button.addEventListener('click',()=>{activeFilter=button.dataset.filter;document.querySelectorAll('[data-filter]').forEach(candidate=>candidate.classList.toggle('is-active',candidate===button));renderFiles();}));
-    byId('search').addEventListener('input',renderFiles);
-    byId('browse-files').addEventListener('click',event=>{event.preventDefault();setView('files');});
-    selectProject(activeProject);
-  </script>
+
+  <footer class="shell"><span>Open Economic &amp; Quant Research Observatory</span><span data-revision>Dataset revision 38e373a5df14</span></footer>
+  <script src="./app.js"></script>
 </body>
 </html>

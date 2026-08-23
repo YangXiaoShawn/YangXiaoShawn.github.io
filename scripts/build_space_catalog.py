@@ -10,7 +10,27 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_PATH = ROOT / "build" / "hf-dataset" / "dataset_manifest.json"
 CATALOG_ROOT = ROOT / "apps" / "space" / "catalog"
+EVIDENCE_SOURCE = ROOT / "assets" / "data" / "evidence.json"
+EVIDENCE_TARGET = ROOT / "apps" / "space" / "evidence.json"
 PROJECTS = ("CasualLab", "Macroeconomics", "RealEstate", "TariffIncidence")
+SLUGS = {
+    "CasualLab": "casuallab",
+    "Macroeconomics": "macroeconomics",
+    "RealEstate": "realestate",
+    "TariffIncidence": "tariff-incidence",
+}
+
+
+def file_category(path: str) -> str:
+    """Match the published portfolio taxonomy used by the website charts."""
+    value = path.lower()
+    if "/tests/" in value or value.endswith("/tests"):
+        return "tests"
+    if "/reports/" in value or "/docs/" in value:
+        return "reports"
+    if "/data/" in value or "fixture" in value:
+        return "data"
+    return "code"
 
 
 def build_catalogs() -> dict[str, int]:
@@ -21,12 +41,14 @@ def build_catalogs() -> dict[str, int]:
     if not files:
         raise ValueError(f"Dataset manifest has no files: {MANIFEST_PATH}")
 
+    category_counts: dict[str, dict[str, int]] = {}
     for project in PROJECTS:
         rows = [
             {
                 "type": "file",
                 "path": item["path"],
                 "size": item["size_bytes"],
+                "category": file_category(item["path"]),
             }
             for item in files
             if item["path"].startswith(f"{project}/")
@@ -37,6 +59,23 @@ def build_catalogs() -> dict[str, int]:
             encoding="utf-8",
         )
         counts[project] = len(rows)
+        category_counts[project] = {
+            category: sum(row["category"] == category for row in rows)
+            for category in ("code", "data", "reports", "tests")
+        }
+
+    evidence = json.loads(EVIDENCE_SOURCE.read_text(encoding="utf-8"))
+    for project, observed in category_counts.items():
+        expected = evidence["portfolio"]["projects"][SLUGS[project]]
+        if any(observed[category] != expected[category] for category in observed):
+            raise ValueError(
+                f"Space category counts differ from evidence for {project}: "
+                f"observed={observed} expected={expected}"
+            )
+    EVIDENCE_TARGET.write_text(
+        json.dumps(evidence, ensure_ascii=True, separators=(",", ":")),
+        encoding="utf-8",
+    )
 
     return counts
 

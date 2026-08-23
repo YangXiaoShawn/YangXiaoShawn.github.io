@@ -12,6 +12,6 @@ datasets:
 
 # Open Economic & Quant Research Observatory
 
-A free public Static Space for exploring CasualLab, Macroeconomics, Mortgage Rate Lock-In, and Tariff Incidence research. The interface reads representative content directly from the versioned Hugging Face Dataset and links to permanent project pages and GitHub source repositories.
+A free public Static Space for interrogating four published economic signals. Switch projects and metrics, compare the versioned research footprint, then trace any chart back to its evidence file, study page, or source repository.
 
-The static deployment has no server-side credentials, persistent storage, or duplicated Dataset content. `app.py` and `requirements.txt` retain the tested Gradio implementation as an optional future upgrade for an account with hosted Gradio access.
+The chart evidence is generated from named research artifacts and the file explorer reads the pinned Dataset catalog. The static deployment uses no server-side credentials or persistent storage.

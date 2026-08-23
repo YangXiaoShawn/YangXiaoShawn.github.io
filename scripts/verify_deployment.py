@@ -62,7 +62,9 @@ def main() -> None:
         ROOT / "feed.xml",
         ROOT / "assets" / "css" / "styles.css",
         ROOT / "assets" / "js" / "app.js",
+        ROOT / "assets" / "data" / "evidence.json",
         ROOT / "assets" / "data" / "projects.json",
+        ROOT / "assets" / "og-visual-2026.png",
         ROOT / "projects" / "casuallab" / "index.html",
         ROOT / "projects" / "macroeconomics" / "index.html",
         ROOT / "projects" / "realestate" / "index.html",
@@ -70,6 +72,10 @@ def main() -> None:
         ROOT / "apps" / "space" / "app.py",
         ROOT / "apps" / "space" / "README.md",
         ROOT / "apps" / "space" / "index.html",
+        ROOT / "apps" / "space" / "styles.css",
+        ROOT / "apps" / "space" / "app.js",
+        ROOT / "apps" / "space" / "evidence.json",
+        ROOT / "apps" / "space" / "favicon.svg",
     ]
     required.extend(ROOT / route / "index.html" for route in ROUTES)
     missing = [str(path.relative_to(ROOT)) for path in required if not path.exists()]
@@ -86,6 +92,42 @@ def main() -> None:
         }
         if {item.get("slug") for item in catalog.get("projects", [])} != expected_projects:
             failures.append("generated catalog does not contain exactly the four published projects")
+
+    evidence_path = ROOT / "assets" / "data" / "evidence.json"
+    if evidence_path.exists():
+        evidence = json.loads(evidence_path.read_text(encoding="utf-8"))
+        portfolio = evidence.get("portfolio", {})
+        portfolio_projects = portfolio.get("projects", {})
+        expected_projects = {
+            "casuallab",
+            "macroeconomics",
+            "realestate",
+            "tariff-incidence",
+        }
+        if set(portfolio_projects) != expected_projects or set(evidence.get("projects", {})) != expected_projects:
+            failures.append("evidence catalog does not contain exactly the four published projects")
+        if sum(item.get("files", 0) for item in portfolio_projects.values()) != portfolio.get("total_files"):
+            failures.append("portfolio project file counts do not sum to total_files")
+        if sum(portfolio.get("categories", {}).values()) != portfolio.get("total_files"):
+            failures.append("portfolio category counts do not sum to total_files")
+        for slug, item in portfolio_projects.items():
+            if sum(item.get(category, 0) for category in ("code", "data", "reports", "tests")) != item.get("files"):
+                failures.append(f"portfolio category counts do not sum for {slug}")
+        for slug, project in evidence.get("projects", {}).items():
+            metric_ids = {item.get("id") for item in project.get("metrics", [])}
+            if not project.get("series") or project.get("default_metric") not in metric_ids:
+                failures.append(f"evidence series or default metric is invalid for {slug}")
+            for row in project.get("series", []):
+                if not metric_ids.issubset(row):
+                    failures.append(f"evidence series omits a metric for {slug}")
+                    break
+        space_evidence = ROOT / "apps" / "space" / "evidence.json"
+        if space_evidence.exists() and json.loads(space_evidence.read_text(encoding="utf-8")) != evidence:
+            failures.append("website and Space evidence catalogs differ")
+
+    home_path = ROOT / "index.html"
+    if home_path.exists() and "assets/og-visual-2026.png" not in home_path.read_text(encoding="utf-8"):
+        failures.append("homepage does not reference the current social preview")
 
     public_text = "\n".join(
         path.read_text(encoding="utf-8", errors="ignore")

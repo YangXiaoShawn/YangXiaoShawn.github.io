@@ -20,7 +20,7 @@ def main() -> None:
         repo_type="space",
         folder_path=ROOT / "apps" / "space",
         commit_message="Deploy static interactive research observatory",
-        allow_patterns=["README.md", "index.html", "catalog/*.json"],
+        allow_patterns=["README.md", "index.html", "styles.css", "app.js", "evidence.json", "favicon.svg", "catalog/*.json"],
     )
     print(
         f"hf-space-deploy-ok repo={REPO_ID} "

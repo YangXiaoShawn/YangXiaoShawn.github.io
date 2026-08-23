@@ -23,7 +23,7 @@ The Open Economic & Quant Research Observatory is fully public: the GitHub Pages
 - Full Dataset: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data
 - Live Space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
 - Static runtime: https://shawnchamberlain-open-economic-quant-research-ob-5271962.static.hf.space
-- Space revision: `6692d6263974b39b4ea1c5e3c6aae475bf5707c8`
+- Space revision: `1ae7cf2ff59ebbff79f84df08d3966a37575a77c`
 - GitHub Pages interactive redesign commit: `3ca1907e84d6242bcde6f1b84f83992cfd8196bd`.
 - CI verification: https://github.com/YangXiaoShawn/YangXiaoShawn.github.io/actions/runs/32052100067
 - Pages deployment: https://github.com/YangXiaoShawn/YangXiaoShawn.github.io/actions/runs/32052098987
@@ -47,8 +47,10 @@ The Open Economic & Quant Research Observatory is fully public: the GitHub Pages
 - Catalog generated from `project.yaml` files.
 - Ten stable research section routes.
 - Complete project narratives covering question, importance, source, sample, methods, evidence status, robustness, reproduction, links, citation, limitations, update time, and status.
-- Question-led project switching with interactive question, design, evidence, and boundary views.
-- Space research-map navigation plus live Dataset path search and file-type filters.
+- Chart-first project switching with real mobility, vintage-leakage, mortgage-hazard, and tariff-window evidence.
+- Metric toggles, keyboard/touch chart tooltips, accessible data tables, and direct links to pinned evidence files.
+- Space signal, portfolio, file, and evidence-note views with shareable URL state.
+- Live Dataset path search, consistent file-type filters, and directory-size comparisons.
 - Canonical metadata, Open Graph card, favicon, Atom feed, sitemap, robots policy, and 404 page.
 - Responsive shared visual system with a simplified editorial hierarchy and new social preview card.
 - GitHub Actions for CI, Pages deployment, Hugging Face synchronization, and safe daily validation.
@@ -64,9 +66,10 @@ The Open Economic & Quant Research Observatory is fully public: the GitHub Pages
 
 - Catalog generation check: passed, 4 projects, no stale generated output.
 - Compact project validation: passed, 4 projects.
-- Local deployment verification: passed, 24 required artifacts.
+- Local deployment verification: passed, 30 required artifacts.
 - Python syntax compilation: passed using an isolated writable bytecode cache.
 - Hugging Face Space: static runtime returned HTTP 200 and exposes 414 CasualLab, 2,931 Macroeconomics, 101 RealEstate, and 122 TariffIncidence file records.
+- Browser interaction QA: passed on desktop and mobile for project and metric switching, touch tooltips, portfolio and file views, URL state, and overflow containment.
 - Public homepage, project pages, research routes, dashboard status page, `robots.txt`, and `sitemap.xml`: HTTP 200.
 - Automated online verifier: passed, 13 public resources.
 - GitHub CI: passed on release content commit `d1805eceff65f1f3ec6b5b22c7e2c7e070e3e895`.
