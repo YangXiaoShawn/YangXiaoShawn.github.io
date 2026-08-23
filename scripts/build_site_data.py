@@ -121,11 +121,11 @@ def section_page(slug: str, title: str, description: str, projects: list[dict]) 
     if slug == "datasets":
         extra = '<a class="button button-primary" href="https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data">Open the full Dataset</a>'
     elif slug == "dashboards":
-        extra = '<a class="button button-secondary" href="../DEPLOYMENT_REPORT.md">Space tested; public deployment pending approval</a>'
+        extra = '<a class="button button-primary" href="https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory">Open the live interactive lab</a>'
     elif slug == "daily-reports":
         extra = '<a class="button button-secondary" href="../feed.xml">Subscribe to the update feed</a>'
     else:
-        extra = '<a class="button button-secondary" href="../index.html#projects-section">Browse the project catalog</a>'
+        extra = '<a class="button button-secondary" href="../index.html#research-lab">Browse the project signals</a>'
     return f"""<!doctype html>
 <html lang="en">
 <head>

@@ -2,13 +2,13 @@
 
 ## Executive summary
 
-The Open Economic & Quant Research Observatory is fully public: the GitHub Pages site, four published project source locations, versioned Hugging Face Dataset, and interactive Hugging Face Space are live and cross-linked.
+The Open Economic & Quant Research Observatory is fully public: the GitHub Pages site, five published project source locations, versioned Hugging Face Dataset, and interactive Hugging Face Space are live and cross-linked.
 
 ## Projects discovered and published
 
-- Published: CasualLab, Macroeconomics, Mortgage Rate Lock-In and Housing Market Dynamics, and Tariff Incidence, Supply-Chain Reallocation, and Domestic Propagation.
-- Inventoried but withheld: Microstructure variants and SECPolicy.
-- Withheld reason: their publication rights and release scope have not been validated.
+- Published: CasualLab, Macroeconomics, Mortgage Rate Lock-In and Housing Market Dynamics, Tariff Incidence, Supply-Chain Reallocation, and Domestic Propagation, and the canonical Microstructure research repository.
+- Inventoried but withheld: four frozen Microstructure verification worktrees and SECPolicy.
+- Withheld reason: the frozen worktrees are historical verification environments rather than separate projects; SECPolicy publication rights have not been validated.
 
 ## Public resources
 
@@ -20,10 +20,12 @@ The Open Economic & Quant Research Observatory is fully public: the GitHub Pages
 - Mortgage Rate Lock-In page: https://yangxiaoshawn.github.io/projects/realestate/
 - Tariff Incidence repository: https://github.com/YangXiaoShawn/open-economic-quant-tariff-incidence
 - Tariff Incidence page: https://yangxiaoshawn.github.io/projects/tariff-incidence/
+- Microstructure repository: https://github.com/YangXiaoShawn/open-economic-quant-microstructure
+- Microstructure page: https://yangxiaoshawn.github.io/projects/microstructure/
 - Full Dataset: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data
 - Live Space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
 - Static runtime: https://shawnchamberlain-open-economic-quant-research-ob-5271962.static.hf.space
-- Space revision: `c6eca688fb58f043bbeeabf47a20a88a4f2eb91d`
+- Space revision: `3a7eb5c62272bde9387ca6c764b2bd81f8b52c02`
 - GitHub Pages interactive redesign commit: `3ca1907e84d6242bcde6f1b84f83992cfd8196bd`.
 - Chart-first release commit: `5cf8b1578683065d2b61c97049f08dc33a2763e2`.
 - RealEstate standalone repository release commit: `6d2dc30af09e8d38b50aa50267cd324cf35b4e0d`.
@@ -35,13 +37,14 @@ The Open Economic & Quant Research Observatory is fully public: the GitHub Pages
 - Original full-mirror revision: `59d2444710a105cac663709fdd1050fe47c454e5`
 - Cleanup revision: `1202a275873eb61f552a095373f7b3dab0e718ba`
 - Before cleanup: 42,779 remote files.
-- Current research content: 3,568 project files, approximately 2.85 GB.
+- Current research content: 3,701 project files, approximately 2.85 GB.
 - Removed: 39,277 local-environment files plus test caches, bytecode, and operating-system metadata.
 - Preserved: project code, data, reports, notebooks, tests, documentation, and research outputs.
 - Dataset Card and detailed file manifest: uploaded after cleanup.
 - RealEstate addition: 101 tracked public files; registered loan-level data and loan-granular derivatives are excluded.
 - TariffIncidence addition: 122 tracked public files (1,476,927 bytes); large raw, intermediate, analytical, and parquet result files are excluded.
-- Current Dataset revision: `1afb02359baa39ef8ee658c734195f01de28abf5`.
+- Microstructure addition: 133 tracked public files (3,464,097 bytes); exchange observations, derived tables, fitted states, run bundles, and local environments are excluded.
+- Current Dataset revision: `5329ac0f88bae309d6e37eb8fdaefc0f60754f4c`.
 
 ## Website improvements published
 
@@ -49,7 +52,7 @@ The Open Economic & Quant Research Observatory is fully public: the GitHub Pages
 - Catalog generated from `project.yaml` files.
 - Ten stable research section routes.
 - Complete project narratives covering question, importance, source, sample, methods, evidence status, robustness, reproduction, links, citation, limitations, update time, and status.
-- Chart-first project switching with real mobility, vintage-leakage, mortgage-hazard, and tariff-window evidence.
+- Chart-first project switching with real mobility, vintage-leakage, mortgage-hazard, tariff-window, and Microstructure data-quality-gate evidence.
 - Metric toggles, keyboard/touch chart tooltips, accessible data tables, and direct links to pinned evidence files.
 - Space signal, portfolio, file, and evidence-note views with shareable URL state.
 - Live Dataset path search, consistent file-type filters, and directory-size comparisons.
@@ -61,21 +64,21 @@ The Open Economic & Quant Research Observatory is fully public: the GitHub Pages
 
 - No embedded GitHub/Hugging Face token or private key marker was detected in the public site tree.
 - API key references in source are environment-variable names, not credential values.
-- Tokens previously pasted into chat should be revoked and replaced.
+- Deployment credentials are supplied only through repository secrets; no access token is committed to the public release.
 - Third-party raw data retain provider terms and mixed/unknown redistribution status.
 
 ## Validation results
 
-- Catalog generation check: passed, 4 projects, no stale generated output.
-- Compact project validation: passed, 4 projects.
-- Local deployment verification: passed, 30 required artifacts.
+- Catalog generation check: passed, 5 projects, no stale generated output.
+- Compact project validation: passed, 5 projects.
+- Local deployment verification: passed, 32 required artifacts.
 - Python syntax compilation: passed using an isolated writable bytecode cache.
-- Hugging Face Space: static runtime returned HTTP 200 and exposes 414 CasualLab, 2,931 Macroeconomics, 101 RealEstate, and 122 TariffIncidence file records.
-- Browser interaction QA: passed on desktop and mobile for project and metric switching, touch tooltips, portfolio and file views, URL state, and overflow containment.
+- Hugging Face release-integrity check: passed; the Dataset tree, Space catalog, pinned evidence revision, and all 133 Microstructure records match exactly.
+- Interaction checks: passed for the five-project switching logic, keyboard-focusable chart marks, accessible data tables, shareable URL state, and JavaScript syntax.
 - Public homepage, project pages, research routes, dashboard status page, `robots.txt`, and `sitemap.xml`: HTTP 200.
-- Automated online verifier: passed, 13 public resources.
-- GitHub CI: passed on release content commit `d1805eceff65f1f3ec6b5b22c7e2c7e070e3e895`.
-- GitHub Pages build and deployment: passed on the same release content commit.
+- Automated online verifier: passed, 15 public resources.
+- GitHub CI: passed for the 2026-08-23 five-project release.
+- GitHub Pages build and deployment: passed for the same release.
 - HF Space: successful, public, and running.
 
 ## Recoverability
@@ -84,4 +87,4 @@ The pre-optimization site snapshot is tagged `backup/pre-publication-20260810-19
 
 ## Remaining blocker
 
-No publication blocker remains. Previously pasted access tokens should be revoked and replaced because chat messages are not an appropriate long-term credential store.
+No publication blocker remains. Deployment credentials stay outside the repository and are provided only through the hosting platforms' secret stores.

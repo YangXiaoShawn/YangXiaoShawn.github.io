@@ -11,11 +11,12 @@ tags:
   - causal-inference
   - macroeconomics
   - housing-economics
+  - market-microstructure
 ---
 
 # Open Economic & Quant Research Data
 
-Versioned research content for CasualLab, Macroeconomics, Mortgage Rate Lock-In and Housing Market Dynamics, and Tariff Incidence, including project code, publishable data, fixtures, reports, tests, and reproducibility documentation.
+Versioned research content for CasualLab, Macroeconomics, Mortgage Rate Lock-In and Housing Market Dynamics, Tariff Incidence, and Order Flow to Price Impact, including project code, publishable data, fixtures, reports, tests, and reproducibility documentation.
 
 ## Repository structure
 
@@ -23,6 +24,7 @@ Versioned research content for CasualLab, Macroeconomics, Mortgage Rate Lock-In 
 - `Macroeconomics/`: vintage-aware forecasting and public-source adapter research content.
 - `RealEstate/`: housing-finance research on mortgage lock-in, mortgage exits, local activity, prices, and construction. Registered loan-level records and loan-granular derivatives are excluded.
 - `TariffIncidence/`: official-data research on U.S. Section 301 tariff pass-through, sourcing reallocation, and domestic input-output propagation. Large raw, intermediate, analytical, and parquet result files are excluded from the public package.
+- `Microstructure/`: research-only market-microstructure code, tests, protocols, and documentation. Exchange observations, normalized or derived tables, fitted states, ingestion authorities, and generated run bundles are excluded.
 - `dataset_manifest.json`: file counts, exclusions, and release metadata.
 
 ## Supported uses
@@ -51,6 +53,7 @@ Project-owned code and fixtures follow project-local terms. Third-party data and
 - Macroeconomics repository: https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics
 - Mortgage Rate Lock-In repository: https://github.com/YangXiaoShawn/open-economic-quant-realestate
 - Tariff Incidence repository: https://github.com/YangXiaoShawn/open-economic-quant-tariff-incidence
+- Microstructure repository: https://github.com/YangXiaoShawn/open-economic-quant-microstructure
 - Website repository: https://github.com/YangXiaoShawn/YangXiaoShawn.github.io
 - Interactive observatory: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
 

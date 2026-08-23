@@ -23,7 +23,7 @@
     '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
   }[character]));
 
-  const PROJECT_ORDER = ['casuallab', 'macroeconomics', 'realestate', 'tariff-incidence'];
+  const PROJECT_ORDER = ['casuallab', 'macroeconomics', 'realestate', 'tariff-incidence', 'microstructure'];
   const PROJECT_META = {
     casuallab: {
       short: 'NYC mobility', accent: 'teal', folder: 'CasualLab',
@@ -44,6 +44,11 @@
       short: 'Tariff incidence', accent: 'green', folder: 'TariffIncidence',
       page: 'projects/tariff-incidence/',
       data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/TariffIncidence'
+    },
+    microstructure: {
+      short: 'Microstructure', accent: 'violet', folder: 'Microstructure',
+      page: 'projects/microstructure/',
+      data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/Microstructure'
     }
   };
 
@@ -69,14 +74,14 @@
     if (metric.unit === 'trips') return compact(numeric, 2);
     if (metric.unit === 'USD') return `$${numeric.toFixed(2)}`;
     if (metric.unit === '%') return `${numeric.toFixed(metric.id === 'hazard' ? 3 : 2)}%`;
-    if (metric.unit === 'cells') return Math.round(numeric).toLocaleString('en-US');
+    if (['cells', 'rows', 'warnings'].includes(metric.unit)) return Math.round(numeric).toLocaleString('en-US');
     if (metric.unit === 'log points') return signed(numeric);
     return numeric.toLocaleString('en-US');
   };
 
   const formatAxis = (value, metric) => {
     const numeric = Number(value);
-    if (metric.unit === 'trips' || metric.unit === 'cells') return compact(numeric, 1);
+    if (['trips', 'cells', 'rows', 'warnings'].includes(metric.unit)) return compact(numeric, 1);
     if (metric.unit === 'USD') return `$${numeric.toFixed(0)}`;
     if (metric.unit === '%') return `${numeric.toFixed(numeric >= 10 ? 0 : 1)}%`;
     if (metric.unit === 'log points') return signed(numeric, 2);
@@ -96,13 +101,14 @@
   let activeProject = PROJECT_ORDER.includes(location.hash.slice(1)) ? location.hash.slice(1) : 'casuallab';
   let activeMetric = null;
   let heroMode = 'files';
+  const categoryLabel = (slug, category) => slug === 'microstructure' && category === 'data' ? 'data paths' : category;
 
   const renderHero = () => {
     if (!heroBars || !evidencePayload) return;
     const portfolio = evidencePayload.portfolio;
     const maxFiles = Math.max(...PROJECT_ORDER.map((slug) => portfolio.projects[slug].files));
     const mixColors = { code: '#6ee7d8', data: '#8eb8ff', reports: '#ffca6a', tests: '#7fe4aa' };
-    const order = ['macroeconomics', 'casuallab', 'tariff-incidence', 'realestate'];
+    const order = ['macroeconomics', 'casuallab', 'microstructure', 'tariff-incidence', 'realestate'];
     heroBars.innerHTML = order.map((slug) => {
       const project = portfolio.projects[slug];
       const selected = slug === activeProject;
@@ -113,11 +119,11 @@
         const categories = ['code', 'data', 'reports', 'tests'];
         track = `<span class="bar-track is-mix">${categories.map((category) => {
           const share = project[category] / project.files * 100;
-          return `<i title="${escapeHTML(category)}: ${project[category].toLocaleString('en-US')}" style="--mix-size:${share.toFixed(3)}%;--mix-color:${mixColors[category]}"></i>`;
+          return `<i title="${escapeHTML(categoryLabel(slug, category))}: ${project[category].toLocaleString('en-US')}" style="--mix-size:${share.toFixed(3)}%;--mix-color:${mixColors[category]}"></i>`;
         }).join('')}</span>`;
         const largest = categories.reduce((best, item) => project[item] > project[best] ? item : best, categories[0]);
         value = `${Math.round(project[largest] / project.files * 100)}%`;
-        label = `${PROJECT_META[slug].short}: ${project.files.toLocaleString('en-US')} files; ${categories.map((category) => `${category} ${project[category]}`).join(', ')}`;
+        label = `${PROJECT_META[slug].short}: ${project.files.toLocaleString('en-US')} files; ${categories.map((category) => `${categoryLabel(slug, category)} ${project[category]}`).join(', ')}`;
       } else {
         track = `<span class="bar-track"><i style="--bar-size:${(project.files / maxFiles * 100).toFixed(2)}%"></i></span>`;
         value = project.files.toLocaleString('en-US');
@@ -126,7 +132,7 @@
       return `<button class="hero-bar-row${selected ? ' is-active' : ''}" type="button" data-hero-project="${slug}" aria-pressed="${selected}" aria-label="${escapeHTML(label)}"><span class="bar-name">${escapeHTML(PROJECT_META[slug].short)}</span>${track}<strong>${value}</strong></button>`;
     }).join('');
     const caption = document.querySelector('[data-hero-caption]');
-    if (caption) caption.textContent = heroMode === 'files' ? 'Files at the published revision' : 'Mix: code · data · reports · tests';
+    if (caption) caption.textContent = heroMode === 'files' ? 'Files at the published revision' : `Mix: code · ${activeProject === 'microstructure' ? 'data paths' : 'data'} · reports · tests`;
     heroBars.querySelectorAll('[data-hero-project]').forEach((button) => button.addEventListener('click', () => {
       selectProject(button.dataset.heroProject);
     }));
@@ -146,6 +152,7 @@
     if (slug === 'casuallab') return { numeric: row.hour, label: `${String(row.hour).padStart(2, '0')}:00` };
     if (slug === 'macroeconomics') return { numeric: null, label: row.mode };
     if (slug === 'realestate') return { numeric: row.mean_gap, label: `${row.mean_gap > 0 ? '+' : ''}${row.mean_gap.toFixed(2)} pp` };
+    if (slug === 'microstructure') return { numeric: null, label: row.stage };
     return { numeric: null, label: row.window };
   };
 
@@ -153,6 +160,7 @@
     if (slug === 'macroeconomics') return `${row.feature_cells.toLocaleString('en-US')} feature cells`;
     if (slug === 'realestate') return `${row.bucket} · ${row.events.toLocaleString('en-US')} events`;
     if (slug === 'tariff-incidence') return `N = ${row.n.toLocaleString('en-US')}`;
+    if (slug === 'microstructure') return row.outcome;
     return 'NYC TLC completed trips';
   };
 
@@ -165,6 +173,7 @@
     if (activeProject === 'macroeconomics') firstLabel = 'Backtest mode';
     if (activeProject === 'realestate') firstLabel = 'Rate-gap bucket';
     if (activeProject === 'tariff-incidence') firstLabel = 'Window';
+    if (activeProject === 'microstructure') firstLabel = 'Pipeline gate';
     head.innerHTML = `<tr><th>${firstLabel}</th><th>${escapeHTML(metric.label)}</th><th>Context</th></tr>`;
     body.innerHTML = project.series.map((row) => {
       const x = xDescriptor(activeProject, row);
@@ -242,7 +251,7 @@
       }).join('');
     }
     const zeroLine = yMin < 0 || rawMin < 0 ? `<line class="chart-zero-line" x1="${pad.left}" y1="${zeroY}" x2="${width - pad.right}" y2="${zeroY}"></line>` : '';
-    const title = `${project.title}: ${metric.label} by ${activeProject === 'casuallab' ? 'hour' : activeProject === 'macroeconomics' ? 'backtest mode' : activeProject === 'realestate' ? 'rate gap' : 'analysis window'}`;
+    const title = `${project.title}: ${metric.label} by ${activeProject === 'casuallab' ? 'hour' : activeProject === 'macroeconomics' ? 'backtest mode' : activeProject === 'realestate' ? 'rate gap' : activeProject === 'microstructure' ? 'pipeline gate' : 'analysis window'}`;
     chart.setAttribute('aria-label', title);
     chart.innerHTML = `<svg viewBox="0 0 ${width} ${height}" role="group" aria-label="${escapeHTML(title)}">${grid}${zeroLine}${seriesGraphic}${marks}${ticks}</svg><div class="chart-tooltip" data-chart-tooltip hidden></div>`;
     if (legend) legend.innerHTML = `<span>${escapeHTML(metric.label)} · ${escapeHTML(metric.unit)}</span><span>${project.series.length.toLocaleString('en-US')} observations · hover, tap, or focus a mark</span>`;
@@ -295,8 +304,10 @@
     });
     const page = document.querySelector('[data-signal-page]');
     const data = document.querySelector('[data-signal-data]');
+    const space = document.querySelector('[data-signal-space]');
     if (page) page.href = meta.page;
     if (data) data.href = datasetFileURL(project.source, evidencePayload.dataset_revision);
+    if (space) space.href = `https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory?project=${encodeURIComponent(activeProject)}`;
     const panel = document.getElementById('signal-panel');
     if (panel) panel.setAttribute('aria-labelledby', `signal-tab-${activeProject}`);
     signalTabs.forEach((tab) => {

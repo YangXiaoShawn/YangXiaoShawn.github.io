@@ -4,12 +4,15 @@
 
 - CasualLab: `make reproduce`
 - Macroeconomics: `python -m macro_nowcast.pipeline`
+- Mortgage Rate Lock-In: `make reproduce-sample`
+- Tariff Incidence: `make reproduce-sample`
+- Microstructure: `make reproduce-sample`
 
 ## Environment and data
 
 - Each project retains a `pyproject.toml` and project-specific setup notes.
 - Compact public copies include fixtures and small samples for smoke tests.
-- Full research content is versioned in the Hugging Face Dataset.
+- Publishable research content is versioned in the Hugging Face Dataset. Microstructure's mirror intentionally contains code and documentation only, not local market observations or generated runs.
 - Local `.venv`, `.pytest_cache`, `.ruff_cache`, `__pycache__`, and operating-system metadata are never research inputs and are excluded from releases.
 
 ## Evidence standard

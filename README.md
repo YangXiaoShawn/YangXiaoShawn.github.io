@@ -10,9 +10,10 @@ A public research platform for reproducible economics, finance, quantitative met
 - Macroeconomics source: https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics
 - Mortgage Rate Lock-In repository: https://github.com/YangXiaoShawn/open-economic-quant-realestate
 - Tariff Incidence source: https://github.com/YangXiaoShawn/open-economic-quant-tariff-incidence
+- Microstructure source: https://github.com/YangXiaoShawn/open-economic-quant-microstructure
 - Full research dataset: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data
 - Interactive Hugging Face Space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
-- Static runtime revision: `c6eca688fb58f043bbeeabf47a20a88a4f2eb91d`
+- Static runtime revision: `3a7eb5c62272bde9387ca6c764b2bd81f8b52c02`
 
 ## Published projects
 
@@ -22,6 +23,7 @@ A public research platform for reproducible economics, finance, quantitative met
 | Macroeconomics | Real-time macro forecasting and vintage analysis | Public live | `python -m macro_nowcast.pipeline` |
 | Mortgage Rate Lock-In | Housing economics, mortgage finance, applied econometrics | Public live | `make reproduce-sample` |
 | Tariff Incidence | International trade, tariff pass-through, supply-chain propagation | Public live | `make reproduce-sample` |
+| Order Flow to Price Impact | Market microstructure, evidence gates, execution research | Public live | `make reproduce-sample` |
 
 The public GitHub copies are intentionally compact. The full research payload is versioned in the Hugging Face Dataset, while the Space reads from that dataset instead of duplicating it.
 
@@ -29,7 +31,7 @@ The public GitHub copies are intentionally compact. The full research payload is
 
 - `index.html` and section directories contain the GitHub Pages site.
 - `projects/` contains permanent project pages.
-- `casuallab/`, `macroeconomics/`, `realestate/`, and `tariff-incidence/` are compact, upload-ready project copies.
+- `casuallab/`, `macroeconomics/`, `realestate/`, `tariff-incidence/`, and `microstructure/` are compact, upload-ready project copies.
 - `apps/space/` contains the Hugging Face Space source.
 - `manifests/` records inventory, publication rights, dataset state, and deployed resources.
 - `scripts/` generates the catalog, validates releases, packages data, and verifies deployment.

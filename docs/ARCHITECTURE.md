@@ -3,7 +3,7 @@
 ## Public surfaces
 
 1. GitHub Pages hosts the static research portal and permanent project pages.
-2. GitHub hosts three compact, reviewable project source packages; RealEstate is versioned inside the site repository.
+2. GitHub hosts five standalone, reviewable project source repositories; this site retains controlled publication mirrors for Dataset synchronization.
 3. The Hugging Face Dataset stores the full versioned research payload without local environments or caches.
 4. The Hugging Face Space provides an interactive explorer and reads the Dataset at a configurable revision.
 
@@ -11,8 +11,8 @@
 
 - `assets/`: shared styles, browser behavior, generated catalog data, and site identity.
 - `projects/`: permanent project narratives and research summaries.
-- `casuallab/`, `macroeconomics/`, `realestate/`: upload-ready public project copies.
-- `apps/space/`: Gradio application, tests, and runtime metadata.
+- `casuallab/`, `macroeconomics/`, `realestate/`, `tariff-incidence/`, `microstructure/`: upload-ready public project mirrors.
+- `apps/space/`: static interactive explorer, compatibility implementation, tests, and runtime metadata.
 - `manifests/`: machine-readable inventory, rights, and deployment state.
 - `docs/`: governance, security, reproducibility, and release documentation.
 - `scripts/`: catalog generation, validation, packaging, deployment, and verification.

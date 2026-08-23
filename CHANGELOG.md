@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-08-23
+
+- Published Order Flow to Price Impact as the fifth public research program and standalone GitHub repository.
+- Added an interactive data-quality gate signal showing why the frozen trade study stopped before selection, held-out evaluation, execution, or P&L.
+- Added a tracked-only Microstructure Dataset mirror while excluding local exchange data, derived tables, fitted states, ingestion authorities, and generated run bundles.
+- Extended the homepage, permanent project page, Dataset catalog, Space file explorer, governance manifests, and deployment verification to five projects.
+
 ## 2026-08-14
 
 - Added Mortgage Rate Lock-In and Housing Market Dynamics as the third public research program.

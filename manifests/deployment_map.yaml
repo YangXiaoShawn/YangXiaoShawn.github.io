@@ -43,12 +43,19 @@ projects:
     dataset: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/TariffIncidence
     space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
     publication_rights: APPROVED_WITH_EXCLUSIONS
+  - slug: microstructure
+    title: Order Flow to Price Impact
+    publication_status: public-live
+    github: https://github.com/YangXiaoShawn/open-economic-quant-microstructure
+    pages: https://yangxiaoshawn.github.io/projects/microstructure/
+    dataset: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/Microstructure
+    space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
+    publication_rights: APPROVED_WITH_EXCLUSIONS
 
 withheld_projects:
-  - microstructure
   - microstructure-cleanroom-3f0f278
   - microstructure-m8-l2-2026-08-10-13
   - microstructure-m8-l2-frozen
   - microstructure-m8-trade-verifier-88060613
   - secpolicy
-withheld_reason: Publication rights and release scope have not been validated for these withheld projects.
+withheld_reason: Frozen Microstructure worktrees remain historical verification environments rather than separate publications; SECPolicy publication rights remain unvalidated.

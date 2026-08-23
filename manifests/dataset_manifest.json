@@ -1,18 +1,19 @@
 {
   "dataset": "ShawnChamberlain/open-economic-quant-research-data",
-  "generated_at": "2026-08-23T15:46:15Z",
-  "revision": "1afb02359baa39ef8ee658c734195f01de28abf5",
-  "remote_file_count": 3571,
-  "research_payload_file_count": 3568,
-  "research_payload_size_bytes": 2851437468,
+  "generated_at": "2026-08-23T18:57:44Z",
+  "revision": "5329ac0f88bae309d6e37eb8fdaefc0f60754f4c",
+  "remote_file_count": 3704,
+  "research_payload_file_count": 3701,
+  "research_payload_size_bytes": 2854901565,
   "projects": [
     {"slug": "casuallab", "remote_prefix": "CasualLab/", "source": "workspace/CasualLab"},
     {"slug": "macroeconomics", "remote_prefix": "Macroeconomics/", "source": "workspace/Macroeconomics"},
     {"slug": "realestate", "remote_prefix": "RealEstate/", "source": "github/YangXiaoShawn/open-economic-quant-realestate", "publish_mirror": "website/realestate", "publication_policy": "tracked publishable files only; registered loan-level data excluded"},
-    {"slug": "tariff-incidence", "remote_prefix": "TariffIncidence/", "source": "workspace/claude test", "publication_policy": "tracked publishable files only; large raw, intermediate, analytical, and parquet result files excluded"}
+    {"slug": "tariff-incidence", "remote_prefix": "TariffIncidence/", "source": "workspace/claude test", "publication_policy": "tracked publishable files only; large raw, intermediate, analytical, and parquet result files excluded"},
+    {"slug": "microstructure", "remote_prefix": "Microstructure/", "source": "github/YangXiaoShawn/open-economic-quant-microstructure", "publish_mirror": "website/microstructure", "publication_policy": "tracked MIT-licensed code and documentation only; market data, derived tables, fitted states, run bundles, ingestion authorities, and local environments excluded"}
   ],
   "root_metadata": [".gitattributes", "README.md", "dataset_manifest.json"],
-  "excluded_non_research_paths": ["**/.venv/**", "**/.pytest_cache/**", "**/.ruff_cache/**", "**/__pycache__/**", "**/.DS_Store"],
+  "excluded_non_research_paths": ["**/.venv/**", "**/.mypy_cache/**", "**/.pytest_cache/**", "**/.ruff_cache/**", "**/__pycache__/**", "**/.DS_Store"],
   "status": "clean-full-research-content-live",
-  "notes": "CasualLab and Macroeconomics retain their prior clean research payloads. RealEstate includes tracked publishable source, tests, synthetic fixtures, documentation, and aggregate reports while excluding registered Freddie Mac records and loan-granular derivatives. TariffIncidence adds 122 tracked source, test, configuration, manifest, documentation, fixture, dashboard, and narrative report files while excluding large raw, intermediate, analytical, and parquet result files."
+  "notes": "CasualLab and Macroeconomics retain their prior clean research payloads. RealEstate includes tracked publishable source, tests, synthetic fixtures, documentation, and aggregate reports while excluding registered Freddie Mac records and loan-granular derivatives. TariffIncidence includes 122 tracked source, test, configuration, manifest, documentation, fixture, dashboard, and narrative report files while excluding large raw, intermediate, analytical, and parquet result files. Microstructure adds 133 tracked code, test, configuration, and documentation files while excluding exchange observations, normalized and derived tables, fitted states, ingestion authorities, generated run bundles, and local environments."
 }

@@ -2,13 +2,14 @@
   'use strict';
 
   const REPO = 'ShawnChamberlain/open-economic-quant-research-data';
-  const ORDER = ['casuallab', 'macroeconomics', 'realestate', 'tariff-incidence'];
+  const ORDER = ['casuallab', 'macroeconomics', 'realestate', 'tariff-incidence', 'microstructure'];
   const VIEWS = ['signal', 'portfolio', 'files', 'notes'];
   const META = {
     casuallab: { folder: 'CasualLab', accent: 'teal', page: 'https://yangxiaoshawn.github.io/projects/casuallab/', data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/CasualLab', source: 'https://github.com/YangXiaoShawn/open-economic-quant-casuallab' },
     macroeconomics: { folder: 'Macroeconomics', accent: 'blue', page: 'https://yangxiaoshawn.github.io/projects/macroeconomics/', data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/Macroeconomics', source: 'https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics' },
     realestate: { folder: 'RealEstate', accent: 'amber', page: 'https://yangxiaoshawn.github.io/projects/realestate/', data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/RealEstate', source: 'https://github.com/YangXiaoShawn/open-economic-quant-realestate' },
-    'tariff-incidence': { folder: 'TariffIncidence', accent: 'green', page: 'https://yangxiaoshawn.github.io/projects/tariff-incidence/', data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/TariffIncidence', source: 'https://github.com/YangXiaoShawn/open-economic-quant-tariff-incidence' }
+    'tariff-incidence': { folder: 'TariffIncidence', accent: 'green', page: 'https://yangxiaoshawn.github.io/projects/tariff-incidence/', data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/TariffIncidence', source: 'https://github.com/YangXiaoShawn/open-economic-quant-tariff-incidence' },
+    microstructure: { folder: 'Microstructure', accent: 'violet', page: 'https://yangxiaoshawn.github.io/projects/microstructure/', data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/Microstructure', source: 'https://github.com/YangXiaoShawn/open-economic-quant-microstructure' }
   };
   const COLORS = { code: '#6ee7d8', data: '#8eb8ff', reports: '#ffca6a', tests: '#7fe4aa' };
   const params = new URLSearchParams(location.search);
@@ -19,6 +20,7 @@
   let evidence = null;
   let rows = [];
   const cache = {};
+  const categoryLabel = (category) => activeProject === 'microstructure' && category === 'data' ? 'data paths' : category;
 
   const one = (selector) => document.querySelector(selector);
   const all = (selector) => [...document.querySelectorAll(selector)];
@@ -37,14 +39,14 @@
     if (metric.unit === 'trips') return compact(numeric, 2);
     if (metric.unit === 'USD') return `$${numeric.toFixed(2)}`;
     if (metric.unit === '%') return `${numeric.toFixed(metric.id === 'hazard' ? 3 : 2)}%`;
-    if (metric.unit === 'cells') return Math.round(numeric).toLocaleString('en-US');
+    if (['cells', 'rows', 'warnings'].includes(metric.unit)) return Math.round(numeric).toLocaleString('en-US');
     if (metric.unit === 'log points') return signed(numeric);
     return numeric.toLocaleString('en-US');
   };
 
   const formatAxis = (value, metric) => {
     const numeric = Number(value);
-    if (metric.unit === 'trips' || metric.unit === 'cells') return compact(numeric, 1);
+    if (['trips', 'cells', 'rows', 'warnings'].includes(metric.unit)) return compact(numeric, 1);
     if (metric.unit === 'USD') return `$${numeric.toFixed(0)}`;
     if (metric.unit === '%') return `${numeric.toFixed(numeric >= 10 ? 0 : 1)}%`;
     if (metric.unit === 'log points') return signed(numeric, 2);
@@ -55,6 +57,7 @@
     if (slug === 'casuallab') return { numeric: row.hour, label: `${String(row.hour).padStart(2, '0')}:00` };
     if (slug === 'macroeconomics') return { numeric: null, label: row.mode };
     if (slug === 'realestate') return { numeric: row.mean_gap, label: `${row.mean_gap > 0 ? '+' : ''}${row.mean_gap.toFixed(2)} pp` };
+    if (slug === 'microstructure') return { numeric: null, label: row.stage };
     return { numeric: null, label: row.window };
   };
 
@@ -62,6 +65,7 @@
     if (slug === 'macroeconomics') return `${row.feature_cells.toLocaleString('en-US')} feature cells`;
     if (slug === 'realestate') return `${row.bucket} · ${row.events.toLocaleString('en-US')} events`;
     if (slug === 'tariff-incidence') return `N = ${row.n.toLocaleString('en-US')}`;
+    if (slug === 'microstructure') return row.outcome;
     return 'NYC TLC completed trips';
   };
 
@@ -102,6 +106,7 @@
     if (activeProject === 'macroeconomics') first = 'Backtest mode';
     if (activeProject === 'realestate') first = 'Rate-gap bucket';
     if (activeProject === 'tariff-incidence') first = 'Window';
+    if (activeProject === 'microstructure') first = 'Pipeline gate';
     head.innerHTML = `<tr><th>${first}</th><th>${escapeHTML(metric.label)}</th><th>Context</th></tr>`;
     body.innerHTML = project.series.map((row) => {
       const x = xDescriptor(activeProject, row);
@@ -243,7 +248,9 @@
     donut.style.setProperty('--reports', `${reports}%`);
     donut.setAttribute('aria-label', `File type mix: code ${project.code}, data ${project.data}, reports ${project.reports}, tests ${project.tests}`);
     one('[data-file-total]').textContent = project.files.toLocaleString('en-US');
-    one('[data-mix-legend]').innerHTML = ['code', 'data', 'reports', 'tests'].map((item) => `<div><i style="--legend-color:${COLORS[item]}"></i><span>${item}</span><strong>${project[item].toLocaleString('en-US')}</strong></div>`).join('');
+    one('[data-mix-legend]').innerHTML = ['code', 'data', 'reports', 'tests'].map((item) => `<div><i style="--legend-color:${COLORS[item]}"></i><span>${categoryLabel(item)}</span><strong>${project[item].toLocaleString('en-US')}</strong></div>`).join('');
+    const dataFilter = one('[data-filter="data"]');
+    if (dataFilter) dataFilter.textContent = activeProject === 'microstructure' ? 'Data paths' : 'Data';
   };
 
   const renderDirectories = () => {
@@ -282,7 +289,7 @@
       }
       if (slug !== activeProject) return;
       rows = cache[slug].map((item) => ({ path: item.path || '', size: item.size ?? null, category: item.category || category(item.path || '') }));
-      const revision = (evidence?.dataset_revision || '1afb02359baa').slice(0, 12);
+      const revision = (evidence?.dataset_revision || '5329ac0f88ba').slice(0, 12);
       one('[data-file-status]').textContent = `Connected to ${REPO} at ${revision}.`;
       renderFiles();
       renderDirectories();

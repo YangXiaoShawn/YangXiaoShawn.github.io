@@ -14,6 +14,7 @@ def test_project_registry():
         "Macroeconomics",
         "RealEstate",
         "TariffIncidence",
+        "Microstructure",
     }
 
 
@@ -31,3 +32,10 @@ def test_tariff_project_uses_canonical_slug(monkeypatch):
     summary, _, _, _ = explore("TariffIncidence", "")
     assert "/projects/tariff-incidence/" in summary
     assert "open-economic-quant-tariff-incidence" in summary
+
+
+def test_microstructure_project_uses_canonical_links(monkeypatch):
+    monkeypatch.setattr("app._dataset_rows", lambda project: (app.FALLBACK_ROWS.copy(), "test"))
+    summary, _, _, _ = explore("Microstructure", "")
+    assert "/projects/microstructure/" in summary
+    assert "open-economic-quant-microstructure" in summary

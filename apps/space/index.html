@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Open Econ × Quant — Interactive Evidence Lab</title>
-  <meta name="description" content="Interrogate four published economic research signals, compare the evidence footprint, and trace every mark to versioned files." />
+  <meta name="description" content="Interrogate five published economic and quantitative research signals, compare the evidence footprint, and trace every mark to versioned files." />
   <meta name="theme-color" content="#071019" />
   <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="./styles.css" />
@@ -24,7 +24,7 @@
   <main class="shell">
     <section class="intro">
       <div><div class="eyebrow">Interactive evidence lab</div><h1>Interrogate<br /><span>one signal.</span></h1></div>
-      <div class="intro-stats" aria-label="Published research footprint"><div><strong>4</strong><span>questions</span></div><div><strong>3,568</strong><span>files</span></div><div><strong>2.85 GB</strong><span>evidence</span></div></div>
+      <div class="intro-stats" aria-label="Published research footprint"><div><strong>5</strong><span>questions</span></div><div><strong>3,701</strong><span>files</span></div><div><strong>2.85 GB</strong><span>evidence</span></div></div>
     </section>
 
     <section class="lab" id="lab" data-accent="teal" aria-label="Interactive research evidence explorer">
@@ -34,7 +34,8 @@
         <button class="project-button" id="project-tab-macroeconomics" type="button" data-project="macroeconomics" aria-pressed="false"><span>02</span><strong>Vintage leakage</strong><small>Backtest audit</small></button>
         <button class="project-button" id="project-tab-realestate" type="button" data-project="realestate" aria-pressed="false"><span>03</span><strong>Mortgage lock-in</strong><small>Exit hazard</small></button>
         <button class="project-button" id="project-tab-tariff-incidence" type="button" data-project="tariff-incidence" aria-pressed="false"><span>04</span><strong>Tariff windows</strong><small>Sensitivity</small></button>
-        <div class="rail-status"><span>Dataset connected</span><div data-revision>Revision 1afb02359baa</div></div>
+        <button class="project-button" id="project-tab-microstructure" type="button" data-project="microstructure" aria-pressed="false"><span>05</span><strong>Quality gate</strong><small>Publication stop</small></button>
+        <div class="rail-status"><span>Dataset connected</span><div data-revision>Revision 5329ac0f88ba</div></div>
       </aside>
 
       <div class="workspace">
@@ -56,7 +57,7 @@
 
         <section class="view" id="view-signal" role="tabpanel" aria-labelledby="view-tab-signal" data-view-panel="signal">
           <div class="signal-toolbar"><div class="metric-switcher" data-metrics role="group" aria-label="Chart metric"></div><span class="source-path" data-source></span></div>
-          <div class="chart" data-chart role="group" aria-label="Loading published research signal" tabindex="0"><div class="loading">Loading published evidence…</div></div>
+          <div class="chart" data-chart role="group" aria-label="Loading published research signal"><div class="loading">Loading published evidence…</div></div>
           <div class="chart-legend" data-chart-legend></div>
           <details class="data-table" data-table><summary>Read chart as a table</summary><div class="table-wrap"><table><thead data-table-head></thead><tbody data-table-body></tbody></table></div></details>
           <div class="view-actions"><a class="button button-primary" data-project-page href="https://yangxiaoshawn.github.io/projects/casuallab/">Read study</a><a class="button" data-dataset href="https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/CasualLab">Open evidence</a><a class="button" data-source-code href="https://github.com/YangXiaoShawn/open-economic-quant-casuallab">Source</a></div>
@@ -92,7 +93,7 @@
     </section>
   </main>
 
-  <footer class="shell"><span>Open Economic &amp; Quant Research Observatory</span><span data-revision>Dataset revision 1afb02359baa</span></footer>
+  <footer class="shell"><span>Open Economic &amp; Quant Research Observatory</span><span data-revision>Dataset revision 5329ac0f88ba</span></footer>
   <script src="./app.js"></script>
 </body>
 </html>

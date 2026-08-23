@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-14T00:00:00Z",
+  "generated_at": "2026-08-23T00:00:00Z",
   "projects": [
     {
       "project_title": "CasualLab",
@@ -81,7 +81,26 @@
       "last_updated_date": "2026-08-17",
       "known_limitations": "Quantity fails the date placebo; exclusions are intention-to-treat; sourcing coverage is restricted; the structural model covers foreign suppliers only and produces no welfare estimate."
     },
-    {"project_title": "Order Flow to Price Impact", "project_slug": "microstructure", "current_status": "WITHHELD_RIGHTS_REVIEW", "source_directory": "workspace/Microstructure"},
+    {
+      "project_title": "Order Flow to Price Impact",
+      "project_slug": "microstructure",
+      "research_field": ["Market microstructure", "Quantitative finance", "Time-series machine learning"],
+      "research_question": "When do order-flow imbalance, liquidity, and limit-order-book conditions predict short-horizon price movement, and which claims survive predeclared data-quality and execution gates?",
+      "current_status": "PUBLIC_LIVE",
+      "source_directory": "workspace/Microstructure",
+      "main_programming_language": "Python",
+      "data_sources": ["Binance public market-data endpoints and official archive metadata, independently acquired", "Deterministic synthetic fixtures"],
+      "outputs": ["source", "tests", "configuration", "protocols", "documentation"],
+      "reproduction_command": "make reproduce-sample",
+      "code_license": "MIT",
+      "publication_rights": "APPROVED_WITH_EXCLUSIONS",
+      "github_destination": "https://github.com/YangXiaoShawn/open-economic-quant-microstructure",
+      "github_pages_destination": "https://yangxiaoshawn.github.io/projects/microstructure/",
+      "hf_dataset_destination": "https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/Microstructure",
+      "hf_space_destination": "https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory",
+      "last_updated_date": "2026-08-23",
+      "known_limitations": "The public package excludes exchange observations, derived events, fitted states, ingestion authorities, and generated run bundles. The frozen trade study stopped before selection or held-out evaluation and supports no execution or profit claim."
+    },
     {"project_title": "Order Flow to Price Impact", "project_slug": "microstructure-cleanroom-3f0f278", "current_status": "WITHHELD_RIGHTS_REVIEW", "source_directory": "workspace/Microstructure-cleanroom-3f0f278"},
     {"project_title": "Order Flow to Price Impact", "project_slug": "microstructure-m8-l2-2026-08-10-13", "current_status": "WITHHELD_RIGHTS_REVIEW", "source_directory": "workspace/Microstructure-m8-l2-2026-08-10-13"},
     {"project_title": "Order Flow to Price Impact", "project_slug": "microstructure-m8-l2-frozen", "current_status": "WITHHELD_RIGHTS_REVIEW", "source_directory": "workspace/Microstructure-m8-l2-frozen"},

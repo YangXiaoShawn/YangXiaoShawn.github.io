@@ -10,7 +10,11 @@ from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
+from huggingface_hub import HfApi, RepoFile
+
 ROOT = Path(__file__).resolve().parents[1]
+DATASET_ID = "ShawnChamberlain/open-economic-quant-research-data"
+SPACE_ID = "ShawnChamberlain/open-economic-quant-research-observatory"
 ROUTES = (
     "research",
     "replications",
@@ -28,12 +32,14 @@ PUBLIC_URLS = (
     "https://yangxiaoshawn.github.io/projects/macroeconomics/",
     "https://yangxiaoshawn.github.io/projects/realestate/",
     "https://yangxiaoshawn.github.io/projects/tariff-incidence/",
+    "https://yangxiaoshawn.github.io/projects/microstructure/",
     "https://yangxiaoshawn.github.io/robots.txt",
     "https://yangxiaoshawn.github.io/sitemap.xml",
     "https://github.com/YangXiaoShawn/open-economic-quant-casuallab",
     "https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics",
     "https://github.com/YangXiaoShawn/open-economic-quant-realestate",
     "https://github.com/YangXiaoShawn/open-economic-quant-tariff-incidence",
+    "https://github.com/YangXiaoShawn/open-economic-quant-microstructure",
     "https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data",
     "https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory",
 )
@@ -50,9 +56,16 @@ def online_status(url: str) -> int:
         return 0
 
 
+def online_json(url: str):
+    request = Request(url, headers={"User-Agent": "observatory-deployment-verifier"})
+    with urlopen(request, timeout=20) as response:
+        return json.load(response)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--online", action="store_true")
+    parser.add_argument("--hf-only", action="store_true", help="Verify the pinned Hugging Face release without checking Pages or GitHub URLs.")
     args = parser.parse_args()
     required = [
         ROOT / "index.html",
@@ -69,6 +82,7 @@ def main() -> None:
         ROOT / "projects" / "macroeconomics" / "index.html",
         ROOT / "projects" / "realestate" / "index.html",
         ROOT / "projects" / "tariff-incidence" / "index.html",
+        ROOT / "projects" / "microstructure" / "index.html",
         ROOT / "apps" / "space" / "app.py",
         ROOT / "apps" / "space" / "README.md",
         ROOT / "apps" / "space" / "index.html",
@@ -76,6 +90,7 @@ def main() -> None:
         ROOT / "apps" / "space" / "app.js",
         ROOT / "apps" / "space" / "evidence.json",
         ROOT / "apps" / "space" / "favicon.svg",
+        ROOT / "apps" / "space" / "catalog" / "Microstructure.json",
     ]
     required.extend(ROOT / route / "index.html" for route in ROUTES)
     missing = [str(path.relative_to(ROOT)) for path in required if not path.exists()]
@@ -89,9 +104,10 @@ def main() -> None:
             "macroeconomics",
             "realestate",
             "tariff-incidence",
+            "microstructure",
         }
         if {item.get("slug") for item in catalog.get("projects", [])} != expected_projects:
-            failures.append("generated catalog does not contain exactly the four published projects")
+            failures.append("generated catalog does not contain exactly the five published projects")
 
     evidence_path = ROOT / "assets" / "data" / "evidence.json"
     if evidence_path.exists():
@@ -103,9 +119,10 @@ def main() -> None:
             "macroeconomics",
             "realestate",
             "tariff-incidence",
+            "microstructure",
         }
         if set(portfolio_projects) != expected_projects or set(evidence.get("projects", {})) != expected_projects:
-            failures.append("evidence catalog does not contain exactly the four published projects")
+            failures.append("evidence catalog does not contain exactly the five published projects")
         if sum(item.get("files", 0) for item in portfolio_projects.values()) != portfolio.get("total_files"):
             failures.append("portfolio project file counts do not sum to total_files")
         if sum(portfolio.get("categories", {}).values()) != portfolio.get("total_files"):
@@ -142,10 +159,62 @@ def main() -> None:
             status = online_status(url)
             if status < 200 or status >= 400:
                 failures.append(f"public URL returned {status}: {url}")
+    if args.online or args.hf_only:
+        try:
+            evidence = json.loads(evidence_path.read_text(encoding="utf-8"))
+            revision = evidence["dataset_revision"]
+            local_microstructure_catalog = json.loads(
+                (ROOT / "apps" / "space" / "catalog" / "Microstructure.json").read_text(encoding="utf-8")
+            )
+            api = HfApi()
+            remote_nodes = api.list_repo_tree(
+                DATASET_ID,
+                path_in_repo="Microstructure",
+                repo_type="dataset",
+                revision=revision,
+                recursive=True,
+                expand=False,
+            )
+            remote_microstructure_catalog = sorted(
+                (
+                    {
+                        "type": "file",
+                        "path": node.path,
+                        "size": node.size,
+                        "category": next(
+                            item["category"]
+                            for item in local_microstructure_catalog
+                            if item["path"] == node.path
+                        ),
+                    }
+                    for node in remote_nodes
+                    if isinstance(node, RepoFile)
+                ),
+                key=lambda item: item["path"],
+            )
+            if remote_microstructure_catalog != local_microstructure_catalog:
+                failures.append("remote Dataset Microstructure tree differs from the 133-file release catalog")
+
+            space_base = f"https://huggingface.co/spaces/{SPACE_ID}/resolve/main"
+            remote_space_catalog = online_json(f"{space_base}/catalog/Microstructure.json")
+            if remote_space_catalog != local_microstructure_catalog:
+                failures.append("remote Space Microstructure catalog differs from the release catalog")
+            remote_space_evidence = online_json(f"{space_base}/evidence.json")
+            if remote_space_evidence != evidence:
+                failures.append("remote Space evidence does not match the website or pinned Dataset revision")
+            status_url = f"https://huggingface.co/datasets/{DATASET_ID}/resolve/{revision}/Microstructure/STATUS.md"
+            if online_status(status_url) != 200:
+                failures.append("pinned Microstructure STATUS evidence is not available from the Dataset")
+        except Exception as exc:
+            failures.append(f"Hugging Face release-integrity check failed: {type(exc).__name__}: {exc}")
 
     if failures:
         raise SystemExit("Verification failed:\n- " + "\n- ".join(failures))
-    print(f"verify-ok local={len(required)} online={len(PUBLIC_URLS) if args.online else 0}")
+    print(
+        f"verify-ok local={len(required)} "
+        f"online={len(PUBLIC_URLS) if args.online else 0} "
+        f"hf_integrity={int(args.online or args.hf_only)}"
+    )
 
 
 if __name__ == "__main__":

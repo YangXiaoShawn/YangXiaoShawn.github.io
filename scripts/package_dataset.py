@@ -10,7 +10,7 @@ import shutil
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-EXCLUDED_PARTS = {".git", ".venv", ".pytest_cache", ".ruff_cache", "__pycache__"}
+EXCLUDED_PARTS = {".git", ".venv", ".mypy_cache", ".pytest_cache", ".ruff_cache", "__pycache__"}
 EXCLUDED_NAMES = {".DS_Store"}
 
 
@@ -38,6 +38,7 @@ def main() -> None:
         ("Macroeconomics", args.workspace / "Macroeconomics"),
         ("RealEstate", ROOT / "realestate"),
         ("TariffIncidence", ROOT / "tariff-incidence"),
+        ("Microstructure", ROOT / "microstructure"),
     )
     records = []
     for prefix, source in projects:

@@ -11,6 +11,7 @@
   --blue: #8eb8ff;
   --amber: #ffca6a;
   --green: #7fe4aa;
+  --violet: #c3a6ff;
   --shadow: 0 28px 80px rgba(0, 0, 0, 0.3);
 }
 
@@ -62,6 +63,7 @@ button { color: inherit; }
 .lab[data-accent="blue"] { --project-accent: var(--blue); }
 .lab[data-accent="amber"] { --project-accent: var(--amber); }
 .lab[data-accent="green"] { --project-accent: var(--green); }
+.lab[data-accent="violet"] { --project-accent: var(--violet); }
 .rail { display: flex; flex-direction: column; padding: 20px 13px; border-right: 1px solid var(--line); background: rgba(255,255,255,.016); }
 .rail-label { padding: 4px 10px 14px; color: var(--muted); font-size: .62rem; font-weight: 720; letter-spacing: .14em; text-transform: uppercase; }
 .project-button { display: grid; grid-template-columns: 26px 1fr; column-gap: 8px; width: 100%; padding: 13px 10px; border: 0; border-radius: 11px; color: var(--muted); background: transparent; text-align: left; cursor: pointer; }

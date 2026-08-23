@@ -12,6 +12,6 @@ datasets:
 
 # Open Economic & Quant Research Observatory
 
-A free public Static Space for interrogating four published economic signals. Switch projects and metrics, compare the versioned research footprint, then trace any chart back to its evidence file, study page, or source repository.
+A free public Static Space for interrogating five published economic and quantitative research signals. Switch projects and metrics, compare the versioned research footprint, then trace any chart back to its evidence file, study page, or source repository.
 
 The chart evidence is generated from named research artifacts and the file explorer reads the pinned Dataset catalog. The static deployment uses no server-side credentials or persistent storage.

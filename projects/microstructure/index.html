@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order Flow to Price Impact | Open Economic &amp; Quant Research Observatory</title>
+  <meta name="description" content="Research-only market-microstructure system with explicit data-quality gates, leakage-safe evaluation, execution assumptions, and strict publication boundaries." />
+  <meta property="og:title" content="Order Flow to Price Impact" />
+  <meta property="og:description" content="When should an apparent market signal be stopped before publication?" />
+  <meta property="og:image" content="https://yangxiaoshawn.github.io/assets/og-visual-2026.png" />
+  <link rel="canonical" href="https://yangxiaoshawn.github.io/projects/microstructure/" />
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header"><div class="container header-inner">
+  <a class="brand" href="../../index.html"><span class="brand-mark">OQ</span><span class="brand-copy"><span class="brand-title">Open Econ x Quant</span><span class="brand-subtitle">Research Observatory</span></span></a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation"><span></span></button>
+  <nav class="site-nav" id="site-nav" aria-label="Primary navigation"><a href="../../index.html">Home</a><a href="../../research/">Research</a><a href="../../datasets/">Datasets</a><a href="../../methods/">Methods</a><a href="../../about/">About</a></nav>
+</div></header>
+
+<main id="main">
+  <section class="detail-hero"><div class="container detail-hero-grid">
+    <div>
+      <div class="breadcrumbs"><a href="../../index.html">Home</a><a href="../../research/">Research</a><span>Market microstructure</span></div>
+      <h1>Order Flow to Price Impact</h1>
+      <p class="detail-lead">A research-only system that asks when order flow predicts a future move—and refuses to turn a failed data-quality gate into a market, execution, or profit claim.</p>
+      <div class="detail-tags tag-row"><span class="tag">Market microstructure</span><span class="tag">Order flow</span><span class="tag">Evidence gates</span></div>
+    </div>
+    <aside class="detail-side">
+      <div class="detail-side-row"><span>Status</span><strong>Public live</strong></div>
+      <div class="detail-side-row"><span>Last updated</span><strong>2026-08-23</strong></div>
+      <div class="detail-side-row"><span>Evidence</span><strong>Protocol terminal</strong></div>
+      <div class="detail-side-row"><span>Public entry point</span><strong>make reproduce-sample</strong></div>
+      <div class="detail-side-actions"><a class="button button-small" href="https://github.com/YangXiaoShawn/open-economic-quant-microstructure">GitHub</a><a class="button button-small" href="https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory?project=microstructure">Interactive lab</a></div>
+    </aside>
+  </div></section>
+
+  <section class="section"><div class="container detail-layout">
+    <article class="article">
+      <section id="question"><h2>Research question</h2><p><strong>When do order-flow imbalance, liquidity, and limit-order-book conditions predict short-horizon price movement—and which claims survive data-quality and execution gates?</strong></p><p>Predictability, executability, and profitability are separate questions. The project makes event ordering, temporal leakage, gaps, fees, latency, uncertain fills, adverse selection, and inventory risk explicit before a claim can be promoted.</p></section>
+
+      <section id="gate"><h2>The published gate result</h2><div class="table-wrap"><table class="data-table" data-sortable-table><thead><tr><th data-sort-key>Stage</th><th data-sort-key>Rows inspected</th><th data-sort-key>Warnings</th><th>Outcome</th></tr></thead><tbody>
+        <tr><td>BTCUSDT training</td><td>2,071,461</td><td>0</td><td>Normalization passed.</td></tr>
+        <tr><td>ETHUSDT training</td><td>987,297</td><td>53</td><td>The predeclared zero-warning gate failed.</td></tr>
+        <tr><td>Model selection</td><td>0</td><td>—</td><td>Not started.</td></tr>
+        <tr><td>Held-out evaluation</td><td>0</td><td>—</td><td>Dates were not opened.</td></tr>
+      </tbody></table></div><p>The valid terminal is <code>INSUFFICIENT_DATA</code>. It is evidence that the protocol stopped correctly—not evidence for or against a market hypothesis. Execution and P&amp;L remain <code>NOT_RUN</code>.</p></section>
+
+      <section id="method"><h2>Methodology</h2><ol><li>Preserve exchange and receipt ordering with explicit continuity epochs.</li><li>Construct features only from information observable at decision time; labels begin strictly afterward.</li><li>Use purged, embargoed, time-ordered model selection and held-out evaluation.</li><li>Keep predictive diagnostics separate from fees, latency, fills, adverse selection, and inventory assumptions.</li><li>Freeze checksummed run bundles and generate reports from those artifacts instead of copying preferred metrics into prose.</li></ol></section>
+
+      <section id="boundary"><h2>Public data boundary</h2><p>The public GitHub and Dataset packages contain source code, configuration, tests, protocols, and documentation. They do not redistribute exchange observations, normalized or derived events, fitted states, ingestion authorities, or generated run bundles. The portfolio's “data paths” count covers adapter modules and empty directory markers—not market observations. Users obtain public market data independently under provider terms.</p></section>
+
+      <section id="reproduce"><h2>Reproduce and inspect</h2><p>Run <code>make setup</code>, <code>make check</code>, and <code>make reproduce-sample</code> for the deterministic synthetic vertical slice. Synthetic output verifies software behavior only.</p><ul><li><a href="https://github.com/YangXiaoShawn/open-economic-quant-microstructure">Source, tests, and research protocols</a></li><li><a href="https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/Microstructure">Versioned code and documentation mirror</a></li><li><a href="https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory?project=microstructure">Explore the evidence gate interactively</a></li><li><a href="../../microstructure/docs/PUBLICATION.md">Publication policy</a></li></ul></section>
+
+      <section id="limitations"><h2>Limitations</h2><ul><li>Public trades do not reveal true queue priority, hidden liquidity, or cancellations.</li><li>Exchange timestamps are not colocated receipt times.</li><li>The frozen trade study stopped before selection and held-out evaluation.</li><li>No result is a live-trading, significance, capacity, profitability, or investment claim.</li></ul></section>
+    </article>
+    <aside class="article-nav"><div class="article-nav-title">On this page</div><a href="#question">Question</a><a href="#gate">Evidence gate</a><a href="#method">Methodology</a><a href="#boundary">Data boundary</a><a href="#reproduce">Reproduce</a><a href="#limitations">Limitations</a></aside>
+  </div></section>
+</main>
+
+<footer class="site-footer"><div class="container"><div class="footer-bottom"><span>Open Economic &amp; Quant Research Observatory</span><a class="text-link" href="../../index.html">Back to homepage</a></div></div></footer>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

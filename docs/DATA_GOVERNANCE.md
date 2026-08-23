@@ -18,6 +18,10 @@ CasualLab and Macroeconomics include project-owned code and public examples. Raw
 
 RealEstate is `PUBLIC_OK` for project-owned source, tests, documentation, synthetic fixtures, and aggregate reports, and `PRIVATE` for registered Freddie Mac loan-level records and loan-granular derivatives. Public packaging is restricted to tracked files and excludes `data/raw/`, `data/interim/`, `data/processed/`, `data/cache/`, and `outputs/`.
 
+Tariff Incidence is `PUBLIC_OK` for tracked source and narrative reports, with large raw, staged, normalized, analytical, and parquet result files excluded.
+
+Microstructure is `PUBLIC_OK` for its canonical Git-tracked MIT source, tests, configuration, protocols, and documentation. Exchange observations and locally generated research state are `METADATA_ONLY` in this release: `data/raw/`, normalized and derived tables, model states, M8/L2 authorities, and `artifacts/runs/` are excluded from GitHub's publication mirror and the Hugging Face Dataset. Low-dimensional row and warning counts already recorded in tracked status prose may be displayed with their evidence tier and source link.
+
 ## Required release record
 
 Every new data source must record origin, retrieval date, geographic and temporal coverage, transformations, units, frequency, schema, checksum, license, and publication class.

@@ -8,6 +8,7 @@
 - Macroeconomics repository: https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics
 - Mortgage Rate Lock-In repository: https://github.com/YangXiaoShawn/open-economic-quant-realestate
 - Tariff Incidence repository: https://github.com/YangXiaoShawn/open-economic-quant-tariff-incidence
+- Microstructure repository: https://github.com/YangXiaoShawn/open-economic-quant-microstructure
 - Hugging Face Dataset: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data
 - Hugging Face Space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
 

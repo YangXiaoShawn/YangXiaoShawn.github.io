@@ -8,6 +8,9 @@ Only assets with documented redistribution permission are classified `PUBLIC_OK`
 
 - CasualLab: project code and synthetic/open examples are public; new raw source snapshots require source-level review.
 - Macroeconomics: project code, synthetic fixtures, and guarded public-source adapters are public; agency data retain provider terms and provenance requirements.
+- RealEstate: tracked source, synthetic fixtures, documentation, and aggregate reports are public; registered loan-level records and loan-granular derivatives are excluded.
+- Tariff Incidence: tracked source and narrative reports are public; large raw, intermediate, analytical, and parquet result files are excluded.
+- Microstructure: the canonical Git-tracked source and documentation history is public under MIT. Exchange observations, normalized or derived events, fitted states, ingestion authorities, and generated run bundles are excluded; users obtain public market data independently under provider terms.
 
 ## Dataset limitation
 
@@ -15,4 +18,4 @@ The Dataset is a versioned research mirror. Inclusion does not grant a license t
 
 ## Withheld inventory
 
-Other workspace projects remain inventoried but are not added to the public site because their publication rights have not been validated for this release.
+The four frozen Microstructure worktrees remain historical verification environments rather than separate publications. SECPolicy remains inventoried but withheld because its publication rights have not been validated for this release.

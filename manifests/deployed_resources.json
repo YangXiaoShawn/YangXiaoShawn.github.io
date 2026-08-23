@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-23T15:52:37Z",
+  "generated_at": "2026-08-23T18:57:44Z",
   "repository": {
     "github_repository": "https://github.com/YangXiaoShawn/YangXiaoShawn.github.io",
     "github_pages_url": "https://yangxiaoshawn.github.io/",
@@ -7,19 +7,21 @@
     "macroeconomics_repository": "https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics",
     "realestate_repository": "https://github.com/YangXiaoShawn/open-economic-quant-realestate",
     "tariff_incidence_repository": "https://github.com/YangXiaoShawn/open-economic-quant-tariff-incidence",
+    "microstructure_repository": "https://github.com/YangXiaoShawn/open-economic-quant-microstructure",
     "default_branch": "main"
   },
   "huggingface": {
     "dataset_repo": "https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data",
-    "dataset_revision": "1afb02359baa39ef8ee658c734195f01de28abf5",
-    "dataset_files": 3571,
-    "research_payload_files": 3568,
-    "research_payload_bytes": 2851437468,
+    "dataset_revision": "5329ac0f88bae309d6e37eb8fdaefc0f60754f4c",
+    "dataset_files": 3704,
+    "research_payload_files": 3701,
+    "research_payload_bytes": 2854901565,
     "realestate_files": 101,
     "tariff_incidence_files": 122,
+    "microstructure_files": 133,
     "space_repo": "https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory",
     "space_runtime": "https://shawnchamberlain-open-economic-quant-research-ob-5271962.static.hf.space",
-    "space_revision": "c6eca688fb58f043bbeeabf47a20a88a4f2eb91d"
+    "space_revision": "3a7eb5c62272bde9387ca6c764b2bd81f8b52c02"
   },
   "commit_hashes": {
     "site_pre_optimization": "3fa4c1711868ae9b9a376fb4138c0bd913e01a09",
@@ -29,7 +31,8 @@
     "site_tariff_incidence_release": "d1805eceff65f1f3ec6b5b22c7e2c7e070e3e895",
     "site_interactive_redesign": "3ca1907e84d6242bcde6f1b84f83992cfd8196bd",
     "site_chart_first_release": "5cf8b1578683065d2b61c97049f08dc33a2763e2",
-    "site_realestate_repository_release": "6d2dc30af09e8d38b50aa50267cd324cf35b4e0d"
+    "site_realestate_repository_release": "6d2dc30af09e8d38b50aa50267cd324cf35b4e0d",
+    "microstructure_source_release": "8163a9831145fa8a754212724dbdec8b2bac6116"
   },
   "deployment_status": {
     "github_repository": "SUCCESS",

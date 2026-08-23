@@ -4,13 +4,15 @@
     "CasualLab",
     "Macroeconomics",
     "RealEstate",
-    "TariffIncidence"
+    "TariffIncidence",
+    "Microstructure"
   ],
-  "file_count": 3568,
-  "size_bytes": 2851437468,
+  "file_count": 3701,
+  "size_bytes": 2854901565,
   "excluded_parts": [
     ".DS_Store",
     ".git",
+    ".mypy_cache",
     ".pytest_cache",
     ".ruff_cache",
     ".venv",
@@ -14288,6 +14290,538 @@
     {
       "path": "TariffIncidence/src/tariff_incidence/concordance/__init__.py",
       "size_bytes": 0
+    },
+    {
+      "path": "Microstructure/project.yaml",
+      "size_bytes": 3019
+    },
+    {
+      "path": "Microstructure/LICENSE",
+      "size_bytes": 1088
+    },
+    {
+      "path": "Microstructure/uv.lock",
+      "size_bytes": 301193
+    },
+    {
+      "path": "Microstructure/Makefile",
+      "size_bytes": 16917
+    },
+    {
+      "path": "Microstructure/pyproject.toml",
+      "size_bytes": 1351
+    },
+    {
+      "path": "Microstructure/STATUS.md",
+      "size_bytes": 10873
+    },
+    {
+      "path": "Microstructure/README.md",
+      "size_bytes": 28129
+    },
+    {
+      "path": "Microstructure/.gitignore",
+      "size_bytes": 688
+    },
+    {
+      "path": "Microstructure/.python-version",
+      "size_bytes": 5
+    },
+    {
+      "path": "Microstructure/AGENTS.md",
+      "size_bytes": 2834
+    },
+    {
+      "path": "Microstructure/tests/test_m8_l2_inputs.py",
+      "size_bytes": 17022
+    },
+    {
+      "path": "Microstructure/tests/test_m8_l2_pipeline.py",
+      "size_bytes": 37341
+    },
+    {
+      "path": "Microstructure/tests/test_provenance.py",
+      "size_bytes": 3883
+    },
+    {
+      "path": "Microstructure/tests/test_m8_manifest.py",
+      "size_bytes": 43738
+    },
+    {
+      "path": "Microstructure/tests/test_l2_reporting.py",
+      "size_bytes": 7093
+    },
+    {
+      "path": "Microstructure/tests/test_features.py",
+      "size_bytes": 10021
+    },
+    {
+      "path": "Microstructure/tests/test_splits.py",
+      "size_bytes": 4192
+    },
+    {
+      "path": "Microstructure/tests/test_dashboard.py",
+      "size_bytes": 3820
+    },
+    {
+      "path": "Microstructure/tests/test_m8_acquisition.py",
+      "size_bytes": 32432
+    },
+    {
+      "path": "Microstructure/tests/test_reporting.py",
+      "size_bytes": 24089
+    },
+    {
+      "path": "Microstructure/tests/test_l2_analysis.py",
+      "size_bytes": 6574
+    },
+    {
+      "path": "Microstructure/tests/test_m8_normalization.py",
+      "size_bytes": 11708
+    },
+    {
+      "path": "Microstructure/tests/test_public_data.py",
+      "size_bytes": 43625
+    },
+    {
+      "path": "Microstructure/tests/test_binance_archive.py",
+      "size_bytes": 36294
+    },
+    {
+      "path": "Microstructure/tests/test_analysis.py",
+      "size_bytes": 8453
+    },
+    {
+      "path": "Microstructure/tests/test_m8_ingestion.py",
+      "size_bytes": 879
+    },
+    {
+      "path": "Microstructure/tests/test_public_pipeline.py",
+      "size_bytes": 28997
+    },
+    {
+      "path": "Microstructure/tests/test_exploratory_trade_study.py",
+      "size_bytes": 2063
+    },
+    {
+      "path": "Microstructure/tests/test_multidate.py",
+      "size_bytes": 24312
+    },
+    {
+      "path": "Microstructure/tests/test_m8_pipeline.py",
+      "size_bytes": 81315
+    },
+    {
+      "path": "Microstructure/tests/test_book.py",
+      "size_bytes": 5310
+    },
+    {
+      "path": "Microstructure/tests/test_storage.py",
+      "size_bytes": 4939
+    },
+    {
+      "path": "Microstructure/tests/test_labels.py",
+      "size_bytes": 8580
+    },
+    {
+      "path": "Microstructure/tests/test_trade_only.py",
+      "size_bytes": 5299
+    },
+    {
+      "path": "Microstructure/tests/test_execution.py",
+      "size_bytes": 12717
+    },
+    {
+      "path": "Microstructure/tests/test_m8_l2_analysis_config.py",
+      "size_bytes": 9420
+    },
+    {
+      "path": "Microstructure/tests/test_ingestion.py",
+      "size_bytes": 24827
+    },
+    {
+      "path": "Microstructure/tests/test_m8_config.py",
+      "size_bytes": 6366
+    },
+    {
+      "path": "Microstructure/tests/test_config.py",
+      "size_bytes": 3021
+    },
+    {
+      "path": "Microstructure/tests/test_m8_l2_config.py",
+      "size_bytes": 4895
+    },
+    {
+      "path": "Microstructure/tests/test_m8_l2_binance.py",
+      "size_bytes": 26543
+    },
+    {
+      "path": "Microstructure/tests/test_models.py",
+      "size_bytes": 7447
+    },
+    {
+      "path": "Microstructure/tests/test_schemas.py",
+      "size_bytes": 3406
+    },
+    {
+      "path": "Microstructure/tests/test_m8_l2_development.py",
+      "size_bytes": 35791
+    },
+    {
+      "path": "Microstructure/tests/test_l2_multidate.py",
+      "size_bytes": 15727
+    },
+    {
+      "path": "Microstructure/tests/test_m8_l2_capture.py",
+      "size_bytes": 66673
+    },
+    {
+      "path": "Microstructure/tests/test_binance.py",
+      "size_bytes": 32787
+    },
+    {
+      "path": "Microstructure/tests/test_cli.py",
+      "size_bytes": 71915
+    },
+    {
+      "path": "Microstructure/tests/test_l2_evaluation.py",
+      "size_bytes": 29124
+    },
+    {
+      "path": "Microstructure/tests/test_cancellation_features.py",
+      "size_bytes": 4575
+    },
+    {
+      "path": "Microstructure/tests/test_pipeline.py",
+      "size_bytes": 12220
+    },
+    {
+      "path": "Microstructure/tests/test_evidence_budget.py",
+      "size_bytes": 5309
+    },
+    {
+      "path": "Microstructure/tests/test_quality.py",
+      "size_bytes": 16259
+    },
+    {
+      "path": "Microstructure/docs/PUBLICATION.md",
+      "size_bytes": 1380
+    },
+    {
+      "path": "Microstructure/docs/PUBLIC_TRADE_PROTOCOL.md",
+      "size_bytes": 4809
+    },
+    {
+      "path": "Microstructure/docs/PROJECT_PLAN.md",
+      "size_bytes": 10566
+    },
+    {
+      "path": "Microstructure/docs/DATA_POLICY.md",
+      "size_bytes": 2003
+    },
+    {
+      "path": "Microstructure/docs/EXPLORATORY_AGGTRADES_2026_08_05_08.md",
+      "size_bytes": 2687
+    },
+    {
+      "path": "Microstructure/docs/M8_L2_PROTOCOL.md",
+      "size_bytes": 5296
+    },
+    {
+      "path": "Microstructure/docs/DECISION_LOG.md",
+      "size_bytes": 29687
+    },
+    {
+      "path": "Microstructure/docs/RESEARCH_PROTOCOL.md",
+      "size_bytes": 6950
+    },
+    {
+      "path": "Microstructure/docs/M8_MULTIDATE_TRADE_PROTOCOL.md",
+      "size_bytes": 15220
+    },
+    {
+      "path": "Microstructure/docs/M8_L2_ANALYSIS_CONTRACT.md",
+      "size_bytes": 8834
+    },
+    {
+      "path": "Microstructure/docs/DATA_CONTRACT.md",
+      "size_bytes": 15485
+    },
+    {
+      "path": "Microstructure/dashboard/app.py",
+      "size_bytes": 6460
+    },
+    {
+      "path": "Microstructure/configs/public_sample.toml",
+      "size_bytes": 1389
+    },
+    {
+      "path": "Microstructure/configs/smoke.toml",
+      "size_bytes": 1206
+    },
+    {
+      "path": "Microstructure/configs/exploratory_aggtrades_2026-08-05_08.toml",
+      "size_bytes": 1347
+    },
+    {
+      "path": "Microstructure/configs/m8_multidate_trade_study.toml",
+      "size_bytes": 1315
+    },
+    {
+      "path": "Microstructure/configs/m8_l2_analysis.toml",
+      "size_bytes": 3171
+    },
+    {
+      "path": "Microstructure/configs/m8_l2_capture_study.toml",
+      "size_bytes": 1833
+    },
+    {
+      "path": "Microstructure/portfolio/interview_story.md",
+      "size_bytes": 6647
+    },
+    {
+      "path": "Microstructure/portfolio/ten_minute_presentation_outline.md",
+      "size_bytes": 4483
+    },
+    {
+      "path": "Microstructure/portfolio/resume_bullets.md",
+      "size_bytes": 1210
+    },
+    {
+      "path": "Microstructure/data/derived/.gitkeep",
+      "size_bytes": 1
+    },
+    {
+      "path": "Microstructure/data/quality/.gitkeep",
+      "size_bytes": 1
+    },
+    {
+      "path": "Microstructure/data/normalized/.gitkeep",
+      "size_bytes": 1
+    },
+    {
+      "path": "Microstructure/data/models/.gitkeep",
+      "size_bytes": 1
+    },
+    {
+      "path": "Microstructure/data/_ingestion_manifests/.gitkeep",
+      "size_bytes": 1
+    },
+    {
+      "path": "Microstructure/reports/methodology_limitations.md",
+      "size_bytes": 10899
+    },
+    {
+      "path": "Microstructure/reports/executive_memo.md",
+      "size_bytes": 5965
+    },
+    {
+      "path": "Microstructure/reports/model_comparison.md",
+      "size_bytes": 634
+    },
+    {
+      "path": "Microstructure/reports/technical_report.md",
+      "size_bytes": 3797
+    },
+    {
+      "path": "Microstructure/src/microstructure/exploratory_trade_study.py",
+      "size_bytes": 35503
+    },
+    {
+      "path": "Microstructure/src/microstructure/public_data.py",
+      "size_bytes": 97709
+    },
+    {
+      "path": "Microstructure/src/microstructure/ingestion.py",
+      "size_bytes": 49734
+    },
+    {
+      "path": "Microstructure/src/microstructure/m8_config.py",
+      "size_bytes": 19453
+    },
+    {
+      "path": "Microstructure/src/microstructure/config.py",
+      "size_bytes": 13631
+    },
+    {
+      "path": "Microstructure/src/microstructure/m8_l2_development.py",
+      "size_bytes": 92940
+    },
+    {
+      "path": "Microstructure/src/microstructure/m8_l2_analysis_config.py",
+      "size_bytes": 28746
+    },
+    {
+      "path": "Microstructure/src/microstructure/m8_manifest.py",
+      "size_bytes": 80170
+    },
+    {
+      "path": "Microstructure/src/microstructure/__init__.py",
+      "size_bytes": 325
+    },
+    {
+      "path": "Microstructure/src/microstructure/m8_l2_config.py",
+      "size_bytes": 23208
+    },
+    {
+      "path": "Microstructure/src/microstructure/m8_l2_binance.py",
+      "size_bytes": 55452
+    },
+    {
+      "path": "Microstructure/src/microstructure/m8_acquisition.py",
+      "size_bytes": 129166
+    },
+    {
+      "path": "Microstructure/src/microstructure/cli.py",
+      "size_bytes": 79687
+    },
+    {
+      "path": "Microstructure/src/microstructure/m8_normalization.py",
+      "size_bytes": 15805
+    },
+    {
+      "path": "Microstructure/src/microstructure/pipeline.py",
+      "size_bytes": 49553
+    },
+    {
+      "path": "Microstructure/src/microstructure/py.typed",
+      "size_bytes": 1
+    },
+    {
+      "path": "Microstructure/src/microstructure/m8_ingestion.py",
+      "size_bytes": 1504
+    },
+    {
+      "path": "Microstructure/src/microstructure/m8_pipeline.py",
+      "size_bytes": 260135
+    },
+    {
+      "path": "Microstructure/src/microstructure/provenance.py",
+      "size_bytes": 13091
+    },
+    {
+      "path": "Microstructure/src/microstructure/public_pipeline.py",
+      "size_bytes": 62052
+    },
+    {
+      "path": "Microstructure/src/microstructure/m8_l2_pipeline.py",
+      "size_bytes": 148697
+    },
+    {
+      "path": "Microstructure/src/microstructure/m8_l2_inputs.py",
+      "size_bytes": 43199
+    },
+    {
+      "path": "Microstructure/src/microstructure/m8_l2_capture.py",
+      "size_bytes": 137429
+    },
+    {
+      "path": "Microstructure/src/microstructure/research/l2_analysis.py",
+      "size_bytes": 15275
+    },
+    {
+      "path": "Microstructure/src/microstructure/research/l2_multidate.py",
+      "size_bytes": 27504
+    },
+    {
+      "path": "Microstructure/src/microstructure/research/labels.py",
+      "size_bytes": 25789
+    },
+    {
+      "path": "Microstructure/src/microstructure/research/analysis.py",
+      "size_bytes": 33933
+    },
+    {
+      "path": "Microstructure/src/microstructure/research/models.py",
+      "size_bytes": 28477
+    },
+    {
+      "path": "Microstructure/src/microstructure/research/multidate.py",
+      "size_bytes": 82856
+    },
+    {
+      "path": "Microstructure/src/microstructure/research/trade_only.py",
+      "size_bytes": 15021
+    },
+    {
+      "path": "Microstructure/src/microstructure/research/__init__.py",
+      "size_bytes": 1965
+    },
+    {
+      "path": "Microstructure/src/microstructure/research/features.py",
+      "size_bytes": 31928
+    },
+    {
+      "path": "Microstructure/src/microstructure/research/splits.py",
+      "size_bytes": 7426
+    },
+    {
+      "path": "Microstructure/src/microstructure/research/l2_evaluation.py",
+      "size_bytes": 68938
+    },
+    {
+      "path": "Microstructure/src/microstructure/reporting/bundle.py",
+      "size_bytes": 19281
+    },
+    {
+      "path": "Microstructure/src/microstructure/reporting/l2.py",
+      "size_bytes": 15443
+    },
+    {
+      "path": "Microstructure/src/microstructure/reporting/render.py",
+      "size_bytes": 32233
+    },
+    {
+      "path": "Microstructure/src/microstructure/reporting/__init__.py",
+      "size_bytes": 1462
+    },
+    {
+      "path": "Microstructure/src/microstructure/reporting/tables.py",
+      "size_bytes": 7893
+    },
+    {
+      "path": "Microstructure/src/microstructure/execution/__init__.py",
+      "size_bytes": 273
+    },
+    {
+      "path": "Microstructure/src/microstructure/execution/simulator.py",
+      "size_bytes": 34310
+    },
+    {
+      "path": "Microstructure/src/microstructure/data/synthetic.py",
+      "size_bytes": 8777
+    },
+    {
+      "path": "Microstructure/src/microstructure/data/evidence_budget.py",
+      "size_bytes": 7422
+    },
+    {
+      "path": "Microstructure/src/microstructure/data/__init__.py",
+      "size_bytes": 1080
+    },
+    {
+      "path": "Microstructure/src/microstructure/data/schemas.py",
+      "size_bytes": 9499
+    },
+    {
+      "path": "Microstructure/src/microstructure/data/storage.py",
+      "size_bytes": 22481
+    },
+    {
+      "path": "Microstructure/src/microstructure/data/book.py",
+      "size_bytes": 18275
+    },
+    {
+      "path": "Microstructure/src/microstructure/data/quality.py",
+      "size_bytes": 40498
+    },
+    {
+      "path": "Microstructure/src/microstructure/data/binance.py",
+      "size_bytes": 51595
+    },
+    {
+      "path": "Microstructure/src/microstructure/data/binance_archive.py",
+      "size_bytes": 56897
     }
   ]
 }

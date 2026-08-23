@@ -10,7 +10,7 @@ import pandas as pd
 from huggingface_hub import HfApi
 
 DATASET_REPO = os.getenv("HF_DATASET_REPO", "ShawnChamberlain/open-economic-quant-research-data")
-DATASET_REVISION = os.getenv("HF_DATASET_REVISION", "1afb02359baa39ef8ee658c734195f01de28abf5")
+DATASET_REVISION = os.getenv("HF_DATASET_REVISION", "5329ac0f88bae309d6e37eb8fdaefc0f60754f4c")
 SITE_URL = os.getenv("SITE_URL", "https://yangxiaoshawn.github.io")
 GITHUB_URL = os.getenv("GITHUB_REPOSITORY_URL", "https://github.com/YangXiaoShawn/YangXiaoShawn.github.io")
 
@@ -67,6 +67,16 @@ PROJECTS = {
         summary="An official-data research system for the 2018–2019 U.S. Section 301 actions, with point-in-time tariff parsing, stacked multi-wave designs, sourcing analysis, and industry exposure.",
         methodology="Parse legal notices against their stated line counts, construct a provenance-stamped HS10 panel, estimate each outcome under a stacked design, require pre-trend and placebo diagnostics before causal language, and keep observed evidence separate from model-implied counterfactuals.",
         source_url="https://github.com/YangXiaoShawn/open-economic-quant-tariff-incidence",
+    ),
+    "Microstructure": Project(
+        title="Order Flow to Price Impact",
+        slug="microstructure",
+        prefix="Microstructure",
+        field="Market microstructure and quantitative finance",
+        question="When should an apparent short-horizon market signal be stopped by a predeclared evidence gate?",
+        summary="A reproducibility-first market-microstructure system that separates data quality, leakage-safe prediction, execution assumptions, and simulated outcomes.",
+        methodology="Preserve event ordering, prevent temporal leakage, evaluate with purged time-ordered splits, keep execution assumptions separate, and stop publication when a declared data-quality gate fails.",
+        source_url="https://github.com/YangXiaoShawn/open-economic-quant-microstructure",
     ),
 }
 
