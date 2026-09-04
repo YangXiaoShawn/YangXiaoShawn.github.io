@@ -2,6 +2,12 @@
 
 Yang Xiao's portfolio of five reproducible applied economics and quantitative research systems.
 
+The portfolio introduces each project through its question, method, finding, and
+direct evidence. Ten source-linked figures are shared by the website, project
+pages, and static Space; each study includes exact values, interpretation, and
+its evidence limits. The Space retains metric comparisons, scenario controls,
+file search, and shareable project/metric views.
+
 ## Live resources
 
 - Website: https://yangxiaoshawn.github.io/
@@ -13,7 +19,7 @@ Yang Xiao's portfolio of five reproducible applied economics and quantitative re
 - Microstructure source: https://github.com/YangXiaoShawn/open-economic-quant-microstructure
 - Full research dataset: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data
 - Interactive Hugging Face Space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
-- Static runtime revision: `f11a1152395482c7bda42308bc153fd49dc274d3`
+- Static runtime revision: `e23e25623decf7621a38582cbc96fa7236cf3ffb`
 
 ## Published projects
 
@@ -41,6 +47,7 @@ GitHub hosts compact public code, while Hugging Face provides the full research 
 
 ```bash
 python3 scripts/build_site_data.py
+python3 scripts/build_research_portfolio.py
 python3 scripts/validate_projects.py
 python3 scripts/verify_deployment.py
 ```
@@ -50,6 +57,18 @@ Use `make verify-online` to include public URL checks. Dataset and Space publish
 ## Adding a project
 
 Create a project directory and a complete `project.yaml`, then run `python3 scripts/build_site_data.py`. The public catalog JSON, section pages, sitemap, and feed are regenerated from project metadata.
+
+Research narration and figure generation live in `scripts/build_research_portfolio.py`.
+`assets/data/research_details.json` holds compact, published aggregate extracts
+with their source paths; `assets/data/evidence.json` supplies the existing metric
+catalog. Run `make build` after editing the shared narration, CSS, or evidence.
+Generated regions preserve the technical notes and interactive explorer. Do not
+edit the generated SVGs or the Space copy of `portfolio.css` directly.
+
+Housing figures distinguish adjusted complementary log-log associations from
+unweighted, exit-enriched estimation-sample shares (2021–2023). Macro comparisons
+distinguish strict as-of data from later revisions, and the GDP rank comparison
+uses eight final-holdout forecasts. No licensed loan records are published.
 
 ## Data and publication policy
 

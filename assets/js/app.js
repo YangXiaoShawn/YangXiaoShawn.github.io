@@ -479,7 +479,7 @@
       '[data-signal-method]': project.method,
       '[data-signal-finding]': project.finding,
       '[data-signal-boundary]': project.note,
-      '[data-signal-chart-caption]': project.chart_caption,
+      '[data-signal-chart-caption]': metric.caption || project.chart_caption,
       '[data-signal-headline]': project.headline.value,
       '[data-signal-headline-label]': project.headline.label,
       '[data-signal-source]': project.source
@@ -507,7 +507,7 @@
     const space = document.querySelector('[data-signal-space]');
     if (page) page.href = meta.page;
     if (data) data.href = project.source_url || datasetFileURL(project.source, evidencePayload.dataset_revision);
-    if (space) space.href = `https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory?project=${encodeURIComponent(activeProject)}`;
+    if (space) space.href = `https://shawnchamberlain-open-economic-quant-research-ob-5271962.static.hf.space/?project=${encodeURIComponent(activeProject)}`;
     const panel = document.getElementById('signal-panel');
     if (panel) panel.setAttribute('aria-labelledby', `signal-tab-${activeProject}`);
     const performance = document.querySelector('[data-micro-performance]');

@@ -4,130 +4,360 @@
   "portfolio": {
     "total_files": 3701,
     "total_bytes": 2854901565,
-    "categories": {"code": 392, "data": 3104, "reports": 76, "tests": 129},
+    "categories": {
+      "code": 392,
+      "data": 3104,
+      "reports": 76,
+      "tests": 129
+    },
     "projects": {
-      "casuallab": {"files": 414, "bytes": 1433514227, "code": 137, "data": 232, "reports": 17, "tests": 28},
-      "macroeconomics": {"files": 2931, "bytes": 1415262436, "code": 66, "data": 2822, "reports": 13, "tests": 30},
-      "realestate": {"files": 101, "bytes": 1183878, "code": 63, "data": 6, "reports": 16, "tests": 16},
-      "tariff-incidence": {"files": 122, "bytes": 1476927, "code": 65, "data": 30, "reports": 15, "tests": 12},
-      "microstructure": {"files": 133, "bytes": 3464097, "code": 61, "data": 14, "reports": 15, "tests": 43}
+      "casuallab": {
+        "files": 414,
+        "bytes": 1433514227,
+        "code": 137,
+        "data": 232,
+        "reports": 17,
+        "tests": 28
+      },
+      "macroeconomics": {
+        "files": 2931,
+        "bytes": 1415262436,
+        "code": 66,
+        "data": 2822,
+        "reports": 13,
+        "tests": 30
+      },
+      "realestate": {
+        "files": 101,
+        "bytes": 1183878,
+        "code": 63,
+        "data": 6,
+        "reports": 16,
+        "tests": 16
+      },
+      "tariff-incidence": {
+        "files": 122,
+        "bytes": 1476927,
+        "code": 65,
+        "data": 30,
+        "reports": 15,
+        "tests": 12
+      },
+      "microstructure": {
+        "files": 133,
+        "bytes": 3464097,
+        "code": 61,
+        "data": 14,
+        "reports": 15,
+        "tests": 43
+      }
     }
   },
   "projects": {
     "casuallab": {
       "title": "Known-truth HTE benchmark",
-      "question": "Can a model identify who benefits most?",
-      "evidence": "SEMI-SYNTHETIC · KNOWN-TRUTH VALIDATION",
+      "question": "Who should get the offer?",
+      "evidence": "SEMI-SYNTHETIC \u00b7 KNOWN-TRUTH VALIDATION",
       "period": "Predeclared recovery audit",
-      "headline": {"value": "0.0417", "label": "known-truth HTE RMSE"},
-      "method": "Compare held-out effects with known truth and a constant oracle.",
-      "finding": "RMSE is 0.0417 versus 0.0247 for the oracle; no HTE claim is made.",
-      "note": "Semi-synthetic; not a live-market effect.",
+      "headline": {
+        "value": "0.0417",
+        "label": "known-truth HTE RMSE"
+      },
+      "method": "I test effect estimates against known answers, then compare spending rules at the same budget in simulated markets held out from training.",
+      "finding": "The complex targeting model has not earned its advantage. The learner misses the recovery benchmark. In the budget experiment, a uniform allocation also produces more incremental trips than the model-based rule.",
+      "note": "Semi-synthetic validation, not a measured effect of a real NYC promotion. The oracle knows the true average effect; it is a test benchmark, not a deployable policy.",
       "chart_caption": "Lower RMSE is better; the learner must beat the oracle.",
       "source": "CasualLab/artifacts/benchmarks/heterogeneity/hte_recovery.json",
       "default_metric": "rmse",
       "metrics": [
-        {"id": "rmse", "label": "Effect RMSE", "unit": "effect units", "type": "bar"}
+        {
+          "id": "rmse",
+          "label": "Effect RMSE",
+          "unit": "effect units",
+          "type": "bar"
+        }
       ],
       "series": [
-        {"model":"HTE learner","rmse":0.0417,"outcome":"failed predeclared recovery gate"},
-        {"model":"Constant oracle","rmse":0.0247,"outcome":"simple benchmark performed better"}
+        {
+          "model": "HTE learner",
+          "rmse": 0.0417,
+          "outcome": "failed predeclared recovery gate"
+        },
+        {
+          "model": "Constant oracle",
+          "rmse": 0.0247,
+          "outcome": "simple benchmark performed better"
+        }
       ]
     },
     "macroeconomics": {
       "title": "Leakage-safe real-time backtest",
-      "question": "Can a backtest use only data available at the time?",
+      "question": "Would the forecast work in real time?",
       "evidence": "OFFICIAL AGENCY ARCHIVE",
       "period": "Declared multi-target pilot",
-      "headline": {"value": "0", "label": "future cells in valid modes"},
-      "method": "Audit 7,985 inputs under three vintage rules.",
-      "finding": "Valid modes use 0 future cells; the naive benchmark changes model rankings.",
-      "note": "Naive revised is a leakage benchmark, not a valid backtest.",
-      "chart_caption": "Valid backtests use no future data.",
+      "headline": {
+        "value": "0",
+        "label": "future information cells in strict as-of"
+      },
+      "method": "I reconstruct official release histories and rerun forecasts with three information rules: data known then, revised values with the same availability, and unrestricted latest values.",
+      "finding": "Changing the data vintage changes which models look best. Only the strict as-of rule avoids both future releases and future revisions. Even holding availability fixed, revised values change the GDP ranking of all six models.",
+      "note": "The fixed-mask comparison is a hindsight diagnostic, not a valid real-time forecast. Results describe this pilot and its final holdout; they do not establish a universally best model.",
+      "chart_caption": "Strict as-of and fixed mask both exclude future first releases. Fixed mask still uses later revisions; switch to the revisions metric to see them.",
       "source": "Macroeconomics/data/generated/official_pilot/feature_leakage_audit.parquet",
       "default_metric": "future_eligibility",
       "metrics": [
-        {"id": "future_eligibility", "label": "Future eligibility", "unit": "cells", "type": "bar"},
-        {"id": "revised_after_origin", "label": "Revised after origin", "unit": "cells", "type": "bar"},
-        {"id": "missing", "label": "Missing", "unit": "cells", "type": "bar"}
+        {
+          "id": "future_eligibility",
+          "label": "Future releases",
+          "unit": "cells",
+          "type": "bar"
+        },
+        {
+          "id": "revised_after_origin",
+          "label": "Later revisions",
+          "unit": "cells",
+          "type": "bar",
+          "caption": "Only strict as-of excludes later revisions. Fixed mask contains 5,464 and naive revised contains 6,311 cells selected from after the forecast date."
+        },
+        {
+          "id": "missing",
+          "label": "Missing",
+          "unit": "cells",
+          "type": "bar",
+          "caption": "Missing cells: 299 under strict as-of and fixed mask, versus 225 under unrestricted latest data. Extra completeness can itself reflect unavailable future information."
+        }
       ],
       "series": [
-        {"mode":"As-of","future_eligibility":0,"revised_after_origin":0,"missing":299,"feature_cells":7985},
-        {"mode":"Fixed mask","future_eligibility":0,"revised_after_origin":5464,"missing":299,"feature_cells":7985},
-        {"mode":"Naive revised","future_eligibility":863,"revised_after_origin":6311,"missing":225,"feature_cells":7985}
+        {
+          "mode": "As-of",
+          "future_eligibility": 0,
+          "revised_after_origin": 0,
+          "missing": 299,
+          "feature_cells": 7985
+        },
+        {
+          "mode": "Fixed mask",
+          "future_eligibility": 0,
+          "revised_after_origin": 5464,
+          "missing": 299,
+          "feature_cells": 7985
+        },
+        {
+          "mode": "Naive revised",
+          "future_eligibility": 863,
+          "revised_after_origin": 6311,
+          "missing": 225,
+          "feature_cells": 7985
+        }
       ]
     },
     "realestate": {
       "title": "Mortgage lock-in profile",
-      "question": "How does the mortgage-rate gap relate to loan exits?",
-      "evidence": "REGISTERED · HAZARD ASSOCIATION",
-      "period": "2021-01 → 2024-12",
-      "headline": {"value": "0.817", "label": "hazard ratio per +1 pp rate gap"},
-      "method": "Compare exit rates by gap, then fit an adjusted logit.",
-      "finding": "Each +1 pp gap is associated with a 0.817 exit-hazard ratio.",
-      "note": "Exits include refinancing, payoff, and maturity; the estimate is not causal.",
-      "chart_caption": "Raw exit rates; 0.817 is adjusted.",
+      "question": "Does a cheap mortgage keep a loan in place?",
+      "evidence": "REGISTERED \u00b7 HAZARD ASSOCIATION",
+      "period": "Estimation sample: 2021\u20132023",
+      "headline": {
+        "value": "0.817",
+        "label": "hazard ratio per +1 pp rate gap"
+      },
+      "method": "I compare monthly payoff rates across rate gaps, then estimate a complementary log-log hazard model with observed loan and local-market controls.",
+      "finding": "Larger rate gaps are associated with lower exit hazards. The complementary log-log model reports a 0.817 hazard ratio per +1 percentage point.",
+      "note": "Association only. Payoff and maturity are pooled; refinancing-related and sale-related payoffs cannot be distinguished. Household moves are not observed. Raw shares are from an exit-enriched sample.",
+      "chart_caption": "Unweighted exit shares in a sample that overrepresents exiting loans; these are not population monthly probabilities. The 0.817 hazard ratio comes from the separate adjusted complementary log-log model.",
       "source": "RealEstate/reports/loan_hazard_analysis.md",
       "default_metric": "hazard",
-      "metrics": [{"id": "hazard", "label": "Monthly hazard", "unit": "%", "type": "line"}],
+      "metrics": [
+        {
+          "id": "hazard",
+          "label": "Sample exit share",
+          "unit": "%",
+          "type": "line"
+        }
+      ],
       "series": [
-        {"bucket":"< −200 bp","mean_gap":-2.32,"hazard":6.909,"loan_months":120158,"events":8302},
-        {"bucket":"−200 to −100","mean_gap":-1.40,"hazard":7.886,"loan_months":654515,"events":51615},
-        {"bucket":"−100 to 0","mean_gap":-0.48,"hazard":5.918,"loan_months":991436,"events":58677},
-        {"bucket":"0 to +100","mean_gap":0.39,"hazard":3.660,"loan_months":650129,"events":23793},
-        {"bucket":"+100 to +200","mean_gap":1.53,"hazard":3.890,"loan_months":370268,"events":14404},
-        {"bucket":"+200 to +300","mean_gap":2.50,"hazard":3.433,"loan_months":498736,"events":17122},
-        {"bucket":"+300 to +400","mean_gap":3.49,"hazard":3.215,"loan_months":518394,"events":16666},
-        {"bucket":"> +400 bp","mean_gap":4.41,"hazard":3.077,"loan_months":208188,"events":6406}
+        {
+          "bucket": "< \u2212200 bp",
+          "mean_gap": -2.32,
+          "hazard": 6.909,
+          "loan_months": 120158,
+          "events": 8302
+        },
+        {
+          "bucket": "\u2212200 to \u2212100",
+          "mean_gap": -1.4,
+          "hazard": 7.886,
+          "loan_months": 654515,
+          "events": 51615
+        },
+        {
+          "bucket": "\u2212100 to 0",
+          "mean_gap": -0.48,
+          "hazard": 5.918,
+          "loan_months": 991436,
+          "events": 58677
+        },
+        {
+          "bucket": "0 to +100",
+          "mean_gap": 0.39,
+          "hazard": 3.66,
+          "loan_months": 650129,
+          "events": 23793
+        },
+        {
+          "bucket": "+100 to +200",
+          "mean_gap": 1.53,
+          "hazard": 3.89,
+          "loan_months": 370268,
+          "events": 14404
+        },
+        {
+          "bucket": "+200 to +300",
+          "mean_gap": 2.5,
+          "hazard": 3.433,
+          "loan_months": 498736,
+          "events": 17122
+        },
+        {
+          "bucket": "+300 to +400",
+          "mean_gap": 3.49,
+          "hazard": 3.215,
+          "loan_months": 518394,
+          "events": 16666
+        },
+        {
+          "bucket": "> +400 bp",
+          "mean_gap": 4.41,
+          "hazard": 3.077,
+          "loan_months": 208188,
+          "events": 6406
+        }
       ]
     },
     "microstructure": {
       "title": "Signal-to-execution stress test",
-      "question": "Does the signal survive fees, latency, and drawdown?",
-      "evidence": "EXPLORATORY SIMULATION · RESEARCH REFERENCE ONLY",
-      "period": "One continuous 4-hour L2 pilot · 2026-08-13/14 UTC",
-      "headline": {"value": "144", "label": "fee + latency scenarios"},
-      "method": "Audit 144 scenarios across 2 symbols, 2 phases, 4 horizons, and a 3×3 latency grid at 4 bp.",
-      "finding": "110 are gross-positive; none remain net-positive after the 4 bp fee.",
-      "note": "Research reference only: one nonconfirmatory capture, simulated execution; no profit or capacity claim.",
+      "question": "Can a trading signal survive its costs?",
+      "evidence": "EXPLORATORY SIMULATION \u00b7 RESEARCH REFERENCE ONLY",
+      "period": "One continuous 4-hour L2 pilot \u00b7 2026-08-13/14 UTC",
+      "headline": {
+        "value": "144",
+        "label": "fee + latency scenarios"
+      },
+      "method": "I replay one four-hour BTC/ETH order-book capture across two evaluation phases, four horizons, and nine delay combinations, with a fixed 4 bp fee.",
+      "finding": "After fees, none of the 144 scenarios remains positive. 110 scenarios are positive before fees. The best gross edge is only 2.39 bp, below the 4 bp fee; every net edge is negative.",
+      "note": "Exploratory simulation \u00b7 research reference only \u00b7 not live trading. The 144 scenarios overlap and are not independent experiments or a portfolio to add together.",
       "chart_caption": "Min, median, and max across 144 counterfactual scenarios; do not sum.",
       "source": "assets/data/microstructure_backtest_reference.json",
       "source_url": "https://yangxiaoshawn.github.io/assets/data/microstructure_backtest_reference.json",
       "default_metric": "net_edge_bps",
       "metrics": [
-        {"id": "net_edge_bps", "label": "Net edge", "unit": "bp / turnover", "type": "bar"},
-        {"id": "drawdown_bps", "label": "Max drawdown", "unit": "bp / turnover", "type": "bar"},
-        {"id": "net_pnl_usdt", "label": "Net P&L", "unit": "USDT", "type": "bar"}
+        {
+          "id": "net_edge_bps",
+          "label": "Net edge",
+          "unit": "bp / turnover",
+          "type": "bar"
+        },
+        {
+          "id": "drawdown_bps",
+          "label": "Max drawdown",
+          "unit": "bp / turnover",
+          "type": "bar"
+        },
+        {
+          "id": "net_pnl_usdt",
+          "label": "Net P&L",
+          "unit": "USDT",
+          "type": "bar"
+        }
       ],
       "series": [
-        {"stage":"Minimum","net_edge_bps":-8.768465,"drawdown_bps":3.248657,"net_pnl_usdt":-244.553335,"outcome":"metric-wise lower endpoint"},
-        {"stage":"Median","net_edge_bps":-3.855473,"drawdown_bps":3.923118,"net_pnl_usdt":-23.101318,"outcome":"median across 144 scenarios"},
-        {"stage":"Maximum","net_edge_bps":-1.614769,"drawdown_bps":15.762424,"net_pnl_usdt":-0.322313,"outcome":"metric-wise upper endpoint"}
+        {
+          "stage": "Minimum",
+          "net_edge_bps": -8.768465,
+          "drawdown_bps": 3.248657,
+          "net_pnl_usdt": -244.553335,
+          "outcome": "metric-wise lower endpoint"
+        },
+        {
+          "stage": "Median",
+          "net_edge_bps": -3.855473,
+          "drawdown_bps": 3.923118,
+          "net_pnl_usdt": -23.101318,
+          "outcome": "median across 144 scenarios"
+        },
+        {
+          "stage": "Maximum",
+          "net_edge_bps": -1.614769,
+          "drawdown_bps": 15.762424,
+          "net_pnl_usdt": -0.322313,
+          "outcome": "metric-wise upper endpoint"
+        }
       ]
     },
     "tariff-incidence": {
       "title": "Tariff incidence decomposition",
-      "question": "Who absorbed the tariff: exporters or U.S. importers?",
-      "evidence": "OFFICIAL · STACKED MULTI-WAVE",
-      "period": "2017-01 → 2020-02",
-      "headline": {"value": "≤ 0.076", "label": "customs-value effect bound"},
-      "method": "Estimate landed, customs, and quantity effects in three windows.",
-      "finding": "Customs values stay near +0.025 within ±0.076; landed values track the tariff.",
-      "note": "Landed values include the duty; quantity fails its date placebo.",
-      "chart_caption": "Lines show three windows; references mark the tariff change or customs bound.",
+      "question": "Who absorbed the tariff?",
+      "evidence": "OFFICIAL \u00b7 STACKED MULTI-WAVE",
+      "period": "2017-01 \u2192 2020-02",
+      "headline": {
+        "value": "\u2264 0.076",
+        "label": "pre-duty unit-value effect bound"
+      },
+      "method": "I compare each wave of tariffed products with never-tariffed products, tracking unit import values before and after the policy and checking three sample windows.",
+      "finding": "The evidence points toward higher costs for U.S. importers. Unit values before duty show no clear offsetting decline. Duty-inclusive unit values rise. This pattern supports importer-side incidence within the sample.",
+      "note": "Unit values are not individual transaction prices. The duty-inclusive measure includes the tariff by construction; the pre-duty series is essential. Quantity fails its date-placebo check.",
+      "chart_caption": "Pre-duty unit values are near +0.025 log points. Dashed bounds (\u00b10.076) are effect bounds, not confidence intervals.",
       "source": "TariffIncidence/data/results/window_sensitivity.json",
       "default_metric": "customs",
       "metrics": [
-        {"id": "landed", "label": "Landed value", "unit": "log points", "type": "line"},
-        {"id": "customs", "label": "Customs value", "unit": "log points", "type": "line"},
-        {"id": "quantity", "label": "Quantity", "unit": "log points", "type": "line"}
+        {
+          "id": "landed",
+          "label": "Including duty",
+          "unit": "log points",
+          "type": "line",
+          "caption": "Duty-inclusive unit values rise by about 0.15 log points; the dashed line is the mechanical tariff reference, not a confidence interval."
+        },
+        {
+          "id": "customs",
+          "label": "Excluding duty",
+          "unit": "log points",
+          "type": "line"
+        },
+        {
+          "id": "quantity",
+          "label": "Import quantity",
+          "unit": "log points",
+          "type": "line",
+          "caption": "The quantity series fails its date-placebo test. Its decline must not be presented as a clean causal tariff effect."
+        }
       ],
       "series": [
-        {"window":"Pre-4A","landed":0.152483,"customs":0.021639,"quantity":-0.356730,"n":341328},
-        {"window":"End 2019","landed":0.156235,"customs":0.026291,"quantity":-0.379311,"n":388781},
-        {"window":"Full","landed":0.154435,"customs":0.025288,"quantity":-0.379326,"n":395468}
+        {
+          "window": "Pre-4A",
+          "landed": 0.152483,
+          "customs": 0.021639,
+          "quantity": -0.35673,
+          "n": 341328
+        },
+        {
+          "window": "End 2019",
+          "landed": 0.156235,
+          "customs": 0.026291,
+          "quantity": -0.379311,
+          "n": 388781
+        },
+        {
+          "window": "Full",
+          "landed": 0.154435,
+          "customs": 0.025288,
+          "quantity": -0.379326,
+          "n": 395468
+        }
       ],
-      "reference": {"duty_rate":0.176527,"mechanical_log":0.162567,"customs_bound":0.075997}
+      "reference": {
+        "duty_rate": 0.176527,
+        "mechanical_log": 0.162567,
+        "customs_bound": 0.075997
+      }
     }
   }
 }

@@ -100,7 +100,7 @@
     const url = new URL(location.href);
     url.searchParams.set('project', activeProject);
     url.searchParams.set('view', activeView);
-    if (activeMetric) url.searchParams.set('metric', activeMetric); else url.searchParams.delete('metric');
+    if (activeMetric && one('.metric-detail')?.open) url.searchParams.set('metric', activeMetric); else url.searchParams.delete('metric');
     if (activeFilter !== 'all') url.searchParams.set('filter', activeFilter); else url.searchParams.delete('filter');
     const query = one('[data-search]')?.value.trim();
     if (query) url.searchParams.set('q', query); else url.searchParams.delete('q');
@@ -304,6 +304,7 @@
     if (!project.metrics.some((item) => item.id === activeMetric)) activeMetric = project.default_metric;
     const metric = project.metrics.find((item) => item.id === activeMetric) || project.metrics[0];
     one('#lab').dataset.accent = meta.accent;
+    all('[data-story-panel]').forEach((panel) => { panel.hidden = panel.dataset.storyPanel !== activeProject; });
     const metricCount = one('[data-active-metrics]');
     if (metricCount) metricCount.textContent = project.metrics.length.toLocaleString('en-US');
     const text = {
@@ -313,7 +314,7 @@
       '[data-note]': project.note,
       '[data-method]': project.method,
       '[data-finding]': project.finding,
-      '[data-chart-caption]': project.chart_caption,
+      '[data-chart-caption]': metric.caption || project.chart_caption,
       '[data-headline]': project.headline.value,
       '[data-headline-label]': project.headline.label,
       '[data-source]': project.source,
@@ -351,6 +352,12 @@
     renderBacktestExplorer();
     renderPortfolio();
   };
+
+  const restoreMetricDisclosure = (query) => {
+    const detail = one('.metric-detail');
+    if (detail && evidence) detail.open = evidence.projects[activeProject].metrics.some((metric) => metric.id === query.get('metric'));
+  };
+  one('.metric-detail')?.addEventListener('toggle', () => { if (evidence) updateURL(); });
 
   const renderPortfolio = () => {
     const dataFilter = one('[data-filter="data"]');
@@ -490,6 +497,7 @@
     activeProject = 'casuallab';
     activeMetric = null;
     activeFilter = 'all';
+    one('.metric-detail').open = false;
     search.value = '';
     all('[data-filter]').forEach((button) => {
       const selected = button.dataset.filter === 'all';
@@ -514,6 +522,7 @@
     });
     if (!evidence) return;
     rows = cache[activeProject] || [];
+    restoreMetricDisclosure(next);
     renderEvidence();
     setView(activeView, 'none');
   });
@@ -528,6 +537,7 @@
     .then(([payload, reference]) => {
       evidence = payload;
       backtestReference = reference;
+      restoreMetricDisclosure(new URLSearchParams(location.search));
       all('[data-revision]').forEach((node) => { node.textContent = `Dataset revision ${payload.dataset_revision.slice(0, 12)}`; });
       renderEvidence();
       setView(activeView, 'replace');

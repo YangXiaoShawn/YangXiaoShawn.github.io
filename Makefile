@@ -2,6 +2,7 @@
 
 build:
 	python3 scripts/build_site_data.py
+	python3 scripts/build_research_portfolio.py
 
 validate:
 	python3 scripts/validate_projects.py

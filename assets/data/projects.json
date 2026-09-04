@@ -4,8 +4,8 @@
     {
       "title": "CasualLab",
       "slug": "casuallab",
-      "summary": "Experimental causal inference and policy simulation toolkit with NYC-oriented public examples.",
-      "research_question": "How do causal mechanisms and heterogeneous treatment effects shape market outcomes and policy interventions in field-like datasets?",
+      "summary": "The complex targeting model has not earned its advantage.",
+      "research_question": "Who should get the offer?",
       "research_fields": [
         "Causal inference",
         "Experimental economics",
@@ -30,8 +30,8 @@
     {
       "title": "Macroeconomics",
       "slug": "macroeconomics",
-      "summary": "Real-time macroeconomic forecasting, vintage reconstruction, and policy-shock analysis with public-source adapters.",
-      "research_question": "How do release revisions and information available at each vintage affect nowcast and forecast quality?",
+      "summary": "Changing the data vintage changes which models look best.",
+      "research_question": "Would the forecast work in real time?",
       "research_fields": [
         "Macroeconomics",
         "Forecasting",
@@ -56,8 +56,8 @@
     {
       "title": "Order Flow to Price Impact",
       "slug": "microstructure",
-      "summary": "Reproducibility-first market-microstructure research that separates data quality, leakage-safe prediction, execution assumptions, and simulated outcomes.",
-      "research_question": "When do order-flow imbalance, liquidity, and limit-order-book conditions predict short-horizon price movement, and which claims survive predeclared data-quality and execution gates?",
+      "summary": "After fees, none of the 144 scenarios remains positive.",
+      "research_question": "Can a trading signal survive its costs?",
       "research_fields": [
         "Market microstructure",
         "Quantitative finance",
@@ -82,8 +82,8 @@
     {
       "title": "Mortgage Rate Lock-In and Housing Market Dynamics",
       "slug": "realestate",
-      "summary": "Reproducible housing-finance research on how mortgage rate lock-in relates to mortgage exits, local activity, prices, and residential construction.",
-      "research_question": "How does the gap between homeowners' existing mortgage rates and current market mortgage rates affect mortgage exits, housing-market activity, local prices, and new construction?",
+      "summary": "Bigger rate gaps are associated with fewer mortgage exits.",
+      "research_question": "Does a cheap mortgage keep a loan in place?",
       "research_fields": [
         "Housing economics",
         "Mortgage finance",
@@ -108,8 +108,8 @@
     {
       "title": "Tariff Incidence, Supply-Chain Reallocation, and Domestic Propagation",
       "slug": "tariff-incidence",
-      "summary": "Reproducible research on how the 2018\u20132019 U.S. Section 301 tariffs affected landed costs, customs unit values, import quantities, sourcing, and downstream industry exposure.",
-      "research_question": "How did U.S. product-level tariffs on imports from China pass through to importers, reshape sourcing, and propagate through domestic input-output linkages?",
+      "summary": "The evidence points toward higher costs for U.S. importers.",
+      "research_question": "Who absorbed the tariff?",
       "research_fields": [
         "International trade",
         "Applied econometrics",

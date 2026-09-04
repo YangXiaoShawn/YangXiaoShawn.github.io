@@ -4,6 +4,29 @@
 
 Open Quant & Econ is public across GitHub Pages, five project repositories, a versioned Hugging Face Dataset, and an interactive Space.
 
+## Personal research portfolio redesign — 2026-09-04
+
+- The website now leads with Yang Xiao and five accessible research questions.
+  Each project introduces its method, finding, direct evidence, and interpretation limits.
+- Ten generated, source-linked SVG figures appear across the homepage, project
+  pages, and Space. Detailed figures include exact-value tables and SVG downloads.
+- The Space opens on findings and charts. Existing metric comparisons, simulation
+  scenarios, file search, filters, and shared metric links remain available.
+- Housing leads with the adjusted complementary log-log association. Unweighted
+  exit-enriched sample shares are explicitly distinguished from population
+  probabilities and labeled with the 2021–2023 estimation period.
+- Macro distinguishes strict as-of information from hindsight revisions. Its
+  GDP ranking figure identifies the eight-forecast final holdout and the revision
+  of both predictors and scoring targets.
+- Tariff figures compare duty-exclusive and duty-inclusive unit values, including
+  an event study with reported intervals. Microstructure shows all 144 paired
+  gross/net scenarios rather than only distribution endpoints.
+- Pre-deployment checks passed: five-project validation, both generation checks,
+  38 required release artifacts, two JavaScript syntax checks, Python compilation,
+  16-page resource/anchor/ARIA checks, ten matching website/Space SVG pairs, and
+  metric-link restoration checks. The static Space serves the new assets and is RUNNING.
+- No new research run, research-repository update, or Dataset publication was required.
+
 ## Projects discovered and published
 
 - Published: CasualLab, Macroeconomics, Mortgage Rate Lock-In and Housing Market Dynamics, Tariff Incidence, Supply-Chain Reallocation, and Domestic Propagation, and the canonical Microstructure research repository.
@@ -25,7 +48,7 @@ Open Quant & Econ is public across GitHub Pages, five project repositories, a ve
 - Full Dataset: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data
 - Live Space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
 - Static runtime: https://shawnchamberlain-open-economic-quant-research-ob-5271962.static.hf.space
-- Space revision: `f11a1152395482c7bda42308bc153fd49dc274d3`
+- Space revision: `e23e25623decf7621a38582cbc96fa7236cf3ffb`
 - Evidence-first redesign commit: `87d659519f6a51445b4afe2f2aeeed9ae8520913`.
 - GitHub Pages interactive redesign commit: `3ca1907e84d6242bcde6f1b84f83992cfd8196bd`.
 - Chart-first release commit: `5cf8b1578683065d2b61c97049f08dc33a2763e2`.
@@ -49,8 +72,8 @@ Open Quant & Econ is public across GitHub Pages, five project repositories, a ve
 
 ## Website improvements published
 
-- Recruiter-first portfolio hierarchy: role positioning, five quantified systems, contribution summaries, capability tags, and direct GitHub routes appear before the detailed evidence layer.
-- Positive proof points lead each project while exact findings, limitations, and publication boundaries remain available in secondary evidence views.
+- Personal research hierarchy: questions, methods, findings, and supporting figures lead each project.
+- Negative results and failed benchmarks are presented as research findings, with their limits alongside the evidence.
 - English-only public copy and documentation.
 - Catalog generated from `project.yaml` files.
 - Ten stable research section routes.
@@ -72,7 +95,7 @@ Open Quant & Econ is public across GitHub Pages, five project repositories, a ve
 - Deployment credentials are supplied only through repository secrets; no access token is committed to the public release.
 - Third-party raw data retain provider terms and mixed/unknown redistribution status.
 
-## Validation results
+## Prior release validation results — 2026-08-23
 
 - Catalog generation check: passed, 5 projects, no stale generated output.
 - Compact project validation: passed, 5 projects.

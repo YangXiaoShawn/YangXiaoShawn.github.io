@@ -1,5 +1,5 @@
 ---
-title: "Open Quant & Econ — Evidence Lab"
+title: "Yang Xiao — Research Evidence"
 colorFrom: blue
 colorTo: green
 sdk: static
@@ -10,10 +10,11 @@ datasets:
   - ShawnChamberlain/open-economic-quant-research-data
 ---
 
-# Open Quant & Econ
+# Yang Xiao · Research Evidence
 
-Explore five research conclusions and verify every result.
+Explore five research questions with their methods, findings, and direct evidence.
 
-Compare each question, method, finding, and evidence boundary, then inspect the
-named artifact and public source. The Microstructure result is labeled
-“research reference only.”
+Ten figures pair plain-language interpretations with exact-value tables and
+published sources. Open the metric explorer to compare measures and inspect
+individual trading scenarios. Search the source files or share a project view.
+The Microstructure result remains labeled “research reference only.”

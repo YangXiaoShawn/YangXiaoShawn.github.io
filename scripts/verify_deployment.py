@@ -13,6 +13,8 @@ from urllib.request import Request, urlopen
 from huggingface_hub import HfApi
 from huggingface_hub.hf_api import RepoFile
 
+from build_research_portfolio import build as build_portfolio
+
 ROOT = Path(__file__).resolve().parents[1]
 DATASET_ID = "ShawnChamberlain/open-economic-quant-research-data"
 SPACE_ID = "ShawnChamberlain/open-economic-quant-research-observatory"
@@ -69,6 +71,7 @@ def main() -> None:
     parser.add_argument("--online", action="store_true")
     parser.add_argument("--hf-only", action="store_true", help="Verify the pinned Hugging Face release without checking Pages or GitHub URLs.")
     args = parser.parse_args()
+    build_portfolio(check=True)
     required = [
         ROOT / "index.html",
         ROOT / "404.html",
@@ -76,6 +79,9 @@ def main() -> None:
         ROOT / "sitemap.xml",
         ROOT / "feed.xml",
         ROOT / "assets" / "css" / "styles.css",
+        ROOT / "assets" / "css" / "portfolio.css",
+        ROOT / "assets" / "data" / "research_details.json",
+        ROOT / "assets" / "data" / "research_stories.json",
         ROOT / "assets" / "js" / "app.js",
         ROOT / "assets" / "data" / "evidence.json",
         ROOT / "assets" / "data" / "microstructure_backtest_reference.json",
@@ -90,6 +96,7 @@ def main() -> None:
         ROOT / "apps" / "space" / "README.md",
         ROOT / "apps" / "space" / "index.html",
         ROOT / "apps" / "space" / "styles.css",
+        ROOT / "apps" / "space" / "portfolio.css",
         ROOT / "apps" / "space" / "app.js",
         ROOT / "apps" / "space" / "evidence.json",
         ROOT / "apps" / "space" / "microstructure_backtest_reference.json",

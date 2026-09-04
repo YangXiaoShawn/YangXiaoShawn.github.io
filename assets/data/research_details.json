@@ -1,0 +1,76 @@
+{
+  "dataset_revision": "5329ac0f88bae309d6e37eb8fdaefc0f60754f4c",
+  "casuallab": {
+    "policy_source": "CasualLab/artifacts/benchmarks/policy_results.csv",
+    "policy": [
+      {
+        "label": "Model-based",
+        "value": 64.49589085777113
+      },
+      {
+        "label": "Random",
+        "value": 65.5022313812971
+      },
+      {
+        "label": "Rule-based",
+        "value": 66.08454126083961
+      },
+      {
+        "label": "Uniform",
+        "value": 68.49668956342123
+      }
+    ]
+  },
+  "macroeconomics": {
+    "ranks_source": "Macroeconomics/data/generated/official_pilot/model_stability.parquet",
+    "sample_start": "2024-07-01",
+    "sample_end": "2026-04-01",
+    "horizon": 0,
+    "gdp_ranks": [
+      {
+        "label": "AR(1)",
+        "asof_rank": 1,
+        "fixed_rank": 2,
+        "n_forecasts": 8
+      },
+      {
+        "label": "Bridge",
+        "asof_rank": 6,
+        "fixed_rank": 5,
+        "n_forecasts": 8
+      },
+      {
+        "label": "Elastic Net",
+        "asof_rank": 4,
+        "fixed_rank": 1,
+        "n_forecasts": 8
+      },
+      {
+        "label": "Gradient boost",
+        "asof_rank": 3,
+        "fixed_rank": 4,
+        "n_forecasts": 8
+      },
+      {
+        "label": "Historical mean",
+        "asof_rank": 2,
+        "fixed_rank": 3,
+        "n_forecasts": 8
+      },
+      {
+        "label": "No change",
+        "asof_rank": 5,
+        "fixed_rank": 6,
+        "n_forecasts": 8
+      }
+    ]
+  },
+  "realestate": {
+    "source": "RealEstate/reports/loan_hazard_analysis.md",
+    "cloglog": {
+      "coefficient": -0.2018,
+      "hazard_ratio": 0.817,
+      "n_loan_months": 3808045
+    }
+  }
+}

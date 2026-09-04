@@ -9,6 +9,8 @@ import json
 from datetime import date
 from pathlib import Path
 
+from build_research_portfolio import STORIES
+
 try:
     import yaml
 except ImportError as exc:  # pragma: no cover - actionable CLI failure
@@ -63,6 +65,7 @@ DISPLAY_COPY = {
     "tariff-incidence": ("Tariff Policy Engine", "Customs values stay near +0.025 within ±0.076; landed values track the tariff."),
     "microstructure": ("Execution Stress Test", "Research reference only: 110 of 144 are gross-positive; none remain net-positive after 4 bp."),
 }
+DISPLAY_COPY = {slug: (story['title'], story['finding']) for slug, story in STORIES.items()}
 
 
 def project_paths() -> list[Path]:
@@ -83,8 +86,8 @@ def load_projects() -> list[dict]:
             {
                 "title": payload.get("title", slug),
                 "slug": slug,
-                "summary": payload.get("summary", ""),
-                "research_question": payload.get("research_question", ""),
+                "summary": STORIES.get(slug, {}).get("finding", payload.get("summary", "")),
+                "research_question": STORIES.get(slug, {}).get("title", payload.get("research_question", "")),
                 "research_fields": payload.get("research_fields", []),
                 "project_type": payload.get("project_type", "research"),
                 "status": payload.get("status", "unknown"),
@@ -111,15 +114,15 @@ def project_links(projects: list[dict]) -> str:
         title = html.escape(display_title)
         summary = html.escape(display_summary)
         slug = html.escape(project["slug"])
-        status = "Conclusion"
-        fields = " / ".join(html.escape(value) for value in project["research_fields"])
+        status = html.escape(STORIES.get(project['slug'], {}).get('topic', 'Research'))
+        fields = html.escape(STORIES.get(project['slug'], {}).get('method', ''))
         cards.append(
             f"""<article class="platform-card">
               <div class="section-kicker">{status}</div>
               <h3><a href="../projects/{slug}/">{title}</a></h3>
               <p>{summary}</p>
               <p class="card-note">{fields}</p>
-              <a class="text-link" href="../projects/{slug}/">View project</a>
+              <a class="text-link" href="../projects/{slug}/">Read the study &amp; evidence →</a>
             </article>"""
         )
     return "\n".join(cards)
@@ -138,10 +141,16 @@ def section_page(slug: str, title: str, description: str, projects: list[dict]) 
     elif slug == "daily-reports":
         extra = '<a class="button button-secondary" href="../feed.xml">Subscribe to the update feed</a>'
     elif slug == "about":
-        hero_title = "Research, built end to end."
+        hero_title = "Yang Xiao"
+        description = "I study how economic incentives, public policy, and information shape market outcomes."
         extra = '<a class="button button-primary" href="https://github.com/YangXiaoShawn">GitHub</a><a class="button button-secondary" href="../index.html#research">View work</a>'
     else:
         extra = '<a class="button button-secondary" href="../index.html#research-lab">Browse the project signals</a>'
+    section_content = f'<div class="section-header"><div><div class="section-kicker">Selected research</div><h2 class="section-title">Five questions, with the evidence in view.</h2></div></div><div class="platform-grid">{cards}</div>'
+    if slug == 'about':
+        section_content = '''<article class="about-narrative"><h2>Questions first. Evidence throughout.</h2><p>My work connects applied economics with quantitative research: who responds to an incentive, how data revisions affect a forecast, why mortgage loans stay in place, who bears a tariff, and whether a trading signal survives its costs.</p><p>I build the work from the source data onward: define the question, choose the comparison, implement the analysis, test alternatives, and make the findings inspectable. A useful result can be a positive finding, a failed benchmark, or a limit on what the data can establish.</p><h2>How to read this portfolio</h2><p>Each study starts with its central question and a plain-language conclusion. The figures show the supporting results; the notes explain the research design, assumptions, and remaining uncertainty. Exact values and published sources sit beside the charts.</p><p>The website is a guided introduction to the research. The interactive Space lets you compare metrics, inspect simulation scenarios, and browse the public evidence. Source repositories contain the methods and reproduction routes.</p><a class="text-link" href="../index.html#research">Explore the five studies →</a></article>'''
+    if slug == 'methods':
+        section_content = '<div class="platform-grid">' + ''.join(f'<article class="platform-card"><div class="section-kicker">{html.escape(story["topic"])}</div><h3>{html.escape(story["title"])}</h3><p>{html.escape(story["method"])}</p><p class="card-note">{html.escape(story["boundary"])}</p><a class="text-link" href="../projects/{key}/#method">Read the research design →</a></article>' for key, story in STORIES.items()) + '</div>'
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -152,17 +161,18 @@ def section_page(slug: str, title: str, description: str, projects: list[dict]) 
   <link rel="canonical" href="{canonical}" />
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="../assets/css/styles.css" />
+  <link rel="stylesheet" href="../assets/css/portfolio.css" />
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
 <header class="site-header"><div class="container header-inner">
-  <a class="brand" href="../index.html"><span class="brand-mark">OQ</span><span class="brand-copy"><span class="brand-title">Open Quant &amp; Econ</span><span class="brand-subtitle">Research portfolio</span></span></a>
+  <a class="brand" href="../index.html"><span class="brand-mark">YX</span><span class="brand-copy"><span class="brand-title">Yang Xiao</span><span class="brand-subtitle">Research portfolio</span></span></a>
   <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation"><span></span></button>
   <nav class="site-nav" id="site-nav" aria-label="Primary navigation"><a href="../index.html">Home</a><a href="../research/">Research</a><a href="../datasets/">Datasets</a><a href="../methods/">Methods</a><a href="../about/">About</a></nav>
 </div></header>
 <main id="main">
   <section class="page-hero"><div class="container"><div class="breadcrumbs"><a href="../index.html">Home</a><span>{html.escape(title)}</span></div><div class="eyebrow">{html.escape(hero_eyebrow)}</div><h1>{html.escape(hero_title)}</h1><p class="page-lead">{html.escape(description)}</p><div class="hero-actions">{extra}</div></div></section>
-  <section class="section section-border"><div class="container"><div class="section-header"><div><div class="section-kicker">Published work</div><h2 class="section-title">{len(projects)} projects. Open evidence.</h2></div></div><div class="platform-grid">{cards}</div></div></section>
+  <section class="section section-border"><div class="container">{section_content}</div></section>
 </main>
 <footer class="site-footer"><div class="container"><div class="footer-bottom"><span>Open Quant &amp; Econ</span><a class="text-link" href="../index.html">Back to homepage</a></div></div></footer>
 <script src="../assets/js/app.js"></script>
