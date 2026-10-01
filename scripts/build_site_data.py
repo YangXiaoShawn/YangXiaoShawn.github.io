@@ -22,7 +22,7 @@ SITE_URL = "https://yangxiaoshawn.github.io"
 SECTIONS = {
     "research": (
         "Research Portfolio",
-        "Five applied research systems with open methods, data, and evidence.",
+        "Eight applied research projects with open methods, data, and evidence.",
     ),
     "replications": (
         "Replication Library",
@@ -131,6 +131,11 @@ def project_links(projects: list[dict]) -> str:
 def section_page(slug: str, title: str, description: str, projects: list[dict]) -> str:
     canonical = f"{SITE_URL}/{slug}/"
     cards = project_links(projects)
+    if slug == "research":
+        linked = json.loads((ROOT / "assets/data/linked_research.json").read_text())
+        for story in linked:
+            repo = "https://github.com/YangXiaoShawn/" + story["repo"]
+            cards += f'<article class="platform-card"><div class="section-kicker">{html.escape(story["topic"])}</div><h3><a href="{repo}">{html.escape(story["title"])}</a></h3><p>{html.escape(story["finding"])}</p><p class="card-note">{html.escape(story["method"])}</p><p class="card-note">{html.escape(story["boundary"])}</p><a class="text-link" href="{repo}">Read the study &amp; code ↗</a></article>'
     extra = ""
     hero_eyebrow = "Yang Xiao · Applied Economics & Quant"
     hero_title = title
@@ -147,8 +152,10 @@ def section_page(slug: str, title: str, description: str, projects: list[dict]) 
     else:
         extra = '<a class="button button-secondary" href="../index.html#research-lab">Browse the project signals</a>'
     section_content = f'<div class="section-header"><div><div class="section-kicker">Selected research</div><h2 class="section-title">Five questions, with the evidence in view.</h2></div></div><div class="platform-grid">{cards}</div>'
+    if slug == "research":
+        section_content = section_content.replace("Five questions,", "Eight questions,")
     if slug == 'about':
-        section_content = '''<article class="about-narrative"><h2>Questions first. Evidence throughout.</h2><p>My work connects applied economics with quantitative research: who responds to an incentive, how data revisions affect a forecast, why mortgage loans stay in place, who bears a tariff, and whether a trading signal survives its costs.</p><p>I build the work from the source data onward: define the question, choose the comparison, implement the analysis, test alternatives, and make the findings inspectable. A useful result can be a positive finding, a failed benchmark, or a limit on what the data can establish.</p><h2>How to read this portfolio</h2><p>Each study starts with its central question and a plain-language conclusion. The figures show the supporting results; the notes explain the research design, assumptions, and remaining uncertainty. Exact values and published sources sit beside the charts.</p><p>The website is a guided introduction to the research. The interactive Space lets you compare metrics, inspect simulation scenarios, and browse the public evidence. Source repositories contain the methods and reproduction routes.</p><a class="text-link" href="../index.html#research">Explore the five studies →</a></article>'''
+        section_content = '''<article class="about-narrative"><h2>Questions first. Evidence throughout.</h2><p>My work connects applied economics with quantitative research: who responds to an incentive, how data revisions affect a forecast, why mortgage loans stay in place, who bears a tariff, and whether a trading signal survives its costs.</p><p>I build the work from the source data onward: define the question, choose the comparison, implement the analysis, test alternatives, and make the findings inspectable. A useful result can be a positive finding, a failed benchmark, or a limit on what the data can establish.</p><h2>How to read this portfolio</h2><p>Each study starts with its central question and a plain-language conclusion. The figures show the supporting results; the notes explain the research design, assumptions, and remaining uncertainty. Exact values and published sources sit beside the charts.</p><p>The website is a guided introduction to the research. The interactive Space lets you compare metrics, inspect simulation scenarios, and browse the public evidence. Source repositories contain the methods and reproduction routes.</p><a class="text-link" href="../index.html#research">Explore the research studies →</a></article>'''
     if slug == 'methods':
         section_content = '<div class="platform-grid">' + ''.join(f'<article class="platform-card"><div class="section-kicker">{html.escape(story["topic"])}</div><h3>{html.escape(story["title"])}</h3><p>{html.escape(story["method"])}</p><p class="card-note">{html.escape(story["boundary"])}</p><a class="text-link" href="../projects/{key}/#method">Read the research design →</a></article>' for key, story in STORIES.items()) + '</div>'
     return f"""<!doctype html>

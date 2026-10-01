@@ -1,0 +1,38 @@
+[
+  {
+    "slug": "em-factor-timing",
+    "repo": "open-economic-quant-em-factor-timing",
+    "revision": "e278d6c2a0a290d9fdf7d729cbcc850452558e9a",
+    "topic": "Emerging-market factor timing",
+    "title": "Can machine learning time equity factors?",
+    "why": "Factor returns vary over time. I test whether learned forecasts add value beyond a pooled, shrinkage-mean benchmark in emerging markets.",
+    "method": "I compare out-of-sample linear, tree and neural-network forecasts on JKP global factors, test developed-to-emerging-market transfer, and evaluate timing after turnover costs.",
+    "finding": "Pooling explains much of the apparent predictability.",
+    "evidence": "On capped value-weighted factors, all learned forecasts lose to the shrinkage mean on out-of-sample R². At the baseline trading cost, the shrinkage-mean tilt also beats learned timing portfolios.",
+    "boundary": "Out-of-sample predictive association. Results depend on factor weighting and trading costs; equal-weighted factors differ. Factor returns exclude their own rebalancing costs."
+  },
+  {
+    "slug": "polymarket-factors",
+    "repo": "open-economic-quant-polymarket-factors",
+    "revision": "ac131e56fdc72592e44bc74317281674e56b5b59",
+    "topic": "Polymarket & prediction markets",
+    "title": "Which prediction-market signals survive a realistic backtest?",
+    "why": "Bounded prices, early settlement and stale quotes can create apparent predictability. I study which cross-sectional signals remain after correcting those artifacts.",
+    "method": "I study 4,000 Polymarket markets, remove five backtest artifacts, control for price levels, and evaluate factor signs on a held-out half of the panel.",
+    "finding": "Reversal, volatility and illiquidity survive the corrections.",
+    "evidence": "The surviving signals retain out-of-sample, price-neutral structure. Sibling-market momentum has no next-day predictability; information is priced within the hour.",
+    "boundary": "Backtest association, not live execution. Capacity is roughly $100–200 per position. The combined strategy weight was chosen in sample, and daily-close fills omit intraday slippage."
+  },
+  {
+    "slug": "crypto-factors",
+    "repo": "open-economic-quant-crypto-factors",
+    "revision": "07783e4e1858e27fd2eb321d55bccce2f196d229",
+    "topic": "Crypto funding & positioning",
+    "title": "Do equity microstructure factors travel to crypto?",
+    "why": "Crypto offers open minute-bar and perpetual-futures data. I test whether ideas from an A-share microstructure research series carry over to this different market.",
+    "method": "I test cross-sectional factors on 105 coins, check split samples and parameters, compare funding on OKX, and track the composite after publication.",
+    "finding": "Most factors do not travel; funding and positioning hold up better.",
+    "evidence": "Funding, retail positioning and a low-price range factor support a market-neutral composite in the original backtest. Post-publication windows include both gains and losses, so robustness remains limited.",
+    "boundary": "Backtest and out-of-sample backtest association, not live trading. Next-close fills omit market impact; the sample is an altcoin bear market and the OKX check is short."
+  }
+]

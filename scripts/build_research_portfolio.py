@@ -252,6 +252,18 @@ def card(slug, charts, number):
     return f'<article class="research-study" id="{slug}"><div class="story-copy"><div class="story-index">{number:02d} <span>{esc(s["topic"])}</span></div><h3><a href="projects/{slug}/">{esc(s["title"])}</a></h3><p class="story-context">{esc(s["why"])}</p><div class="story-verdict"><span>What I found</span><h4>{esc(s["finding"])}</h4></div><p class="story-method"><strong>How I tested it.</strong> {esc(s["method"])}</p><p class="story-boundary">{esc(s["boundary"])}</p><div class="story-links"><a href="projects/{slug}/">Read the study →</a><a href="{SPACE}?project={slug}">Explore the evidence ↗</a></div></div>{figure(charts[slug][0],"assets/figures/",False)}</article>'
 
 
+
+def linked_cards():
+    """Render public repository studies without adding unsupported explorer data."""
+    items = json.loads((ROOT / 'assets/data/linked_research.json').read_text())
+    cards = []
+    for number, s in enumerate(items, start=len(ORDER) + 1):
+        repo = 'https://github.com/YangXiaoShawn/' + s['repo']
+        source = repo + '/blob/' + s['revision'] + '/README.md'
+        cards.append(f'<article class="research-study" id="{esc(s["slug"])}"><div class="story-copy"><div class="story-index">{number:02d} <span>{esc(s["topic"])}</span></div><h3><a href="{repo}">{esc(s["title"])}</a></h3><p class="story-context">{esc(s["why"])}</p><div class="story-verdict"><span>What I found</span><h4>{esc(s["finding"])}</h4></div><p class="story-method"><strong>How I tested it.</strong> {esc(s["method"])}</p><p class="story-boundary">{esc(s["boundary"])}</p><div class="story-links"><a href="{repo}">Read the study &amp; code ↗</a></div></div><aside class="evidence-figure" aria-label="Published evidence"><div class="section-kicker">Evidence &amp; limitations</div><h3>{esc(s["topic"])}</h3><p class="figure-reading">{esc(s["evidence"])}</p><a class="figure-source" href="{source}">View published source ↗</a></aside></article>')
+    return ''.join(cards)
+
+
 def replace_region(content,start,end,replacement):
     if start in content:
         return content[:content.index(start)]+start+replacement+end+content[content.index(end)+len(end):]
@@ -273,7 +285,7 @@ def build(check=False):
     if start not in home:
         begin=home.index('  <section class="case-section"');finish=home.index('  <section class="signal-section"',begin)
         home=home[:begin]+start+end+'\n\n'+home[finish:]
-    section='<section class="research-collection" id="research"><div class="container"><div class="collection-heading"><div><div class="section-kicker">Selected research</div><h2>One question.<br>A method. A finding.</h2></div><p>Start with the question that interests you. Each study pairs its conclusion with the evidence behind it.</p></div>'+''.join(card(slug,charts,i+1) for i,slug in enumerate(ORDER))+'</div></section>'
+    section='<section class="research-collection" id="research"><div class="container"><div class="collection-heading"><div><div class="section-kicker">Selected research</div><h2>One question.<br>A method. A finding.</h2></div><p>Start with the question that interests you. Each study pairs its conclusion with the evidence behind it.</p></div>'+''.join(card(slug,charts,i+1) for i,slug in enumerate(ORDER))+linked_cards()+'</div></section>'
     outputs[ROOT/'index.html']=replace_region(home,start,end,section)
     for slug in ORDER:
         path=ROOT/'projects'/slug/'index.html';page=path.read_text();s=STORIES[slug]
