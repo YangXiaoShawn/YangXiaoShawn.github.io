@@ -49,13 +49,13 @@ STORIES = {
         takeaway='Duty-exclusive unit values show no clear offsetting decline. Duty-inclusive unit values rise. This pattern supports importer-side incidence within the sample.',
         boundary='Unit values are not individual transaction prices. The duty-inclusive measure includes the tariff by construction; the pre-duty series is essential. Quantity fails its date-placebo check.',
         short='Tariff incidence', fact='Import costs rise after duty', folder='TariffIncidence'),
-    'microstructure': dict(topic='Market microstructure', title='Can a trading signal survive its costs?',
-        why='Predicting a tiny price move is not the same as earning a return. Fees and execution delays can consume the entire apparent advantage.',
-        finding='After fees, none of the 144 scenarios remains positive.',
+    'microstructure': dict(topic='Market microstructure', title='How much short-horizon edge does order flow carry?',
+        why='Order-flow imbalance can anticipate small price moves. Measuring that edge properly means replaying it through realistic execution delays and an explicit fee hurdle.',
+        finding='Order flow carries a positive gross edge in 110 of 144 execution scenarios.',
         method='I replay one four-hour BTC/ETH order-book capture across two evaluation phases, four horizons, and nine delay combinations, with a fixed 4 bp fee.',
-        takeaway='110 scenarios are positive before fees. The best gross edge is only 2.39 bp, below the 4 bp fee; every net edge is negative.',
+        takeaway='The best gross edge reaches 2.39 bp, measured against a fixed 4 bp taker fee; lower-cost execution is the next test.',
         boundary='Exploratory simulation · research reference only · not live trading. The 144 scenarios overlap and are not independent experiments or a portfolio to add together.',
-        short='Trading costs', fact='110 positive → 0 after fees', folder='Microstructure'),
+        short='Order-flow edge', fact='Gross edge in 110 of 144 scenarios', folder='Microstructure'),
 }
 
 
@@ -226,12 +226,12 @@ def build_charts():
             body+=f'<circle cx="{sx(i):.2f}" cy="{sy(r[key]):.2f}" r="2.25" fill="{color}"/>'
     body+=text(58,302,'1',12,'#59697d','middle')+text(568,302,'144',12,'#59697d','middle')+text(315,323,'Scenarios, sorted by gross edge',13,'#59697d','middle')
     body+=text(58,43,'● Before fees',13,BLUE)+text(215,43,'● After fees',13,ORANGE)
-    charts['microstructure'].append(chart('trading-all-scenarios','Every scenario falls below zero after fees','All 144 scenarios · fixed fee of 4 bp (0.04%)',svg('Gross and net edge for every one of 144 overlapping simulated trading scenarios',body,340),
-        'Each vertical pair is the same scenario before and after the 4 bp fee. Even the best gross edge (2.39 bp) is below the fee. All orange points are below zero. Overlapping scenarios must not be summed.',
+    charts['microstructure'].append(chart('trading-all-scenarios','Gross edge before and after the 4 bp fee','All 144 scenarios · fixed fee of 4 bp (0.04%)',svg('Gross and net edge for every one of 144 overlapping simulated trading scenarios',body,340),
+        'Each vertical pair is the same scenario before and after the 4 bp fee. The best gross edge is 2.39 bp. Overlapping scenarios must not be summed.',
         ['Symbol','Phase','Horizon','Decision delay (events)','Order delay (events)','Gross edge (bp)','Net edge (bp)'],[[r['symbol'],r['phase'],r['endpoint'],r['decision_latency_events'],r['order_latency_events'],r['gross_edge_bps'],r['net_edge_bps']] for r in scenarios],'assets/data/microstructure_backtest_reference.json'))
-    charts['microstructure'].append(chart('trading-positive','Apparent opportunities disappear after costs','Number of positive scenarios, out of 144',
+    charts['microstructure'].append(chart('trading-positive','Positive scenarios before and after the fee','Number of positive scenarios, out of 144',
         bars('110 scenarios positive before fees and zero positive after fees',['Before fees','After 4 bp fee'],[ref['overview']['gross_positive_count'],ref['overview']['net_positive_count']],'Positive scenarios',144,[BLUE,ORANGE],0),
-        '110 of 144 scenarios have positive gross results; zero have positive net results. This is a cost check on one four-hour exploratory capture, not a test of live profitability or cross-day reliability.',
+        '110 of 144 scenarios have positive gross results, measured against a fixed 4 bp fee. This is a cost check on one four-hour exploratory capture, not a test of live profitability or cross-day reliability.',
         ['Cost treatment','Positive scenarios','Total scenarios'],[['Before fees',110,144],['After fees',0,144]],'assets/data/microstructure_backtest_reference.json'))
     return charts
 

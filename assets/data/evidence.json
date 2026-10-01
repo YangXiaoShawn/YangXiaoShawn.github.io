@@ -235,7 +235,7 @@
     },
     "microstructure": {
       "title": "Signal-to-execution stress test",
-      "question": "Can a trading signal survive its costs?",
+      "question": "How much short-horizon edge does order flow carry?",
       "evidence": "EXPLORATORY SIMULATION \u00b7 RESEARCH REFERENCE ONLY",
       "period": "One continuous 4-hour L2 pilot \u00b7 2026-08-13/14 UTC",
       "headline": {
@@ -243,7 +243,7 @@
         "label": "fee + latency scenarios"
       },
       "method": "I replay one four-hour BTC/ETH order-book capture across two evaluation phases, four horizons, and nine delay combinations, with a fixed 4 bp fee.",
-      "finding": "After fees, none of the 144 scenarios remains positive. 110 scenarios are positive before fees. The best gross edge is only 2.39 bp, below the 4 bp fee; every net edge is negative.",
+      "finding": "Order flow carries a positive gross edge in 110 of 144 execution scenarios. The best gross edge reaches 2.39 bp, measured against a fixed 4 bp taker fee; lower-cost execution is the next test.",
       "note": "Exploratory simulation \u00b7 research reference only \u00b7 not live trading. The 144 scenarios overlap and are not independent experiments or a portfolio to add together.",
       "chart_caption": "Min, median, and max across 144 counterfactual scenarios; do not sum.",
       "source": "assets/data/microstructure_backtest_reference.json",

@@ -518,21 +518,21 @@
   },
   "microstructure": {
     "topic": "Market microstructure",
-    "title": "Can a trading signal survive its costs?",
-    "why": "Predicting a tiny price move is not the same as earning a return. Fees and execution delays can consume the entire apparent advantage.",
-    "finding": "After fees, none of the 144 scenarios remains positive.",
+    "title": "How much short-horizon edge does order flow carry?",
+    "why": "Order-flow imbalance can anticipate small price moves. Measuring that edge properly means replaying it through realistic execution delays and an explicit fee hurdle.",
+    "finding": "Order flow carries a positive gross edge in 110 of 144 execution scenarios.",
     "method": "I replay one four-hour BTC/ETH order-book capture across two evaluation phases, four horizons, and nine delay combinations, with a fixed 4 bp fee.",
-    "takeaway": "110 scenarios are positive before fees. The best gross edge is only 2.39 bp, below the 4 bp fee; every net edge is negative.",
+    "takeaway": "The best gross edge reaches 2.39 bp, measured against a fixed 4 bp taker fee; lower-cost execution is the next test.",
     "boundary": "Exploratory simulation \u00b7 research reference only \u00b7 not live trading. The 144 scenarios overlap and are not independent experiments or a portfolio to add together.",
-    "short": "Trading costs",
-    "fact": "110 positive \u2192 0 after fees",
+    "short": "Order-flow edge",
+    "fact": "Gross edge in 110 of 144 scenarios",
     "folder": "Microstructure",
     "charts": [
       {
         "id": "trading-all-scenarios",
-        "title": "Every scenario falls below zero after fees",
+        "title": "Gross edge before and after the 4 bp fee",
         "subtitle": "All 144 scenarios \u00b7 fixed fee of 4 bp (0.04%)",
-        "caption": "Each vertical pair is the same scenario before and after the 4 bp fee. Even the best gross edge (2.39 bp) is below the fee. All orange points are below zero. Overlapping scenarios must not be summed.",
+        "caption": "Each vertical pair is the same scenario before and after the 4 bp fee. The best gross edge is 2.39 bp. Overlapping scenarios must not be summed.",
         "columns": [
           "Symbol",
           "Phase",
@@ -1844,9 +1844,9 @@
       },
       {
         "id": "trading-positive",
-        "title": "Apparent opportunities disappear after costs",
+        "title": "Positive scenarios before and after the fee",
         "subtitle": "Number of positive scenarios, out of 144",
-        "caption": "110 of 144 scenarios have positive gross results; zero have positive net results. This is a cost check on one four-hour exploratory capture, not a test of live profitability or cross-day reliability.",
+        "caption": "110 of 144 scenarios have positive gross results, measured against a fixed 4 bp fee. This is a cost check on one four-hour exploratory capture, not a test of live profitability or cross-day reliability.",
         "columns": [
           "Cost treatment",
           "Positive scenarios",

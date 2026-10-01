@@ -56,8 +56,8 @@
     {
       "title": "Order Flow to Price Impact",
       "slug": "microstructure",
-      "summary": "After fees, none of the 144 scenarios remains positive.",
-      "research_question": "Can a trading signal survive its costs?",
+      "summary": "Order flow carries a positive gross edge in 110 of 144 execution scenarios.",
+      "research_question": "How much short-horizon edge does order flow carry?",
       "research_fields": [
         "Market microstructure",
         "Quantitative finance",
