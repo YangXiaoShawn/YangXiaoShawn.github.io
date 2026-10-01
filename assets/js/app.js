@@ -412,8 +412,8 @@
     })).join('');
     root.innerHTML = `<div class="backtest-overview" aria-label="Scenario distribution overview">
         <div><span>Gross-positive</span><strong>${overview.gross_positive_count} / ${overview.scenario_count}</strong></div>
-        <div><span>Net-positive</span><strong>${overview.net_positive_count} / ${overview.scenario_count}</strong></div>
-        <div><span>Median net edge</span><strong>${basisPoints(overview.net_edge_bps.median)}</strong></div>
+        <div><span>Best gross edge</span><strong>${basisPoints(overview.gross_edge_bps.max)}</strong></div>
+        <div><span>Median gross edge</span><strong>${basisPoints(overview.gross_edge_bps.median)}</strong></div>
         <div><span>Median max drawdown</span><strong>${basisPoints(overview.max_drawdown_bps_of_turnover.median)}</strong></div>
       </div>
       <div class="backtest-controls">

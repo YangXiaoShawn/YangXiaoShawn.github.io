@@ -63,7 +63,7 @@ DISPLAY_COPY = {
     "macroeconomics": ("Real-Time Macro", "Valid modes use zero future cells; naive revised data changes model rankings."),
     "realestate": ("Mortgage Lock-In", "Each +1 pp rate gap is associated with a 0.817 exit-hazard ratio."),
     "tariff-incidence": ("Tariff Policy Engine", "Customs values stay near +0.025 within ±0.076; landed values track the tariff."),
-    "microstructure": ("Execution Stress Test", "Research reference only: 110 of 144 are gross-positive; none remain net-positive after 4 bp."),
+    "microstructure": ("Execution Stress Test", "Research reference only: 110 of 144 are gross-positive against a 4 bp fee."),
 }
 DISPLAY_COPY = {slug: (story['title'], story['finding']) for slug, story in STORIES.items()}
 
