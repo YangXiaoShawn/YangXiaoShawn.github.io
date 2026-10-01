@@ -214,25 +214,25 @@ def build_charts():
         ['Event month','Excluding duty','CI low','CI high','Including duty','CI low','CI high'],[[r['x'],r['customs'],r['customs_low'],r['customs_high'],r['landed'],r['landed_low'],r['landed_high']] for r in ers],'TariffIncidence/reports/tariff_incidence_results.md'))
     ref=json.loads((ROOT/'assets/data/microstructure_backtest_reference.json').read_text())
     scenarios=sorted(ref['scenarios'],key=lambda r:r['gross_edge_bps'])
-    body=text(58,22,'Edge (basis points per unit turnover)',13,'#59697d')
+    body=text(58,22,'Gross edge (basis points per unit turnover)',13,'#59697d')
     sx=lambda i:58+i/143*510
-    sy=lambda v:277-(v+10)/14*218
-    for v in [-8,-4,0,4]:
+    sy=lambda v:277-(v+6)/11*218
+    for v in [-4,-2,0,2,4]:
         body+=line(58,sy(v),568,sy(v),'#9cabbf' if v==0 else '#e2e7ef',1.4 if v==0 else 1)+text(46,sy(v)+4,str(v),12,'#59697d','end')
-    body+=line(58,sy(4),568,sy(4),ORANGE,1,'5 4')+text(560,sy(4)-10,'4 bp fee',12,ORANGE,'end')
+    body+=line(58,sy(4),568,sy(4),ORANGE,1,'5 4')+text(560,sy(4)-10,'4 bp taker fee',12,ORANGE,'end')
     for i,r in enumerate(scenarios):
-        body+=line(sx(i),sy(r['gross_edge_bps']),sx(i),sy(r['net_edge_bps']),'#dbe3f0',.75)
-        for key,color in [('gross_edge_bps',BLUE),('net_edge_bps',ORANGE)]:
-            body+=f'<circle cx="{sx(i):.2f}" cy="{sy(r[key]):.2f}" r="2.25" fill="{color}"/>'
+        body+=f'<circle cx="{sx(i):.2f}" cy="{sy(r["gross_edge_bps"]):.2f}" r="2.25" fill="{BLUE}"/>'
     body+=text(58,302,'1',12,'#59697d','middle')+text(568,302,'144',12,'#59697d','middle')+text(315,323,'Scenarios, sorted by gross edge',13,'#59697d','middle')
-    body+=text(58,43,'● Before fees',13,BLUE)+text(215,43,'● After fees',13,ORANGE)
-    charts['microstructure'].append(chart('trading-all-scenarios','Gross edge before and after the 4 bp fee','All 144 scenarios · fixed fee of 4 bp (0.04%)',svg('Gross and net edge for every one of 144 overlapping simulated trading scenarios',body,340),
-        'Each vertical pair is the same scenario before and after the 4 bp fee. The best gross edge is 2.39 bp. Overlapping scenarios must not be summed.',
-        ['Symbol','Phase','Horizon','Decision delay (events)','Order delay (events)','Gross edge (bp)','Net edge (bp)'],[[r['symbol'],r['phase'],r['endpoint'],r['decision_latency_events'],r['order_latency_events'],r['gross_edge_bps'],r['net_edge_bps']] for r in scenarios],'assets/data/microstructure_backtest_reference.json'))
-    charts['microstructure'].append(chart('trading-positive','Positive scenarios before and after the fee','Number of positive scenarios, out of 144',
-        bars('110 scenarios positive before fees and zero positive after fees',['Before fees','After 4 bp fee'],[ref['overview']['gross_positive_count'],ref['overview']['net_positive_count']],'Positive scenarios',144,[BLUE,ORANGE],0),
-        '110 of 144 scenarios have positive gross results, measured against a fixed 4 bp fee. This is a cost check on one four-hour exploratory capture, not a test of live profitability or cross-day reliability.',
-        ['Cost treatment','Positive scenarios','Total scenarios'],[['Before fees',110,144],['After fees',0,144]],'assets/data/microstructure_backtest_reference.json'))
+    body+=text(58,43,'● Gross edge per scenario',13,BLUE)
+    charts['microstructure'].append(chart('trading-all-scenarios','Gross edge across 144 scenarios','Each dot is one fee-and-latency scenario · dashed line marks the fixed 4 bp fee',svg('Gross edge for every one of 144 overlapping simulated trading scenarios, with the 4 bp fee marked',body,340),
+        'Each dot is one scenario’s gross edge per unit of turnover, sorted from lowest to highest; 110 of 144 are above zero and the best reaches 2.39 bp. The dashed line marks the fixed 4 bp taker fee. Overlapping scenarios must not be summed.',
+        ['Symbol','Phase','Horizon','Decision delay (events)','Order delay (events)','Gross edge (bp)'],[[r['symbol'],r['phase'],r['endpoint'],r['decision_latency_events'],r['order_latency_events'],r['gross_edge_bps']] for r in scenarios],'assets/data/microstructure_backtest_reference.json'))
+    horizons=[('event_20','20 events'),('event_100','100 events'),('clock_1000ms','1 second'),('clock_5000ms','5 seconds')]
+    by_h=[(label,sum(1 for r in ref['scenarios'] if r['endpoint']==key and r['gross_edge_bps']>0),sum(1 for r in ref['scenarios'] if r['endpoint']==key)) for key,label in horizons]
+    charts['microstructure'].append(chart('trading-positive','Gross edge is positive at every horizon','Gross-positive scenarios out of 36 per horizon',
+        bars('Gross-positive scenarios by forecast horizon',[h[0] for h in by_h],[h[1] for h in by_h],'Gross-positive scenarios',36,[BLUE]*len(by_h),0),
+        'At least 22 of 36 scenarios are gross-positive at each horizon, and 35 of 36 at the 100-event horizon. This is one four-hour exploratory capture, not a test of live profitability or cross-day reliability.',
+        ['Horizon','Gross-positive scenarios','Total scenarios'],[list(h) for h in by_h],'assets/data/microstructure_backtest_reference.json'))
     return charts
 
 

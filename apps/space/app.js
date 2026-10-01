@@ -257,7 +257,7 @@
         <div><span>Gross-positive</span><strong>${overview.gross_positive_count} / ${overview.scenario_count}</strong></div>
         <div><span>Best gross edge</span><strong>${basisPoints(overview.gross_edge_bps.max)}</strong></div>
         <div><span>Median gross edge</span><strong>${basisPoints(overview.gross_edge_bps.median)}</strong></div>
-        <div><span>Median max drawdown</span><strong>${basisPoints(overview.max_drawdown_bps_of_turnover.median)}</strong></div>
+        <div><span>Fee hurdle</span><strong>${Number(overview.fee_edge_bps.median).toFixed(2)} bp</strong></div>
       </div>
       <div class="backtest-controls">
         <div class="backtest-selects">
@@ -269,10 +269,10 @@
       </div>
       <article class="selected-scenario" aria-live="polite">
         <header><div><span>Selected scenario</span><strong>${escapeHTML(match.symbol)} · ${escapeHTML(phaseLabel(match.phase))} · ${escapeHTML(endpointLabel(match.endpoint))}</strong></div><small>d${match.decision_latency_events} / o${match.order_latency_events}</small></header>
-        <div class="scenario-flow" aria-label="Gross profit and loss minus fees approximately equals net profit and loss after display rounding"><div><span>Gross P&amp;L</span><strong>${money(match.gross_pnl_usdt)}</strong></div><i aria-hidden="true">−</i><div><span>Fees</span><strong>$${Math.abs(Number(match.fees_usdt)).toFixed(2)}</strong></div><i aria-hidden="true" title="Rounded display">≈</i><div class="is-net"><span>Net P&amp;L</span><strong>${money(match.net_pnl_usdt)}</strong></div></div>
-        <div class="scenario-metrics"><div><span>Net edge</span><strong>${basisPoints(match.net_edge_bps)}</strong></div><div><span>Max drawdown</span><strong>${money(-Math.abs(match.max_drawdown_usdt))}</strong></div><div><span>Drawdown / turnover</span><strong>${basisPoints(match.max_drawdown_bps_of_turnover)}</strong></div><div><span>Orders / fills</span><strong>${Number(match.orders).toLocaleString('en-US')} / ${Number(match.fills).toLocaleString('en-US')}</strong></div></div>
+        <div class="scenario-flow" aria-label="Gross results for the selected scenario"><div><span>Gross P&amp;L</span><strong>${money(match.gross_pnl_usdt)}</strong></div><i aria-hidden="true">·</i><div><span>Gross edge</span><strong>${basisPoints(match.gross_edge_bps)}</strong></div><i aria-hidden="true">·</i><div><span>Turnover</span><strong>$${Number(match.turnover_usdt).toLocaleString('en-US', { maximumFractionDigits: 0 })}</strong></div></div>
+        <div class="scenario-metrics"><div><span>Fee hurdle</span><strong>${Number(match.fee_edge_bps).toFixed(2)} bp</strong></div><div><span>Orders</span><strong>${Number(match.orders).toLocaleString('en-US')}</strong></div><div><span>Fills</span><strong>${Number(match.fills).toLocaleString('en-US')}</strong></div><div><span>Fill ratio</span><strong>${(Number(match.fill_ratio_requested) * 100).toFixed(2)}%</strong></div></div>
       </article>
-      <div class="backtest-provenance"><p><strong>Exploratory simulation · research reference only.</strong> ${escapeHTML(disclaimer)}</p><p>${provenance.verified_files} files verified, ${provenance.failed_files} failures. Scenarios overlap and are a distribution, not a portfolio total. <a href="./microstructure_backtest_reference.json">Open bounded JSON</a>.</p></div>`;
+      <div class="backtest-provenance"><p><strong>Exploratory simulation · research reference only.</strong> ${escapeHTML(String(disclaimer).replace(/\s*Drawdown is [^.]*\./, ''))}</p><p>${provenance.verified_files} files verified, ${provenance.failed_files} failures. Scenarios overlap and are a distribution, not a portfolio total. <a href="./microstructure_backtest_reference.json">Open bounded JSON</a>.</p></div>`;
     root.querySelectorAll('[data-backtest-filter]').forEach((select) => select.addEventListener('change', () => {
       backtestSelection[select.dataset.backtestFilter] = select.value;
       renderBacktestExplorer();

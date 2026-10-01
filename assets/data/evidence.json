@@ -248,23 +248,17 @@
       "chart_caption": "Min, median, and max across 144 counterfactual scenarios; do not sum.",
       "source": "assets/data/microstructure_backtest_reference.json",
       "source_url": "https://yangxiaoshawn.github.io/assets/data/microstructure_backtest_reference.json",
-      "default_metric": "net_edge_bps",
+      "default_metric": "gross_edge_bps",
       "metrics": [
         {
-          "id": "net_edge_bps",
-          "label": "Net edge",
+          "id": "gross_edge_bps",
+          "label": "Gross edge",
           "unit": "bp / turnover",
           "type": "bar"
         },
         {
-          "id": "drawdown_bps",
-          "label": "Max drawdown",
-          "unit": "bp / turnover",
-          "type": "bar"
-        },
-        {
-          "id": "net_pnl_usdt",
-          "label": "Net P&L",
+          "id": "gross_pnl_usdt",
+          "label": "Gross P&L",
           "unit": "USDT",
           "type": "bar"
         }
@@ -272,23 +266,20 @@
       "series": [
         {
           "stage": "Minimum",
-          "net_edge_bps": -8.768465,
-          "drawdown_bps": 3.248657,
-          "net_pnl_usdt": -244.553335,
+          "gross_edge_bps": -4.768465,
+          "gross_pnl_usdt": -1.097273,
           "outcome": "metric-wise lower endpoint"
         },
         {
           "stage": "Median",
-          "net_edge_bps": -3.855473,
-          "drawdown_bps": 3.923118,
-          "net_pnl_usdt": -23.101318,
+          "gross_edge_bps": 0.144527,
+          "gross_pnl_usdt": 0.4761,
           "outcome": "median across 144 scenarios"
         },
         {
           "stage": "Maximum",
-          "net_edge_bps": -1.614769,
-          "drawdown_bps": 15.762424,
-          "net_pnl_usdt": -0.322313,
+          "gross_edge_bps": 2.385231,
+          "gross_pnl_usdt": 10.979712,
           "outcome": "metric-wise upper endpoint"
         }
       ]
