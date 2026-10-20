@@ -12,6 +12,8 @@ import json
 import re
 from pathlib import Path
 
+from project_sources import source_text
+
 ROOT = Path(__file__).resolve().parents[1]
 SITE = 'https://yangxiaoshawn.github.io/'
 SPACE = 'https://shawnchamberlain-open-economic-quant-research-ob-5271962.static.hf.space/'
@@ -198,7 +200,7 @@ def build_charts():
         plot('Pre-duty and duty-inclusive unit import value effects in three windows',trs,[('customs','Excluding duty',BLUE),('landed','Including duty',ORANGE)],(-.12,2.12),(-.04,.20),[(0,'Aug 2019'),(1,'Dec 2019'),(2,'Feb 2020')],[(-.04,'−0.04'),(0,'0'),(.08,'0.08'),(.16,'0.16')],'Sample ending month','Change in log unit value'),
         'The pre-duty effect stays close to +0.025 log points in all windows, rather than showing a large supplier-side price cut. Duty-inclusive effects stay near +0.15. Unit values are imperfect price proxies.',
         ['Window','Excluding duty (log points)','Including duty (log points)'],[[r['window'],r['customs'],r['landed']] for r in tariff['series']],tariff['source']))
-    report=(ROOT/'tariff-incidence/reports/tariff_incidence_results.md').read_text()
+    report=source_text('tariff-incidence','reports/tariff_incidence_results.md')
     event={}
     for key in ['landed','customs']:
         block=report.split(f'## Stacked multi-wave event study — log_{key}_unit_value (controls: never_treated_products)')[1].split('\n## ')[0]

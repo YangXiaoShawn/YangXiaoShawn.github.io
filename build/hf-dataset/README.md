@@ -16,7 +16,9 @@ tags:
 
 # Open Economic & Quant Research Data
 
-Versioned research content for CasualLab, Macroeconomics, Mortgage Rate Lock-In and Housing Market Dynamics, Tariff Incidence, and Order Flow to Price Impact, including project code, publishable data, fixtures, reports, tests, and reproducibility documentation.
+Versioned research data for CasualLab, Macroeconomics, Mortgage Rate Lock-In and Housing Market Dynamics, Tariff Incidence, and Order Flow to Price Impact, including publishable data, fixtures, reports, and reproducibility documentation.
+
+Project code, tests, and run configuration live in the GitHub repositories listed under Related resources. Revision `5329ac0f88bae309d6e37eb8fdaefc0f60754f4c` is the earlier mirror that also carried that code; `dataset_manifest.json` describes that release.
 
 ## Repository structure
 
@@ -24,8 +26,8 @@ Versioned research content for CasualLab, Macroeconomics, Mortgage Rate Lock-In 
 - `Macroeconomics/`: vintage-aware forecasting and public-source adapter research content.
 - `RealEstate/`: housing-finance research on mortgage lock-in, mortgage exits, local activity, prices, and construction. Registered loan-level records and loan-granular derivatives are excluded.
 - `TariffIncidence/`: official-data research on U.S. Section 301 tariff pass-through, sourcing reallocation, and domestic input-output propagation. Large raw, intermediate, analytical, and parquet result files are excluded from the public package.
-- `Microstructure/`: research-only market-microstructure code, tests, protocols, and documentation. Exchange observations, normalized or derived tables, fitted states, ingestion authorities, and generated run bundles are excluded.
-- `dataset_manifest.json`: file counts, exclusions, and release metadata.
+- `Microstructure/`: research-only market-microstructure protocols, reports, and documentation. Exchange observations, normalized or derived tables, fitted states, ingestion authorities, and generated run bundles are excluded.
+- `dataset_manifest.json`: file counts, exclusions, and release metadata for revision `5329ac0f`.
 
 ## Supported uses
 
@@ -37,7 +39,7 @@ Each project retains its own provenance notes. Raw third-party sources remain su
 
 ## Licensing
 
-Project-owned code and fixtures follow project-local terms. Third-party data and dependencies retain their original terms. Inclusion in this versioned mirror does not grant a new license. Assets without confirmed redistribution terms remain marked `RIGHTS_UNKNOWN` in the observatory governance records.
+Project-owned fixtures and documentation follow project-local terms; code terms are in each GitHub repository. Third-party data and dependencies retain their original terms. Inclusion in this versioned mirror does not grant a new license. Assets without confirmed redistribution terms remain marked `RIGHTS_UNKNOWN` in the observatory governance records.
 
 ## Limitations
 

@@ -36,8 +36,8 @@ GitHub hosts compact public code, while Hugging Face provides the full research 
 ## Repository architecture
 
 - `index.html` and section directories contain the GitHub Pages site.
-- `projects/` contains permanent project pages.
-- `casuallab/`, `macroeconomics/`, `realestate/`, `tariff-incidence/`, and `microstructure/` are compact, upload-ready project copies.
+- `projects/` contains permanent project pages and each project's site `project.yaml`.
+- Project code lives only in the five standalone repositories; `scripts/project_sources.py` fetches the few build inputs it needs at pinned commits.
 - `apps/space/` contains the Hugging Face Space source.
 - `manifests/` records inventory, publication rights, dataset state, and deployed resources.
 - `scripts/` generates the catalog, validates releases, packages data, and verifies deployment.
@@ -56,7 +56,7 @@ Use `make verify-online` to include public URL checks. Dataset and Space publish
 
 ## Adding a project
 
-Create a project directory and a complete `project.yaml`, then run `python3 scripts/build_site_data.py`. The public catalog JSON, section pages, sitemap, and feed are regenerated from project metadata.
+Create `projects/<slug>/` with a complete `project.yaml`, then run `python3 scripts/build_site_data.py`. The public catalog JSON, section pages, sitemap, and feed are regenerated from project metadata.
 
 Research narration and figure generation live in `scripts/build_research_portfolio.py`.
 `assets/data/research_details.json` holds compact, published aggregate extracts

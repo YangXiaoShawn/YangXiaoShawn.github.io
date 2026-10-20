@@ -14,7 +14,7 @@
 - Stable sections: `research/`, `replications/`, `updated-results/`, `datasets/`, `methods/`, `dashboards/`, `comparisons/`, `daily-reports/`, and `about/`.
 - Permanent project pages: `projects/casuallab/` and `projects/macroeconomics/`.
 - Shared assets and generated catalog: `assets/`.
-- Compact public project copies: `casuallab/` and `macroeconomics/`.
+- Project metadata beside each page: `projects/<slug>/project.yaml` (project code stays in the standalone repositories).
 - Reproducibility, manifests, governance, deployment scripts, and CI workflows.
 
 ## Files uploaded to each standalone GitHub project

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate compact project packages and publication metadata."""
+"""Validate project publication metadata kept beside each project page."""
 
 from __future__ import annotations
 
@@ -36,17 +36,17 @@ def top_level_keys(text: str) -> set[str]:
 def main() -> None:
     failures: list[str] = []
     for slug in PROJECTS:
-        project = ROOT / slug
+        project = ROOT / "projects" / slug
         metadata = project / "project.yaml"
         if not metadata.exists():
-            failures.append(f"missing {slug}/project.yaml")
+            failures.append(f"missing projects/{slug}/project.yaml")
             continue
         text = metadata.read_text(encoding="utf-8")
         missing = REQUIRED_KEYS - top_level_keys(text)
         if missing:
-            failures.append(f"{slug}/project.yaml missing {sorted(missing)}")
+            failures.append(f"projects/{slug}/project.yaml missing {sorted(missing)}")
         if re.search(r"\b(TBD|TDB|pending)\b", text, flags=re.IGNORECASE):
-            failures.append(f"{slug}/project.yaml contains a placeholder")
+            failures.append(f"projects/{slug}/project.yaml contains a placeholder")
         for path in project.rglob("*"):
             if path.is_dir() and path.name in BANNED_DIRS:
                 failures.append(f"banned directory {path.relative_to(ROOT)}")
