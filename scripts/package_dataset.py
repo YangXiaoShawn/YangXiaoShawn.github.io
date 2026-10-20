@@ -29,16 +29,21 @@ def checksum(path: Path) -> str:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--workspace", type=Path, default=ROOT.parent)
+    parser.add_argument(
+        "--workspace",
+        type=Path,
+        default=ROOT.parent,
+        help="Folder holding local checkouts of the five project repositories.",
+    )
     parser.add_argument("--output", type=Path, default=ROOT / "build" / "hf-dataset")
     parser.add_argument("--copy", action="store_true", help="Copy included files into the staging directory.")
     args = parser.parse_args()
     projects = (
         ("CasualLab", args.workspace / "CasualLab"),
         ("Macroeconomics", args.workspace / "Macroeconomics"),
-        ("RealEstate", ROOT / "realestate"),
-        ("TariffIncidence", ROOT / "tariff-incidence"),
-        ("Microstructure", ROOT / "microstructure"),
+        ("RealEstate", args.workspace / "RealEstate"),
+        ("TariffIncidence", args.workspace / "TariffIncidence"),
+        ("Microstructure", args.workspace / "Microstructure"),
     )
     records = []
     for prefix, source in projects:

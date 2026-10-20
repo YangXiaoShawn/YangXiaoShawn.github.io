@@ -20,5 +20,26 @@
   <div class="hero-actions"><a class="button button-primary" href="/">Return to portfolio</a><a class="button button-secondary" href="/research/">Browse projects</a></div>
 </div></section></main>
 <footer class="site-footer"><div class="container"><div class="footer-bottom"><span>Open Quant &amp; Econ</span><a class="text-link" href="/">Back to homepage</a></div></div></footer>
+<script>
+  // Former project-copy URLs: site metadata moved beside each project page; everything else lives in the project repository.
+  (function () {
+    var moved = {
+      '/casuallab/project.yaml': '/projects/casuallab/project.yaml',
+      '/macroeconomics/project.yaml': '/projects/macroeconomics/project.yaml',
+      '/realestate/project.yaml': '/projects/realestate/project.yaml',
+      '/tariff-incidence/project.yaml': '/projects/tariff-incidence/project.yaml',
+      '/microstructure/project.yaml': '/projects/microstructure/project.yaml',
+      '/microstructure/docs/PUBLICATION.md': '/projects/microstructure/PUBLICATION.md',
+      '/microstructure/docs/DATA_POLICY.md': '/projects/microstructure/DATA_POLICY.md'
+    };
+    var path = location.pathname;
+    if (moved[path]) { location.replace(moved[path]); return; }
+    var match = path.match(/^\/(casuallab|macroeconomics|realestate|tariff-incidence|microstructure)(?:\/(.*))?$/);
+    if (!match) return;
+    var rest = (match[2] || '').replace(/\/$/, '');
+    var repo = 'https://github.com/YangXiaoShawn/open-economic-quant-' + match[1];
+    location.replace(rest ? repo + '/blob/main/' + rest : repo);
+  })();
+</script>
 </body>
 </html>
