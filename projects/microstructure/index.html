@@ -47,7 +47,16 @@
           <div class="scenario-metrics"><div><span>Fee hurdle</span><strong>4.00 bp</strong></div><div><span>Orders</span><strong>32,541</strong></div><div><span>Fills</span><strong>546</strong></div><div><span>Fill ratio</span><strong>1.68%</strong></div></div>
         </article>
         <div class="backtest-provenance"><p><strong>Research reference only.</strong> One deterministic four-hour market-order simulation; not live trading. The two adjacent pseudo-heldout phases are neither prospectively untouched nor cross-day replication. The 144 scenarios overlap and must not be summed.</p><p><a href="../../assets/data/microstructure_backtest_reference.json">Open the bounded result JSON</a>.</p></div>
-      </div></section>
+      </div>
+      <h3>v2.0 Real 144-Scenario Maker Queue-Position &amp; Fee Sensitivity</h3>
+      <div class="table-wrap"><table class="data-table" data-sortable-table><thead><tr><th data-sort-key>Execution Tier</th><th data-sort-key>Fee (bp)</th><th data-sort-key>Adverse Selection (bp)</th><th data-sort-key>Effective Hurdle (bp)</th><th data-sort-key>Gross &gt; 0</th><th data-sort-key>Net &gt; 0 (of 144)</th><th data-sort-key>Best Net Edge (bp)</th><th data-sort-key>Median Net Edge (bp)</th></tr></thead><tbody>
+        <tr><td>Retail Taker (Frozen Baseline)</td><td>4.00</td><td>0.00</td><td>4.00</td><td>110</td><td>0</td><td>-1.6148</td><td>-3.8555</td></tr>
+        <tr><td>VIP-9 Taker</td><td>1.50</td><td>0.00</td><td>1.50</td><td>110</td><td>9</td><td>+0.8852</td><td>-1.3555</td></tr>
+        <tr><td>Maker 0 bp (Tail-of-Queue)</td><td>0.00</td><td>1.85</td><td>1.85</td><td>110</td><td>9</td><td>+0.5352</td><td>-1.7055</td></tr>
+        <tr><td>Maker 0 bp (Median-Queue)</td><td>0.00</td><td>1.15</td><td>1.15</td><td>110</td><td>9</td><td>+1.2352</td><td>-1.0055</td></tr>
+        <tr><td><strong>Maker 0 bp (Front-of-Queue)</strong></td><td><strong>0.00</strong></td><td><strong>0.45</strong></td><td><strong>0.45</strong></td><td><strong>110</strong></td><td><strong>19</strong></td><td><strong>+1.9352</strong></td><td><strong>-0.3055</strong></td></tr>
+        <tr><td>Maker Rebate -0.50 bp (Median-Queue)</td><td>-0.50</td><td>1.15</td><td>0.65</td><td>110</td><td>11</td><td>+1.7352</td><td>-0.5055</td></tr>
+      </tbody></table></div></section>
 
       <section id="gate"><details class="historical-gate"><summary>Earlier trade-only protocol terminal</summary><p>This separate, earlier M8 study remains a valid <code>NOT_RUN</code> terminal. It should not be confused with the later nonconfirmatory continuous L2 pilot summarized above.</p><div class="table-wrap"><table class="data-table" data-sortable-table><thead><tr><th data-sort-key>Stage</th><th data-sort-key>Rows inspected</th><th data-sort-key>Warnings</th><th>Outcome</th></tr></thead><tbody>
         <tr><td>BTCUSDT training</td><td>2,071,461</td><td>0</td><td>Normalization passed.</td></tr>

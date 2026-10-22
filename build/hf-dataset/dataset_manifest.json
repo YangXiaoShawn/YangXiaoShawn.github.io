@@ -10,8 +10,8 @@
     "PolymarketFactors",
     "CryptoFactors"
   ],
-  "file_count": 4002,
-  "size_bytes": 2865115678,
+  "file_count": 4006,
+  "size_bytes": 2865476961,
   "excluded_parts": [
     ".DS_Store",
     ".git",
@@ -14440,11 +14440,15 @@
     },
     {
       "path": "Microstructure/reports/maker_queue_fee_sensitivity.csv",
-      "size_bytes": 581
+      "size_bytes": 604
     },
     {
       "path": "Microstructure/reports/methodology_limitations.md",
       "size_bytes": 10899
+    },
+    {
+      "path": "Microstructure/reports/microstructure_144_scenarios.json",
+      "size_bytes": 111788
     },
     {
       "path": "Microstructure/reports/model_comparison.md",
@@ -14780,7 +14784,7 @@
     },
     {
       "path": "Microstructure/tests/test_maker_fee_sensitivity.py",
-      "size_bytes": 2659
+      "size_bytes": 3190
     },
     {
       "path": "Microstructure/tests/test_models.py",
@@ -14852,7 +14856,7 @@
     },
     {
       "path": "EMFactorTiming/README.md",
-      "size_bytes": 9372
+      "size_bytes": 10417
     },
     {
       "path": "EMFactorTiming/STATUS.md",
@@ -14964,7 +14968,7 @@
     },
     {
       "path": "EMFactorTiming/reports/jkp_em/eb_and_long_only_summary.csv",
-      "size_bytes": 871
+      "size_bytes": 1447
     },
     {
       "path": "EMFactorTiming/reports/jkp_em/forecast_slopes.csv",
@@ -15416,7 +15420,7 @@
     },
     {
       "path": "EMFactorTiming/tests/test_published_jkp_results.py",
-      "size_bytes": 2413
+      "size_bytes": 4153
     },
     {
       "path": "EMFactorTiming/tests/test_recovery.py",
@@ -15444,7 +15448,7 @@
     },
     {
       "path": "PolymarketFactors/README.md",
-      "size_bytes": 7268
+      "size_bytes": 8935
     },
     {
       "path": "PolymarketFactors/STATUS.md",
@@ -15453,6 +15457,10 @@
     {
       "path": "PolymarketFactors/data/DATA_ACCESS.md",
       "size_bytes": 610
+    },
+    {
+      "path": "PolymarketFactors/data/fixtures/real_polymarket_panel.csv",
+      "size_bytes": 231480
     },
     {
       "path": "PolymarketFactors/data/fixtures/sample_markets.csv",
@@ -15507,6 +15515,10 @@
       "size_bytes": 617
     },
     {
+      "path": "PolymarketFactors/reports/real_clob_factor_ic.csv",
+      "size_bytes": 990
+    },
+    {
       "path": "PolymarketFactors/reports/report_figs/fig1_artifact_funnel.png",
       "size_bytes": 49249
     },
@@ -15556,7 +15568,7 @@
     },
     {
       "path": "PolymarketFactors/reports/walkforward_capacity_summary.csv",
-      "size_bytes": 539
+      "size_bytes": 896
     },
     {
       "path": "PolymarketFactors/src/polymarket_factors/__init__.py",
@@ -15648,7 +15660,7 @@
     },
     {
       "path": "PolymarketFactors/src/polymarket_factors/pipeline.py",
-      "size_bytes": 6246
+      "size_bytes": 9514
     },
     {
       "path": "PolymarketFactors/src/polymarket_factors/portfolio_arb.py",
@@ -15720,7 +15732,7 @@
     },
     {
       "path": "PolymarketFactors/tests/test_published_artifacts.py",
-      "size_bytes": 2454
+      "size_bytes": 4201
     },
     {
       "path": "CryptoFactors/.gitignore",
@@ -15740,7 +15752,7 @@
     },
     {
       "path": "CryptoFactors/README.md",
-      "size_bytes": 7720
+      "size_bytes": 8567
     },
     {
       "path": "CryptoFactors/README_zh.md",
@@ -15883,8 +15895,12 @@
       "size_bytes": 745
     },
     {
+      "path": "CryptoFactors/reports/real_785d_perp_validation.csv",
+      "size_bytes": 914
+    },
+    {
       "path": "CryptoFactors/reports/regime_conditioned_composite_summary.csv",
-      "size_bytes": 559
+      "size_bytes": 628
     },
     {
       "path": "CryptoFactors/src/crypto_factors/__init__.py",
@@ -15984,7 +16000,7 @@
     },
     {
       "path": "CryptoFactors/src/crypto_factors/pipeline.py",
-      "size_bytes": 6847
+      "size_bytes": 9850
     },
     {
       "path": "CryptoFactors/src/crypto_factors/portfolio.py",
@@ -16028,7 +16044,7 @@
     },
     {
       "path": "CryptoFactors/tests/test_published_results.py",
-      "size_bytes": 2822
+      "size_bytes": 4060
     }
   ]
 }
