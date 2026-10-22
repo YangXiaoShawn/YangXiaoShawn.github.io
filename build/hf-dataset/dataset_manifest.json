@@ -10,8 +10,8 @@
     "PolymarketFactors",
     "CryptoFactors"
   ],
-  "file_count": 4018,
-  "size_bytes": 2865707454,
+  "file_count": 4027,
+  "size_bytes": 2865738206,
   "excluded_parts": [
     ".DS_Store",
     ".git",
@@ -14955,6 +14955,10 @@
       "size_bytes": 715
     },
     {
+      "path": "EMFactorTiming/reports/LIVE_READINESS_AUDIT_2026-10.md",
+      "size_bytes": 6819
+    },
+    {
       "path": "EMFactorTiming/reports/UPDATE_2026-10.md",
       "size_bytes": 9752
     },
@@ -15295,6 +15299,14 @@
       "size_bytes": 2421
     },
     {
+      "path": "EMFactorTiming/reports/live_readiness_2026_10/jkp_2026_cost_breakeven_stress.csv",
+      "size_bytes": 1748
+    },
+    {
+      "path": "EMFactorTiming/reports/live_readiness_2026_10/tradable_etf_live_rotation_2019_2026.csv",
+      "size_bytes": 3405
+    },
+    {
       "path": "EMFactorTiming/reports/post_2025_oos_2026_10/direct_factor_etf_daily_2026.csv",
       "size_bytes": 374
     },
@@ -15444,7 +15456,7 @@
     },
     {
       "path": "EMFactorTiming/tests/test_published_jkp_results.py",
-      "size_bytes": 5060
+      "size_bytes": 5560
     },
     {
       "path": "EMFactorTiming/tests/test_recovery.py",
@@ -15879,6 +15891,10 @@
       "size_bytes": 788
     },
     {
+      "path": "CryptoFactors/reports/LIVE_READINESS_AUDIT_2026-10.md",
+      "size_bytes": 6492
+    },
+    {
       "path": "CryptoFactors/reports/REPORT.md",
       "size_bytes": 8276
     },
@@ -15937,6 +15953,26 @@
     {
       "path": "CryptoFactors/reports/latest_oos_2026_10_composite.csv",
       "size_bytes": 622
+    },
+    {
+      "path": "CryptoFactors/reports/live_readiness_2026_10/bad_print_dislocation_guard.csv",
+      "size_bytes": 944
+    },
+    {
+      "path": "CryptoFactors/reports/live_readiness_2026_10/cost_and_delay_stress.csv",
+      "size_bytes": 6761
+    },
+    {
+      "path": "CryptoFactors/reports/live_readiness_2026_10/product_b_capacity_stress.csv",
+      "size_bytes": 504
+    },
+    {
+      "path": "CryptoFactors/reports/live_readiness_2026_10/product_b_realistic_hedges.csv",
+      "size_bytes": 800
+    },
+    {
+      "path": "CryptoFactors/reports/live_readiness_2026_10/v2_composite_delay_cost_stress.csv",
+      "size_bytes": 1694
     },
     {
       "path": "CryptoFactors/reports/postpub_composite_summary.csv",
@@ -16092,7 +16128,7 @@
     },
     {
       "path": "CryptoFactors/tests/test_published_results.py",
-      "size_bytes": 5372
+      "size_bytes": 6457
     }
   ]
 }
