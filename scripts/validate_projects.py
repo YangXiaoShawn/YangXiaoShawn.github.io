@@ -7,7 +7,16 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-PROJECTS = ("casuallab", "macroeconomics", "realestate", "tariff-incidence", "microstructure")
+PROJECTS = (
+    "casuallab",
+    "macroeconomics",
+    "realestate",
+    "tariff-incidence",
+    "microstructure",
+    "em-factor-timing",
+    "polymarket-factors",
+    "crypto-factors",
+)
 REQUIRED_KEYS = {
     "title",
     "slug",

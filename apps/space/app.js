@@ -2,14 +2,26 @@
   'use strict';
 
   const REPO = 'ShawnChamberlain/open-economic-quant-research-data';
-  const ORDER = ['casuallab', 'macroeconomics', 'realestate', 'tariff-incidence', 'microstructure'];
+  const ORDER = [
+    'casuallab',
+    'macroeconomics',
+    'realestate',
+    'tariff-incidence',
+    'microstructure',
+    'em-factor-timing',
+    'polymarket-factors',
+    'crypto-factors'
+  ];
   const VIEWS = ['signal', 'portfolio', 'files', 'notes'];
   const META = {
     casuallab: { folder: 'CasualLab', accent: 'teal', page: 'https://yangxiaoshawn.github.io/projects/casuallab/', data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/CasualLab', source: 'https://github.com/YangXiaoShawn/open-economic-quant-casuallab' },
     macroeconomics: { folder: 'Macroeconomics', accent: 'blue', page: 'https://yangxiaoshawn.github.io/projects/macroeconomics/', data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/Macroeconomics', source: 'https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics' },
     realestate: { folder: 'RealEstate', accent: 'amber', page: 'https://yangxiaoshawn.github.io/projects/realestate/', data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/RealEstate', source: 'https://github.com/YangXiaoShawn/open-economic-quant-realestate' },
     'tariff-incidence': { folder: 'TariffIncidence', accent: 'green', page: 'https://yangxiaoshawn.github.io/projects/tariff-incidence/', data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/TariffIncidence', source: 'https://github.com/YangXiaoShawn/open-economic-quant-tariff-incidence' },
-    microstructure: { folder: 'Microstructure', accent: 'violet', page: 'https://yangxiaoshawn.github.io/projects/microstructure/', data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/Microstructure', source: 'https://github.com/YangXiaoShawn/open-economic-quant-microstructure' }
+    microstructure: { folder: 'Microstructure', accent: 'violet', page: 'https://yangxiaoshawn.github.io/projects/microstructure/', data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/Microstructure', source: 'https://github.com/YangXiaoShawn/open-economic-quant-microstructure' },
+    'em-factor-timing': { folder: 'EMFactorTiming', accent: 'teal', page: 'https://yangxiaoshawn.github.io/projects/em-factor-timing/', data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/EMFactorTiming', source: 'https://github.com/YangXiaoShawn/open-economic-quant-em-factor-timing' },
+    'polymarket-factors': { folder: 'PolymarketFactors', accent: 'blue', page: 'https://yangxiaoshawn.github.io/projects/polymarket-factors/', data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/PolymarketFactors', source: 'https://github.com/YangXiaoShawn/open-economic-quant-polymarket-factors' },
+    'crypto-factors': { folder: 'CryptoFactors', accent: 'amber', page: 'https://yangxiaoshawn.github.io/projects/crypto-factors/', data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/CryptoFactors', source: 'https://github.com/YangXiaoShawn/open-economic-quant-crypto-factors' }
   };
   const COLORS = { code: '#6ee7d8', data: '#8eb8ff', reports: '#ffca6a', tests: '#7fe4aa' };
   const params = new URLSearchParams(location.search);
@@ -45,6 +57,12 @@
     if (['cells', 'rows', 'warnings'].includes(metric.unit)) return Math.round(numeric).toLocaleString('en-US');
     if (metric.unit === 'log points') return signed(numeric);
     if (metric.unit === 'effect units') return numeric.toFixed(4);
+    if (metric.unit === 'ratio') return numeric.toFixed(2);
+    if (metric.unit === 'IC') return signed(numeric, 3);
+    if (metric.unit === 'annualized') return signed(numeric, 2);
+    if (metric.unit === 'Spearman IC') return signed(numeric, 3);
+    if (metric.unit === 't-stat') return signed(numeric, 2);
+    if (metric.unit === 'q-value') return numeric.toFixed(3);
     return numeric.toLocaleString('en-US');
   };
 
@@ -57,6 +75,12 @@
     if (metric.unit === '%') return `${numeric.toFixed(numeric >= 10 ? 0 : 1)}%`;
     if (metric.unit === 'log points') return signed(numeric, 2);
     if (metric.unit === 'effect units') return numeric.toFixed(3);
+    if (metric.unit === 'ratio') return numeric.toFixed(1);
+    if (metric.unit === 'IC') return signed(numeric, 2);
+    if (metric.unit === 'annualized') return signed(numeric, 2);
+    if (metric.unit === 'Spearman IC') return signed(numeric, 2);
+    if (metric.unit === 't-stat') return signed(numeric, 1);
+    if (metric.unit === 'q-value') return numeric.toFixed(2);
     return numeric.toFixed(1);
   };
 
@@ -65,6 +89,9 @@
     if (slug === 'macroeconomics') return { numeric: null, label: row.mode };
     if (slug === 'realestate') return { numeric: row.mean_gap, label: `${row.mean_gap > 0 ? '+' : ''}${row.mean_gap.toFixed(2)} pp` };
     if (slug === 'microstructure') return { numeric: null, label: row.stage };
+    if (slug === 'em-factor-timing') return { numeric: null, label: row.model_scope };
+    if (slug === 'polymarket-factors') return { numeric: null, label: row.factor };
+    if (slug === 'crypto-factors') return { numeric: null, label: row.factor };
     return { numeric: null, label: row.window };
   };
 
@@ -72,8 +99,7 @@
     if (slug === 'macroeconomics') return `${row.feature_cells.toLocaleString('en-US')} feature cells`;
     if (slug === 'realestate') return `${row.bucket} · ${row.events.toLocaleString('en-US')} events`;
     if (slug === 'tariff-incidence') return `N = ${row.n.toLocaleString('en-US')}`;
-    if (slug === 'microstructure') return row.outcome;
-    if (slug === 'casuallab') return row.outcome;
+    if (['microstructure', 'casuallab', 'em-factor-timing', 'polymarket-factors', 'crypto-factors'].includes(slug)) return row.outcome;
     return 'Published research observation';
   };
 
@@ -116,6 +142,9 @@
     if (activeProject === 'realestate') first = 'Rate-gap bucket';
     if (activeProject === 'tariff-incidence') first = 'Window';
     if (activeProject === 'microstructure') first = 'Distribution point';
+    if (activeProject === 'em-factor-timing') first = 'Strategy';
+    if (activeProject === 'polymarket-factors') first = 'Signal';
+    if (activeProject === 'crypto-factors') first = 'Factor';
     head.innerHTML = `<tr><th>${first}</th><th>${escapeHTML(metric.label)}</th><th>Context</th></tr>`;
     body.innerHTML = project.series.map((row) => {
       const x = xDescriptor(activeProject, row);

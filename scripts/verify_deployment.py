@@ -10,9 +10,6 @@ from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
-from huggingface_hub import HfApi
-from huggingface_hub.hf_api import RepoFile
-
 from build_research_portfolio import build as build_portfolio
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -29,6 +26,16 @@ ROUTES = (
     "daily-reports",
     "about",
 )
+EXPECTED_SLUGS = {
+    "casuallab",
+    "macroeconomics",
+    "realestate",
+    "tariff-incidence",
+    "microstructure",
+    "em-factor-timing",
+    "polymarket-factors",
+    "crypto-factors",
+}
 PUBLIC_URLS = (
     "https://yangxiaoshawn.github.io/",
     "https://yangxiaoshawn.github.io/projects/casuallab/",
@@ -36,6 +43,9 @@ PUBLIC_URLS = (
     "https://yangxiaoshawn.github.io/projects/realestate/",
     "https://yangxiaoshawn.github.io/projects/tariff-incidence/",
     "https://yangxiaoshawn.github.io/projects/microstructure/",
+    "https://yangxiaoshawn.github.io/projects/em-factor-timing/",
+    "https://yangxiaoshawn.github.io/projects/polymarket-factors/",
+    "https://yangxiaoshawn.github.io/projects/crypto-factors/",
     "https://yangxiaoshawn.github.io/assets/data/microstructure_backtest_reference.json",
     "https://yangxiaoshawn.github.io/robots.txt",
     "https://yangxiaoshawn.github.io/sitemap.xml",
@@ -44,6 +54,9 @@ PUBLIC_URLS = (
     "https://github.com/YangXiaoShawn/open-economic-quant-realestate",
     "https://github.com/YangXiaoShawn/open-economic-quant-tariff-incidence",
     "https://github.com/YangXiaoShawn/open-economic-quant-microstructure",
+    "https://github.com/YangXiaoShawn/open-economic-quant-em-factor-timing",
+    "https://github.com/YangXiaoShawn/open-economic-quant-polymarket-factors",
+    "https://github.com/YangXiaoShawn/open-economic-quant-crypto-factors",
     "https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data",
     "https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory",
 )
@@ -92,6 +105,9 @@ def main() -> None:
         ROOT / "projects" / "realestate" / "index.html",
         ROOT / "projects" / "tariff-incidence" / "index.html",
         ROOT / "projects" / "microstructure" / "index.html",
+        ROOT / "projects" / "em-factor-timing" / "index.html",
+        ROOT / "projects" / "polymarket-factors" / "index.html",
+        ROOT / "projects" / "crypto-factors" / "index.html",
         ROOT / "apps" / "space" / "app.py",
         ROOT / "apps" / "space" / "README.md",
         ROOT / "apps" / "space" / "index.html",
@@ -102,6 +118,9 @@ def main() -> None:
         ROOT / "apps" / "space" / "microstructure_backtest_reference.json",
         ROOT / "apps" / "space" / "favicon.svg",
         ROOT / "apps" / "space" / "catalog" / "Microstructure.json",
+        ROOT / "apps" / "space" / "catalog" / "EMFactorTiming.json",
+        ROOT / "apps" / "space" / "catalog" / "PolymarketFactors.json",
+        ROOT / "apps" / "space" / "catalog" / "CryptoFactors.json",
     ]
     required.extend(ROOT / route / "index.html" for route in ROUTES)
     missing = [str(path.relative_to(ROOT)) for path in required if not path.exists()]
@@ -110,30 +129,16 @@ def main() -> None:
     catalog_path = ROOT / "assets" / "data" / "projects.json"
     if catalog_path.exists():
         catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
-        expected_projects = {
-            "casuallab",
-            "macroeconomics",
-            "realestate",
-            "tariff-incidence",
-            "microstructure",
-        }
-        if {item.get("slug") for item in catalog.get("projects", [])} != expected_projects:
-            failures.append("generated catalog does not contain exactly the five published projects")
+        if {item.get("slug") for item in catalog.get("projects", [])} != EXPECTED_SLUGS:
+            failures.append("generated catalog does not contain exactly the eight published projects")
 
     evidence_path = ROOT / "assets" / "data" / "evidence.json"
     if evidence_path.exists():
         evidence = json.loads(evidence_path.read_text(encoding="utf-8"))
         portfolio = evidence.get("portfolio", {})
         portfolio_projects = portfolio.get("projects", {})
-        expected_projects = {
-            "casuallab",
-            "macroeconomics",
-            "realestate",
-            "tariff-incidence",
-            "microstructure",
-        }
-        if set(portfolio_projects) != expected_projects or set(evidence.get("projects", {})) != expected_projects:
-            failures.append("evidence catalog does not contain exactly the five published projects")
+        if set(portfolio_projects) != EXPECTED_SLUGS or set(evidence.get("projects", {})) != EXPECTED_SLUGS:
+            failures.append("evidence catalog does not contain exactly the eight published projects")
         if sum(item.get("files", 0) for item in portfolio_projects.values()) != portfolio.get("total_files"):
             failures.append("portfolio project file counts do not sum to total_files")
         if sum(portfolio.get("categories", {}).values()) != portfolio.get("total_files"):
@@ -206,6 +211,9 @@ def main() -> None:
                 failures.append(f"public URL returned {status}: {url}")
     if args.online or args.hf_only:
         try:
+            from huggingface_hub import HfApi
+            from huggingface_hub.hf_api import RepoFile
+
             evidence = json.loads(evidence_path.read_text(encoding="utf-8"))
             revision = evidence["dataset_revision"]
             local_microstructure_catalog = json.loads(

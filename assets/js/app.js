@@ -46,7 +46,16 @@
     '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
   }[character]));
 
-  const PROJECT_ORDER = ['casuallab', 'macroeconomics', 'realestate', 'tariff-incidence', 'microstructure'];
+  const PROJECT_ORDER = [
+    'casuallab',
+    'macroeconomics',
+    'realestate',
+    'tariff-incidence',
+    'microstructure',
+    'em-factor-timing',
+    'polymarket-factors',
+    'crypto-factors'
+  ];
   const PROJECT_META = {
     casuallab: {
       short: 'HTE recovery', field: 'Causal inference', accent: 'teal', folder: 'CasualLab',
@@ -82,6 +91,27 @@
       data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/Microstructure',
       portfolioTitle: 'Execution stress test',
       portfolioSkills: 'Market microstructure · event-time ML · simulation.'
+    },
+    'em-factor-timing': {
+      short: 'EM factor timing', field: 'Emerging markets', accent: 'teal', folder: 'EMFactorTiming',
+      page: 'projects/em-factor-timing/',
+      data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/EMFactorTiming',
+      portfolioTitle: 'Emerging-market factor timing',
+      portfolioSkills: 'Cross-country factors · macro conditioning · transaction costs.'
+    },
+    'polymarket-factors': {
+      short: 'Polymarket factors', field: 'Prediction markets', accent: 'blue', folder: 'PolymarketFactors',
+      page: 'projects/polymarket-factors/',
+      data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/PolymarketFactors',
+      portfolioTitle: 'Prediction-market factor anatomy',
+      portfolioSkills: 'Binary contracts · rank IC · Newey-West inference.'
+    },
+    'crypto-factors': {
+      short: 'Crypto perpetuals', field: 'Digital assets', accent: 'amber', folder: 'CryptoFactors',
+      page: 'projects/crypto-factors/',
+      data: 'https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/CryptoFactors',
+      portfolioTitle: 'Crypto perpetual factor transfer',
+      portfolioSkills: 'Perpetual futures · funding carry · BH-FDR control.'
     }
   };
 
@@ -112,6 +142,12 @@
     if (['cells', 'rows', 'warnings'].includes(metric.unit)) return Math.round(numeric).toLocaleString('en-US');
     if (metric.unit === 'log points') return signed(numeric);
     if (metric.unit === 'effect units') return numeric.toFixed(4);
+    if (metric.unit === 'ratio') return numeric.toFixed(2);
+    if (metric.unit === 'IC') return signed(numeric, 3);
+    if (metric.unit === 'annualized') return signed(numeric, 2);
+    if (metric.unit === 'Spearman IC') return signed(numeric, 3);
+    if (metric.unit === 't-stat') return signed(numeric, 2);
+    if (metric.unit === 'q-value') return numeric.toFixed(3);
     return numeric.toLocaleString('en-US');
   };
 
@@ -124,6 +160,12 @@
     if (metric.unit === '%') return `${numeric.toFixed(numeric >= 10 ? 0 : 1)}%`;
     if (metric.unit === 'log points') return signed(numeric, 2);
     if (metric.unit === 'effect units') return numeric.toFixed(3);
+    if (metric.unit === 'ratio') return numeric.toFixed(1);
+    if (metric.unit === 'IC') return signed(numeric, 2);
+    if (metric.unit === 'annualized') return signed(numeric, 2);
+    if (metric.unit === 'Spearman IC') return signed(numeric, 2);
+    if (metric.unit === 't-stat') return signed(numeric, 1);
+    if (metric.unit === 'q-value') return numeric.toFixed(2);
     return numeric.toFixed(1);
   };
 
@@ -148,7 +190,16 @@
     const portfolio = evidencePayload.portfolio;
     const maxFiles = Math.max(...PROJECT_ORDER.map((slug) => portfolio.projects[slug].files));
     const mixColors = { code: '#6ee7d8', data: '#8eb8ff', reports: '#ffca6a', tests: '#7fe4aa' };
-    const order = ['macroeconomics', 'casuallab', 'microstructure', 'tariff-incidence', 'realestate'];
+    const order = [
+      'macroeconomics',
+      'casuallab',
+      'em-factor-timing',
+      'microstructure',
+      'tariff-incidence',
+      'realestate',
+      'crypto-factors',
+      'polymarket-factors'
+    ];
     heroBars.innerHTML = order.map((slug) => {
       const project = portfolio.projects[slug];
       const selected = slug === activeProject;
@@ -193,6 +244,9 @@
     if (slug === 'macroeconomics') return { numeric: null, label: row.mode };
     if (slug === 'realestate') return { numeric: row.mean_gap, label: `${row.mean_gap > 0 ? '+' : ''}${row.mean_gap.toFixed(2)} pp` };
     if (slug === 'microstructure') return { numeric: null, label: row.stage };
+    if (slug === 'em-factor-timing') return { numeric: null, label: row.model_scope };
+    if (slug === 'polymarket-factors') return { numeric: null, label: row.factor };
+    if (slug === 'crypto-factors') return { numeric: null, label: row.factor };
     return { numeric: null, label: row.window };
   };
 
@@ -200,8 +254,7 @@
     if (slug === 'macroeconomics') return `${row.feature_cells.toLocaleString('en-US')} feature cells`;
     if (slug === 'realestate') return `${row.bucket} · ${row.events.toLocaleString('en-US')} events`;
     if (slug === 'tariff-incidence') return `N = ${row.n.toLocaleString('en-US')}`;
-    if (slug === 'microstructure') return row.outcome;
-    if (slug === 'casuallab') return row.outcome;
+    if (['microstructure', 'casuallab', 'em-factor-timing', 'polymarket-factors', 'crypto-factors'].includes(slug)) return row.outcome;
     return 'Published research observation';
   };
 
@@ -215,6 +268,9 @@
     if (activeProject === 'realestate') firstLabel = 'Rate-gap bucket';
     if (activeProject === 'tariff-incidence') firstLabel = 'Window';
     if (activeProject === 'microstructure') firstLabel = 'Distribution point';
+    if (activeProject === 'em-factor-timing') firstLabel = 'Strategy';
+    if (activeProject === 'polymarket-factors') firstLabel = 'Signal';
+    if (activeProject === 'crypto-factors') firstLabel = 'Factor';
     head.innerHTML = `<tr><th>${firstLabel}</th><th>${escapeHTML(metric.label)}</th><th>Context</th></tr>`;
     body.innerHTML = project.series.map((row) => {
       const x = xDescriptor(activeProject, row);
@@ -314,7 +370,7 @@
       const label = referenceValues.length > 1 ? `${value > 0 ? '+' : '−'} bound` : referenceLabel;
       return `<line class="chart-reference-line" x1="${pad.left}" y1="${py}" x2="${width - pad.right}" y2="${py}"></line><text class="chart-reference-text" x="${width - pad.right}" y="${py - (index ? 6 : 6)}" text-anchor="end">${escapeHTML(label)}</text>`;
     }).join('');
-    const title = `${project.title}: ${metric.label} by ${activeProject === 'casuallab' ? 'validation model' : activeProject === 'macroeconomics' ? 'backtest mode' : activeProject === 'realestate' ? 'rate gap' : activeProject === 'microstructure' ? 'distribution point' : 'analysis window'}`;
+    const title = `${project.title}: ${metric.label}`;
     chart.setAttribute('aria-label', title);
     chart.innerHTML = `<svg viewBox="0 0 ${width} ${height}" role="group" aria-label="${escapeHTML(title)}">${grid}${zeroLine}${referenceGraphic}${seriesGraphic}${marks}${ticks}</svg><div class="chart-tooltip" data-chart-tooltip hidden></div>`;
     if (legend) legend.innerHTML = `<span>${escapeHTML(metric.label)} · ${escapeHTML(metric.unit)}${referenceLabel ? ` · ${escapeHTML(referenceLabel)}` : ''}</span><span>${project.series.length.toLocaleString('en-US')} observations · hover, tap, or focus a mark</span>`;
@@ -344,14 +400,6 @@
     chart.onclick = (event) => { if (!event.target.closest('.chart-mark') && tooltip) tooltip.hidden = true; };
     chart.onkeydown = (event) => { if (event.key === 'Escape' && tooltip) tooltip.hidden = true; };
     renderSignalTable(project, metric);
-  };
-
-  const caseRowLabel = (slug, row) => {
-    if (slug === 'casuallab') return row.model;
-    if (slug === 'macroeconomics') return row.mode;
-    if (slug === 'realestate') return row.bucket;
-    if (slug === 'microstructure') return row.stage;
-    return row.window;
   };
 
   const renderCases = () => {

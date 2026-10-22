@@ -12,13 +12,25 @@ MANIFEST_PATH = ROOT / "build" / "hf-dataset" / "dataset_manifest.json"
 CATALOG_ROOT = ROOT / "apps" / "space" / "catalog"
 EVIDENCE_SOURCE = ROOT / "assets" / "data" / "evidence.json"
 EVIDENCE_TARGET = ROOT / "apps" / "space" / "evidence.json"
-PROJECTS = ("CasualLab", "Macroeconomics", "RealEstate", "TariffIncidence", "Microstructure")
+PROJECTS = (
+    "CasualLab",
+    "Macroeconomics",
+    "RealEstate",
+    "TariffIncidence",
+    "Microstructure",
+    "EMFactorTiming",
+    "PolymarketFactors",
+    "CryptoFactors",
+)
 SLUGS = {
     "CasualLab": "casuallab",
     "Macroeconomics": "macroeconomics",
     "RealEstate": "realestate",
     "TariffIncidence": "tariff-incidence",
     "Microstructure": "microstructure",
+    "EMFactorTiming": "em-factor-timing",
+    "PolymarketFactors": "polymarket-factors",
+    "CryptoFactors": "crypto-factors",
 }
 
 

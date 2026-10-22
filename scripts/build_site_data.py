@@ -13,8 +13,8 @@ from build_research_portfolio import STORIES
 
 try:
     import yaml
-except ImportError as exc:  # pragma: no cover - actionable CLI failure
-    raise SystemExit("Install requirements-dev.txt before building the catalog.") from exc
+except ImportError:
+    yaml = None
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE_URL = "https://yangxiaoshawn.github.io"
@@ -54,18 +54,60 @@ SECTIONS = {
     ),
     "about": (
         "About",
-        "Five applied economics and quant projects, built end to end.",
+        "Eight applied economics and quant projects, built end to end.",
     ),
 }
 
-DISPLAY_COPY = {
-    "casuallab": ("Spillover-Aware Experiments", "HTE RMSE is 0.0417 versus a 0.0247 oracle; the recovery gate is not met."),
-    "macroeconomics": ("Real-Time Macro", "Valid modes use zero future cells; naive revised data changes model rankings."),
-    "realestate": ("Mortgage Lock-In", "Each +1 pp rate gap is associated with a 0.817 exit-hazard ratio."),
-    "tariff-incidence": ("Tariff Policy Engine", "Customs values stay near +0.025 within ±0.076; landed values track the tariff."),
-    "microstructure": ("Execution Stress Test", "Research reference only: 110 of 144 are gross-positive against a 4 bp fee."),
-}
 DISPLAY_COPY = {slug: (story['title'], story['finding']) for slug, story in STORIES.items()}
+
+
+def _simple_yaml_load(text: str) -> dict:
+    """Fallback parser for flat/nested project.yaml files when PyYAML is absent."""
+    result: dict = {}
+    current_key: str | None = None
+    current_subkey: str | None = None
+    for raw_line in text.splitlines():
+        if not raw_line.strip() or raw_line.lstrip().startswith("#"):
+            continue
+        indent = len(raw_line) - len(raw_line.lstrip(" "))
+        line = raw_line.strip()
+        if indent == 0 and ":" in line:
+            k, v = line.split(":", 1)
+            k = k.strip()
+            v = v.strip().strip('"').strip("'")
+            current_key = k
+            current_subkey = None
+            if v:
+                result[k] = v
+            else:
+                result[k] = None
+        elif indent == 2 and current_key:
+            if line.startswith("- "):
+                if not isinstance(result.get(current_key), list):
+                    result[current_key] = []
+                result[current_key].append(line[2:].strip().strip('"').strip("'"))
+            elif ":" in line:
+                sk, sv = line.split(":", 1)
+                sk = sk.strip()
+                sv = sv.strip().strip('"').strip("'")
+                if not isinstance(result.get(current_key), dict):
+                    result[current_key] = {}
+                current_subkey = sk
+                if sv:
+                    result[current_key][sk] = sv
+                else:
+                    result[current_key][sk] = []
+        elif indent == 4 and current_key and current_subkey and line.startswith("- "):
+            if not isinstance(result[current_key].get(current_subkey), list):
+                result[current_key][current_subkey] = []
+            result[current_key][current_subkey].append(line[2:].strip().strip('"').strip("'"))
+    return result
+
+
+def parse_yaml(text: str) -> dict:
+    if yaml is not None:
+        return yaml.safe_load(text) or {}
+    return _simple_yaml_load(text)
 
 
 def project_paths() -> list[Path]:
@@ -77,7 +119,7 @@ def project_paths() -> list[Path]:
 def load_projects() -> list[dict]:
     projects = []
     for path in project_paths():
-        payload = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+        payload = parse_yaml(path.read_text(encoding="utf-8"))
         slug = payload.get("slug")
         if not slug:
             continue
@@ -131,11 +173,6 @@ def project_links(projects: list[dict]) -> str:
 def section_page(slug: str, title: str, description: str, projects: list[dict]) -> str:
     canonical = f"{SITE_URL}/{slug}/"
     cards = project_links(projects)
-    if slug == "research":
-        linked = json.loads((ROOT / "assets/data/linked_research.json").read_text())
-        for story in linked:
-            repo = "https://github.com/YangXiaoShawn/" + story["repo"]
-            cards += f'<article class="platform-card"><div class="section-kicker">{html.escape(story["topic"])}</div><h3><a href="{repo}">{html.escape(story["title"])}</a></h3><p>{html.escape(story["finding"])}</p><p class="card-note">{html.escape(story["method"])}</p><p class="card-note">{html.escape(story["boundary"])}</p><a class="text-link" href="{repo}">Read the study &amp; code ↗</a></article>'
     extra = ""
     hero_eyebrow = "Yang Xiao · Applied Economics & Quant"
     hero_title = title
@@ -151,11 +188,9 @@ def section_page(slug: str, title: str, description: str, projects: list[dict]) 
         extra = '<a class="button button-primary" href="https://github.com/YangXiaoShawn">GitHub</a><a class="button button-secondary" href="../index.html#research">View work</a>'
     else:
         extra = '<a class="button button-secondary" href="../index.html#research-lab">Browse the project signals</a>'
-    section_content = f'<div class="section-header"><div><div class="section-kicker">Selected research</div><h2 class="section-title">Five questions, with the evidence in view.</h2></div></div><div class="platform-grid">{cards}</div>'
-    if slug == "research":
-        section_content = section_content.replace("Five questions,", "Eight questions,")
+    section_content = f'<div class="section-header"><div><div class="section-kicker">Selected research</div><h2 class="section-title">Eight questions, with the evidence in view.</h2></div></div><div class="platform-grid">{cards}</div>'
     if slug == 'about':
-        section_content = '''<article class="about-narrative"><h2>Questions first. Evidence throughout.</h2><p>My work connects applied economics with quantitative research: who responds to an incentive, how data revisions affect a forecast, why mortgage loans stay in place, who bears a tariff, and how much edge order flow carries.</p><p>I build the work from the source data onward: define the question, choose the comparison, implement the analysis, test alternatives, and make the findings inspectable. A useful result can be a positive finding, a failed benchmark, or a limit on what the data can establish.</p><h2>How to read this portfolio</h2><p>Each study starts with its central question and a plain-language conclusion. The figures show the supporting results; the notes explain the research design, assumptions, and remaining uncertainty. Exact values and published sources sit beside the charts.</p><p>The website is a guided introduction to the research. The interactive Space lets you compare metrics, inspect simulation scenarios, and browse the public evidence. Source repositories contain the methods and reproduction routes.</p><a class="text-link" href="../index.html#research">Explore the research studies →</a></article>'''
+        section_content = '''<article class="about-narrative"><h2>Questions first. Evidence throughout.</h2><p>My work connects applied economics with quantitative research: who responds to an incentive, how data revisions affect a forecast, why mortgage loans stay in place, who bears a tariff, how much edge order flow carries, and whether factor premia hold across emerging markets, prediction markets, and crypto perpetuals.</p><p>I build the work from the source data onward: define the question, choose the comparison, implement the analysis, test alternatives, and make the findings inspectable. A useful result can be a positive finding, a failed benchmark, or a limit on what the data can establish.</p><p>Each study starts with its central question and a plain-language conclusion. The figures show the supporting results; the notes explain the research design, assumptions, and remaining uncertainty. Exact values and published sources sit beside the charts.</p><p>The website is a guided introduction to the research. The interactive Space lets you compare metrics, inspect simulation scenarios, and browse the public evidence. Source repositories contain the methods and reproduction routes.</p><a class="text-link" href="../index.html#research">Explore the research studies →</a></article>'''
     if slug == 'methods':
         section_content = '<div class="platform-grid">' + ''.join(f'<article class="platform-card"><div class="section-kicker">{html.escape(story["topic"])}</div><h3>{html.escape(story["title"])}</h3><p>{html.escape(story["method"])}</p><p class="card-note">{html.escape(story["boundary"])}</p><a class="text-link" href="../projects/{key}/#method">Read the research design →</a></article>' for key, story in STORIES.items()) + '</div>'
     return f"""<!doctype html>

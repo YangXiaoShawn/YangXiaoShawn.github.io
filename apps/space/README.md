@@ -12,9 +12,9 @@ datasets:
 
 # Yang Xiao · Research Evidence
 
-Explore five research questions with their methods, findings, and direct evidence.
+Explore eight research questions with their methods, findings, and direct evidence.
 
-Ten figures pair plain-language interpretations with exact-value tables and
+Sixteen figures pair plain-language interpretations with exact-value tables and
 published sources. Open the metric explorer to compare measures and inspect
 individual trading scenarios. Search the source files or share a project view.
 The Microstructure result remains labeled “research reference only.”

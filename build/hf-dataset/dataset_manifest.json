@@ -5,10 +5,13 @@
     "Macroeconomics",
     "RealEstate",
     "TariffIncidence",
-    "Microstructure"
+    "Microstructure",
+    "EMFactorTiming",
+    "PolymarketFactors",
+    "CryptoFactors"
   ],
-  "file_count": 3701,
-  "size_bytes": 2854901565,
+  "file_count": 3994,
+  "size_bytes": 2865075873,
   "excluded_parts": [
     ".DS_Store",
     ".git",
@@ -14822,6 +14825,1178 @@
     {
       "path": "Microstructure/src/microstructure/data/binance_archive.py",
       "size_bytes": 56897
+    },
+    {
+      "path": "EMFactorTiming/.gitignore",
+      "size_bytes": 198
+    },
+    {
+      "path": "EMFactorTiming/AGENTS.md",
+      "size_bytes": 2257
+    },
+    {
+      "path": "EMFactorTiming/LICENSE",
+      "size_bytes": 1066
+    },
+    {
+      "path": "EMFactorTiming/Makefile",
+      "size_bytes": 2268
+    },
+    {
+      "path": "EMFactorTiming/README.md",
+      "size_bytes": 9372
+    },
+    {
+      "path": "EMFactorTiming/STATUS.md",
+      "size_bytes": 2440
+    },
+    {
+      "path": "EMFactorTiming/config/market_history.yaml",
+      "size_bytes": 5413
+    },
+    {
+      "path": "EMFactorTiming/config/markets.yaml",
+      "size_bytes": 1423
+    },
+    {
+      "path": "EMFactorTiming/data/DATA_ACCESS.md",
+      "size_bytes": 1998
+    },
+    {
+      "path": "EMFactorTiming/data/fixtures/sample_em_factors.csv",
+      "size_bytes": 239
+    },
+    {
+      "path": "EMFactorTiming/docs/METHODOLOGY.md",
+      "size_bytes": 987
+    },
+    {
+      "path": "EMFactorTiming/paper/draft.pdf",
+      "size_bytes": 278282
+    },
+    {
+      "path": "EMFactorTiming/paper/draft.tex",
+      "size_bytes": 31660
+    },
+    {
+      "path": "EMFactorTiming/paper/figures/cumulative_net.png",
+      "size_bytes": 135287
+    },
+    {
+      "path": "EMFactorTiming/paper/references.bib",
+      "size_bytes": 4555
+    },
+    {
+      "path": "EMFactorTiming/paper/tables/breakeven.tex",
+      "size_bytes": 1027
+    },
+    {
+      "path": "EMFactorTiming/paper/tables/coverage.tex",
+      "size_bytes": 3045
+    },
+    {
+      "path": "EMFactorTiming/paper/tables/extensions.tex",
+      "size_bytes": 3390
+    },
+    {
+      "path": "EMFactorTiming/paper/tables/market_history.tex",
+      "size_bytes": 2204
+    },
+    {
+      "path": "EMFactorTiming/paper/tables/portfolios.tex",
+      "size_bytes": 1883
+    },
+    {
+      "path": "EMFactorTiming/paper/tables/r2_oos.tex",
+      "size_bytes": 2358
+    },
+    {
+      "path": "EMFactorTiming/paper/tables/robustness.tex",
+      "size_bytes": 3111
+    },
+    {
+      "path": "EMFactorTiming/paper/tables/size_power.tex",
+      "size_bytes": 1077
+    },
+    {
+      "path": "EMFactorTiming/paper/tables/transfer_by_country.tex",
+      "size_bytes": 2107
+    },
+    {
+      "path": "EMFactorTiming/portfolio/interview_story.md",
+      "size_bytes": 836
+    },
+    {
+      "path": "EMFactorTiming/portfolio/resume_bullets.md",
+      "size_bytes": 672
+    },
+    {
+      "path": "EMFactorTiming/portfolio/ten_minute_presentation_outline.md",
+      "size_bytes": 659
+    },
+    {
+      "path": "EMFactorTiming/project.yaml",
+      "size_bytes": 3197
+    },
+    {
+      "path": "EMFactorTiming/pyproject.toml",
+      "size_bytes": 715
+    },
+    {
+      "path": "EMFactorTiming/reports/failed_hypotheses.md",
+      "size_bytes": 2971
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em/coverage.csv",
+      "size_bytes": 2671
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em/cumulative_net.png",
+      "size_bytes": 93871
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em/forecast_slopes.csv",
+      "size_bytes": 629
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em/portfolio_monthly.csv",
+      "size_bytes": 408669
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em/portfolios.csv",
+      "size_bytes": 1827
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em/r2_oos.csv",
+      "size_bytes": 1482
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em/r2_oos_by_country.csv",
+      "size_bytes": 1131
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em/run_manifest.json",
+      "size_bytes": 344
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em/summary.md",
+      "size_bytes": 2789
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em/transfer_by_country_enet.csv",
+      "size_bytes": 2194
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_ew/coverage.csv",
+      "size_bytes": 2671
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_ew/cumulative_net.png",
+      "size_bytes": 81561
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_ew/portfolio_monthly.csv",
+      "size_bytes": 332350
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_ew/portfolios.csv",
+      "size_bytes": 1498
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_ew/r2_oos.csv",
+      "size_bytes": 1182
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_ew/r2_oos_by_country.csv",
+      "size_bytes": 1119
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_ew/run_manifest.json",
+      "size_bytes": 333
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_ew/summary.md",
+      "size_bytes": 2414
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_ew_rs/coverage.csv",
+      "size_bytes": 2671
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_ew_rs/cumulative_net.png",
+      "size_bytes": 81989
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_ew_rs/portfolio_monthly.csv",
+      "size_bytes": 543314
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_ew_rs/portfolios.csv",
+      "size_bytes": 2392
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_ew_rs/r2_oos.csv",
+      "size_bytes": 1982
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_ew_rs/r2_oos_by_country.csv",
+      "size_bytes": 1119
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_ew_rs/run_manifest.json",
+      "size_bytes": 433
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_ew_rs/summary.md",
+      "size_bytes": 3468
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_from1990/coverage.csv",
+      "size_bytes": 2671
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_from1990/cumulative_net.png",
+      "size_bytes": 88202
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_from1990/portfolio_monthly.csv",
+      "size_bytes": 296864
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_from1990/portfolios.csv",
+      "size_bytes": 1395
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_from1990/r2_oos.csv",
+      "size_bytes": 1099
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_from1990/r2_oos_by_country.csv",
+      "size_bytes": 1122
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_from1990/run_manifest.json",
+      "size_bytes": 395
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_from1990/summary.md",
+      "size_bytes": 2296
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_kappa240/coverage.csv",
+      "size_bytes": 2671
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_kappa240/cumulative_net.png",
+      "size_bytes": 89784
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_kappa240/portfolio_monthly.csv",
+      "size_bytes": 333767
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_kappa240/portfolios.csv",
+      "size_bytes": 1506
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_kappa240/r2_oos.csv",
+      "size_bytes": 1195
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_kappa240/r2_oos_by_country.csv",
+      "size_bytes": 1124
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_kappa240/run_manifest.json",
+      "size_bytes": 334
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_kappa240/summary.md",
+      "size_bytes": 2421
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_kappa60/coverage.csv",
+      "size_bytes": 2671
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_kappa60/cumulative_net.png",
+      "size_bytes": 97445
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_kappa60/portfolio_monthly.csv",
+      "size_bytes": 334425
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_kappa60/portfolios.csv",
+      "size_bytes": 1509
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_kappa60/r2_oos.csv",
+      "size_bytes": 1199
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_kappa60/r2_oos_by_country.csv",
+      "size_bytes": 1121
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_kappa60/run_manifest.json",
+      "size_bytes": 333
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_kappa60/summary.md",
+      "size_bytes": 2421
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_macro/coverage.csv",
+      "size_bytes": 2671
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_macro/cumulative_net.png",
+      "size_bytes": 92764
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_macro/portfolio_monthly.csv",
+      "size_bytes": 297016
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_macro/portfolios.csv",
+      "size_bytes": 1396
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_macro/r2_oos.csv",
+      "size_bytes": 1099
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_macro/r2_oos_by_country.csv",
+      "size_bytes": 1125
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_macro/run_manifest.json",
+      "size_bytes": 402
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_macro/summary.md",
+      "size_bytes": 2296
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_rs/coverage.csv",
+      "size_bytes": 2671
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_rs/cumulative_net.png",
+      "size_bytes": 91822
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_rs/portfolio_monthly.csv",
+      "size_bytes": 546502
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_rs/portfolios.csv",
+      "size_bytes": 2411
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_rs/r2_oos.csv",
+      "size_bytes": 2011
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_rs/r2_oos_by_country.csv",
+      "size_bytes": 1131
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_rs/run_manifest.json",
+      "size_bytes": 393
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_rs/summary.md",
+      "size_bytes": 3484
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_tv/coverage.csv",
+      "size_bytes": 3145
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_tv/cumulative_net.png",
+      "size_bytes": 93277
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_tv/portfolio_monthly.csv",
+      "size_bytes": 334198
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_tv/portfolios.csv",
+      "size_bytes": 1509
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_tv/r2_oos.csv",
+      "size_bytes": 1194
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_tv/r2_oos_by_country.csv",
+      "size_bytes": 1371
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_tv/run_manifest.json",
+      "size_bytes": 360
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_tv/summary.md",
+      "size_bytes": 2421
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_vw/coverage.csv",
+      "size_bytes": 2671
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_vw/cumulative_net.png",
+      "size_bytes": 94997
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_vw/portfolio_monthly.csv",
+      "size_bytes": 334367
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_vw/portfolios.csv",
+      "size_bytes": 1500
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_vw/r2_oos.csv",
+      "size_bytes": 1192
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_vw/r2_oos_by_country.csv",
+      "size_bytes": 1123
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_vw/run_manifest.json",
+      "size_bytes": 333
+    },
+    {
+      "path": "EMFactorTiming/reports/jkp_em_vw/summary.md",
+      "size_bytes": 2421
+    },
+    {
+      "path": "EMFactorTiming/reports/robustness/breakeven.csv",
+      "size_bytes": 526
+    },
+    {
+      "path": "EMFactorTiming/reports/robustness/extensions.csv",
+      "size_bytes": 3679
+    },
+    {
+      "path": "EMFactorTiming/reports/robustness/r2_oos_from2005.csv",
+      "size_bytes": 1196
+    },
+    {
+      "path": "EMFactorTiming/reports/robustness/robustness.csv",
+      "size_bytes": 3023
+    },
+    {
+      "path": "EMFactorTiming/reports/synthetic_demo/coverage.csv",
+      "size_bytes": 605
+    },
+    {
+      "path": "EMFactorTiming/reports/synthetic_demo/cumulative_net.png",
+      "size_bytes": 77031
+    },
+    {
+      "path": "EMFactorTiming/reports/synthetic_demo/portfolio_monthly.csv",
+      "size_bytes": 231214
+    },
+    {
+      "path": "EMFactorTiming/reports/synthetic_demo/portfolios.csv",
+      "size_bytes": 1787
+    },
+    {
+      "path": "EMFactorTiming/reports/synthetic_demo/r2_oos.csv",
+      "size_bytes": 1467
+    },
+    {
+      "path": "EMFactorTiming/reports/synthetic_demo/r2_oos_by_country.csv",
+      "size_bytes": 433
+    },
+    {
+      "path": "EMFactorTiming/reports/synthetic_demo/run_manifest.json",
+      "size_bytes": 332
+    },
+    {
+      "path": "EMFactorTiming/reports/synthetic_demo/summary.md",
+      "size_bytes": 2732
+    },
+    {
+      "path": "EMFactorTiming/reports/validation/size_power.csv",
+      "size_bytes": 256
+    },
+    {
+      "path": "EMFactorTiming/reports/validation/size_power.md",
+      "size_bytes": 765
+    },
+    {
+      "path": "EMFactorTiming/reports/validation/size_power_draws.csv",
+      "size_bytes": 10366
+    },
+    {
+      "path": "EMFactorTiming/scripts/breakeven.py",
+      "size_bytes": 4515
+    },
+    {
+      "path": "EMFactorTiming/scripts/extensions.py",
+      "size_bytes": 7389
+    },
+    {
+      "path": "EMFactorTiming/scripts/paper_tables.py",
+      "size_bytes": 17568
+    },
+    {
+      "path": "EMFactorTiming/scripts/robustness.py",
+      "size_bytes": 6290
+    },
+    {
+      "path": "EMFactorTiming/scripts/size_power.py",
+      "size_bytes": 2565
+    },
+    {
+      "path": "EMFactorTiming/src/emft/__init__.py",
+      "size_bytes": 216
+    },
+    {
+      "path": "EMFactorTiming/src/emft/__main__.py",
+      "size_bytes": 30
+    },
+    {
+      "path": "EMFactorTiming/src/emft/backtest.py",
+      "size_bytes": 2778
+    },
+    {
+      "path": "EMFactorTiming/src/emft/cli.py",
+      "size_bytes": 4456
+    },
+    {
+      "path": "EMFactorTiming/src/emft/data.py",
+      "size_bytes": 11156
+    },
+    {
+      "path": "EMFactorTiming/src/emft/evaluate.py",
+      "size_bytes": 6095
+    },
+    {
+      "path": "EMFactorTiming/src/emft/features.py",
+      "size_bytes": 6043
+    },
+    {
+      "path": "EMFactorTiming/src/emft/models.py",
+      "size_bytes": 5872
+    },
+    {
+      "path": "EMFactorTiming/src/emft/report.py",
+      "size_bytes": 3774
+    },
+    {
+      "path": "EMFactorTiming/tests/test_loader.py",
+      "size_bytes": 3496
+    },
+    {
+      "path": "EMFactorTiming/tests/test_market_history.py",
+      "size_bytes": 4096
+    },
+    {
+      "path": "EMFactorTiming/tests/test_no_leakage.py",
+      "size_bytes": 1313
+    },
+    {
+      "path": "EMFactorTiming/tests/test_published_jkp_results.py",
+      "size_bytes": 1384
+    },
+    {
+      "path": "EMFactorTiming/tests/test_recovery.py",
+      "size_bytes": 2149
+    },
+    {
+      "path": "PolymarketFactors/.env.example",
+      "size_bytes": 289
+    },
+    {
+      "path": "PolymarketFactors/.gitignore",
+      "size_bytes": 85
+    },
+    {
+      "path": "PolymarketFactors/AGENTS.md",
+      "size_bytes": 516
+    },
+    {
+      "path": "PolymarketFactors/LICENSE",
+      "size_bytes": 1066
+    },
+    {
+      "path": "PolymarketFactors/Makefile",
+      "size_bytes": 421
+    },
+    {
+      "path": "PolymarketFactors/README.md",
+      "size_bytes": 7268
+    },
+    {
+      "path": "PolymarketFactors/STATUS.md",
+      "size_bytes": 1029
+    },
+    {
+      "path": "PolymarketFactors/data/DATA_ACCESS.md",
+      "size_bytes": 610
+    },
+    {
+      "path": "PolymarketFactors/data/fixtures/sample_markets.csv",
+      "size_bytes": 358
+    },
+    {
+      "path": "PolymarketFactors/docs/METHODOLOGY.md",
+      "size_bytes": 963
+    },
+    {
+      "path": "PolymarketFactors/portfolio/interview_story.md",
+      "size_bytes": 634
+    },
+    {
+      "path": "PolymarketFactors/portfolio/resume_bullets.md",
+      "size_bytes": 427
+    },
+    {
+      "path": "PolymarketFactors/portfolio/ten_minute_presentation_outline.md",
+      "size_bytes": 462
+    },
+    {
+      "path": "PolymarketFactors/project.yaml",
+      "size_bytes": 2777
+    },
+    {
+      "path": "PolymarketFactors/pyproject.toml",
+      "size_bytes": 934
+    },
+    {
+      "path": "PolymarketFactors/reports/README_app.md",
+      "size_bytes": 1771
+    },
+    {
+      "path": "PolymarketFactors/reports/REPORT.md",
+      "size_bytes": 10381
+    },
+    {
+      "path": "PolymarketFactors/reports/REPORT_EN.md",
+      "size_bytes": 11883
+    },
+    {
+      "path": "PolymarketFactors/reports/artifact_funnel.csv",
+      "size_bytes": 467
+    },
+    {
+      "path": "PolymarketFactors/reports/category_reversal_ic.csv",
+      "size_bytes": 176
+    },
+    {
+      "path": "PolymarketFactors/reports/expanded_factor_summary.csv",
+      "size_bytes": 617
+    },
+    {
+      "path": "PolymarketFactors/reports/report_figs/fig1_artifact_funnel.png",
+      "size_bytes": 49249
+    },
+    {
+      "path": "PolymarketFactors/reports/report_figs/fig2_factor_ic.png",
+      "size_bytes": 41662
+    },
+    {
+      "path": "PolymarketFactors/reports/report_figs/fig3_longterm_ls.png",
+      "size_bytes": 111897
+    },
+    {
+      "path": "PolymarketFactors/reports/report_figs/fig4_mom_by_category.png",
+      "size_bytes": 31934
+    },
+    {
+      "path": "PolymarketFactors/reports/report_figs/fig5_portfolio_equity.png",
+      "size_bytes": 59087
+    },
+    {
+      "path": "PolymarketFactors/reports/report_figs/fig6_sw_distribution.png",
+      "size_bytes": 34382
+    },
+    {
+      "path": "PolymarketFactors/reports/report_figs_en/fig1_artifact_funnel.png",
+      "size_bytes": 44342
+    },
+    {
+      "path": "PolymarketFactors/reports/report_figs_en/fig2_factor_ic.png",
+      "size_bytes": 42251
+    },
+    {
+      "path": "PolymarketFactors/reports/report_figs_en/fig3_longterm_ls.png",
+      "size_bytes": 115704
+    },
+    {
+      "path": "PolymarketFactors/reports/report_figs_en/fig4_mom_by_category.png",
+      "size_bytes": 32035
+    },
+    {
+      "path": "PolymarketFactors/reports/report_figs_en/fig5_portfolio_equity.png",
+      "size_bytes": 59691
+    },
+    {
+      "path": "PolymarketFactors/reports/report_figs_en/fig6_sw_distribution.png",
+      "size_bytes": 32995
+    },
+    {
+      "path": "PolymarketFactors/src/polymarket_factors/__init__.py",
+      "size_bytes": 128
+    },
+    {
+      "path": "PolymarketFactors/src/polymarket_factors/app.py",
+      "size_bytes": 32885
+    },
+    {
+      "path": "PolymarketFactors/src/polymarket_factors/backtest.py",
+      "size_bytes": 9827
+    },
+    {
+      "path": "PolymarketFactors/src/polymarket_factors/build_report_docx.py",
+      "size_bytes": 5107
+    },
+    {
+      "path": "PolymarketFactors/src/polymarket_factors/cli.py",
+      "size_bytes": 1557
+    },
+    {
+      "path": "PolymarketFactors/src/polymarket_factors/combined_backtest.py",
+      "size_bytes": 10698
+    },
+    {
+      "path": "PolymarketFactors/src/polymarket_factors/complete_event_arb.py",
+      "size_bytes": 8051
+    },
+    {
+      "path": "PolymarketFactors/src/polymarket_factors/config.py",
+      "size_bytes": 2950
+    },
+    {
+      "path": "PolymarketFactors/src/polymarket_factors/data_fetcher.py",
+      "size_bytes": 17029
+    },
+    {
+      "path": "PolymarketFactors/src/polymarket_factors/db.py",
+      "size_bytes": 5966
+    },
+    {
+      "path": "PolymarketFactors/src/polymarket_factors/diagnose_costs.py",
+      "size_bytes": 2838
+    },
+    {
+      "path": "PolymarketFactors/src/polymarket_factors/diagnose_factors.py",
+      "size_bytes": 2459
+    },
+    {
+      "path": "PolymarketFactors/src/polymarket_factors/event_data.py",
+      "size_bytes": 6574
+    },
+    {
+      "path": "PolymarketFactors/src/polymarket_factors/expanded_factor_research.py",
+      "size_bytes": 23975
+    },
+    {
+      "path": "PolymarketFactors/src/polymarket_factors/factor_engine.py",
+      "size_bytes": 37518
+    },
+    {
+      "path": "PolymarketFactors/src/polymarket_factors/lead_lag_hourly.py",
+      "size_bytes": 7875
+    },
+    {
+      "path": "PolymarketFactors/src/polymarket_factors/main.py",
+      "size_bytes": 7368
+    },
+    {
+      "path": "PolymarketFactors/src/polymarket_factors/make_report_figs.py",
+      "size_bytes": 7103
+    },
+    {
+      "path": "PolymarketFactors/src/polymarket_factors/make_report_figs_en.py",
+      "size_bytes": 6966
+    },
+    {
+      "path": "PolymarketFactors/src/polymarket_factors/momrev_strategy.py",
+      "size_bytes": 11099
+    },
+    {
+      "path": "PolymarketFactors/src/polymarket_factors/optimize_three_factor_and_strategies.py",
+      "size_bytes": 18084
+    },
+    {
+      "path": "PolymarketFactors/src/polymarket_factors/pair_selector.py",
+      "size_bytes": 9054
+    },
+    {
+      "path": "PolymarketFactors/src/polymarket_factors/portfolio_arb.py",
+      "size_bytes": 22570
+    },
+    {
+      "path": "PolymarketFactors/src/polymarket_factors/report.py",
+      "size_bytes": 20199
+    },
+    {
+      "path": "PolymarketFactors/src/polymarket_factors/resolved_data.py",
+      "size_bytes": 11666
+    },
+    {
+      "path": "PolymarketFactors/src/polymarket_factors/scanner.py",
+      "size_bytes": 15143
+    },
+    {
+      "path": "PolymarketFactors/src/polymarket_factors/short_winners_scanner.py",
+      "size_bytes": 6168
+    },
+    {
+      "path": "PolymarketFactors/src/polymarket_factors/strategy.py",
+      "size_bytes": 10236
+    },
+    {
+      "path": "PolymarketFactors/src/polymarket_factors/threefactor_search.py",
+      "size_bytes": 9115
+    },
+    {
+      "path": "PolymarketFactors/src/polymarket_factors/verify_db.py",
+      "size_bytes": 1034
+    },
+    {
+      "path": "PolymarketFactors/static/backtest.html",
+      "size_bytes": 30357
+    },
+    {
+      "path": "PolymarketFactors/static/factors.html",
+      "size_bytes": 49657
+    },
+    {
+      "path": "PolymarketFactors/static/index.html",
+      "size_bytes": 28311
+    },
+    {
+      "path": "PolymarketFactors/static/shortwinners.html",
+      "size_bytes": 9270
+    },
+    {
+      "path": "PolymarketFactors/static/threefactor.html",
+      "size_bytes": 31980
+    },
+    {
+      "path": "PolymarketFactors/tests/test_cache_fingerprint.py",
+      "size_bytes": 1767
+    },
+    {
+      "path": "PolymarketFactors/tests/test_next_bar.py",
+      "size_bytes": 4461
+    },
+    {
+      "path": "PolymarketFactors/tests/test_pnl.py",
+      "size_bytes": 5619
+    },
+    {
+      "path": "PolymarketFactors/tests/test_portfolio_arb_pnl.py",
+      "size_bytes": 2270
+    },
+    {
+      "path": "PolymarketFactors/tests/test_published_artifacts.py",
+      "size_bytes": 1585
+    },
+    {
+      "path": "CryptoFactors/.gitignore",
+      "size_bytes": 56
+    },
+    {
+      "path": "CryptoFactors/AGENTS.md",
+      "size_bytes": 308
+    },
+    {
+      "path": "CryptoFactors/LICENSE",
+      "size_bytes": 1066
+    },
+    {
+      "path": "CryptoFactors/Makefile",
+      "size_bytes": 440
+    },
+    {
+      "path": "CryptoFactors/README.md",
+      "size_bytes": 7720
+    },
+    {
+      "path": "CryptoFactors/README_zh.md",
+      "size_bytes": 25707
+    },
+    {
+      "path": "CryptoFactors/STATUS.md",
+      "size_bytes": 956
+    },
+    {
+      "path": "CryptoFactors/dashboard/dashboard.html",
+      "size_bytes": 12562
+    },
+    {
+      "path": "CryptoFactors/data/DATA_ACCESS.md",
+      "size_bytes": 535
+    },
+    {
+      "path": "CryptoFactors/data/fixtures/sample_perp_panel.csv",
+      "size_bytes": 288
+    },
+    {
+      "path": "CryptoFactors/data/results/equity_binance.csv",
+      "size_bytes": 488473
+    },
+    {
+      "path": "CryptoFactors/data/results/equity_curves.csv",
+      "size_bytes": 57355
+    },
+    {
+      "path": "CryptoFactors/data/results/equity_perp.csv",
+      "size_bytes": 132872
+    },
+    {
+      "path": "CryptoFactors/data/results/equity_portfolio.csv",
+      "size_bytes": 62591
+    },
+    {
+      "path": "CryptoFactors/data/results/funding_proxy_validation.csv",
+      "size_bytes": 219486
+    },
+    {
+      "path": "CryptoFactors/data/results/funding_timing.csv",
+      "size_bytes": 75471
+    },
+    {
+      "path": "CryptoFactors/data/results/report_postpub.csv",
+      "size_bytes": 18520
+    },
+    {
+      "path": "CryptoFactors/data/results/report_postpub_monthly.csv",
+      "size_bytes": 4981
+    },
+    {
+      "path": "CryptoFactors/data/results/report_update.csv",
+      "size_bytes": 13970
+    },
+    {
+      "path": "CryptoFactors/data/results/report_windows.csv",
+      "size_bytes": 12814
+    },
+    {
+      "path": "CryptoFactors/docs/METHODOLOGY.md",
+      "size_bytes": 921
+    },
+    {
+      "path": "CryptoFactors/portfolio/interview_story.md",
+      "size_bytes": 831
+    },
+    {
+      "path": "CryptoFactors/portfolio/resume_bullets.md",
+      "size_bytes": 543
+    },
+    {
+      "path": "CryptoFactors/portfolio/ten_minute_presentation_outline.md",
+      "size_bytes": 496
+    },
+    {
+      "path": "CryptoFactors/project.yaml",
+      "size_bytes": 2967
+    },
+    {
+      "path": "CryptoFactors/pyproject.toml",
+      "size_bytes": 788
+    },
+    {
+      "path": "CryptoFactors/reports/REPORT.md",
+      "size_bytes": 8276
+    },
+    {
+      "path": "CryptoFactors/reports/UPDATE_2026-07.md",
+      "size_bytes": 10041
+    },
+    {
+      "path": "CryptoFactors/reports/UPDATE_2026-08.md",
+      "size_bytes": 5777
+    },
+    {
+      "path": "CryptoFactors/reports/UPDATE_2026-09.md",
+      "size_bytes": 8964
+    },
+    {
+      "path": "CryptoFactors/reports/factor_transfer_summary.csv",
+      "size_bytes": 577
+    },
+    {
+      "path": "CryptoFactors/reports/figures/dashboard_preview.png",
+      "size_bytes": 112242
+    },
+    {
+      "path": "CryptoFactors/reports/figures/equity_curves.png",
+      "size_bytes": 330712
+    },
+    {
+      "path": "CryptoFactors/reports/figures/equity_deploy.png",
+      "size_bytes": 265076
+    },
+    {
+      "path": "CryptoFactors/reports/figures/equity_perp.png",
+      "size_bytes": 294938
+    },
+    {
+      "path": "CryptoFactors/reports/figures/equity_postpub.png",
+      "size_bytes": 171817
+    },
+    {
+      "path": "CryptoFactors/reports/figures/equity_update.png",
+      "size_bytes": 287342
+    },
+    {
+      "path": "CryptoFactors/reports/figures/equity_windows.png",
+      "size_bytes": 280171
+    },
+    {
+      "path": "CryptoFactors/reports/figures/funding_timing.png",
+      "size_bytes": 176652
+    },
+    {
+      "path": "CryptoFactors/reports/postpub_composite_summary.csv",
+      "size_bytes": 743
+    },
+    {
+      "path": "CryptoFactors/src/crypto_factors/__init__.py",
+      "size_bytes": 132
+    },
+    {
+      "path": "CryptoFactors/src/crypto_factors/backtest.py",
+      "size_bytes": 5667
+    },
+    {
+      "path": "CryptoFactors/src/crypto_factors/backtest_all32.py",
+      "size_bytes": 7335
+    },
+    {
+      "path": "CryptoFactors/src/crypto_factors/backtest_binance.py",
+      "size_bytes": 4929
+    },
+    {
+      "path": "CryptoFactors/src/crypto_factors/backtest_perp.py",
+      "size_bytes": 9265
+    },
+    {
+      "path": "CryptoFactors/src/crypto_factors/backtest_real.py",
+      "size_bytes": 4975
+    },
+    {
+      "path": "CryptoFactors/src/crypto_factors/binance_pipeline.py",
+      "size_bytes": 6784
+    },
+    {
+      "path": "CryptoFactors/src/crypto_factors/cli.py",
+      "size_bytes": 1661
+    },
+    {
+      "path": "CryptoFactors/src/crypto_factors/deploy_spot.py",
+      "size_bytes": 4692
+    },
+    {
+      "path": "CryptoFactors/src/crypto_factors/factor_library.py",
+      "size_bytes": 7398
+    },
+    {
+      "path": "CryptoFactors/src/crypto_factors/fetch_okx.py",
+      "size_bytes": 3499
+    },
+    {
+      "path": "CryptoFactors/src/crypto_factors/funding_deep.py",
+      "size_bytes": 6098
+    },
+    {
+      "path": "CryptoFactors/src/crypto_factors/live_monitor.py",
+      "size_bytes": 9985
+    },
+    {
+      "path": "CryptoFactors/src/crypto_factors/make_charts.py",
+      "size_bytes": 3942
+    },
+    {
+      "path": "CryptoFactors/src/crypto_factors/make_charts_deploy.py",
+      "size_bytes": 2837
+    },
+    {
+      "path": "CryptoFactors/src/crypto_factors/make_charts_funding.py",
+      "size_bytes": 1713
+    },
+    {
+      "path": "CryptoFactors/src/crypto_factors/make_charts_perp.py",
+      "size_bytes": 3464
+    },
+    {
+      "path": "CryptoFactors/src/crypto_factors/make_charts_postpub.py",
+      "size_bytes": 3911
+    },
+    {
+      "path": "CryptoFactors/src/crypto_factors/make_charts_update.py",
+      "size_bytes": 6845
+    },
+    {
+      "path": "CryptoFactors/src/crypto_factors/make_charts_windows.py",
+      "size_bytes": 5930
+    },
+    {
+      "path": "CryptoFactors/src/crypto_factors/oos_okx.py",
+      "size_bytes": 5120
+    },
+    {
+      "path": "CryptoFactors/src/crypto_factors/oos_validate.py",
+      "size_bytes": 5057
+    },
+    {
+      "path": "CryptoFactors/src/crypto_factors/perp_pipeline.py",
+      "size_bytes": 8906
+    },
+    {
+      "path": "CryptoFactors/src/crypto_factors/portfolio.py",
+      "size_bytes": 3249
+    },
+    {
+      "path": "CryptoFactors/src/crypto_factors/portfolio_opt.py",
+      "size_bytes": 3629
+    },
+    {
+      "path": "CryptoFactors/src/crypto_factors/report_postpub.py",
+      "size_bytes": 5912
+    },
+    {
+      "path": "CryptoFactors/src/crypto_factors/report_update.py",
+      "size_bytes": 7402
+    },
+    {
+      "path": "CryptoFactors/src/crypto_factors/report_windows.py",
+      "size_bytes": 6683
+    },
+    {
+      "path": "CryptoFactors/src/crypto_factors/smart_money_factor.py",
+      "size_bytes": 4494
+    },
+    {
+      "path": "CryptoFactors/src/crypto_factors/tick_flow_demo.py",
+      "size_bytes": 3527
+    },
+    {
+      "path": "CryptoFactors/src/crypto_factors/update_data.py",
+      "size_bytes": 22306
+    },
+    {
+      "path": "CryptoFactors/tests/test_factor_fixtures.py",
+      "size_bytes": 836
+    },
+    {
+      "path": "CryptoFactors/tests/test_postpub_windows.py",
+      "size_bytes": 753
+    },
+    {
+      "path": "CryptoFactors/tests/test_published_results.py",
+      "size_bytes": 1805
     }
   ]
 }

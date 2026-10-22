@@ -1,15 +1,32 @@
 #!/usr/bin/env python3
-"""Read build inputs from the standalone project repositories at pinned commits.
+"""Read build inputs from the unified open-economic-quant monorepo or standalone project repositories.
 
-The website no longer carries copies of the project packages. Files that the
-build still needs are fetched from GitHub at the commit recorded here, so a
-build is reproducible and a change upstream never alters the site silently.
+Prefers local monorepo checkout when present so builds run deterministically offline;
+falls back to GitHub at the pinned commit if local checkout is unavailable.
 """
 
 from __future__ import annotations
 
 from functools import lru_cache
+from pathlib import Path
 from urllib.request import Request, urlopen
+
+ROOT = Path(__file__).resolve().parents[1]
+MONOREPO_CANDIDATES = [
+    ROOT.parent / "open-economic-quant",
+    ROOT / "open-economic-quant",
+]
+
+FOLDER_BY_SLUG = {
+    "casuallab": "CasualLab",
+    "macroeconomics": "Macroeconomics",
+    "realestate": "RealEstate",
+    "tariff-incidence": "TariffIncidence",
+    "microstructure": "Microstructure",
+    "em-factor-timing": "EMFactorTiming",
+    "polymarket-factors": "PolymarketFactors",
+    "crypto-factors": "CryptoFactors",
+}
 
 SOURCES = {
     "tariff-incidence": (
@@ -21,7 +38,13 @@ SOURCES = {
 
 @lru_cache(maxsize=None)
 def source_text(slug: str, relative: str) -> str:
-    """Return one UTF-8 file from a project repository at its pinned commit."""
+    """Return one UTF-8 file from the monorepo checkout or pinned GitHub commit."""
+    folder = FOLDER_BY_SLUG.get(slug)
+    if folder:
+        for base in MONOREPO_CANDIDATES:
+            candidate = base / folder / relative
+            if candidate.exists():
+                return candidate.read_text(encoding="utf-8")
     repo, commit = SOURCES[slug]
     url = f"https://raw.githubusercontent.com/{repo}/{commit}/{relative}"
     request = Request(url, headers={"User-Agent": "open-quant-econ-site-build"})

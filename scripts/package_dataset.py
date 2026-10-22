@@ -32,8 +32,8 @@ def main() -> None:
     parser.add_argument(
         "--workspace",
         type=Path,
-        default=ROOT.parent,
-        help="Folder holding local checkouts of the five project repositories.",
+        default=ROOT.parent / "open-economic-quant",
+        help="Folder holding local checkouts of the eight project directories.",
     )
     parser.add_argument("--output", type=Path, default=ROOT / "build" / "hf-dataset")
     parser.add_argument("--copy", action="store_true", help="Copy included files into the staging directory.")
@@ -44,6 +44,9 @@ def main() -> None:
         ("RealEstate", args.workspace / "RealEstate"),
         ("TariffIncidence", args.workspace / "TariffIncidence"),
         ("Microstructure", args.workspace / "Microstructure"),
+        ("EMFactorTiming", args.workspace / "EMFactorTiming"),
+        ("PolymarketFactors", args.workspace / "PolymarketFactors"),
+        ("CryptoFactors", args.workspace / "CryptoFactors"),
     )
     records = []
     for prefix, source in projects:

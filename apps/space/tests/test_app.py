@@ -15,6 +15,9 @@ def test_project_registry():
         "RealEstate",
         "TariffIncidence",
         "Microstructure",
+        "EMFactorTiming",
+        "PolymarketFactors",
+        "CryptoFactors",
     }
 
 
@@ -39,3 +42,15 @@ def test_microstructure_project_uses_canonical_links(monkeypatch):
     summary, _, _, _ = explore("Microstructure", "")
     assert "/projects/microstructure/" in summary
     assert "open-economic-quant-microstructure" in summary
+
+
+def test_factor_projects_use_canonical_links(monkeypatch):
+    monkeypatch.setattr("app._dataset_rows", lambda project: (app.FALLBACK_ROWS.copy(), "test"))
+    for key, slug in [
+        ("EMFactorTiming", "em-factor-timing"),
+        ("PolymarketFactors", "polymarket-factors"),
+        ("CryptoFactors", "crypto-factors"),
+    ]:
+        summary, _, _, _ = explore(key, "")
+        assert f"/projects/{slug}/" in summary
+        assert f"open-economic-quant-{slug}" in summary

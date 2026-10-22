@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-23",
+  "generated_at": "2026-09-30",
   "projects": [
     {
       "title": "CasualLab",
@@ -26,6 +26,58 @@
       "github_url": "https://github.com/YangXiaoShawn/open-economic-quant-casuallab",
       "dataset_url": "https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/CasualLab",
       "space_url": "https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory"
+    },
+    {
+      "title": "Equity Microstructure Factors in Crypto: Funding Rates and Positioning",
+      "slug": "crypto-factors",
+      "summary": "Most factors do not travel; funding and positioning hold up better.",
+      "research_question": "Do equity microstructure factors travel to crypto?",
+      "research_fields": [
+        "Asset pricing",
+        "Market microstructure",
+        "Digital asset derivatives"
+      ],
+      "project_type": "empirical-research",
+      "status": "public-research-snapshot",
+      "last_updated": "2026-09-30",
+      "field": "crypto-derivatives",
+      "accent": "teal",
+      "tags": [
+        "Crypto Derivatives",
+        "Factor Transfer",
+        "Post-Publication Audit"
+      ],
+      "metric": "105 coins \u00b7 730d + 92d post-pub OOS",
+      "site_url": "https://yangxiaoshawn.github.io/projects/crypto-factors/",
+      "github_url": "https://github.com/YangXiaoShawn/open-economic-quant-crypto-factors",
+      "dataset_url": "https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/CryptoFactors",
+      "space_url": "https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory?project=crypto-factors"
+    },
+    {
+      "title": "Do Factor Premia Travel? Machine-Learning Factor Timing in Emerging-Market Equities",
+      "slug": "em-factor-timing",
+      "summary": "Pooling explains much of the apparent predictability.",
+      "research_question": "Can machine learning time equity factors?",
+      "research_fields": [
+        "Asset pricing",
+        "Financial econometrics",
+        "Machine learning"
+      ],
+      "project_type": "empirical-research",
+      "status": "public-live",
+      "last_updated": "2026-09-29",
+      "field": "emerging-markets",
+      "accent": "blue",
+      "tags": [
+        "Factor Timing",
+        "Emerging Markets",
+        "Transfer Learning"
+      ],
+      "metric": "801,536 country-factor-months",
+      "site_url": "https://yangxiaoshawn.github.io/projects/em-factor-timing/",
+      "github_url": "https://github.com/YangXiaoShawn/open-economic-quant-em-factor-timing",
+      "dataset_url": "https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/EMFactorTiming",
+      "space_url": "https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory?project=em-factor-timing"
     },
     {
       "title": "Macroeconomics",
@@ -78,6 +130,32 @@
       "github_url": "https://github.com/YangXiaoShawn/open-economic-quant-microstructure",
       "dataset_url": "https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/Microstructure",
       "space_url": "https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory"
+    },
+    {
+      "title": "Prediction-Market Factor Research: Polymarket",
+      "slug": "polymarket-factors",
+      "summary": "Reversal, volatility, and illiquidity survive the corrections.",
+      "research_question": "Which prediction-market signals survive a realistic backtest?",
+      "research_fields": [
+        "Asset pricing",
+        "Prediction markets",
+        "Market microstructure"
+      ],
+      "project_type": "empirical-research",
+      "status": "public-research-snapshot",
+      "last_updated": "2026-09-30",
+      "field": "prediction-markets",
+      "accent": "amber",
+      "tags": [
+        "Prediction Markets",
+        "Factor Investing",
+        "Backtest Hygiene"
+      ],
+      "metric": "5 artifacts removed (-0.44 to -0.054 IC)",
+      "site_url": "https://yangxiaoshawn.github.io/projects/polymarket-factors/",
+      "github_url": "https://github.com/YangXiaoShawn/open-economic-quant-polymarket-factors",
+      "dataset_url": "https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/PolymarketFactors",
+      "space_url": "https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory?project=polymarket-factors"
     },
     {
       "title": "Mortgage Rate Lock-In and Housing Market Dynamics",

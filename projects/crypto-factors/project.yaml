@@ -1,0 +1,45 @@
+title: "Equity Microstructure Factors in Crypto: Funding Rates and Positioning"
+slug: crypto-factors
+summary: Transfer study testing 32 A-share market-microstructure factors and perpetual-futures positioning signals across 105 crypto assets over 730 days, with OKX replication and four months of frozen post-publication out-of-sample tracking.
+research_question: Do equity market-microstructure factors carry over to crypto where minute bars, taker flow, and perpetual-futures data are freely available, and does a frozen composite hold up after publication?
+why_it_matters: Short 120-day crypto backtests easily manufacture Sharpe > 3 factors that fail over full cycles; testing transfer across 730 days and tracking frozen weights after publication separates structural derivatives signals from sample noise.
+research_fields:
+  - Asset pricing
+  - Market microstructure
+  - Digital asset derivatives
+project_type: empirical-research
+status: public-research-snapshot
+authors:
+  - Repository owner and maintainer
+original_source: CryptoFactors workspace project
+original_sample_period: 2024-06 through 2026-05 (105 coins x 730 days on Binance spot and USDT-margined perpetuals).
+updated_sample_period: Post-publication out-of-sample tracking through 2026-09-29 (851 days total; 92-day June-August 2026 composite window).
+data_sources:
+  - Binance public archives (data.binance.vision) for 1-minute spot/perpetual klines, funding rates, open interest, and long/short ratios
+  - OKX public market data via ccxt for cross-exchange replication
+data_license: Raw exchange archives are not redistributed; scripts fetch public dumps directly. Aggregated result tables and figures are published under data/results/ and reports/.
+code_license: MIT
+reproduction_command: make reproduce-sample && make test
+expected_runtime: Deterministic verification and unit tests run in seconds; full 105-coin minute-bar pipeline requires network download and roughly 25 minutes locally.
+outputs:
+  - src/crypto_factors/
+  - data/results/
+  - reports/
+  - dashboard/
+  - docs/
+  - tests/
+  - portfolio/
+github_url: https://github.com/YangXiaoShawn/open-economic-quant-crypto-factors
+site_url: https://yangxiaoshawn.github.io/projects/crypto-factors/
+dataset_url: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/CryptoFactors
+space_url: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory?project=crypto-factors
+last_updated: 2026-09-30
+limitations: Backtest and post-publication out-of-sample backtest association, not live trading. Next-close fills omit market impact; about five names per leg in the large-coin pool; the 2024-2026 sample is an altcoin bear market; OKX funding history via ccxt is approximately three months.
+catalog:
+  field: crypto-derivatives
+  accent: teal
+  tags:
+    - Crypto Derivatives
+    - Factor Transfer
+    - Post-Publication Audit
+  metric: 105 coins · 730d + 92d post-pub OOS

@@ -10,7 +10,7 @@ import pandas as pd
 from huggingface_hub import HfApi
 
 DATASET_REPO = os.getenv("HF_DATASET_REPO", "ShawnChamberlain/open-economic-quant-research-data")
-DATASET_REVISION = os.getenv("HF_DATASET_REVISION", "5329ac0f88bae309d6e37eb8fdaefc0f60754f4c")
+DATASET_REVISION = os.getenv("HF_DATASET_REVISION", "05707f03ca5e774da2ece89bec4c7950efc5d87c")
 SITE_URL = os.getenv("SITE_URL", "https://yangxiaoshawn.github.io")
 GITHUB_URL = os.getenv("GITHUB_REPOSITORY_URL", "https://github.com/YangXiaoShawn/YangXiaoShawn.github.io")
 
@@ -77,6 +77,36 @@ PROJECTS = {
         summary="Research reference only: 110 of 144 scenarios are gross-positive, measured against a fixed 4 bp fee.",
         methodology="Preserve event ordering, prevent temporal leakage, evaluate pseudoheldout phases separately, and expose fees and turnover-normalized marked drawdown. Research reference only—not live performance.",
         source_url="https://github.com/YangXiaoShawn/open-economic-quant-microstructure",
+    ),
+    "EMFactorTiming": Project(
+        title="Emerging-Market Factor Timing",
+        slug="em-factor-timing",
+        prefix="EMFactorTiming",
+        field="Emerging markets and empirical asset pricing",
+        question="Can macroeconomic conditioning improve emerging-market factor returns net of turnover costs?",
+        summary="Static equal-weight six-factor composite achieves 1.72 gross Sharpe (1.19 net); dynamic macro timing adds no standalone edge.",
+        methodology="Evaluate six JKP factor themes across 26 emerging markets (1990–2024) against five out-of-sample macro-conditioning rules with explicit 38 bps/month turnover costs.",
+        source_url="https://github.com/YangXiaoShawn/open-economic-quant-em-factor-timing",
+    ),
+    "PolymarketFactors": Project(
+        title="Prediction-Market Factor Anatomy",
+        slug="polymarket-factors",
+        prefix="PolymarketFactors",
+        field="Prediction markets and calibration",
+        question="Which cross-sectional signals predict returns in binary prediction-market contracts after removing backtest artifacts?",
+        summary="Seven-day momentum exhibits significant cross-sectional reversal (IC = -0.068, Newey-West t = -12.71) across 2,869 settled markets.",
+        methodology="Construct a leakage-safe 30-day pre-resolution panel across 2,869 settled Polymarket contracts and evaluate nine signals via daily Spearman rank IC with Newey-West standard errors.",
+        source_url="https://github.com/YangXiaoShawn/open-economic-quant-polymarket-factors",
+    ),
+    "CryptoFactors": Project(
+        title="Crypto Perpetual Factor Transfer",
+        slug="crypto-factors",
+        prefix="CryptoFactors",
+        field="Digital assets and perpetual futures",
+        question="Do standard equity cross-sectional factors survive when translated to weekly crypto perpetual futures?",
+        summary="Zero of 11 individual equity factors pass 5% BH-FDR; out-of-sample rank composite achieves 1.24 Sharpe in the 2023–2026 holdout.",
+        methodology="Test 11 equity and crypto-native factors across 49 Binance USDT perpetuals (2021–2026) under Benjamini-Hochberg FDR control and post-publication holdout splits.",
+        source_url="https://github.com/YangXiaoShawn/open-economic-quant-crypto-factors",
     ),
 }
 
@@ -158,7 +188,7 @@ CSS = """
 
 with gr.Blocks(title="Open Quant & Econ — Evidence Lab", css=CSS) as demo:
     gr.Markdown(
-        f"""<div class="hero-panel"><p>Yang Xiao · Applied Economics &amp; Quant</p><h1>Open Quant &amp; Econ</h1><p>Explore the work. Verify the evidence.</p><p>Five questions, methods, and evidence-backed findings.</p><p><a href="{SITE_URL}">Website</a> &middot; <a href="{GITHUB_URL}">GitHub</a> &middot; <a href="https://huggingface.co/datasets/{DATASET_REPO}">Dataset</a></p></div>"""
+        f"""<div class="hero-panel"><p>Yang Xiao · Applied Economics &amp; Quant</p><h1>Open Quant &amp; Econ</h1><p>Explore the work. Verify the evidence.</p><p>Eight questions, methods, and evidence-backed findings.</p><p><a href="{SITE_URL}">Website</a> &middot; <a href="{GITHUB_URL}">GitHub</a> &middot; <a href="https://huggingface.co/datasets/{DATASET_REPO}">Dataset</a></p></div>"""
     )
     with gr.Row():
         project_input = gr.Dropdown(list(PROJECTS), value="CasualLab", label="Project")

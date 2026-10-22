@@ -1,5 +1,5 @@
 {
-  "dataset_revision": "5329ac0f88bae309d6e37eb8fdaefc0f60754f4c",
+  "dataset_revision": "05707f03ca5e774da2ece89bec4c7950efc5d87c",
   "casuallab": {
     "policy_source": "CasualLab/artifacts/benchmarks/policy_results.csv",
     "policy": [
@@ -72,5 +72,110 @@
       "hazard_ratio": 0.817,
       "n_loan_months": 3808045
     }
+  },
+  "em-factor-timing": {
+    "portfolios_source": "EMFactorTiming/reports/jkp_em/portfolios.csv",
+    "portfolios": [
+      {
+        "label": "Shrinkage-mean tilt",
+        "sharpe_net": 1.91,
+        "turnover": 0.061
+      },
+      {
+        "label": "Static equal-weight",
+        "sharpe_net": 1.48,
+        "turnover": 0.018
+      },
+      {
+        "label": "Own-mean rule",
+        "sharpe_net": 1.41,
+        "turnover": 0.073
+      },
+      {
+        "label": "GBRT (EM)",
+        "sharpe_net": 1.26,
+        "turnover": 0.479
+      },
+      {
+        "label": "GBRT (pooled)",
+        "sharpe_net": 1.17,
+        "turnover": 0.552
+      },
+      {
+        "label": "GBRT (DM \u2192 EM)",
+        "sharpe_net": 1.13,
+        "turnover": 0.611
+      },
+      {
+        "label": "Elastic Net (EM)",
+        "sharpe_net": 1.11,
+        "turnover": 0.412
+      },
+      {
+        "label": "Neural Net (EM)",
+        "sharpe_net": 1.07,
+        "turnover": 0.446
+      }
+    ]
+  },
+  "polymarket-factors": {
+    "funnel_source": "PolymarketFactors/reports/artifact_funnel.csv",
+    "funnel": [
+      {
+        "stage": "1. Clip + % ret",
+        "abs_raw_ic": 0.44,
+        "raw_ic": -0.44,
+        "pn_ic": null
+      },
+      {
+        "stage": "2. \u0394p + filter",
+        "abs_raw_ic": 0.34,
+        "raw_ic": -0.34,
+        "pn_ic": null
+      },
+      {
+        "stage": "3. + Skip-day",
+        "abs_raw_ic": 0.105,
+        "raw_ic": -0.105,
+        "pn_ic": -0.076
+      },
+      {
+        "stage": "4. + Settlement",
+        "abs_raw_ic": 0.096,
+        "raw_ic": -0.096,
+        "pn_ic": -0.071
+      },
+      {
+        "stage": "5. + Executable",
+        "abs_raw_ic": 0.054,
+        "raw_ic": -0.054,
+        "pn_ic": -0.032
+      }
+    ]
+  },
+  "crypto-factors": {
+    "postpub_source": "CryptoFactors/reports/postpub_composite_summary.csv",
+    "postpub_windows": [
+      {
+        "window": "June 2026 (30d)",
+        "return_pct": 4.57,
+        "max_dd_pct": -2.0
+      },
+      {
+        "window": "July 2026 (31d)",
+        "return_pct": -6.93,
+        "max_dd_pct": -5.6
+      },
+      {
+        "window": "August 2026 (31d)",
+        "return_pct": -3.97,
+        "max_dd_pct": -5.4
+      },
+      {
+        "window": "Jun\u2013Aug total (92d)",
+        "return_pct": -6.55,
+        "max_dd_pct": -11.9
+      }
+    ]
   }
 }

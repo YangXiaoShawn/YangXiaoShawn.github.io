@@ -1,0 +1,47 @@
+title: "Do Factor Premia Travel? Machine-Learning Factor Timing in Emerging-Market Equities"
+slug: em-factor-timing
+summary: Out-of-sample study of time variation in equity factor returns across 22 emerging markets (801,536 country-factor-months), developed-to-emerging transfer, and the net value of factor timing after trading costs.
+research_question: Is the predictability of equity factor returns documented in developed markets present in emerging markets, and does a model trained on developed-market history forecast emerging-market factor returns out of sample, net of trading costs?
+why_it_matters: In multi-country factor panels, testing against each series own historical mean rejects 87.5% of the time under no predictability because pooling noisy means across countries beats unpooled means without any timing ability.
+research_fields:
+  - Asset pricing
+  - Financial econometrics
+  - Machine learning
+project_type: empirical-research
+status: public-live
+authors:
+  - Repository owner and maintainer
+original_source: EMFactorTiming workspace project
+original_sample_period: JKP factor returns from 1926 (United States) and 1986 onward for international developed and emerging markets.
+updated_sample_period: Data through 2025-12 (downloaded 2026-09-29); out-of-sample evaluation across 312 months (2000-01 through 2025-12) covering 801,536 country-factor-months in 22 emerging markets.
+data_sources:
+  - Jensen, Kelly, and Pedersen (2023) global factor returns (jkpfactors.com, 153 factors across 93 countries)
+  - MSCI market classification and historical reclassification announcements
+  - FRED U.S. macroeconomic state variables (VIX, 10y-3m term spread, USD broad index)
+data_license: JKP factor data are distributed under CC BY-NC 4.0 and are not redistributed here; the repository holds source code, configurations, aggregated result tables, and the 19-page paper draft.
+code_license: MIT
+reproduction_command: make reproduce-sample && make test
+expected_runtime: Unit tests take seconds; synthetic demo takes ~8 minutes; full JKP real-data run with neural networks takes ~17 minutes on a local laptop.
+outputs:
+  - src/emft/
+  - reports/
+  - paper/
+  - config/
+  - data/
+  - docs/
+  - tests/
+  - portfolio/
+github_url: https://github.com/YangXiaoShawn/open-economic-quant-em-factor-timing
+site_url: https://yangxiaoshawn.github.io/projects/em-factor-timing/
+dataset_url: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/EMFactorTiming
+space_url: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory?project=em-factor-timing
+last_updated: 2026-09-29
+limitations: Evidence is out-of-sample predictive comparison, not causal identification. Factor returns are gross of their own stock-level rebalancing costs and signed by the original studies, so Sharpe levels must be read comparatively. Results depend on factor weighting (equal-weighted factors show positive R2_OS vs shrinkage mean, whereas capped value-weighted factors do not).
+catalog:
+  field: emerging-markets
+  accent: blue
+  tags:
+    - Factor Timing
+    - Emerging Markets
+    - Transfer Learning
+  metric: 801,536 country-factor-months

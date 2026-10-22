@@ -21,7 +21,16 @@ EVIDENCE = json.loads((ROOT / 'assets/data/evidence.json').read_text())
 DETAILS = json.loads((ROOT / 'assets/data/research_details.json').read_text())
 REV = EVIDENCE['dataset_revision']
 INK, BLUE, ORANGE, GREY = '#16243a', '#2458cc', '#b65520', '#8699b4'
-ORDER = ['casuallab', 'macroeconomics', 'realestate', 'tariff-incidence', 'microstructure']
+ORDER = [
+    'casuallab',
+    'macroeconomics',
+    'realestate',
+    'tariff-incidence',
+    'microstructure',
+    'em-factor-timing',
+    'polymarket-factors',
+    'crypto-factors',
+]
 STORIES = {
     'casuallab': dict(topic='Experiments & incentives', title='Who should get the offer?',
         why='A discount can increase activity. The harder question is whether a model can identify who will respond—and spend the same budget better.',
@@ -58,6 +67,27 @@ STORIES = {
         takeaway='The best gross edge reaches 2.39 bp, measured against a fixed 4 bp taker fee; lower-cost execution is the next test.',
         boundary='Exploratory simulation · research reference only · not live trading. The 144 scenarios overlap and are not independent experiments or a portfolio to add together.',
         short='Order-flow edge', fact='Gross edge in 110 of 144 scenarios', folder='Microstructure'),
+    'em-factor-timing': dict(topic='Emerging-market factor timing', title='Can machine learning time equity factors?',
+        why='Factor returns vary over time. I test whether learned forecasts add value beyond a pooled, shrinkage-mean benchmark in emerging markets.',
+        finding='Pooling explains much of the apparent predictability.',
+        method='I compare out-of-sample linear, tree, and neural-network forecasts on JKP global factors, test developed-to-emerging-market transfer, and evaluate timing after turnover costs.',
+        takeaway='On capped value-weighted factors, all learned forecasts lose to the shrinkage mean on out-of-sample R². At the baseline trading cost, the shrinkage-mean tilt also beats learned timing portfolios.',
+        boundary='Out-of-sample predictive association. Results depend on factor weighting and trading costs; equal-weighted factors differ. Factor returns exclude their own rebalancing costs.',
+        short='EM factor timing', fact='Shrinkage mean beats learned timing', folder='EMFactorTiming'),
+    'polymarket-factors': dict(topic='Polymarket & prediction markets', title='Which prediction-market signals survive a realistic backtest?',
+        why='Bounded prices, early settlement, and stale quotes can create apparent predictability. I study which cross-sectional signals remain after correcting those artifacts.',
+        finding='Reversal, volatility, and illiquidity survive the corrections.',
+        method='I study 4,000 Polymarket markets, remove five backtest artifacts, control for price levels, and evaluate factor signs on a held-out half of the panel.',
+        takeaway='Five backtest artifacts inflate 30-day momentum IC eightfold (−0.440 to −0.054); price-neutral OOS ICs remain significant for illiquidity (−0.072), volatility (−0.069), and reversal (−0.032).',
+        boundary='Backtest association, not live execution. Capacity is roughly $100–200 per position. The combined strategy weight was chosen in sample, and daily-close fills omit intraday slippage.',
+        short='Polymarket factors', fact='Illiquidity OOS IC −0.072', folder='PolymarketFactors'),
+    'crypto-factors': dict(topic='Crypto funding & positioning', title='Do equity microstructure factors travel to crypto?',
+        why='Crypto offers open minute-bar and perpetual-futures data. I test whether ideas from an A-share microstructure research series carry over to this different market.',
+        finding='Most factors do not travel; funding and positioning hold up better.',
+        method='I test cross-sectional factors on 105 coins, check split samples and parameters, compare funding on OKX, and track the composite after publication.',
+        takeaway='Funding (+1.42 Sharpe), retail positioning (+1.39), and a low-price range factor (+1.63) support a market-neutral composite in the 730-day panel. Post-publication windows include both gains and losses.',
+        boundary='Backtest and out-of-sample backtest association, not live trading. Next-close fills omit market impact; the sample is an altcoin bear market and the OKX check is short.',
+        short='Crypto factor transfer', fact='Funding & positioning travel best', folder='CryptoFactors'),
 }
 
 
@@ -99,6 +129,32 @@ def bars(title, labels, values, unit, max_value=None, colors=None, digits=2):
         w = (right-left)*value/maximum
         body += f'<rect x="{left}" y="{y}" width="{w:.3f}" height="23" rx="2" fill="{(colors or [BLUE]*len(values))[i]}"/>'
         body += text(left+w+8, y+17, f'{value:,.{digits}f}', 14, INK, weight=600)
+    return svg(title, body, height)
+
+
+def signed_bars(title, labels, values, unit, min_val, max_val, colors=None, digits=3):
+    height = max(250, len(labels) * 38 + 100)
+    left, right, top = 188, 535, 48
+    zero_x = left + (0 - min_val) / (max_val - min_val) * (right - left)
+    body = text(left, 22, unit, 13, '#59697d')
+    for i in range(5):
+        val = min_val + (max_val - min_val) * i / 4
+        x = left + (right - left) * i / 4
+        body += line(x, top - 12, x, height - 45)
+        body += text(x, height - 20, f'{val:g}', 12, '#59697d', 'middle')
+    body += line(zero_x, top - 14, zero_x, height - 43, '#8699b4', 1.5)
+    step = (height - 100) / max(len(labels), 1)
+    for i, (label, value) in enumerate(zip(labels, values)):
+        y = top + i * step
+        body += text(left - 12, y + 15, label, 13, INK, 'end')
+        val_x = left + (value - min_val) / (max_val - min_val) * (right - left)
+        x0 = min(zero_x, val_x)
+        w = max(abs(val_x - zero_x), 1.5)
+        col = (colors or [BLUE] * len(values))[i]
+        body += f'<rect x="{x0:.2f}" y="{y:.2f}" width="{w:.2f}" height="21" rx="2" fill="{col}"/>'
+        tx = val_x + 7 if value >= 0 else val_x - 7
+        anchor = 'start' if value >= 0 else 'end'
+        body += text(tx, y + 15, f'{value:+.{digits}f}', 12, INK, anchor, 600)
     return svg(title, body, height)
 
 
@@ -235,6 +291,126 @@ def build_charts():
         bars('Gross-positive scenarios by forecast horizon',[h[0] for h in by_h],[h[1] for h in by_h],'Gross-positive scenarios',36,[BLUE]*len(by_h),0),
         'At least 22 of 36 scenarios are gross-positive at each horizon, and 35 of 36 at the 100-event horizon. This is one four-hour exploratory capture, not a test of live profitability or cross-day reliability.',
         ['Horizon','Gross-positive scenarios','Total scenarios'],[list(h) for h in by_h],'assets/data/microstructure_backtest_reference.json'))
+
+    # 06: EMFactorTiming
+    em = EVIDENCE['projects']['em-factor-timing']
+    em_ports = DETAILS['em-factor-timing']['portfolios']
+    charts['em-factor-timing'].append(chart(
+        'em-static-vs-timing',
+        'Shrinkage mean beats every learned timing model on OOS R²',
+        'Out-of-sample R² vs unpooled own mean (%) · 801,536 country-factor-months',
+        bars(
+            'Out-of-sample R-squared versus own mean across EM factor timing models',
+            [r['model_scope'] for r in em['series']],
+            [r['r2_vs_hist_pct'] for r in em['series']],
+            'OOS R² vs own mean (%)',
+            1.4,
+            [ORANGE if r['model_scope'] == 'Shrinkage mean' else BLUE if r['r2_vs_hist_pct'] > 0 else GREY for r in em['series']],
+            2,
+        ),
+        'Against the unpooled own mean, every model achieves positive OOS R² (+0.83% to +1.16%), but the non-timing regional shrinkage mean alone reaches +1.20% (t = 9.05). Measured against the shrinkage mean, all learned models have negative OOS R².',
+        ['Model / scope', 'OOS R² vs own mean (%)', 'OOS R² vs shrinkage (%)', 'Net Sharpe (20 bp)'],
+        [[r['model_scope'], r['r2_vs_hist_pct'], r['r2_vs_shrink_pct'], r['sharpe_net']] for r in em['series']],
+        em['source'],
+    ))
+    charts['em-factor-timing'].append(chart(
+        'em-factor-themes',
+        'Shrinkage-mean tilt leads net Sharpe after turnover costs',
+        'Annualized Sharpe ratio net of 20 bp turnover cost · 2000–2025 OOS',
+        bars(
+            'Net Sharpe ratio across emerging-market factor portfolios at 20 bp cost',
+            [r['label'] for r in em_ports],
+            [r['sharpe_net'] for r in em_ports],
+            'Net Sharpe ratio (at 20 bp cost)',
+            2.2,
+            [ORANGE if r['label'] == 'Shrinkage-mean tilt' else BLUE if 'Static' in r['label'] else GREY for r in em_ports],
+            2,
+        ),
+        'Because learned timing rules turn over 41%–61% per month versus 6.1% for the shrinkage-mean tilt, the shrinkage-mean portfolio achieves the highest net Sharpe (1.91) ahead of static equal weight (1.48) and GBRT (1.26).',
+        ['Portfolio rule', 'Net Sharpe (20 bp)', 'Monthly turnover'],
+        [[r['label'], r['sharpe_net'], r['turnover']] for r in em_ports],
+        DETAILS['em-factor-timing']['portfolios_source'],
+    ))
+
+    # 07: PolymarketFactors
+    poly = EVIDENCE['projects']['polymarket-factors']
+    poly_funnel = DETAILS['polymarket-factors']['funnel']
+    charts['polymarket-factors'].append(chart(
+        'polymarket-factor-ic',
+        'Illiquidity, volatility, and reversal survive price-level controls',
+        'Out-of-sample price-neutral rank IC · 54 five-day periods across 4,000 markets',
+        signed_bars(
+            'Out-of-sample price-neutral rank IC by Polymarket factor',
+            [r['factor'] for r in poly['series']],
+            [r['price_neutral_ic'] for r in poly['series']],
+            'Price-neutral rank IC (OOS)',
+            -0.09, 0.04,
+            [BLUE if abs(r['price_neutral_ic']) >= 0.028 else GREY for r in poly['series']],
+            3,
+        ),
+        'After residualizing on [1, p, p²], illiquidity (PM-LIQ, IC = −0.072), low volatility (PM-VOL, −0.069), 30-day reversal (PM-MOM, −0.032), and time-to-resolution (PM-TTR, −0.028) remain statistically significant out of sample.',
+        ['Factor', 'Price-neutral IC (OOS)', 'Raw Δp IC (OOS)', 'Interpretation'],
+        [[r['factor'], r['price_neutral_ic'], r['raw_ic'], r['outcome']] for r in poly['series']],
+        poly['source'],
+    ))
+    charts['polymarket-factors'].append(chart(
+        'polymarket-category-ic',
+        'Five backtest artifacts inflate naive momentum IC eightfold',
+        '30-day momentum raw IC across progressive artifact-removal stages',
+        signed_bars(
+            '30-day momentum IC across five backtest artifact-removal stages',
+            [r['stage'] for r in poly_funnel],
+            [r['raw_ic'] for r in poly_funnel],
+            '30-day momentum IC',
+            -0.50, 0.05,
+            [ORANGE if i == 0 else BLUE if i == len(poly_funnel) - 1 else GREY for i in range(len(poly_funnel))],
+            3,
+        ),
+        'Percentage returns near zero, extreme price bounds, same-bar bounce, pre-settlement drift, and stale non-executable quotes inflate the apparent 30-day reversal IC from −0.440 to −0.054 raw (−0.032 price-neutral).',
+        ['Cleaning stage', 'Raw IC', 'Price-neutral IC'],
+        [[r['stage'], r['raw_ic'], r['pn_ic'] if r['pn_ic'] is not None else '—'] for r in poly_funnel],
+        DETAILS['polymarket-factors']['funnel_source'],
+    ))
+
+    # 08: CryptoFactors
+    crypto = EVIDENCE['projects']['crypto-factors']
+    crypto_post = DETAILS['crypto-factors']['postpub_windows']
+    charts['crypto-factors'].append(chart(
+        'crypto-factor-transfer',
+        'Funding, retail positioning, and low-price range transfer to crypto',
+        '730-day daily quintile long–short Sharpe (net of 5 bp/side) · 105 coins',
+        signed_bars(
+            '730-day daily long-short Sharpe ratio across seven factors on 105 coins',
+            [r['factor'] for r in crypto['series']],
+            [r['sharpe_730d'] for r in crypto['series']],
+            '730-day L/S Sharpe (net 5 bp/side)',
+            -1.6, 1.9,
+            [BLUE if r['sharpe_730d'] > 1.0 else ORANGE if r['sharpe_730d'] > 0 else GREY for r in crypto['series']],
+            2,
+        ),
+        'Low-price range (+1.63), funding-rate contrarian carry (+1.42), and retail long/short positioning (+1.39) hold up across the 730-day Binance panel and OKX cross-validation, while cross-sectional momentum (−0.38) fails to transfer.',
+        ['Factor', '730-day L/S Sharpe', 'Audit verdict'],
+        [[r['factor'], r['sharpe_730d'], r['outcome']] for r in crypto['series']],
+        crypto['source'],
+    ))
+    charts['crypto-factors'].append(chart(
+        'crypto-postpub-composite',
+        'Post-publication out-of-sample windows include both gains and drawdowns',
+        'Frozen 3-factor composite return (%) across 92 post-publication days (Jun–Aug 2026)',
+        signed_bars(
+            'Post-publication composite return by monthly window',
+            [r['window'] for r in crypto_post],
+            [r['return_pct'] for r in crypto_post],
+            'Post-publication return (%)',
+            -10.0, 6.0,
+            [BLUE if r['return_pct'] > 0 else ORANGE for r in crypto_post],
+            2,
+        ),
+        'Tracked out of sample without re-fitting after the May 2026 cutoff, the equal-weight composite gained +4.57% in June 2026 before losing −6.93% in July and −3.97% in August (−6.55% cumulative), underscoring regime sensitivity.',
+        ['Post-publication window', 'Net return (%)', 'Max drawdown (%)'],
+        [[r['window'], r['return_pct'], r['max_dd_pct']] for r in crypto_post],
+        DETAILS['crypto-factors']['postpub_source'],
+    ))
     return charts
 
 
@@ -252,18 +428,6 @@ def figure(c, prefix, full=True):
 def card(slug, charts, number):
     s=STORIES[slug]
     return f'<article class="research-study" id="{slug}"><div class="story-copy"><div class="story-index">{number:02d} <span>{esc(s["topic"])}</span></div><h3><a href="projects/{slug}/">{esc(s["title"])}</a></h3><p class="story-context">{esc(s["why"])}</p><div class="story-verdict"><span>What I found</span><h4>{esc(s["finding"])}</h4></div><p class="story-method"><strong>How I tested it.</strong> {esc(s["method"])}</p><p class="story-boundary">{esc(s["boundary"])}</p><div class="story-links"><a href="projects/{slug}/">Read the study →</a><a href="{SPACE}?project={slug}">Explore the evidence ↗</a></div></div>{figure(charts[slug][0],"assets/figures/",False)}</article>'
-
-
-
-def linked_cards():
-    """Render public repository studies without adding unsupported explorer data."""
-    items = json.loads((ROOT / 'assets/data/linked_research.json').read_text())
-    cards = []
-    for number, s in enumerate(items, start=len(ORDER) + 1):
-        repo = 'https://github.com/YangXiaoShawn/' + s['repo']
-        source = repo + '/blob/' + s['revision'] + '/README.md'
-        cards.append(f'<article class="research-study" id="{esc(s["slug"])}"><div class="story-copy"><div class="story-index">{number:02d} <span>{esc(s["topic"])}</span></div><h3><a href="{repo}">{esc(s["title"])}</a></h3><p class="story-context">{esc(s["why"])}</p><div class="story-verdict"><span>What I found</span><h4>{esc(s["finding"])}</h4></div><p class="story-method"><strong>How I tested it.</strong> {esc(s["method"])}</p><p class="story-boundary">{esc(s["boundary"])}</p><div class="story-links"><a href="{repo}">Read the study &amp; code ↗</a></div></div><aside class="evidence-figure" aria-label="Published evidence"><div class="section-kicker">Evidence &amp; limitations</div><h3>{esc(s["topic"])}</h3><p class="figure-reading">{esc(s["evidence"])}</p><a class="figure-source" href="{source}">View published source ↗</a></aside></article>')
-    return ''.join(cards)
 
 
 def replace_region(content,start,end,replacement):
@@ -287,7 +451,7 @@ def build(check=False):
     if start not in home:
         begin=home.index('  <section class="case-section"');finish=home.index('  <section class="signal-section"',begin)
         home=home[:begin]+start+end+'\n\n'+home[finish:]
-    section='<section class="research-collection" id="research"><div class="container"><div class="collection-heading"><div><div class="section-kicker">Selected research</div><h2>One question.<br>A method. A finding.</h2></div><p>Start with the question that interests you. Each study pairs its conclusion with the evidence behind it.</p></div>'+''.join(card(slug,charts,i+1) for i,slug in enumerate(ORDER))+linked_cards()+'</div></section>'
+    section='<section class="research-collection" id="research"><div class="container"><div class="collection-heading"><div><div class="section-kicker">Selected research</div><h2>One question.<br>A method. A finding.</h2></div><p>Start with the question that interests you. Each study pairs its conclusion with the evidence behind it.</p></div>'+''.join(card(slug,charts,i+1) for i,slug in enumerate(ORDER))+'</div></section>'
     outputs[ROOT/'index.html']=replace_region(home,start,end,section)
     for slug in ORDER:
         path=ROOT/'projects'/slug/'index.html';page=path.read_text();s=STORIES[slug]
