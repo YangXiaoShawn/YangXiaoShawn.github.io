@@ -10,8 +10,8 @@
     "PolymarketFactors",
     "CryptoFactors"
   ],
-  "file_count": 4006,
-  "size_bytes": 2865476961,
+  "file_count": 4018,
+  "size_bytes": 2865707454,
   "excluded_parts": [
     ".DS_Store",
     ".git",
@@ -14856,7 +14856,7 @@
     },
     {
       "path": "EMFactorTiming/README.md",
-      "size_bytes": 10417
+      "size_bytes": 11851
     },
     {
       "path": "EMFactorTiming/STATUS.md",
@@ -14953,6 +14953,10 @@
     {
       "path": "EMFactorTiming/pyproject.toml",
       "size_bytes": 715
+    },
+    {
+      "path": "EMFactorTiming/reports/UPDATE_2026-10.md",
+      "size_bytes": 9752
     },
     {
       "path": "EMFactorTiming/reports/failed_hypotheses.md",
@@ -15291,6 +15295,26 @@
       "size_bytes": 2421
     },
     {
+      "path": "EMFactorTiming/reports/post_2025_oos_2026_10/direct_factor_etf_daily_2026.csv",
+      "size_bytes": 374
+    },
+    {
+      "path": "EMFactorTiming/reports/post_2025_oos_2026_10/monthly_matrix_2026_pct.csv",
+      "size_bytes": 1520
+    },
+    {
+      "path": "EMFactorTiming/reports/post_2025_oos_2026_10/portfolio_monthly_2026.csv",
+      "size_bytes": 16889
+    },
+    {
+      "path": "EMFactorTiming/reports/post_2025_oos_2026_10/portfolios_2026.csv",
+      "size_bytes": 2836
+    },
+    {
+      "path": "EMFactorTiming/reports/post_2025_oos_2026_10/r2_oos_2026.csv",
+      "size_bytes": 1906
+    },
+    {
       "path": "EMFactorTiming/reports/robustness/breakeven.csv",
       "size_bytes": 526
     },
@@ -15420,7 +15444,7 @@
     },
     {
       "path": "EMFactorTiming/tests/test_published_jkp_results.py",
-      "size_bytes": 4153
+      "size_bytes": 5060
     },
     {
       "path": "EMFactorTiming/tests/test_recovery.py",
@@ -15752,7 +15776,7 @@
     },
     {
       "path": "CryptoFactors/README.md",
-      "size_bytes": 8567
+      "size_bytes": 9113
     },
     {
       "path": "CryptoFactors/README_zh.md",
@@ -15775,6 +15799,10 @@
       "size_bytes": 6951
     },
     {
+      "path": "CryptoFactors/data/results/crypto_latest_2026_10_meta.json",
+      "size_bytes": 2306
+    },
+    {
       "path": "CryptoFactors/data/results/equity_binance.csv",
       "size_bytes": 488473
     },
@@ -15785,6 +15813,10 @@
     {
       "path": "CryptoFactors/data/results/equity_perp.csv",
       "size_bytes": 132872
+    },
+    {
+      "path": "CryptoFactors/data/results/equity_perp_2026-10.csv",
+      "size_bytes": 147463
     },
     {
       "path": "CryptoFactors/data/results/equity_portfolio.csv",
@@ -15803,8 +15835,16 @@
       "size_bytes": 18520
     },
     {
+      "path": "CryptoFactors/data/results/report_postpub_2026-10.csv",
+      "size_bytes": 26153
+    },
+    {
       "path": "CryptoFactors/data/results/report_postpub_monthly.csv",
       "size_bytes": 4981
+    },
+    {
+      "path": "CryptoFactors/data/results/report_postpub_monthly_2026-10.csv",
+      "size_bytes": 5814
     },
     {
       "path": "CryptoFactors/data/results/report_update.csv",
@@ -15855,6 +15895,10 @@
       "size_bytes": 8964
     },
     {
+      "path": "CryptoFactors/reports/UPDATE_2026-10.md",
+      "size_bytes": 10659
+    },
+    {
       "path": "CryptoFactors/reports/factor_transfer_summary.csv",
       "size_bytes": 577
     },
@@ -15889,6 +15933,10 @@
     {
       "path": "CryptoFactors/reports/figures/funding_timing.png",
       "size_bytes": 176652
+    },
+    {
+      "path": "CryptoFactors/reports/latest_oos_2026_10_composite.csv",
+      "size_bytes": 622
     },
     {
       "path": "CryptoFactors/reports/postpub_composite_summary.csv",
@@ -16044,7 +16092,7 @@
     },
     {
       "path": "CryptoFactors/tests/test_published_results.py",
-      "size_bytes": 4060
+      "size_bytes": 5372
     }
   ]
 }
