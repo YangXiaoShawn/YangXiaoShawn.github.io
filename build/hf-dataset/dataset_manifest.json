@@ -10,8 +10,8 @@
     "PolymarketFactors",
     "CryptoFactors"
   ],
-  "file_count": 3994,
-  "size_bytes": 2865075873,
+  "file_count": 3997,
+  "size_bytes": 2865104449,
   "excluded_parts": [
     ".DS_Store",
     ".git",
@@ -14840,7 +14840,7 @@
     },
     {
       "path": "EMFactorTiming/Makefile",
-      "size_bytes": 2268
+      "size_bytes": 2293
     },
     {
       "path": "EMFactorTiming/README.md",
@@ -15388,7 +15388,7 @@
     },
     {
       "path": "EMFactorTiming/src/emft/report.py",
-      "size_bytes": 3774
+      "size_bytes": 5303
     },
     {
       "path": "EMFactorTiming/tests/test_loader.py",
@@ -15428,7 +15428,7 @@
     },
     {
       "path": "PolymarketFactors/Makefile",
-      "size_bytes": 421
+      "size_bytes": 423
     },
     {
       "path": "PolymarketFactors/README.md",
@@ -15444,7 +15444,7 @@
     },
     {
       "path": "PolymarketFactors/data/fixtures/sample_markets.csv",
-      "size_bytes": 358
+      "size_bytes": 7195
     },
     {
       "path": "PolymarketFactors/docs/METHODOLOGY.md",
@@ -15544,15 +15544,15 @@
     },
     {
       "path": "PolymarketFactors/src/polymarket_factors/__init__.py",
-      "size_bytes": 128
+      "size_bytes": 226
     },
     {
       "path": "PolymarketFactors/src/polymarket_factors/app.py",
-      "size_bytes": 32885
+      "size_bytes": 33094
     },
     {
       "path": "PolymarketFactors/src/polymarket_factors/backtest.py",
-      "size_bytes": 9827
+      "size_bytes": 9884
     },
     {
       "path": "PolymarketFactors/src/polymarket_factors/build_report_docx.py",
@@ -15560,23 +15560,23 @@
     },
     {
       "path": "PolymarketFactors/src/polymarket_factors/cli.py",
-      "size_bytes": 1557
+      "size_bytes": 936
     },
     {
       "path": "PolymarketFactors/src/polymarket_factors/combined_backtest.py",
-      "size_bytes": 10698
+      "size_bytes": 10774
     },
     {
       "path": "PolymarketFactors/src/polymarket_factors/complete_event_arb.py",
-      "size_bytes": 8051
+      "size_bytes": 8070
     },
     {
       "path": "PolymarketFactors/src/polymarket_factors/config.py",
-      "size_bytes": 2950
+      "size_bytes": 3000
     },
     {
       "path": "PolymarketFactors/src/polymarket_factors/data_fetcher.py",
-      "size_bytes": 17029
+      "size_bytes": 17048
     },
     {
       "path": "PolymarketFactors/src/polymarket_factors/db.py",
@@ -15584,31 +15584,31 @@
     },
     {
       "path": "PolymarketFactors/src/polymarket_factors/diagnose_costs.py",
-      "size_bytes": 2838
+      "size_bytes": 2830
     },
     {
       "path": "PolymarketFactors/src/polymarket_factors/diagnose_factors.py",
-      "size_bytes": 2459
+      "size_bytes": 2431
     },
     {
       "path": "PolymarketFactors/src/polymarket_factors/event_data.py",
-      "size_bytes": 6574
+      "size_bytes": 6593
     },
     {
       "path": "PolymarketFactors/src/polymarket_factors/expanded_factor_research.py",
-      "size_bytes": 23975
+      "size_bytes": 24037
     },
     {
       "path": "PolymarketFactors/src/polymarket_factors/factor_engine.py",
-      "size_bytes": 37518
+      "size_bytes": 37537
     },
     {
       "path": "PolymarketFactors/src/polymarket_factors/lead_lag_hourly.py",
-      "size_bytes": 7875
+      "size_bytes": 7898
     },
     {
       "path": "PolymarketFactors/src/polymarket_factors/main.py",
-      "size_bytes": 7368
+      "size_bytes": 7520
     },
     {
       "path": "PolymarketFactors/src/polymarket_factors/make_report_figs.py",
@@ -15620,47 +15620,51 @@
     },
     {
       "path": "PolymarketFactors/src/polymarket_factors/momrev_strategy.py",
-      "size_bytes": 11099
+      "size_bytes": 11166
     },
     {
       "path": "PolymarketFactors/src/polymarket_factors/optimize_three_factor_and_strategies.py",
-      "size_bytes": 18084
+      "size_bytes": 17688
     },
     {
       "path": "PolymarketFactors/src/polymarket_factors/pair_selector.py",
-      "size_bytes": 9054
+      "size_bytes": 9073
+    },
+    {
+      "path": "PolymarketFactors/src/polymarket_factors/pipeline.py",
+      "size_bytes": 5592
     },
     {
       "path": "PolymarketFactors/src/polymarket_factors/portfolio_arb.py",
-      "size_bytes": 22570
+      "size_bytes": 22589
     },
     {
       "path": "PolymarketFactors/src/polymarket_factors/report.py",
-      "size_bytes": 20199
+      "size_bytes": 20275
     },
     {
       "path": "PolymarketFactors/src/polymarket_factors/resolved_data.py",
-      "size_bytes": 11666
+      "size_bytes": 11723
     },
     {
       "path": "PolymarketFactors/src/polymarket_factors/scanner.py",
-      "size_bytes": 15143
+      "size_bytes": 15219
     },
     {
       "path": "PolymarketFactors/src/polymarket_factors/short_winners_scanner.py",
-      "size_bytes": 6168
+      "size_bytes": 6187
     },
     {
       "path": "PolymarketFactors/src/polymarket_factors/strategy.py",
-      "size_bytes": 10236
+      "size_bytes": 10274
     },
     {
       "path": "PolymarketFactors/src/polymarket_factors/threefactor_search.py",
-      "size_bytes": 9115
+      "size_bytes": 9153
     },
     {
       "path": "PolymarketFactors/src/polymarket_factors/verify_db.py",
-      "size_bytes": 1034
+      "size_bytes": 1057
     },
     {
       "path": "PolymarketFactors/static/backtest.html",
@@ -15684,23 +15688,23 @@
     },
     {
       "path": "PolymarketFactors/tests/test_cache_fingerprint.py",
-      "size_bytes": 1767
+      "size_bytes": 1820
     },
     {
       "path": "PolymarketFactors/tests/test_next_bar.py",
-      "size_bytes": 4461
+      "size_bytes": 4438
     },
     {
       "path": "PolymarketFactors/tests/test_pnl.py",
-      "size_bytes": 5619
+      "size_bytes": 5596
     },
     {
       "path": "PolymarketFactors/tests/test_portfolio_arb_pnl.py",
-      "size_bytes": 2270
+      "size_bytes": 2228
     },
     {
       "path": "PolymarketFactors/tests/test_published_artifacts.py",
-      "size_bytes": 1585
+      "size_bytes": 2263
     },
     {
       "path": "CryptoFactors/.gitignore",
@@ -15716,7 +15720,7 @@
     },
     {
       "path": "CryptoFactors/Makefile",
-      "size_bytes": 440
+      "size_bytes": 446
     },
     {
       "path": "CryptoFactors/README.md",
@@ -15740,7 +15744,7 @@
     },
     {
       "path": "CryptoFactors/data/fixtures/sample_perp_panel.csv",
-      "size_bytes": 288
+      "size_bytes": 6951
     },
     {
       "path": "CryptoFactors/data/results/equity_binance.csv",
@@ -15860,31 +15864,31 @@
     },
     {
       "path": "CryptoFactors/reports/postpub_composite_summary.csv",
-      "size_bytes": 743
+      "size_bytes": 745
     },
     {
       "path": "CryptoFactors/src/crypto_factors/__init__.py",
-      "size_bytes": 132
+      "size_bytes": 212
     },
     {
       "path": "CryptoFactors/src/crypto_factors/backtest.py",
-      "size_bytes": 5667
+      "size_bytes": 5682
     },
     {
       "path": "CryptoFactors/src/crypto_factors/backtest_all32.py",
-      "size_bytes": 7335
+      "size_bytes": 7350
     },
     {
       "path": "CryptoFactors/src/crypto_factors/backtest_binance.py",
-      "size_bytes": 4929
+      "size_bytes": 4944
     },
     {
       "path": "CryptoFactors/src/crypto_factors/backtest_perp.py",
-      "size_bytes": 9265
+      "size_bytes": 9310
     },
     {
       "path": "CryptoFactors/src/crypto_factors/backtest_real.py",
-      "size_bytes": 4975
+      "size_bytes": 5005
     },
     {
       "path": "CryptoFactors/src/crypto_factors/binance_pipeline.py",
@@ -15892,11 +15896,15 @@
     },
     {
       "path": "CryptoFactors/src/crypto_factors/cli.py",
-      "size_bytes": 1661
+      "size_bytes": 936
+    },
+    {
+      "path": "CryptoFactors/src/crypto_factors/config.py",
+      "size_bytes": 442
     },
     {
       "path": "CryptoFactors/src/crypto_factors/deploy_spot.py",
-      "size_bytes": 4692
+      "size_bytes": 4722
     },
     {
       "path": "CryptoFactors/src/crypto_factors/factor_library.py",
@@ -15908,7 +15916,7 @@
     },
     {
       "path": "CryptoFactors/src/crypto_factors/funding_deep.py",
-      "size_bytes": 6098
+      "size_bytes": 6128
     },
     {
       "path": "CryptoFactors/src/crypto_factors/live_monitor.py",
@@ -15916,47 +15924,51 @@
     },
     {
       "path": "CryptoFactors/src/crypto_factors/make_charts.py",
-      "size_bytes": 3942
+      "size_bytes": 3972
     },
     {
       "path": "CryptoFactors/src/crypto_factors/make_charts_deploy.py",
-      "size_bytes": 2837
+      "size_bytes": 2882
     },
     {
       "path": "CryptoFactors/src/crypto_factors/make_charts_funding.py",
-      "size_bytes": 1713
+      "size_bytes": 1728
     },
     {
       "path": "CryptoFactors/src/crypto_factors/make_charts_perp.py",
-      "size_bytes": 3464
+      "size_bytes": 3494
     },
     {
       "path": "CryptoFactors/src/crypto_factors/make_charts_postpub.py",
-      "size_bytes": 3911
+      "size_bytes": 3941
     },
     {
       "path": "CryptoFactors/src/crypto_factors/make_charts_update.py",
-      "size_bytes": 6845
+      "size_bytes": 6890
     },
     {
       "path": "CryptoFactors/src/crypto_factors/make_charts_windows.py",
-      "size_bytes": 5930
+      "size_bytes": 5975
     },
     {
       "path": "CryptoFactors/src/crypto_factors/oos_okx.py",
-      "size_bytes": 5120
+      "size_bytes": 5155
     },
     {
       "path": "CryptoFactors/src/crypto_factors/oos_validate.py",
-      "size_bytes": 5057
+      "size_bytes": 5107
     },
     {
       "path": "CryptoFactors/src/crypto_factors/perp_pipeline.py",
-      "size_bytes": 8906
+      "size_bytes": 8921
+    },
+    {
+      "path": "CryptoFactors/src/crypto_factors/pipeline.py",
+      "size_bytes": 5699
     },
     {
       "path": "CryptoFactors/src/crypto_factors/portfolio.py",
-      "size_bytes": 3249
+      "size_bytes": 3279
     },
     {
       "path": "CryptoFactors/src/crypto_factors/portfolio_opt.py",
@@ -15964,15 +15976,15 @@
     },
     {
       "path": "CryptoFactors/src/crypto_factors/report_postpub.py",
-      "size_bytes": 5912
+      "size_bytes": 5987
     },
     {
       "path": "CryptoFactors/src/crypto_factors/report_update.py",
-      "size_bytes": 7402
+      "size_bytes": 7462
     },
     {
       "path": "CryptoFactors/src/crypto_factors/report_windows.py",
-      "size_bytes": 6683
+      "size_bytes": 6743
     },
     {
       "path": "CryptoFactors/src/crypto_factors/smart_money_factor.py",
@@ -15984,11 +15996,11 @@
     },
     {
       "path": "CryptoFactors/src/crypto_factors/update_data.py",
-      "size_bytes": 22306
+      "size_bytes": 22336
     },
     {
       "path": "CryptoFactors/tests/test_factor_fixtures.py",
-      "size_bytes": 836
+      "size_bytes": 893
     },
     {
       "path": "CryptoFactors/tests/test_postpub_windows.py",
@@ -15996,7 +16008,7 @@
     },
     {
       "path": "CryptoFactors/tests/test_published_results.py",
-      "size_bytes": 1805
+      "size_bytes": 2572
     }
   ]
 }

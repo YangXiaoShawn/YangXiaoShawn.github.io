@@ -16,9 +16,9 @@ tags:
 
 # Open Economic & Quant Research Data
 
-Versioned research data for CasualLab, Macroeconomics, Mortgage Rate Lock-In and Housing Market Dynamics, Tariff Incidence, and Order Flow to Price Impact, including publishable data, fixtures, reports, and reproducibility documentation.
+Versioned research data for CasualLab, Macroeconomics, Mortgage Rate Lock-In and Housing Market Dynamics, Tariff Incidence, Order Flow to Price Impact, Emerging-Market Factor Timing, Polymarket Cross-Sectional Factor Study, and Crypto Factor Zoo and Post-Publication Audit, including publishable data, fixtures, reports, and reproducibility documentation.
 
-Project code, tests, and run configuration live in the GitHub repositories listed under Related resources. Revision `5329ac0f88bae309d6e37eb8fdaefc0f60754f4c` is the earlier mirror that also carried that code; `dataset_manifest.json` describes that release.
+Project code, tests, and run configuration live in the GitHub repositories listed under Related resources. `dataset_manifest.json` describes the 8-project release.
 
 ## Repository structure
 
@@ -27,7 +27,10 @@ Project code, tests, and run configuration live in the GitHub repositories liste
 - `RealEstate/`: housing-finance research on mortgage lock-in, mortgage exits, local activity, prices, and construction. Registered loan-level records and loan-granular derivatives are excluded.
 - `TariffIncidence/`: official-data research on U.S. Section 301 tariff pass-through, sourcing reallocation, and domestic input-output propagation. Large raw, intermediate, analytical, and parquet result files are excluded from the public package.
 - `Microstructure/`: research-only market-microstructure protocols, reports, and documentation. Exchange observations, normalized or derived tables, fitted states, ingestion authorities, and generated run bundles are excluded.
-- `dataset_manifest.json`: file counts, exclusions, and release metadata for revision `5329ac0f`.
+- `EMFactorTiming/`: emerging-market factor timing out-of-sample evaluation tables, JKP coverage metadata, and shrinkage benchmark reports across 21 emerging and 23 developed markets.
+- `PolymarketFactors/`: binary contract artifact funnel tables, price-neutralized factor IC summaries, category reversal diagnostics, and sample market fixtures.
+- `CryptoFactors/`: equity-to-perpetual factor transfer tables, Benjamini-Hochberg FDR summaries, post-publication out-of-sample decay diagnostics, and sample perpetual panel fixtures.
+- `dataset_manifest.json`: file counts, exclusions, and release metadata for the 8-project release.
 
 ## Supported uses
 
@@ -51,11 +54,15 @@ Project-owned fixtures and documentation follow project-local terms; code terms 
 ## Related resources
 
 - Website: https://yangxiaoshawn.github.io/
+- Unified monorepo: https://github.com/YangXiaoShawn/open-economic-quant
 - CasualLab repository: https://github.com/YangXiaoShawn/open-economic-quant-casuallab
 - Macroeconomics repository: https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics
 - Mortgage Rate Lock-In repository: https://github.com/YangXiaoShawn/open-economic-quant-realestate
 - Tariff Incidence repository: https://github.com/YangXiaoShawn/open-economic-quant-tariff-incidence
 - Microstructure repository: https://github.com/YangXiaoShawn/open-economic-quant-microstructure
+- Emerging-Market Factor Timing repository: https://github.com/YangXiaoShawn/open-economic-quant-em-factor-timing
+- Polymarket Factors repository: https://github.com/YangXiaoShawn/open-economic-quant-polymarket-factors
+- Crypto Factors repository: https://github.com/YangXiaoShawn/open-economic-quant-crypto-factors
 - Website repository: https://github.com/YangXiaoShawn/YangXiaoShawn.github.io
 - Interactive observatory: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
 
