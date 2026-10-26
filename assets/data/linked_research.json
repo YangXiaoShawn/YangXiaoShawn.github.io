@@ -33,6 +33,6 @@
     "method": "I test cross-sectional factors on 105 coins, check split samples and parameters, compare funding on OKX, and track the composite after publication.",
     "finding": "Most factors do not travel; funding and positioning hold up better.",
     "evidence": "Funding, retail positioning and a low-price range factor support a market-neutral composite in the original backtest. Post-publication windows include both gains and losses, so robustness remains limited.",
-    "boundary": "Backtest and out-of-sample backtest association, not live trading. Next-close fills omit market impact; the sample is an altcoin bear market and the OKX check is short."
+    "boundary": "Backtest and out-of-sample backtest association, not live trading. Fills at the close that completes the signal, with no execution lag or market impact; published long–short costs were under-charged by half. The sample is an altcoin bear market and the OKX check is short."
   }
 ]

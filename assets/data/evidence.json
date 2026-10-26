@@ -555,9 +555,9 @@
         "label": "92-day post-publication composite return"
       },
       "method": "I test cross-sectional factors on 105 coins, check split samples and parameters, compare funding on OKX, and track the composite after publication.",
-      "finding": "Most factors do not travel; funding (+1.42 Sharpe), retail positioning (+1.39), and low-price range (+1.63) hold up in the 730-day panel, while post-publication windows (June\u2013August 2026) returned \u22126.5% without re-fitting.",
-      "note": "Backtest and out-of-sample backtest association, not live trading. Next-close fills omit market impact; the sample is an altcoin bear market and the OKX check is short.",
-      "chart_caption": "730-day daily quintile long\u2013short Sharpe (net of 5 bp/side) across 105 coins on Binance spot and perpetuals.",
+      "finding": "Most factors do not travel; funding (+1.42 Sharpe), retail positioning (+1.39), and low-price range (+1.63) hold up in the 730-day panel, while post-publication windows (June\u2013August 2026) returned \u22126.5% without re-fitting. The published long\u2013short Sharpes charged about 2.5 bp per side instead of the stated 5 bp and are upper bounds until rerun.",
+      "note": "Backtest and out-of-sample backtest association, not live trading. Fills at the close that completes the signal, with no execution lag or market impact; published long\u2013short costs were under-charged by half. The sample is an altcoin bear market and the OKX check is short.",
+      "chart_caption": "730-day daily quintile long\u2013short Sharpe as published (stated 5 bp/side; the formula effectively charged about 2.5 bp/side) across 105 coins on Binance spot and perpetuals.",
       "source": "CryptoFactors/reports/factor_transfer_summary.csv",
       "default_metric": "sharpe_730d",
       "metrics": [
