@@ -10,8 +10,8 @@
     "PolymarketFactors",
     "CryptoFactors"
   ],
-  "file_count": 4027,
-  "size_bytes": 2865738206,
+  "file_count": 4034,
+  "size_bytes": 2865748431,
   "excluded_parts": [
     ".DS_Store",
     ".git",
@@ -15299,6 +15299,14 @@
       "size_bytes": 2421
     },
     {
+      "path": "EMFactorTiming/reports/live_readiness_2026_10/daily_realized_10_22_em_factors.csv",
+      "size_bytes": 463
+    },
+    {
+      "path": "EMFactorTiming/reports/live_readiness_2026_10/daily_realized_thru_10_23_em_factors.csv",
+      "size_bytes": 678
+    },
+    {
       "path": "EMFactorTiming/reports/live_readiness_2026_10/jkp_2026_cost_breakeven_stress.csv",
       "size_bytes": 1748
     },
@@ -15955,12 +15963,32 @@
       "size_bytes": 622
     },
     {
+      "path": "CryptoFactors/reports/live_readiness_2026_10/active_signal_book_2026_10_23.json",
+      "size_bytes": 6152
+    },
+    {
       "path": "CryptoFactors/reports/live_readiness_2026_10/bad_print_dislocation_guard.csv",
       "size_bytes": 944
     },
     {
       "path": "CryptoFactors/reports/live_readiness_2026_10/cost_and_delay_stress.csv",
       "size_bytes": 6761
+    },
+    {
+      "path": "CryptoFactors/reports/live_readiness_2026_10/crypto_composites_through_2026_10_25.csv",
+      "size_bytes": 452
+    },
+    {
+      "path": "CryptoFactors/reports/live_readiness_2026_10/crypto_factors_through_2026_10_25.csv",
+      "size_bytes": 710
+    },
+    {
+      "path": "CryptoFactors/reports/live_readiness_2026_10/daily_realized_10_22_and_live_10_23.csv",
+      "size_bytes": 1313
+    },
+    {
+      "path": "CryptoFactors/reports/live_readiness_2026_10/preregistered_book_realized_10_23_to_10_26.csv",
+      "size_bytes": 457
     },
     {
       "path": "CryptoFactors/reports/live_readiness_2026_10/product_b_capacity_stress.csv",

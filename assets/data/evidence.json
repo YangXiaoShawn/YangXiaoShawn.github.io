@@ -1,13 +1,13 @@
 {
   "generated_at": "2026-09-30",
-  "dataset_revision": "7969ae9b60e2604b530708e4dd1e48fc21d2d1a1",
+  "dataset_revision": "47e5e858c0ad6e7bbbe1011a488802bfdbc17d05",
   "portfolio": {
-    "total_files": 4027,
-    "total_bytes": 2865738206,
+    "total_files": 4034,
+    "total_bytes": 2865748431,
     "categories": {
       "code": 526,
       "data": 3125,
-      "reports": 233,
+      "reports": 240,
       "tests": 143
     },
     "projects": {
@@ -52,11 +52,11 @@
         "tests": 44
       },
       "em-factor-timing": {
-        "files": 156,
-        "bytes": 5758400,
+        "files": 158,
+        "bytes": 5759541,
         "code": 40,
         "data": 2,
-        "reports": 109,
+        "reports": 111,
         "tests": 5
       },
       "polymarket-factors": {
@@ -68,11 +68,11 @@
         "tests": 5
       },
       "crypto-factors": {
-        "files": 90,
-        "bytes": 3511735,
+        "files": 95,
+        "bytes": 3520819,
         "code": 46,
         "data": 16,
-        "reports": 25,
+        "reports": 30,
         "tests": 3
       }
     }
