@@ -26,9 +26,18 @@ jobs:
       - run: pip install -r requirements-dev.txt
       - run: python scripts/build_site_data.py --check
       - run: python scripts/verify_deployment.py
+      # Publish only the website. Repository docs and checklists (AUTH_HANDOFF.md,
+      # DEPLOYMENT_REPORT.md, ...), build scripts, manifests and the Hugging Face
+      # Space/dataset sources stay out of the Pages artifact.
+      - name: Stage site
+        run: |
+          mkdir _site
+          cp -R index.html 404.html robots.txt sitemap.xml feed.xml assets projects \
+            research replications updated-results datasets methods dashboards comparisons \
+            daily-reports about _site/
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
       - id: deployment
         uses: actions/deploy-pages@v4
