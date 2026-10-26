@@ -34,7 +34,7 @@ site_url: https://yangxiaoshawn.github.io/projects/crypto-factors/
 dataset_url: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/CryptoFactors
 space_url: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory?project=crypto-factors
 last_updated: 2026-09-30
-limitations: Backtest and post-publication out-of-sample backtest association, not live trading. Next-close fills omit market impact; about five names per leg in the large-coin pool; the 2024-2026 sample is an altcoin bear market; OKX funding history via ccxt is approximately three months.
+limitations: Backtest and post-publication out-of-sample backtest association, not live trading. Fills at the close that completes the signal (no execution lag) and omit market impact; published long-short tables charged about 2.5 bp per side instead of the stated 5 bp (corrected in code 2026-10-26; tables not yet rerun); about five names per leg in the large-coin pool; the 2024-2026 sample is an altcoin bear market; OKX funding history via ccxt is approximately three months.
 catalog:
   field: crypto-derivatives
   accent: teal

@@ -159,7 +159,7 @@
       "hf_dataset_destination": "https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/CryptoFactors",
       "hf_space_destination": "https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory",
       "last_updated_date": "2026-10-22",
-      "known_limitations": "Universe covers 49 liquid Binance USDT perpetuals; delisted tail tokens are excluded; next-close fills omit market impact and exchange counterparty risk."
+      "known_limitations": "Universe covers 49 liquid Binance USDT perpetuals; delisted tail tokens are excluded; fills at the close that completes the signal (no execution lag) omit market impact and exchange counterparty risk; published long-short costs were under-charged by half (about 2.5 instead of 5 bp per side)."
     }
   ]
 }

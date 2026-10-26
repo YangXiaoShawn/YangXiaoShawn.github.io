@@ -1980,8 +1980,8 @@
     "why": "Crypto offers open minute-bar and perpetual-futures data. I test whether ideas from an A-share microstructure research series carry over to this different market.",
     "finding": "Most factors do not travel; funding and positioning hold up better.",
     "method": "I test cross-sectional factors on 105 coins, check split samples and parameters, compare funding on OKX, and track the composite after publication.",
-    "takeaway": "Funding (+1.42 Sharpe), retail positioning (+1.39), and a low-price range factor (+1.63) support a market-neutral composite in the 730-day panel. Post-publication windows include both gains and losses.",
-    "boundary": "Backtest and out-of-sample backtest association, not live trading. Next-close fills omit market impact; the sample is an altcoin bear market and the OKX check is short.",
+    "takeaway": "Funding (+1.42 Sharpe), retail positioning (+1.39), and a low-price range factor (+1.63) support a market-neutral composite in the 730-day panel. These published long\u2013short Sharpes charged about 2.5 bp per side rather than the stated 5 bp, so they are upper bounds until rerun. Post-publication windows include both gains and losses.",
+    "boundary": "Backtest and out-of-sample backtest association, not live trading. Fills at the close that completes the signal, with no execution lag or market impact; published long\u2013short costs were under-charged by half. The sample is an altcoin bear market and the OKX check is short.",
     "short": "Crypto factor transfer",
     "fact": "Funding & positioning travel best",
     "folder": "CryptoFactors",
@@ -1989,8 +1989,8 @@
       {
         "id": "crypto-factor-transfer",
         "title": "Funding, retail positioning, and low-price range transfer to crypto",
-        "subtitle": "730-day daily quintile long\u2013short Sharpe (net of 5 bp/side) \u00b7 105 coins",
-        "caption": "Low-price range (+1.63), funding-rate contrarian carry (+1.42), and retail long/short positioning (+1.39) hold up across the 730-day Binance panel and OKX cross-validation, while cross-sectional momentum (\u22120.38) fails to transfer.",
+        "subtitle": "730-day daily quintile long\u2013short Sharpe as published (costs effectively ~2.5 bp/side, not 5) \u00b7 105 coins",
+        "caption": "Low-price range (+1.63), funding-rate contrarian carry (+1.42), and retail long/short positioning (+1.39) hold up across the 730-day Binance panel and OKX cross-validation, while cross-sectional momentum (\u22120.38) fails to transfer. The cost formula behind these published Sharpes charged about 2.5 bp per side instead of the stated 5 bp; read them as upper bounds until the rerun.",
         "columns": [
           "Factor",
           "730-day L/S Sharpe",

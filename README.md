@@ -35,7 +35,7 @@ file search, and shareable project/metric views.
 | Order Flow to Price Impact | Market microstructure, exploratory execution simulation | Public live · reference only | `make reproduce-sample` |
 | Emerging-Market Factor Timing | Empirical asset pricing, emerging markets, macro conditioning | Public live | `make reproduce-sample` |
 | Prediction-Market Factor Anatomy | Prediction markets, contract calibration, cross-sectional signals | Public live | `make reproduce-sample` |
-| Crypto Perpetual Factor Transfer | Digital assets, perpetual futures, factor transfer and BH-FDR control | Public live | `make reproduce-sample` |
+| Crypto Perpetual Factor Transfer | Digital assets, perpetual futures, factor transfer and post-publication tracking | Public live | `make reproduce-sample` |
 
 GitHub hosts the unified `open-economic-quant` monorepo and standalone project mirrors, while Hugging Face provides the full research data and interactive evidence. Findings and publication boundaries remain explicit, including a checksum-verified Microstructure scenario summary.
 

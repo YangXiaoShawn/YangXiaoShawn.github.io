@@ -85,8 +85,8 @@ STORIES = {
         why='Crypto offers open minute-bar and perpetual-futures data. I test whether ideas from an A-share microstructure research series carry over to this different market.',
         finding='Most factors do not travel; funding and positioning hold up better.',
         method='I test cross-sectional factors on 105 coins, check split samples and parameters, compare funding on OKX, and track the composite after publication.',
-        takeaway='Funding (+1.42 Sharpe), retail positioning (+1.39), and a low-price range factor (+1.63) support a market-neutral composite in the 730-day panel. Post-publication windows include both gains and losses.',
-        boundary='Backtest and out-of-sample backtest association, not live trading. Next-close fills omit market impact; the sample is an altcoin bear market and the OKX check is short.',
+        takeaway='Funding (+1.42 Sharpe), retail positioning (+1.39), and a low-price range factor (+1.63) support a market-neutral composite in the 730-day panel. These published long–short Sharpes charged about 2.5 bp per side rather than the stated 5 bp, so they are upper bounds until rerun. Post-publication windows include both gains and losses.',
+        boundary='Backtest and out-of-sample backtest association, not live trading. Fills at the close that completes the signal, with no execution lag or market impact; published long–short costs were under-charged by half. The sample is an altcoin bear market and the OKX check is short.',
         short='Crypto factor transfer', fact='Funding & positioning travel best', folder='CryptoFactors'),
 }
 
@@ -378,17 +378,17 @@ def build_charts():
     charts['crypto-factors'].append(chart(
         'crypto-factor-transfer',
         'Funding, retail positioning, and low-price range transfer to crypto',
-        '730-day daily quintile long–short Sharpe (net of 5 bp/side) · 105 coins',
+        '730-day daily quintile long–short Sharpe as published (costs effectively ~2.5 bp/side, not 5) · 105 coins',
         signed_bars(
             '730-day daily long-short Sharpe ratio across seven factors on 105 coins',
             [r['factor'] for r in crypto['series']],
             [r['sharpe_730d'] for r in crypto['series']],
-            '730-day L/S Sharpe (net 5 bp/side)',
+            '730-day L/S Sharpe (as published)',
             -1.6, 1.9,
             [BLUE if r['sharpe_730d'] > 1.0 else ORANGE if r['sharpe_730d'] > 0 else GREY for r in crypto['series']],
             2,
         ),
-        'Low-price range (+1.63), funding-rate contrarian carry (+1.42), and retail long/short positioning (+1.39) hold up across the 730-day Binance panel and OKX cross-validation, while cross-sectional momentum (−0.38) fails to transfer.',
+        'Low-price range (+1.63), funding-rate contrarian carry (+1.42), and retail long/short positioning (+1.39) hold up across the 730-day Binance panel and OKX cross-validation, while cross-sectional momentum (−0.38) fails to transfer. The cost formula behind these published Sharpes charged about 2.5 bp per side instead of the stated 5 bp; read them as upper bounds until the rerun.',
         ['Factor', '730-day L/S Sharpe', 'Audit verdict'],
         [[r['factor'], r['sharpe_730d'], r['outcome']] for r in crypto['series']],
         crypto['source'],
