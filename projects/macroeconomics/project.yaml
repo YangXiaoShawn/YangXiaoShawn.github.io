@@ -19,7 +19,7 @@ data_sources:
   - BLS and BEA public APIs under guarded live-access settings
   - Synthetic fixture datasets in data/fixtures/
 data_license: RIGHTS_UNKNOWN for raw third-party snapshots; included fixtures are publishable examples.
-code_license: Project-local terms; third-party components retain their own licenses.
+code_license: MIT; third-party components retain their own licenses.
 reproduction_command: python -m macro_nowcast.pipeline
 expected_runtime: Varies by source configuration and backtest horizon.
 outputs:

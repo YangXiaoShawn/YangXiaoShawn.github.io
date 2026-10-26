@@ -18,7 +18,7 @@ data_sources:
   - Public synthetic or open policy data configured per run
   - Repository fixtures and NYC sample data
 data_license: RIGHTS_UNKNOWN for raw third-party sources; included fixtures are publishable examples.
-code_license: Project-local terms; third-party components retain their own licenses.
+code_license: MIT; third-party components retain their own licenses.
 reproduction_command: make reproduce
 expected_runtime: Varies by module and selected estimator.
 outputs:
