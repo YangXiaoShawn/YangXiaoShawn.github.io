@@ -10,8 +10,8 @@
     "PolymarketFactors",
     "CryptoFactors"
   ],
-  "file_count": 4034,
-  "size_bytes": 2865748431,
+  "file_count": 4038,
+  "size_bytes": 2865753612,
   "excluded_parts": [
     ".DS_Store",
     ".git",
@@ -15307,6 +15307,14 @@
       "size_bytes": 678
     },
     {
+      "path": "EMFactorTiming/reports/live_readiness_2026_10/em_countries_day_by_day_2026_10_27.csv",
+      "size_bytes": 1349
+    },
+    {
+      "path": "EMFactorTiming/reports/live_readiness_2026_10/em_day_by_day_comparison_2026_10_27.csv",
+      "size_bytes": 1148
+    },
+    {
       "path": "EMFactorTiming/reports/live_readiness_2026_10/jkp_2026_cost_breakeven_stress.csv",
       "size_bytes": 1748
     },
@@ -15979,6 +15987,10 @@
       "size_bytes": 452
     },
     {
+      "path": "CryptoFactors/reports/live_readiness_2026_10/crypto_day_by_day_comparison_2026_10_27.csv",
+      "size_bytes": 2153
+    },
+    {
       "path": "CryptoFactors/reports/live_readiness_2026_10/crypto_factors_through_2026_10_25.csv",
       "size_bytes": 710
     },
@@ -15989,6 +16001,10 @@
     {
       "path": "CryptoFactors/reports/live_readiness_2026_10/preregistered_book_realized_10_23_to_10_26.csv",
       "size_bytes": 457
+    },
+    {
+      "path": "CryptoFactors/reports/live_readiness_2026_10/preregistered_book_realized_10_23_to_10_27.csv",
+      "size_bytes": 531
     },
     {
       "path": "CryptoFactors/reports/live_readiness_2026_10/product_b_capacity_stress.csv",
