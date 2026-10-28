@@ -95,6 +95,7 @@ def main() -> None:
         ROOT / "assets" / "css" / "portfolio.css",
         ROOT / "assets" / "data" / "research_details.json",
         ROOT / "assets" / "data" / "research_stories.json",
+        ROOT / "assets" / "data" / "daily_trading_monitor.json",
         ROOT / "assets" / "js" / "app.js",
         ROOT / "assets" / "data" / "evidence.json",
         ROOT / "assets" / "data" / "microstructure_backtest_reference.json",

@@ -436,6 +436,192 @@ def replace_region(content,start,end,replacement):
     raise ValueError(f'Missing generated region {start}')
 
 
+def fmt_pct(val: float) -> str:
+    cls = 'val-pos' if val > 0 else ('val-neg' if val < 0 else '')
+    sign = '+' if val > 0 else ''
+    return f'<td class="{cls}">{sign}{val:.2f}%</td>'
+
+
+def build_architecture_and_monitor_html(rel_prefix: str = '') -> str:
+    mon_path = ROOT / 'assets/data/daily_trading_monitor.json'
+    if not mon_path.exists():
+        return ''
+    mon = json.loads(mon_path.read_text(encoding='utf-8'))
+    cf = mon['crypto_factors']
+    em = mon['em_factor_timing']
+
+    # Build CryptoFactors Day-by-Day Table
+    cf_day_ths = ''.join(f'<th scope="col">{esc(h)}</th>' for h in cf['day_headers'])
+    cf_rows_html = []
+    for r in cf['rows']:
+        hl = ' class="row-highlight"' if r['category'] in ('Deliverable', 'Composite') else ''
+        d_cells = ''.join(fmt_pct(v) for v in r['daily'])
+        cf_rows_html.append(
+            f'<tr{hl}>'
+            f'<td><strong>{esc(r["name"])}</strong></td>'
+            f'<td><span class="badge-cat">{esc(r["category"])}</span></td>'
+            f'{d_cells}'
+            f'{fmt_pct(r["recent_settled_pct"])}'
+            f'{fmt_pct(r["recent_incl_live_pct"])}'
+            f'{fmt_pct(r["oct_mtd_pct"])}'
+            f'{fmt_pct(r["since_sep29_pct"])}'
+            f'{fmt_pct(r["since_sep01_pct"])}'
+            f'</tr>'
+        )
+    cf_table = (
+        f'<div class="monitor-table-wrap"><table class="monitor-table">'
+        f'<thead><tr><th scope="col">Strategy / Factor / Benchmark</th><th scope="col">Type</th>'
+        f'{cf_day_ths}'
+        f'<th scope="col">{esc(cf["recent_settled_label"])}</th>'
+        f'<th scope="col">{esc(cf["recent_all_label"])}</th>'
+        f'<th scope="col">{esc(cf["oct_label"])}</th>'
+        f'<th scope="col">Since Sep 29</th>'
+        f'<th scope="col">Since Sep 01</th>'
+        f'</tr></thead><tbody>{"".join(cf_rows_html)}</tbody></table></div>'
+    )
+
+    # Pre-registered 2026-10-23 signal book table
+    prereg_rows_html = []
+    for r in cf.get('preregistered_book_2026_10_23', []):
+        prereg_rows_html.append(
+            f'<tr>'
+            f'<td><strong>{esc(r["date_utc"])}</strong></td>'
+            f'<td>Frozen 2026-10-23 Book</td>'
+            f'{fmt_pct(r["BTC_pct"])}'
+            f'{fmt_pct(r["ETH_pct"])}'
+            f'{fmt_pct(r["Big24_EW_pct"])}'
+            f'{fmt_pct(r["Wide_EW_pct"])}'
+            f'{fmt_pct(r["ProdB_Long8_pct"])}'
+            f'{fmt_pct(r["ProdB_MktNeutral_pct"])}'
+            f'{fmt_pct(r["ProdB_Top8_vs_Bot5_pct"])}'
+            f'{fmt_pct(r.get("GLS_LS_pct", 0.0))}'
+            f'{fmt_pct(r.get("FUND_LS_pct", 0.0))}'
+            f'{fmt_pct(r.get("AMP_LS_pct", 0.0))}'
+            f'{fmt_pct(r.get("REV_LS_pct", 0.0))}'
+            f'</tr>'
+        )
+    prereg_table = (
+        f'<details class="figure-values" style="margin-top:16px"><summary>Inspect pre-registered 2026-10-23 fixed-holdings signal book day-by-day ({len(prereg_rows_html)} UTC days)</summary>'
+        f'<div class="monitor-table-wrap" style="margin-top:10px"><table class="monitor-table">'
+        f'<thead><tr><th scope="col">UTC Date</th><th scope="col">Book</th>'
+        f'<th scope="col">BTC</th><th scope="col">ETH</th><th scope="col">Big-24 EW</th><th scope="col">Wide-105 EW</th>'
+        f'<th scope="col">Prod B Long-8</th><th scope="col">Prod B Mkt-Neutral</th><th scope="col">Prod B Top8-Bot5</th>'
+        f'<th scope="col">Retail L/S</th><th scope="col">Funding L/S</th><th scope="col">Low-Price Range L/S</th><th scope="col">Reversal L/S</th>'
+        f'</tr></thead><tbody>{"".join(prereg_rows_html)}</tbody></table></div></details>'
+    )
+
+    # Build EMFactorTiming Day-by-Day Table
+    em_day_ths = ''.join(f'<th scope="col">{esc(h)}</th>' for h in em['day_headers'])
+    em_rows_html = []
+    for r in em['rows']:
+        hl = ' class="row-highlight"' if r['category'] == 'Timing Portfolio' else ''
+        d_cells = ''.join(fmt_pct(v) for v in r['daily'])
+        em_rows_html.append(
+            f'<tr{hl}>'
+            f'<td><strong>{esc(r["name"])}</strong></td>'
+            f'<td><span class="badge-cat">{esc(r["category"])}</span></td>'
+            f'{d_cells}'
+            f'{fmt_pct(r["recent_cum_pct"])}'
+            f'{fmt_pct(r["oct_mtd_pct"])}'
+            f'{fmt_pct(r["ytd_2026_pct"])}'
+            f'</tr>'
+        )
+    em_table = (
+        f'<div class="monitor-table-wrap"><table class="monitor-table">'
+        f'<thead><tr><th scope="col">Factor Spread / Timing Portfolio / Benchmark</th><th scope="col">Category</th>'
+        f'{em_day_ths}'
+        f'<th scope="col">{esc(em["recent_cum_label"])}</th>'
+        f'<th scope="col">{esc(em["oct_label"])}</th>'
+        f'<th scope="col">2026 YTD</th>'
+        f'</tr></thead><tbody>{"".join(em_rows_html)}</tbody></table></div>'
+    )
+
+    # EM 21 Country ETFs table
+    cty_rows_html = []
+    for r in em.get('countries', []):
+        d_cells = ''.join(fmt_pct(v) for v in r['daily'])
+        cty_rows_html.append(
+            f'<tr>'
+            f'<td><strong>{esc(r["country_etf"])}</strong></td>'
+            f'<td><span class="badge-cat">MSCI EM Country</span></td>'
+            f'{d_cells}'
+            f'{fmt_pct(r["recent_cum_pct"])}'
+            f'{fmt_pct(r["oct_mtd_pct"])}'
+            f'{fmt_pct(r["ytd_2026_pct"])}'
+            f'</tr>'
+        )
+    cty_table = (
+        f'<details class="figure-values" style="margin-top:16px"><summary>Inspect all 21 MSCI Emerging-Market country ETFs day-by-day ({esc(em["day_headers"][0])} to {esc(em["day_headers"][-1])})</summary>'
+        f'<div class="monitor-table-wrap" style="margin-top:10px"><table class="monitor-table">'
+        f'<thead><tr><th scope="col">Country ETF</th><th scope="col">Universe</th>'
+        f'{em_day_ths}'
+        f'<th scope="col">{esc(em["recent_cum_label"])}</th>'
+        f'<th scope="col">{esc(em["oct_label"])}</th>'
+        f'<th scope="col">2026 YTD</th>'
+        f'</tr></thead><tbody>{"".join(cty_rows_html)}</tbody></table></div></details>'
+    )
+
+    arch_html = (
+        f'<section class="arch-section" id="architecture"><div class="container">'
+        f'<div class="collection-heading"><div><div class="section-kicker">Unified monorepo architecture</div>'
+        f'<h2>One codebase. Eight studies.<br>Shared statistical rigor.</h2></div>'
+        f'<p>All eight projects are consolidated in the <a href="https://github.com/YangXiaoShawn/open-economic-quant" style="color:var(--accent);font-weight:600">open-economic-quant</a> monorepo, sharing a core econometric &amp; portfolio engine (<code>oeq-core v0.2.0</code>) and automated CI verification.</p></div>'
+        f'<div class="arch-grid">'
+        f'<article class="arch-card"><div class="section-kicker">Layer 01 · Shared Engine</div><h3><code>oeq-core v0.2.0</code> Infrastructure</h3>'
+        f'<p>Centralized statistical and portfolio primitives imported across subprojects with 100% unit-test coverage:</p>'
+        f'<ul>'
+        f'<li><strong>Shrinkage &amp; Covariance:</strong> Empirical Bayes adaptive cross-sectional shrinkage &amp; Ledoit-Wolf covariance regularization.</li>'
+        f'<li><strong>Inference &amp; Multiple Testing:</strong> Newey-West HAC t-statistics, Politis-Romano stationary bootstrap, White Reality Check, and Deflated Sharpe Ratio (DSR).</li>'
+        f'<li><strong>Execution Shortfall:</strong> Turnover-damped weights, break-even fee solvers, and Almgren-Chriss square-root market impact.</li>'
+        f'</ul></article>'
+        f'<article class="arch-card"><div class="section-kicker">Layer 02 · Eight Subprojects</div><h3>Three Research Pillars</h3>'
+        f'<p>Standardized <code>pyproject.toml</code> + <code>src/</code> packages with 48 canonical data &amp; report artifacts:</p>'
+        f'<ul>'
+        f'<li><strong>Causal &amp; Policy (01–04):</strong> <a href="{rel_prefix}projects/casuallab/">CasualLab</a>, <a href="{rel_prefix}projects/macroeconomics/">Macroeconomics</a>, <a href="{rel_prefix}projects/realestate/">RealEstate</a>, <a href="{rel_prefix}projects/tariff-incidence/">TariffIncidence</a>.</li>'
+        f'<li><strong>Microstructure &amp; Prediction (05, 07):</strong> <a href="{rel_prefix}projects/microstructure/">Microstructure</a> (144 L2 latency scenarios), <a href="{rel_prefix}projects/polymarket-factors/">PolymarketFactors</a> (4,000 markets).</li>'
+        f'<li><strong>Live-Tracked Factor Timing (06, 08):</strong> <a href="{rel_prefix}projects/em-factor-timing/">EMFactorTiming</a> (22 EM countries &amp; 49 ETFs), <a href="{rel_prefix}projects/crypto-factors/">CryptoFactors</a> (105 perpetuals).</li>'
+        f'</ul></article>'
+        f'<article class="arch-card"><div class="section-kicker">Layer 03 · Live Verification</div><h3>Automated Sync &amp; Stress Audits</h3>'
+        f'<p>Every update runs <code>verify_monorepo.py</code> and <code>sync_ecosystem.py</code> across GitHub and Hugging Face:</p>'
+        f'<ul>'
+        f'<li><strong>4-Part Live-Readiness Audit:</strong> Execution delay (0m / 1m / 5m / 1h / 24h), realistic 24-perp short hedge with 8h funding, capacity stress ($10k–$5M), and pre-trade bad-print guards.</li>'
+        f'<li><strong>Public Reproducibility:</strong> Pinned <a href="https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data">HF Dataset</a> ({EVIDENCE["portfolio"]["total_files"]:,} files) &amp; <a href="https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory">HF Space</a>.</li>'
+        f'</ul></article>'
+        f'</div></div></section>'
+    )
+
+    monitor_html = (
+        f'<section class="monitor-section" id="daily-monitor"><div class="container">'
+        f'<div class="collection-heading"><div><div class="section-kicker">Live out-of-sample monitor · Updated {esc(mon["generated_at_utc"])}</div>'
+        f'<h2>Day-by-day trading results.</h2></div>'
+        f'<p>Realized out-of-sample returns tracked day by day across 105 crypto perpetuals (Binance Vision + OKX UTC) and 49 US-listed emerging/developed market ETFs.</p></div>'
+        f'<div class="monitor-kpis">'
+        f'<article class="monitor-kpi"><span>Crypto Deliverable · Product B</span><strong>+28.41%</strong><small>537-day net return (+0.81 Sharpe) under realistic 24-perp short hedge, 8h funding &amp; 1-min delay ($500k–$1M capacity)</small></article>'
+        f'<article class="monitor-kpi"><span>Crypto High-Volume Reversal</span><strong>+8.35%</strong><small>October 2026 MTD net return (+10.50% since Sep 1), with +3.60% across the last 7 settled days (Oct 21–27)</small></article>'
+        f'<article class="monitor-kpi"><span>EM Shrinkage Factor Tilt</span><strong>517–1,720 bp</strong><small>Break-even transaction cost in 2026 OOS (+1.98% 2026 YTD tradable ETF excess return vs −5.71% EEM)</small></article>'
+        f'<article class="monitor-kpi"><span>EM Conservative Investment</span><strong>+6.03%</strong><small>October 2026 MTD spread return (IWD − IWF), providing +3.09% crisis alpha during the Oct 22 equity sell-off</small></article>'
+        f'</div>'
+        f'<div class="monitor-block">'
+        f'<div class="monitor-block-head"><h3>01 · CryptoFactors Day-by-Day Realized Net Returns (105 Coins, UTC Days)</h3>'
+        f'<span>Binance settled: {esc(cf["latest_binance_settled_date"])} · OKX UTC: {esc(cf["latest_okx_utc_date"])}</span></div>'
+        f'<p class="monitor-note">Each column reports the net return realized on that UTC day from signals formed at the prior 00:00 UTC close (net of 10 bp round-trip cost for single factors and 15 bp weekly rebalance cost for Product B, including 8h perpetual funding accrual). During the Oct 22–25 deleveraging sell-off (Big-24 EW −7.70%), <strong>Low-Price Range</strong> gained +7.73% over four consecutive positive days and <strong>Product B Beta-Hedged</strong> gained +1.52% on the Oct 22 crash day; during the Oct 26–27 short squeeze, <strong>Taker Buy / Large-Trade OFI</strong> and <strong>High-Volume Reversal</strong> led.</p>'
+        f'{cf_table}'
+        f'{prereg_table}'
+        f'<p style="margin:12px 0 0;font-size:13px"><a href="{esc(source_url("CryptoFactors/reports/live_readiness_2026_10/crypto_day_by_day_comparison_2026_10_28.csv"))}" style="color:var(--accent);font-weight:600">Download CryptoFactors day-by-day CSV ↗</a> · <a href="{esc(source_url("CryptoFactors/reports/LIVE_READINESS_AUDIT_2026-10.md"))}" style="color:var(--accent);font-weight:600">Read Live-Readiness Stress Audit ↗</a></p>'
+        f'</div>'
+        f'<div class="monitor-block" style="margin-bottom:0">'
+        f'<div class="monitor-block-head"><h3>02 · EMFactorTiming Day-by-Day Realized Returns (49 US-Listed EM/DM ETFs)</h3>'
+        f'<span>Latest US trading session: {esc(em["latest_us_trading_date"])}{" (Intraday Live)" if em["latest_is_live"] else " (Settled Close)"}</span></div>'
+        f'<p class="monitor-note">Daily factor spreads and country ETF returns across 7 tradable global/EM style factors, 2 composite timing portfolios, and 21 MSCI EM country ETFs. On Thursday Oct 22 (when EEM fell −2.91% and SPY fell −1.18%), all six fundamental/defensive style factors rallied (<strong>Investment</strong> +3.09%, <strong>Low Risk</strong> +1.65%, <strong>Value</strong> +1.03%, <strong>Shrinkage Tilt</strong> +1.27%); across Oct 23–28, <strong>Momentum</strong> rebounded for four consecutive sessions (+0.83%, +1.05%, +1.13%, +1.03%).</p>'
+        f'{em_table}'
+        f'{cty_table}'
+        f'<p style="margin:12px 0 0;font-size:13px"><a href="{esc(source_url("EMFactorTiming/reports/live_readiness_2026_10/em_day_by_day_comparison_2026_10_28.csv"))}" style="color:var(--accent);font-weight:600">Download EMFactorTiming day-by-day CSV ↗</a> · <a href="{esc(source_url("EMFactorTiming/reports/LIVE_READINESS_AUDIT_2026-10.md"))}" style="color:var(--accent);font-weight:600">Read EM Live-Readiness Audit ↗</a></p>'
+        f'</div>'
+        f'</div></section>'
+    )
+    return arch_html + monitor_html
+
+
 def build(check=False):
     charts=build_charts()
     outputs={}
@@ -447,12 +633,22 @@ def build(check=False):
     manifest={slug:{**s,'charts':[{k:v for k,v in c.items() if k!='svg'} for c in charts[slug]]} for slug,s in STORIES.items()}
     outputs[ROOT/'assets/data/research_stories.json']=json.dumps(manifest,ensure_ascii=True,indent=2)+'\n'
     home=(ROOT/'index.html').read_text()
+    arch_start,arch_end='<!-- ARCHITECTURE AND DAILY MONITOR START -->','<!-- ARCHITECTURE AND DAILY MONITOR END -->'
+    if arch_start in home:
+        home=replace_region(home,arch_start,arch_end,build_architecture_and_monitor_html(''))
     start,end='<!-- RESEARCH STORIES START -->','<!-- RESEARCH STORIES END -->'
     if start not in home:
         begin=home.index('  <section class="case-section"');finish=home.index('  <section class="signal-section"',begin)
         home=home[:begin]+start+end+'\n\n'+home[finish:]
     section='<section class="research-collection" id="research"><div class="container"><div class="collection-heading"><div><div class="section-kicker">Selected research</div><h2>One question.<br>A method. A finding.</h2></div><p>Start with the question that interests you. Each study pairs its conclusion with the evidence behind it.</p></div>'+''.join(card(slug,charts,i+1) for i,slug in enumerate(ORDER))+'</div></section>'
     outputs[ROOT/'index.html']=replace_region(home,start,end,section)
+    sub_start,sub_end='<!-- DAILY MONITOR SUBPAGE START -->','<!-- DAILY MONITOR SUBPAGE END -->'
+    for sub_route in ('daily-reports', 'updated-results'):
+        sub_path = ROOT / sub_route / 'index.html'
+        if sub_path.exists():
+            sub_txt = sub_path.read_text()
+            if sub_start in sub_txt:
+                outputs[sub_path] = replace_region(sub_txt, sub_start, sub_end, build_architecture_and_monitor_html('../'))
     for slug in ORDER:
         path=ROOT/'projects'/slug/'index.html';page=path.read_text();s=STORIES[slug]
         if '../../assets/css/portfolio.css' not in page:
