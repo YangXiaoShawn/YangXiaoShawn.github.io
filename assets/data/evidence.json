@@ -1,9 +1,9 @@
 {
   "generated_at": "2026-09-30",
-  "dataset_revision": "02f42e9c05ecaa31da1870e41d85b84aac960d90",
+  "dataset_revision": "69357441891b0c08716a10865337e5b76895a79b",
   "portfolio": {
     "total_files": 4042,
-    "total_bytes": 2865759585,
+    "total_bytes": 2865759591,
     "categories": {
       "code": 526,
       "data": 3125,
@@ -53,7 +53,7 @@
       },
       "em-factor-timing": {
         "files": 162,
-        "bytes": 5764947,
+        "bytes": 5764943,
         "code": 40,
         "data": 2,
         "reports": 115,
@@ -69,7 +69,7 @@
       },
       "crypto-factors": {
         "files": 99,
-        "bytes": 3526563,
+        "bytes": 3526573,
         "code": 46,
         "data": 16,
         "reports": 34,
