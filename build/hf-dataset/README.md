@@ -29,7 +29,7 @@ Project code, tests, and run configuration live in the GitHub repositories liste
 - `Microstructure/`: research-only market-microstructure protocols, reports, and documentation. Exchange observations, normalized or derived tables, fitted states, ingestion authorities, and generated run bundles are excluded.
 - `EMFactorTiming/`: emerging-market factor timing out-of-sample evaluation tables, JKP coverage metadata, and shrinkage benchmark reports across 21 emerging and 23 developed markets.
 - `PolymarketFactors/`: binary contract artifact funnel tables, price-neutralized factor IC summaries, category reversal diagnostics, and sample market fixtures.
-- `CryptoFactors/`: equity-to-perpetual factor transfer tables, Benjamini-Hochberg FDR summaries, post-publication out-of-sample decay diagnostics, and sample perpetual panel fixtures.
+- `CryptoFactors/`: equity-to-perpetual factor transfer tables, a Benjamini-Hochberg FDR demonstration on a 10-date sample fixture, post-publication out-of-sample decay diagnostics, and sample perpetual panel fixtures. Published long-short tables charged about 2.5 bp per side instead of the stated 5 bp; see the project README's cost erratum.
 - `dataset_manifest.json`: file counts, exclusions, and release metadata for the 8-project release.
 
 ## Supported uses

@@ -2,78 +2,78 @@
   "generated_at": "2026-09-30",
   "dataset_revision": "69357441891b0c08716a10865337e5b76895a79b",
   "portfolio": {
-    "total_files": 4042,
-    "total_bytes": 2865759591,
+    "total_files": 917,
+    "total_bytes": 22331140,
     "categories": {
-      "code": 526,
-      "data": 3125,
-      "reports": 248,
-      "tests": 143
+      "code": 441,
+      "data": 92,
+      "reports": 236,
+      "tests": 148
     },
     "projects": {
       "casuallab": {
-        "files": 414,
-        "bytes": 1433514227,
-        "code": 137,
-        "data": 232,
-        "reports": 17,
-        "tests": 28
+        "files": 102,
+        "bytes": 3623849,
+        "code": 55,
+        "data": 11,
+        "reports": 7,
+        "tests": 29
       },
       "macroeconomics": {
-        "files": 2931,
-        "bytes": 1415262436,
-        "code": 66,
-        "data": 2822,
-        "reports": 13,
-        "tests": 30
+        "files": 107,
+        "bytes": 1687349,
+        "code": 55,
+        "data": 10,
+        "reports": 11,
+        "tests": 31
       },
       "realestate": {
-        "files": 101,
-        "bytes": 1183878,
-        "code": 63,
+        "files": 103,
+        "bytes": 1186961,
+        "code": 64,
         "data": 6,
         "reports": 16,
-        "tests": 16
+        "tests": 17
       },
       "tariff-incidence": {
-        "files": 122,
-        "bytes": 1476927,
-        "code": 65,
+        "files": 125,
+        "bytes": 1482767,
+        "code": 67,
         "data": 30,
         "reports": 15,
-        "tests": 12
+        "tests": 13
       },
       "microstructure": {
-        "files": 136,
-        "bytes": 3581572,
-        "code": 61,
+        "files": 137,
+        "bytes": 3584466,
+        "code": 62,
         "data": 14,
         "reports": 17,
         "tests": 44
       },
       "em-factor-timing": {
-        "files": 162,
-        "bytes": 5764943,
-        "code": 40,
+        "files": 163,
+        "bytes": 5767189,
+        "code": 41,
         "data": 2,
         "reports": 115,
         "tests": 5
       },
       "polymarket-factors": {
-        "files": 77,
-        "bytes": 1449035,
-        "code": 48,
+        "files": 78,
+        "bytes": 1450452,
+        "code": 49,
         "data": 3,
         "reports": 21,
         "tests": 5
       },
       "crypto-factors": {
-        "files": 99,
-        "bytes": 3526573,
-        "code": 46,
+        "files": 102,
+        "bytes": 3548107,
+        "code": 48,
         "data": 16,
         "reports": 34,
-        "tests": 3
+        "tests": 4
       }
     }
   },
@@ -555,9 +555,9 @@
         "label": "92-day post-publication composite return"
       },
       "method": "I test cross-sectional factors on 105 coins, check split samples and parameters, compare funding on OKX, and track the composite after publication.",
-      "finding": "Most factors do not travel; funding (+1.42 Sharpe), retail positioning (+1.39), and low-price range (+1.63) hold up in the 730-day panel, while post-publication windows (June\u2013August 2026) returned \u22126.5% without re-fitting.",
-      "note": "Backtest and out-of-sample backtest association, not live trading. Next-close fills omit market impact; the sample is an altcoin bear market and the OKX check is short.",
-      "chart_caption": "730-day daily quintile long\u2013short Sharpe (net of 5 bp/side) across 105 coins on Binance spot and perpetuals.",
+      "finding": "Most factors do not travel; funding (+1.42 Sharpe), retail positioning (+1.39), and low-price range (+1.63) hold up in the 730-day panel, while post-publication windows (June\u2013August 2026) returned \u22126.5% without re-fitting. The published long\u2013short Sharpes charged about 2.5 bp per side instead of the stated 5 bp and are upper bounds until rerun.",
+      "note": "Backtest and out-of-sample backtest association, not live trading. Fills at the close that completes the signal, with no execution lag or market impact; published long\u2013short costs were under-charged by half. The sample is an altcoin bear market and the OKX check is short.",
+      "chart_caption": "730-day daily quintile long\u2013short Sharpe as published (stated 5 bp/side; the formula effectively charged about 2.5 bp/side) across 105 coins on Binance spot and perpetuals.",
       "source": "CryptoFactors/reports/factor_transfer_summary.csv",
       "default_metric": "sharpe_730d",
       "metrics": [

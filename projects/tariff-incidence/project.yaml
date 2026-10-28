@@ -21,7 +21,7 @@ data_sources:
   - Bureau of Economic Analysis input-output tables
   - Bureau of Labor Statistics Producer Price Index
 data_license: Source-specific terms apply. The public package includes code, documentation, manifests, reports, and small official excerpts; large raw and analytical data are excluded from GitHub.
-code_license: No repository license declared; copyright remains with the repository owner.
+code_license: MIT
 reproduction_command: make reproduce-sample
 expected_runtime: The complete official-data pipeline requires Python 3.12, a Census API key, and approximately 16 GB of memory; synthetic estimator validation runs without credentials.
 outputs:
