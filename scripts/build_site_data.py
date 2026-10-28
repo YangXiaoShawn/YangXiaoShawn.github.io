@@ -9,7 +9,7 @@ import json
 from datetime import date
 from pathlib import Path
 
-from build_research_portfolio import STORIES
+from build_research_portfolio import STORIES, build_architecture_and_monitor_html
 
 try:
     import yaml
@@ -176,21 +176,32 @@ def section_page(slug: str, title: str, description: str, projects: list[dict]) 
     extra = ""
     hero_eyebrow = "Yang Xiao · Applied Economics & Quant"
     hero_title = title
+    page_lead = description
+    monitor_subpage = ""
     if slug == "datasets":
         extra = '<a class="button button-primary" href="https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data">Open the full Dataset</a>'
     elif slug == "dashboards":
         extra = '<a class="button button-primary" href="https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory">Open the live interactive lab</a>'
     elif slug == "daily-reports":
-        extra = '<a class="button button-secondary" href="../feed.xml">Subscribe to the update feed</a>'
+        hero_title = "Daily Trading & Release Archive"
+        page_lead = "Day-by-day out-of-sample trading results, pre-registered signal books, and live-readiness stress audits across CryptoFactors and EMFactorTiming."
+        extra = '<a class="button button-primary" href="#daily-monitor">Jump to daily tables ↓</a><a class="button button-secondary" href="../feed.xml">Subscribe to the update feed</a>'
+        monitor_subpage = f"<!-- DAILY MONITOR SUBPAGE START -->{build_architecture_and_monitor_html('../')}<!-- DAILY MONITOR SUBPAGE END -->\n"
+    elif slug == "updated-results":
+        hero_title = "Updated Out-of-Sample & Daily Results"
+        page_lead = "Versioned out-of-sample extensions, implementation shortfall stress tests, and daily trading comparisons."
+        extra = '<a class="button button-primary" href="#daily-monitor">Jump to daily tables ↓</a><a class="button button-secondary" href="../index.html#research-lab">Browse the project signals</a>'
+        monitor_subpage = f"<!-- DAILY MONITOR SUBPAGE START -->{build_architecture_and_monitor_html('../')}<!-- DAILY MONITOR SUBPAGE END -->\n"
     elif slug == "about":
         hero_title = "Yang Xiao"
         description = "I study how economic incentives, public policy, and information shape market outcomes."
+        page_lead = description
         extra = '<a class="button button-primary" href="https://github.com/YangXiaoShawn">GitHub</a><a class="button button-secondary" href="../index.html#research">View work</a>'
     else:
         extra = '<a class="button button-secondary" href="../index.html#research-lab">Browse the project signals</a>'
     section_content = f'<div class="section-header"><div><div class="section-kicker">Selected research</div><h2 class="section-title">Eight questions, with the evidence in view.</h2></div></div><div class="platform-grid">{cards}</div>'
     if slug == 'about':
-        section_content = '''<article class="about-narrative"><h2>Questions first. Evidence throughout.</h2><p>My work connects applied economics with quantitative research: who responds to an incentive, how data revisions affect a forecast, why mortgage loans stay in place, who bears a tariff, how much edge order flow carries, and whether factor premia hold across emerging markets, prediction markets, and crypto perpetuals.</p><p>I build the work from the source data onward: define the question, choose the comparison, implement the analysis, test alternatives, and make the findings inspectable. A useful result can be a positive finding, a failed benchmark, or a limit on what the data can establish.</p><p>Each study starts with its central question and a plain-language conclusion. The figures show the supporting results; the notes explain the research design, assumptions, and remaining uncertainty. Exact values and published sources sit beside the charts.</p><p>The website is a guided introduction to the research. The interactive Space lets you compare metrics, inspect simulation scenarios, and browse the public evidence. Source repositories contain the methods and reproduction routes.</p><a class="text-link" href="../index.html#research">Explore the research studies →</a></article>'''
+        section_content = '''<article class="about-narrative"><h2>Questions first. Evidence throughout.</h2><p>My work connects applied economics with quantitative research: who responds to an incentive, how data revisions affect a forecast, why mortgage loans stay in place, who bears a tariff, how much edge order flow carries, and whether factor premia hold across emerging markets, prediction markets, and crypto perpetuals.</p><p>All eight studies are consolidated into the unified <a href="https://github.com/YangXiaoShawn/open-economic-quant">open-economic-quant</a> monorepo, backed by <code>oeq-core v0.2.0</code> (shared Empirical Bayes shrinkage, Ledoit-Wolf covariance, Newey-West HAC, Politis-Romano bootstrap, and Deflated Sharpe Ratio primitives) and a live out-of-sample daily trading monitor tracking 105 crypto perpetuals and 49 US-listed emerging/developed market ETFs.</p><p>Each study starts with its central question and a plain-language conclusion. The figures show the supporting results; the notes explain the research design, assumptions, and remaining uncertainty. Exact values and published sources sit beside the charts.</p><p>The website is a guided introduction to the research. The interactive Space lets you compare metrics, inspect simulation scenarios, and browse the public evidence. Source repositories contain the methods and reproduction routes.</p><a class="text-link" href="../index.html#daily-monitor">Inspect the live daily trading monitor →</a> · <a class="text-link" href="../index.html#research">Explore the research studies →</a></article>'''
     if slug == 'methods':
         section_content = '<div class="platform-grid">' + ''.join(f'<article class="platform-card"><div class="section-kicker">{html.escape(story["topic"])}</div><h3>{html.escape(story["title"])}</h3><p>{html.escape(story["method"])}</p><p class="card-note">{html.escape(story["boundary"])}</p><a class="text-link" href="../projects/{key}/#method">Read the research design →</a></article>' for key, story in STORIES.items()) + '</div>'
     return f"""<!doctype html>
@@ -213,8 +224,8 @@ def section_page(slug: str, title: str, description: str, projects: list[dict]) 
   <nav class="site-nav" id="site-nav" aria-label="Primary navigation"><a href="../index.html">Home</a><a href="../research/">Research</a><a href="../datasets/">Datasets</a><a href="../methods/">Methods</a><a href="../about/">About</a></nav>
 </div></header>
 <main id="main">
-  <section class="page-hero"><div class="container"><div class="breadcrumbs"><a href="../index.html">Home</a><span>{html.escape(title)}</span></div><div class="eyebrow">{html.escape(hero_eyebrow)}</div><h1>{html.escape(hero_title)}</h1><p class="page-lead">{html.escape(description)}</p><div class="hero-actions">{extra}</div></div></section>
-  <section class="section section-border"><div class="container">{section_content}</div></section>
+  <section class="page-hero"><div class="container"><div class="breadcrumbs"><a href="../index.html">Home</a><span>{html.escape(title)}</span></div><div class="eyebrow">{html.escape(hero_eyebrow)}</div><h1>{html.escape(hero_title)}</h1><p class="page-lead">{html.escape(page_lead)}</p><div class="hero-actions">{extra}</div></div></section>
+{monitor_subpage}  <section class="section section-border"><div class="container">{section_content}</div></section>
 </main>
 <footer class="site-footer"><div class="container"><div class="footer-bottom"><span>Open Quant &amp; Econ</span><a class="text-link" href="../index.html">Back to homepage</a></div></div></footer>
 <script src="../assets/js/app.js"></script>

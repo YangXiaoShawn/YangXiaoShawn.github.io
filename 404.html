@@ -5,21 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Page not found | Open Quant &amp; Econ</title>
   <meta name="robots" content="noindex" />
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <link rel="stylesheet" href="/assets/css/portfolio.css" />
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
 <header class="site-header"><div class="container header-inner">
-  <a class="brand" href="/"><span class="brand-mark">OQ</span><span class="brand-copy"><span class="brand-title">Open Quant &amp; Econ</span><span class="brand-subtitle">Research portfolio</span></span></a>
+  <a class="brand" href="/index.html"><span class="brand-mark">YX</span><span class="brand-copy"><span class="brand-title">Yang Xiao</span><span class="brand-subtitle">Research portfolio</span></span></a>
 </div></header>
 <main id="main"><section class="page-hero"><div class="container">
   <div class="eyebrow">404 / Not found</div>
   <h1>Page not found.</h1>
-  <p class="page-lead">The page may have moved. Return to the portfolio or browse the five research projects.</p>
-  <div class="hero-actions"><a class="button button-primary" href="/">Return to portfolio</a><a class="button button-secondary" href="/research/">Browse projects</a></div>
+  <p class="page-lead">The page may have moved. Return to the portfolio or browse the eight research projects.</p>
+  <div class="hero-actions"><a class="button button-primary" href="/index.html">Return to portfolio</a><a class="button button-secondary" href="/research/">Browse projects</a></div>
 </div></section></main>
-<footer class="site-footer"><div class="container"><div class="footer-bottom"><span>Open Quant &amp; Econ</span><a class="text-link" href="/">Back to homepage</a></div></div></footer>
+<footer class="site-footer"><div class="container"><div class="footer-bottom"><span>Open Quant &amp; Econ</span><a class="text-link" href="/index.html">Back to homepage</a></div></div></footer>
 <script>
   // Former project-copy URLs: site metadata moved beside each project page; everything else lives in the project repository.
   (function () {
@@ -29,12 +30,15 @@
       '/realestate/project.yaml': '/projects/realestate/project.yaml',
       '/tariff-incidence/project.yaml': '/projects/tariff-incidence/project.yaml',
       '/microstructure/project.yaml': '/projects/microstructure/project.yaml',
+      '/em-factor-timing/project.yaml': '/projects/em-factor-timing/project.yaml',
+      '/polymarket-factors/project.yaml': '/projects/polymarket-factors/project.yaml',
+      '/crypto-factors/project.yaml': '/projects/crypto-factors/project.yaml',
       '/microstructure/docs/PUBLICATION.md': '/projects/microstructure/PUBLICATION.md',
       '/microstructure/docs/DATA_POLICY.md': '/projects/microstructure/DATA_POLICY.md'
     };
     var path = location.pathname;
     if (moved[path]) { location.replace(moved[path]); return; }
-    var match = path.match(/^\/(casuallab|macroeconomics|realestate|tariff-incidence|microstructure)(?:\/(.*))?$/);
+    var match = path.match(/^\/(casuallab|macroeconomics|realestate|tariff-incidence|microstructure|em-factor-timing|polymarket-factors|crypto-factors)(?:\/(.*))?$/);
     if (!match) return;
     var rest = (match[2] || '').replace(/\/$/, '');
     var repo = 'https://github.com/YangXiaoShawn/open-economic-quant-' + match[1];

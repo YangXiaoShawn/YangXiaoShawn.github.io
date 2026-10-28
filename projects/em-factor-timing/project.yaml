@@ -13,7 +13,7 @@ authors:
   - Repository owner and maintainer
 original_source: EMFactorTiming workspace project
 original_sample_period: JKP factor returns from 1926 (United States) and 1986 onward for international developed and emerging markets.
-updated_sample_period: Data through 2025-12 (downloaded 2026-09-29); out-of-sample evaluation across 312 months (2000-01 through 2025-12) covering 801,536 country-factor-months in 22 emerging markets.
+updated_sample_period: JKP panel through 2025-12 (312 OOS months, 801,536 country-factor-months in 22 emerging markets) plus tradable 49-ETF out-of-sample daily tracking through 2026-10-28.
 data_sources:
   - Jensen, Kelly, and Pedersen (2023) global factor returns (jkpfactors.com, 153 factors across 93 countries)
   - MSCI market classification and historical reclassification announcements
@@ -35,7 +35,7 @@ github_url: https://github.com/YangXiaoShawn/open-economic-quant-em-factor-timin
 site_url: https://yangxiaoshawn.github.io/projects/em-factor-timing/
 dataset_url: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/EMFactorTiming
 space_url: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory?project=em-factor-timing
-last_updated: 2026-09-29
+last_updated: 2026-10-28
 limitations: Evidence is out-of-sample predictive comparison, not causal identification. Factor returns are gross of their own stock-level rebalancing costs and signed by the original studies, so Sharpe levels must be read comparatively. Results depend on factor weighting (equal-weighted factors show positive R2_OS vs shrinkage mean, whereas capped value-weighted factors do not).
 catalog:
   field: emerging-markets

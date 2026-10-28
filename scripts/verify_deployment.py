@@ -11,6 +11,7 @@ from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
 from build_research_portfolio import build as build_portfolio
+from build_site_data import main as build_site_data_main
 
 ROOT = Path(__file__).resolve().parents[1]
 DATASET_ID = "ShawnChamberlain/open-economic-quant-research-data"
@@ -85,6 +86,13 @@ def main() -> None:
     parser.add_argument("--hf-only", action="store_true", help="Verify the pinned Hugging Face release without checking Pages or GitHub URLs.")
     args = parser.parse_args()
     build_portfolio(check=True)
+    import sys as _sys
+    _orig_argv = _sys.argv[:]
+    try:
+        _sys.argv = ["build_site_data.py", "--check"]
+        build_site_data_main()
+    finally:
+        _sys.argv = _orig_argv
     required = [
         ROOT / "index.html",
         ROOT / "404.html",

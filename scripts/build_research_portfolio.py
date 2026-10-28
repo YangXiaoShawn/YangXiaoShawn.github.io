@@ -437,6 +437,8 @@ def replace_region(content,start,end,replacement):
 
 
 def fmt_pct(val: float) -> str:
+    if abs(val) < 0.005:
+        val = 0.0
     cls = 'val-pos' if val > 0 else ('val-neg' if val < 0 else '')
     sign = '+' if val > 0 else ''
     return f'<td class="{cls}">{sign}{val:.2f}%</td>'
@@ -590,6 +592,18 @@ def build_architecture_and_monitor_html(rel_prefix: str = '') -> str:
         f'</div></div></section>'
     )
 
+    cf_by_name = {r['name']: r for r in cf['rows']}
+    em_by_name = {r['name']: r for r in em['rows']}
+    rev_row = cf_by_name.get('High-Volume Reversal (REV_hi, Wide-105)', {})
+    inv_row = em_by_name.get('Investment / Conservative (IWD - IWF)', {})
+    mom_row = em_by_name.get('Momentum (MTUM - SPY)', {})
+    rev_mtd = rev_row.get('oct_mtd_pct', 8.35)
+    rev_sep1 = rev_row.get('since_sep01_pct', 10.50)
+    rev_rec = rev_row.get('recent_settled_pct', 3.60)
+    inv_mtd = inv_row.get('oct_mtd_pct', 5.99)
+    mom_last4 = mom_row.get('daily', [0.83, 1.05, 1.13, 1.06])[-4:]
+    mom_last4_str = ', '.join(f'{v:+.2f}%' for v in mom_last4)
+
     monitor_html = (
         f'<section class="monitor-section" id="daily-monitor"><div class="container">'
         f'<div class="collection-heading"><div><div class="section-kicker">Live out-of-sample monitor · Updated {esc(mon["generated_at_utc"])}</div>'
@@ -597,9 +611,9 @@ def build_architecture_and_monitor_html(rel_prefix: str = '') -> str:
         f'<p>Realized out-of-sample returns tracked day by day across 105 crypto perpetuals (Binance Vision + OKX UTC) and 49 US-listed emerging/developed market ETFs.</p></div>'
         f'<div class="monitor-kpis">'
         f'<article class="monitor-kpi"><span>Crypto Deliverable · Product B</span><strong>+28.41%</strong><small>537-day net return (+0.81 Sharpe) under realistic 24-perp short hedge, 8h funding &amp; 1-min delay ($500k–$1M capacity)</small></article>'
-        f'<article class="monitor-kpi"><span>Crypto High-Volume Reversal</span><strong>+8.35%</strong><small>October 2026 MTD net return (+10.50% since Sep 1), with +3.60% across the last 7 settled days (Oct 21–27)</small></article>'
+        f'<article class="monitor-kpi"><span>Crypto High-Volume Reversal</span><strong>{rev_mtd:+.2f}%</strong><small>October 2026 MTD net return ({rev_sep1:+.2f}% since Sep 1), with {rev_rec:+.2f}% across the last 7 settled days (Oct 21–27)</small></article>'
         f'<article class="monitor-kpi"><span>EM Shrinkage Factor Tilt</span><strong>517–1,720 bp</strong><small>Break-even transaction cost in 2026 OOS (+1.98% 2026 YTD tradable ETF excess return vs −5.71% EEM)</small></article>'
-        f'<article class="monitor-kpi"><span>EM Conservative Investment</span><strong>+6.03%</strong><small>October 2026 MTD spread return (IWD − IWF), providing +3.09% crisis alpha during the Oct 22 equity sell-off</small></article>'
+        f'<article class="monitor-kpi"><span>EM Conservative Investment</span><strong>{inv_mtd:+.2f}%</strong><small>October 2026 MTD spread return (IWD − IWF), providing +3.09% crisis alpha during the Oct 22 equity sell-off</small></article>'
         f'</div>'
         f'<div class="monitor-block">'
         f'<div class="monitor-block-head"><h3>01 · CryptoFactors Day-by-Day Realized Net Returns (105 Coins, UTC Days)</h3>'
@@ -612,7 +626,7 @@ def build_architecture_and_monitor_html(rel_prefix: str = '') -> str:
         f'<div class="monitor-block" style="margin-bottom:0">'
         f'<div class="monitor-block-head"><h3>02 · EMFactorTiming Day-by-Day Realized Returns (49 US-Listed EM/DM ETFs)</h3>'
         f'<span>Latest US trading session: {esc(em["latest_us_trading_date"])}{" (Intraday Live)" if em["latest_is_live"] else " (Settled Close)"}</span></div>'
-        f'<p class="monitor-note">Daily factor spreads and country ETF returns across 7 tradable global/EM style factors, 2 composite timing portfolios, and 21 MSCI EM country ETFs. On Thursday Oct 22 (when EEM fell −2.91% and SPY fell −1.18%), all six fundamental/defensive style factors rallied (<strong>Investment</strong> +3.09%, <strong>Low Risk</strong> +1.65%, <strong>Value</strong> +1.03%, <strong>Shrinkage Tilt</strong> +1.27%); across Oct 23–28, <strong>Momentum</strong> rebounded for four consecutive sessions (+0.83%, +1.05%, +1.13%, +1.03%).</p>'
+        f'<p class="monitor-note">Daily factor spreads and country ETF returns across 7 tradable global/EM style factors, 2 composite timing portfolios, and 21 MSCI EM country ETFs. On Thursday Oct 22 (when EEM fell −2.91% and SPY fell −1.18%), all six fundamental/defensive style factors rallied (<strong>Investment</strong> +3.09%, <strong>Low Risk</strong> +1.65%, <strong>Value</strong> +1.03%, <strong>Shrinkage Tilt</strong> +1.27%); across Oct 23–28, <strong>Momentum</strong> rebounded for four consecutive sessions ({mom_last4_str}).</p>'
         f'{em_table}'
         f'{cty_table}'
         f'<p style="margin:12px 0 0;font-size:13px"><a href="{esc(source_url("EMFactorTiming/reports/live_readiness_2026_10/em_day_by_day_comparison_2026_10_28.csv"))}" style="color:var(--accent);font-weight:600">Download EMFactorTiming day-by-day CSV ↗</a> · <a href="{esc(source_url("EMFactorTiming/reports/LIVE_READINESS_AUDIT_2026-10.md"))}" style="color:var(--accent);font-weight:600">Read EM Live-Readiness Audit ↗</a></p>'

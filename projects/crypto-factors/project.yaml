@@ -13,7 +13,7 @@ authors:
   - Repository owner and maintainer
 original_source: CryptoFactors workspace project
 original_sample_period: 2024-06 through 2026-05 (105 coins x 730 days on Binance spot and USDT-margined perpetuals).
-updated_sample_period: Post-publication out-of-sample tracking through 2026-09-29 (851 days total; 92-day June-August 2026 composite window).
+updated_sample_period: Post-publication out-of-sample tracking through 2026-10-28 (880 days total; 92-day June-August 2026 composite window plus live-readiness daily tracking through October 2026).
 data_sources:
   - Binance public archives (data.binance.vision) for 1-minute spot/perpetual klines, funding rates, open interest, and long/short ratios
   - OKX public market data via ccxt for cross-exchange replication
@@ -33,7 +33,7 @@ github_url: https://github.com/YangXiaoShawn/open-economic-quant-crypto-factors
 site_url: https://yangxiaoshawn.github.io/projects/crypto-factors/
 dataset_url: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/CryptoFactors
 space_url: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory?project=crypto-factors
-last_updated: 2026-09-30
+last_updated: 2026-10-28
 limitations: Backtest and post-publication out-of-sample backtest association, not live trading. Next-close fills omit market impact; about five names per leg in the large-coin pool; the 2024-2026 sample is an altcoin bear market; OKX funding history via ccxt is approximately three months.
 catalog:
   field: crypto-derivatives
