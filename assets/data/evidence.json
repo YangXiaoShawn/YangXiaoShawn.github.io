@@ -1,9 +1,9 @@
 {
   "generated_at": "2026-09-30",
-  "dataset_revision": "69357441891b0c08716a10865337e5b76895a79b",
+  "dataset_revision": "9f99d54d2ea527aa52f97f151cedbb8f2b2e5d92",
   "portfolio": {
     "total_files": 917,
-    "total_bytes": 22331140,
+    "total_bytes": 22331144,
     "categories": {
       "code": 441,
       "data": 92,
@@ -69,7 +69,7 @@
       },
       "crypto-factors": {
         "files": 102,
-        "bytes": 3548107,
+        "bytes": 3548111,
         "code": 48,
         "data": 16,
         "reports": 34,

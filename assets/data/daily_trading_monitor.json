@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-10-28 20:10 UTC",
+  "generated_at_utc": "2026-10-29 00:07 UTC",
   "monorepo": {
     "name": "open-economic-quant",
     "github_url": "https://github.com/YangXiaoShawn/open-economic-quant",
@@ -12,7 +12,7 @@
   "crypto_factors": {
     "latest_binance_settled_date": "2026-10-27",
     "latest_okx_utc_date": "2026-10-28",
-    "latest_is_live": true,
+    "latest_is_live": false,
     "day_headers": [
       "Oct 20",
       "Oct 21",
@@ -22,11 +22,11 @@
       "Oct 25",
       "Oct 26",
       "Oct 27",
-      "Oct 28 (Live)"
+      "Oct 28"
     ],
-    "recent_settled_label": "Oct 21-Oct 27 (Settled)",
-    "recent_all_label": "Oct 21-Oct 28 (Incl. Live)",
-    "oct_label": "Oct MTD (to Oct 27)",
+    "recent_settled_label": "Oct 21-Oct 28 (Settled)",
+    "recent_all_label": "Oct 21-Oct 28",
+    "oct_label": "Oct MTD (to Oct 28)",
     "rows": [
       {
         "name": "BTC Spot/Perp Benchmark",
@@ -40,13 +40,13 @@
           -0.91,
           -0.0,
           0.95,
-          0.72
+          0.53
         ],
-        "recent_settled_pct": -2.55,
-        "recent_incl_live_pct": -1.85,
-        "oct_mtd_pct": -4.68,
-        "since_sep29_pct": -3.29,
-        "since_sep01_pct": 4.48
+        "recent_settled_pct": -2.04,
+        "recent_incl_live_pct": -2.04,
+        "oct_mtd_pct": -4.17,
+        "since_sep29_pct": -2.78,
+        "since_sep01_pct": 5.04
       },
       {
         "name": "ETH Spot/Perp Benchmark",
@@ -60,13 +60,13 @@
           -1.23,
           -0.23,
           1.11,
-          1.06
+          0.39
         ],
-        "recent_settled_pct": -4.04,
-        "recent_incl_live_pct": -3.02,
-        "oct_mtd_pct": -13.16,
-        "since_sep29_pct": -12.23,
-        "since_sep01_pct": -2.82
+        "recent_settled_pct": -3.66,
+        "recent_incl_live_pct": -3.66,
+        "oct_mtd_pct": -12.82,
+        "since_sep29_pct": -11.89,
+        "since_sep01_pct": -2.44
       },
       {
         "name": "Big-24 Equal-Weight Benchmark",
@@ -80,13 +80,13 @@
           -0.68,
           0.29,
           0.49,
-          1.63
+          0.68
         ],
-        "recent_settled_pct": -6.58,
-        "recent_incl_live_pct": -5.06,
-        "oct_mtd_pct": -11.28,
-        "since_sep29_pct": -11.66,
-        "since_sep01_pct": 19.88
+        "recent_settled_pct": -5.95,
+        "recent_incl_live_pct": -5.95,
+        "oct_mtd_pct": -10.68,
+        "since_sep29_pct": -11.07,
+        "since_sep01_pct": 20.69
       },
       {
         "name": "Wide-105 Equal-Weight Benchmark",
@@ -100,13 +100,13 @@
           -1.69,
           0.33,
           0.82,
-          2.17
+          0.82
         ],
-        "recent_settled_pct": -7.95,
-        "recent_incl_live_pct": -5.95,
-        "oct_mtd_pct": -13.85,
-        "since_sep29_pct": -13.35,
-        "since_sep01_pct": 16.8
+        "recent_settled_pct": -7.19,
+        "recent_incl_live_pct": -7.19,
+        "oct_mtd_pct": -13.14,
+        "since_sep29_pct": -12.64,
+        "since_sep01_pct": 17.76
       },
       {
         "name": "Product B \u00b7 Top-8 Big-Cap Long-Only",
@@ -120,13 +120,13 @@
           -1.15,
           0.19,
           -0.14,
-          1.36
+          0.33
         ],
-        "recent_settled_pct": -6.41,
-        "recent_incl_live_pct": -5.14,
-        "oct_mtd_pct": -11.29,
-        "since_sep29_pct": -11.0,
-        "since_sep01_pct": 22.01
+        "recent_settled_pct": -6.1,
+        "recent_incl_live_pct": -6.1,
+        "oct_mtd_pct": -11.0,
+        "since_sep29_pct": -10.7,
+        "since_sep01_pct": 22.41
       },
       {
         "name": "Product B \u00b7 Top-8 Beta-Hedged (Market-Neutral)",
@@ -140,253 +140,253 @@
           -0.47,
           -0.1,
           -0.64,
-          -0.27
+          -0.35
         ],
-        "recent_settled_pct": 0.11,
-        "recent_incl_live_pct": -0.15,
-        "oct_mtd_pct": -0.56,
-        "since_sep29_pct": 0.2,
-        "since_sep01_pct": 0.91
+        "recent_settled_pct": -0.24,
+        "recent_incl_live_pct": -0.24,
+        "oct_mtd_pct": -0.91,
+        "since_sep29_pct": -0.15,
+        "since_sep01_pct": 0.55
       },
       {
         "name": "v2.0 \u00b7 4-Factor Static Equal-Weight",
         "category": "Composite",
         "daily": [
-          -0.91,
-          -0.04,
-          0.14,
-          -0.03,
-          -0.59,
-          -0.09,
-          -0.22,
-          -1.06,
-          -0.31
+          -0.94,
+          -0.06,
+          0.12,
+          -0.05,
+          -0.62,
+          -0.1,
+          -0.24,
+          -1.09,
+          -0.34
         ],
-        "recent_settled_pct": -1.87,
-        "recent_incl_live_pct": -2.17,
-        "oct_mtd_pct": -0.43,
-        "since_sep29_pct": -0.04,
-        "since_sep01_pct": -1.87
+        "recent_settled_pct": -2.35,
+        "recent_incl_live_pct": -2.35,
+        "oct_mtd_pct": -1.23,
+        "since_sep29_pct": -0.88,
+        "since_sep01_pct": -3.28
       },
       {
         "name": "v2.0 \u00b7 Inverse-Vol + Funding Squeeze Gate",
         "category": "Composite",
         "daily": [
-          -0.88,
-          0.1,
-          -0.24,
-          -0.32,
-          -0.75,
-          -0.21,
-          0.18,
-          -0.99,
-          0.05
+          -0.91,
+          0.08,
+          -0.26,
+          -0.35,
+          -0.77,
+          -0.22,
+          0.16,
+          -1.02,
+          -0.08
         ],
-        "recent_settled_pct": -2.22,
-        "recent_incl_live_pct": -2.16,
-        "oct_mtd_pct": 0.89,
-        "since_sep29_pct": 0.65,
-        "since_sep01_pct": -2.66
+        "recent_settled_pct": -2.45,
+        "recent_incl_live_pct": -2.45,
+        "oct_mtd_pct": 0.36,
+        "since_sep29_pct": 0.09,
+        "since_sep01_pct": -3.72
       },
       {
         "name": "v2.0 \u00b7 Gated + 15% Target Volatility",
         "category": "Composite",
         "daily": [
-          -1.08,
-          0.12,
-          -0.29,
-          -0.42,
-          -0.97,
-          -0.29,
-          0.26,
-          -1.48,
-          0.07
+          -1.11,
+          0.09,
+          -0.31,
+          -0.45,
+          -0.99,
+          -0.32,
+          0.23,
+          -1.52,
+          -0.11
         ],
-        "recent_settled_pct": -3.03,
-        "recent_incl_live_pct": -2.96,
-        "oct_mtd_pct": -0.55,
-        "since_sep29_pct": -0.72,
-        "since_sep01_pct": -3.31
+        "recent_settled_pct": -3.33,
+        "recent_incl_live_pct": -3.33,
+        "oct_mtd_pct": -1.12,
+        "since_sep29_pct": -1.31,
+        "since_sep01_pct": -4.25
       },
       {
         "name": "Low-Price Range (AMP_lo, Wide-105)",
         "category": "Single Factor",
         "daily": [
           -0.57,
-          -1.14,
+          -1.15,
           4.31,
-          2.46,
+          2.45,
           0.65,
-          0.15,
-          -1.07,
-          -0.35,
-          -2.69
+          0.14,
+          -1.08,
+          -0.36,
+          -1.71
         ],
-        "recent_settled_pct": 4.99,
-        "recent_incl_live_pct": 2.17,
-        "oct_mtd_pct": 5.44,
-        "since_sep29_pct": 6.46,
-        "since_sep01_pct": -4.56
+        "recent_settled_pct": 3.15,
+        "recent_incl_live_pct": 3.15,
+        "oct_mtd_pct": 3.43,
+        "since_sep29_pct": 4.42,
+        "since_sep01_pct": -6.63
       },
       {
         "name": "High-Volume Reversal (REV_hi, Wide-105)",
         "category": "Single Factor",
         "daily": [
-          -0.05,
-          0.79,
-          2.01,
-          -0.31,
-          -0.52,
-          0.58,
-          1.0,
-          0.02,
-          1.34
+          -0.08,
+          0.75,
+          1.97,
+          -0.34,
+          -0.55,
+          0.55,
+          0.97,
+          -0.01,
+          0.97
         ],
-        "recent_settled_pct": 3.6,
-        "recent_incl_live_pct": 4.99,
-        "oct_mtd_pct": 8.35,
-        "since_sep29_pct": 8.46,
-        "since_sep01_pct": 10.5
+        "recent_settled_pct": 4.37,
+        "recent_incl_live_pct": 4.37,
+        "oct_mtd_pct": 8.54,
+        "since_sep29_pct": 8.58,
+        "since_sep01_pct": 9.66
       },
       {
         "name": "Taker Buy Ratio (OFI, Big-24)",
         "category": "Single Factor",
         "daily": [
-          0.48,
-          0.02,
-          0.2,
-          0.58,
-          -0.03,
-          -0.79,
+          0.46,
+          -0.01,
+          0.18,
           0.55,
-          0.85,
-          -1.73
+          -0.07,
+          -0.81,
+          0.52,
+          0.83,
+          -1.21
         ],
-        "recent_settled_pct": 1.38,
-        "recent_incl_live_pct": -0.38,
-        "oct_mtd_pct": 1.16,
-        "since_sep29_pct": 1.04,
-        "since_sep01_pct": -11.21
+        "recent_settled_pct": -0.05,
+        "recent_incl_live_pct": -0.05,
+        "oct_mtd_pct": -0.77,
+        "since_sep29_pct": -0.95,
+        "since_sep01_pct": -13.62
       },
       {
         "name": "Large-Trade Taker Imbalance (OFI_big, Big-24)",
         "category": "Single Factor",
         "daily": [
-          -0.34,
-          0.44,
-          0.3,
-          -0.1,
-          -0.1,
-          -1.07,
-          0.55,
-          1.27,
-          -1.73
+          -0.38,
+          0.41,
+          0.27,
+          -0.14,
+          -0.12,
+          -1.09,
+          0.52,
+          1.25,
+          -1.21
         ],
-        "recent_settled_pct": 1.28,
-        "recent_incl_live_pct": -0.47,
-        "oct_mtd_pct": 6.28,
-        "since_sep29_pct": 4.95,
-        "since_sep01_pct": -14.37
+        "recent_settled_pct": -0.14,
+        "recent_incl_live_pct": -0.14,
+        "oct_mtd_pct": 4.18,
+        "since_sep29_pct": 2.82,
+        "since_sep01_pct": -16.83
       },
       {
         "name": "Open-Interest Change (dOI, Big-24)",
         "category": "Single Factor",
         "daily": [
-          -1.42,
-          0.03,
-          -1.72,
-          0.21,
-          -0.01,
-          -0.41,
-          1.46,
-          -0.37,
-          -0.35
+          -1.48,
+          -0.02,
+          -1.77,
+          0.15,
+          -0.08,
+          -0.45,
+          1.41,
+          -0.44,
+          0.12
         ],
-        "recent_settled_pct": -0.83,
-        "recent_incl_live_pct": -1.18,
-        "oct_mtd_pct": -12.11,
-        "since_sep29_pct": -11.33,
-        "since_sep01_pct": -18.34
+        "recent_settled_pct": -1.1,
+        "recent_incl_live_pct": -1.1,
+        "oct_mtd_pct": -13.13,
+        "since_sep29_pct": -12.43,
+        "since_sep01_pct": -20.4
       },
       {
         "name": "Cross-Sectional Momentum (MOM, Wide-105)",
         "category": "Single Factor",
         "daily": [
+          0.99,
+          -0.23,
+          -0.69,
+          -0.36,
           1.02,
-          -0.21,
-          -0.66,
-          -0.34,
-          1.05,
-          0.02,
-          -0.89,
-          0.63,
-          -1.13
+          -0.01,
+          -0.9,
+          0.6,
+          -0.3
         ],
-        "recent_settled_pct": -0.41,
-        "recent_incl_live_pct": -1.54,
-        "oct_mtd_pct": 3.13,
-        "since_sep29_pct": 1.06,
-        "since_sep01_pct": -6.81
+        "recent_settled_pct": -0.87,
+        "recent_incl_live_pct": -0.87,
+        "oct_mtd_pct": 2.11,
+        "since_sep29_pct": -0.0,
+        "since_sep01_pct": -8.46
       },
       {
         "name": "Top-Trader Long/Short Ratio (TLS, Big-24)",
         "category": "Single Factor",
         "daily": [
-          2.25,
-          0.09,
+          2.24,
+          0.08,
           -1.67,
           -0.77,
           -0.35,
-          -0.39,
+          -0.4,
           1.12,
-          0.6,
-          -0.82
+          0.59,
+          -0.59
         ],
-        "recent_settled_pct": -1.39,
-        "recent_incl_live_pct": -2.2,
-        "oct_mtd_pct": -7.7,
-        "since_sep29_pct": -7.59,
-        "since_sep01_pct": 16.42
+        "recent_settled_pct": -2.0,
+        "recent_incl_live_pct": -2.0,
+        "oct_mtd_pct": -8.35,
+        "since_sep29_pct": -8.25,
+        "since_sep01_pct": 15.37
       },
       {
         "name": "Retail Long/Short Contrarian (GLS, Big-24)",
         "category": "Single Factor",
         "daily": [
           -0.34,
-          1.02,
-          -1.7,
-          -0.8,
+          1.01,
+          -1.71,
+          -0.81,
           -1.74,
           -0.24,
           -0.28,
-          -1.38,
-          1.03
+          -1.39,
+          0.19
         ],
-        "recent_settled_pct": -5.02,
-        "recent_incl_live_pct": -4.05,
+        "recent_settled_pct": -4.89,
+        "recent_incl_live_pct": -4.89,
         "oct_mtd_pct": 2.23,
         "since_sep29_pct": 0.28,
-        "since_sep01_pct": 5.11
+        "since_sep01_pct": 4.87
       },
       {
         "name": "Funding-Rate Contrarian Carry (FUND, Big-24)",
         "category": "Single Factor",
         "daily": [
-          -1.32,
-          -0.06,
-          -0.33,
-          -1.98,
-          -1.27,
-          0.15,
-          -0.99,
-          -2.14,
-          0.79
+          -1.35,
+          -0.08,
+          -0.34,
+          -2.0,
+          -1.29,
+          0.12,
+          -1.0,
+          -2.16,
+          0.05
         ],
-        "recent_settled_pct": -6.45,
-        "recent_incl_live_pct": -5.71,
-        "oct_mtd_pct": 2.26,
-        "since_sep29_pct": 3.9,
-        "since_sep01_pct": 7.47
+        "recent_settled_pct": -6.52,
+        "recent_incl_live_pct": -6.52,
+        "oct_mtd_pct": 2.1,
+        "since_sep29_pct": 3.68,
+        "since_sep01_pct": 6.62
       }
     ],
     "preregistered_book_2026_10_23": [
@@ -395,7 +395,7 @@
         "BTC_pct": -0.28,
         "ETH_pct": -0.07,
         "Big24_EW_pct": -0.76,
-        "Wide_EW_pct": -0.69,
+        "Wide_EW_pct": -0.72,
         "ProdB_Long8_pct": -1.14,
         "ProdB_MktNeutral_pct": -0.38,
         "ProdB_Top8_vs_Bot5_pct": -0.31,
@@ -409,7 +409,7 @@
         "BTC_pct": -0.37,
         "ETH_pct": -1.22,
         "Big24_EW_pct": -1.48,
-        "Wide_EW_pct": -1.74,
+        "Wide_EW_pct": -1.73,
         "ProdB_Long8_pct": -2.02,
         "ProdB_MktNeutral_pct": -0.54,
         "ProdB_Top8_vs_Bot5_pct": -0.75,
@@ -423,7 +423,7 @@
         "BTC_pct": -0.9,
         "ETH_pct": -1.22,
         "Big24_EW_pct": -0.7,
-        "Wide_EW_pct": -1.71,
+        "Wide_EW_pct": -1.65,
         "ProdB_Long8_pct": -0.96,
         "ProdB_MktNeutral_pct": -0.26,
         "ProdB_Top8_vs_Bot5_pct": -0.25,
@@ -437,7 +437,7 @@
         "BTC_pct": 0.01,
         "ETH_pct": -0.22,
         "Big24_EW_pct": 0.41,
-        "Wide_EW_pct": 0.28,
+        "Wide_EW_pct": 0.34,
         "ProdB_Long8_pct": -0.04,
         "ProdB_MktNeutral_pct": -0.45,
         "ProdB_Top8_vs_Bot5_pct": -0.97,
@@ -451,7 +451,7 @@
         "BTC_pct": 0.94,
         "ETH_pct": 1.11,
         "Big24_EW_pct": 0.27,
-        "Wide_EW_pct": 0.73,
+        "Wide_EW_pct": 0.74,
         "ProdB_Long8_pct": -0.17,
         "ProdB_MktNeutral_pct": -0.44,
         "ProdB_Top8_vs_Bot5_pct": -0.82,
@@ -461,18 +461,18 @@
         "REV_LS_pct": -0.45
       },
       {
-        "date_utc": "2026-10-28 (Live)",
-        "BTC_pct": 0.72,
-        "ETH_pct": 1.06,
-        "Big24_EW_pct": 1.63,
-        "Wide_EW_pct": 2.17,
-        "ProdB_Long8_pct": 2.07,
-        "ProdB_MktNeutral_pct": 0.44,
-        "ProdB_Top8_vs_Bot5_pct": 0.33,
-        "GLS_LS_pct": 0.54,
-        "FUND_LS_pct": 1.02,
-        "AMP_LS_pct": -0.72,
-        "REV_LS_pct": -0.03
+        "date_utc": "2026-10-28",
+        "BTC_pct": 0.53,
+        "ETH_pct": 0.39,
+        "Big24_EW_pct": 0.68,
+        "Wide_EW_pct": 0.82,
+        "ProdB_Long8_pct": 0.68,
+        "ProdB_MktNeutral_pct": -0.0,
+        "ProdB_Top8_vs_Bot5_pct": -0.08,
+        "GLS_LS_pct": -0.32,
+        "FUND_LS_pct": 0.07,
+        "AMP_LS_pct": -0.14,
+        "REV_LS_pct": 0.08
       }
     ]
   },

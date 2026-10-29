@@ -11,7 +11,7 @@
     "CryptoFactors"
   ],
   "file_count": 917,
-  "size_bytes": 22331140,
+  "size_bytes": 22331144,
   "excluded_parts": [
     ".DS_Store",
     ".git",
@@ -3488,11 +3488,11 @@
     },
     {
       "path": "CryptoFactors/reports/live_readiness_2026_10/crypto_day_by_day_comparison_2026_10_27.csv",
-      "size_bytes": 2274
+      "size_bytes": 2282
     },
     {
       "path": "CryptoFactors/reports/live_readiness_2026_10/crypto_day_by_day_comparison_2026_10_28.csv",
-      "size_bytes": 2274
+      "size_bytes": 2282
     },
     {
       "path": "CryptoFactors/reports/live_readiness_2026_10/crypto_factors_through_2026_10_25.csv",
@@ -3508,11 +3508,11 @@
     },
     {
       "path": "CryptoFactors/reports/live_readiness_2026_10/preregistered_book_realized_10_23_to_10_27.csv",
-      "size_bytes": 601
+      "size_bytes": 595
     },
     {
       "path": "CryptoFactors/reports/live_readiness_2026_10/preregistered_book_realized_10_23_to_10_28.csv",
-      "size_bytes": 601
+      "size_bytes": 595
     },
     {
       "path": "CryptoFactors/reports/live_readiness_2026_10/product_b_capacity_stress.csv",
