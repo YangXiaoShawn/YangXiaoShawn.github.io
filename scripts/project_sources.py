@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Read build inputs from the unified open-economic-quant monorepo or standalone project repositories.
+"""Read build inputs from the unified open-economic-quant monorepo.
 
 Prefers local monorepo checkout when present so builds run deterministically offline;
-falls back to GitHub at the pinned commit if local checkout is unavailable.
+falls back to the monorepo on GitHub at the pinned commit if local checkout is unavailable.
+The former standalone open-economic-quant-<project> repositories are archived.
 """
 
 from __future__ import annotations
@@ -28,11 +29,11 @@ FOLDER_BY_SLUG = {
     "crypto-factors": "CryptoFactors",
 }
 
+MONOREPO = "YangXiaoShawn/open-economic-quant"
+# Pinned monorepo commits for the GitHub fallback. TariffIncidence/reports/tariff_incidence_results.md
+# at this commit is byte-identical to the former split-repo pin (729ebb8).
 SOURCES = {
-    "tariff-incidence": (
-        "YangXiaoShawn/open-economic-quant-tariff-incidence",
-        "729ebb821bf5b982b5a7d2ec2bd6086a8d7c2df2",
-    ),
+    "tariff-incidence": "65dc1d487f350d542d4a7a0ed59064d6a0f1ca72",
 }
 
 
@@ -45,8 +46,8 @@ def source_text(slug: str, relative: str) -> str:
             candidate = base / folder / relative
             if candidate.exists():
                 return candidate.read_text(encoding="utf-8")
-    repo, commit = SOURCES[slug]
-    url = f"https://raw.githubusercontent.com/{repo}/{commit}/{relative}"
+    commit = SOURCES[slug]
+    url = f"https://raw.githubusercontent.com/{MONOREPO}/{commit}/{FOLDER_BY_SLUG[slug]}/{relative}"
     request = Request(url, headers={"User-Agent": "open-quant-econ-site-build"})
     with urlopen(request, timeout=30) as response:
         return response.read().decode("utf-8")

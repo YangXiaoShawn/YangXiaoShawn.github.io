@@ -36,7 +36,7 @@ PROJECTS = {
         question="How do causal mechanisms and heterogeneous treatment effects shape market outcomes and policy interventions?",
         summary="Known-truth HTE RMSE is 0.0417 versus 0.0247 for the oracle; the recovery gate is not met.",
         methodology="Define an estimand, document identification assumptions, recover effects on fixtures or authorized public data, validate estimator behavior, and publish a traceable result manifest.",
-        source_url="https://github.com/YangXiaoShawn/open-economic-quant-casuallab",
+        source_url="https://github.com/YangXiaoShawn/open-economic-quant/tree/main/CasualLab",
     ),
     "Macroeconomics": Project(
         title="Macroeconomics",
@@ -46,7 +46,7 @@ PROJECTS = {
         question="How do release revisions and the information available at each vintage affect real-time forecast quality?",
         summary="Valid modes use zero future cells; the naive revised-data benchmark changes model rankings.",
         methodology="Record source availability, align observations to their real-time vintage, prevent revised-data leakage, backtest models on comparable information sets, and label current revised APIs honestly.",
-        source_url="https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics",
+        source_url="https://github.com/YangXiaoShawn/open-economic-quant/tree/main/Macroeconomics",
     ),
     "RealEstate": Project(
         title="Mortgage Rate Lock-In and Housing Market Dynamics",
@@ -56,7 +56,7 @@ PROJECTS = {
         question="How does the gap between existing mortgage rates and current market rates affect mortgage exits, local activity, prices, and construction?",
         summary="Each +1 pp rate gap is associated with a 0.817 exit-hazard ratio; the estimate is not causal.",
         methodology="Construct point-in-time lock-in measures, model mortgage-exit hazards, freeze predetermined local exposure for event studies, auto-demote results when diagnostics fail, and label counterfactuals as simulations rather than forecasts.",
-        source_url="https://github.com/YangXiaoShawn/open-economic-quant-realestate",
+        source_url="https://github.com/YangXiaoShawn/open-economic-quant/tree/main/RealEstate",
     ),
     "TariffIncidence": Project(
         title="Tariff Incidence, Supply-Chain Reallocation, and Domestic Propagation",
@@ -66,7 +66,7 @@ PROJECTS = {
         question="How did U.S. product-level tariffs on imports from China pass through to importers, reshape sourcing, and propagate through domestic input-output linkages?",
         summary="Customs values stay near +0.025 within ±0.076; landed values track the tariff.",
         methodology="Parse legal notices against their stated line counts, construct a provenance-stamped HS10 panel, estimate each outcome under a stacked design, require pre-trend and placebo diagnostics before causal language, and keep observed evidence separate from model-implied counterfactuals.",
-        source_url="https://github.com/YangXiaoShawn/open-economic-quant-tariff-incidence",
+        source_url="https://github.com/YangXiaoShawn/open-economic-quant/tree/main/TariffIncidence",
     ),
     "Microstructure": Project(
         title="Order Flow to Price Impact",
@@ -76,7 +76,7 @@ PROJECTS = {
         question="How much short-horizon edge does order flow carry under explicit fees, latency, fills, inventory, and drawdown?",
         summary="Research reference only: 110 of 144 scenarios are gross-positive, measured against a fixed 4 bp fee.",
         methodology="Preserve event ordering, prevent temporal leakage, evaluate pseudoheldout phases separately, and expose fees and turnover-normalized marked drawdown. Research reference only—not live performance.",
-        source_url="https://github.com/YangXiaoShawn/open-economic-quant-microstructure",
+        source_url="https://github.com/YangXiaoShawn/open-economic-quant/tree/main/Microstructure",
     ),
     "EMFactorTiming": Project(
         title="Emerging-Market Factor Timing",
@@ -86,7 +86,7 @@ PROJECTS = {
         question="Can macroeconomic conditioning improve emerging-market factor returns net of turnover costs?",
         summary="Static equal-weight six-factor composite achieves 1.72 gross Sharpe (1.19 net); dynamic macro timing adds no standalone edge.",
         methodology="Evaluate six JKP factor themes across 26 emerging markets (1990–2024) against five out-of-sample macro-conditioning rules with explicit 38 bps/month turnover costs.",
-        source_url="https://github.com/YangXiaoShawn/open-economic-quant-em-factor-timing",
+        source_url="https://github.com/YangXiaoShawn/open-economic-quant/tree/main/EMFactorTiming",
     ),
     "PolymarketFactors": Project(
         title="Prediction-Market Factor Anatomy",
@@ -96,7 +96,7 @@ PROJECTS = {
         question="Which cross-sectional signals predict returns in binary prediction-market contracts after removing backtest artifacts?",
         summary="Seven-day momentum exhibits significant cross-sectional reversal (IC = -0.068, Newey-West t = -12.71) across 2,869 settled markets.",
         methodology="Construct a leakage-safe 30-day pre-resolution panel across 2,869 settled Polymarket contracts and evaluate nine signals via daily Spearman rank IC with Newey-West standard errors.",
-        source_url="https://github.com/YangXiaoShawn/open-economic-quant-polymarket-factors",
+        source_url="https://github.com/YangXiaoShawn/open-economic-quant/tree/main/PolymarketFactors",
     ),
     "CryptoFactors": Project(
         title="Crypto Perpetual Factor Transfer",
@@ -106,7 +106,7 @@ PROJECTS = {
         question="Do standard equity cross-sectional factors survive when translated to weekly crypto perpetual futures?",
         summary="Zero of 11 individual equity factors pass 5% BH-FDR; out-of-sample rank composite achieves 1.24 Sharpe in the 2023–2026 holdout.",
         methodology="Test 11 equity and crypto-native factors across 49 Binance USDT perpetuals (2021–2026) under Benjamini-Hochberg FDR control and post-publication holdout splits.",
-        source_url="https://github.com/YangXiaoShawn/open-economic-quant-crypto-factors",
+        source_url="https://github.com/YangXiaoShawn/open-economic-quant/tree/main/CryptoFactors",
     ),
 }
 

@@ -34,14 +34,14 @@ def test_tariff_project_uses_canonical_slug(monkeypatch):
     monkeypatch.setattr("app._dataset_rows", lambda project: (app.FALLBACK_ROWS.copy(), "test"))
     summary, _, _, _ = explore("TariffIncidence", "")
     assert "/projects/tariff-incidence/" in summary
-    assert "open-economic-quant-tariff-incidence" in summary
+    assert "open-economic-quant/tree/main/TariffIncidence" in summary
 
 
 def test_microstructure_project_uses_canonical_links(monkeypatch):
     monkeypatch.setattr("app._dataset_rows", lambda project: (app.FALLBACK_ROWS.copy(), "test"))
     summary, _, _, _ = explore("Microstructure", "")
     assert "/projects/microstructure/" in summary
-    assert "open-economic-quant-microstructure" in summary
+    assert "open-economic-quant/tree/main/Microstructure" in summary
 
 
 def test_factor_projects_use_canonical_links(monkeypatch):
@@ -53,4 +53,4 @@ def test_factor_projects_use_canonical_links(monkeypatch):
     ]:
         summary, _, _, _ = explore(key, "")
         assert f"/projects/{slug}/" in summary
-        assert f"open-economic-quant-{slug}" in summary
+        assert f"open-economic-quant/tree/main/{key}" in summary

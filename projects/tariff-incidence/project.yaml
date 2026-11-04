@@ -31,7 +31,7 @@ outputs:
   - dashboard/
   - data/manifests/
   - docs/
-github_url: https://github.com/YangXiaoShawn/open-economic-quant-tariff-incidence
+github_url: https://github.com/YangXiaoShawn/open-economic-quant/tree/main/TariffIncidence
 site_url: https://yangxiaoshawn.github.io/projects/tariff-incidence/
 dataset_url: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/TariffIncidence
 space_url: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory

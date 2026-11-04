@@ -4,11 +4,11 @@
 
 - GitHub Pages: https://yangxiaoshawn.github.io/
 - Site repository: https://github.com/YangXiaoShawn/YangXiaoShawn.github.io
-- CasualLab repository: https://github.com/YangXiaoShawn/open-economic-quant-casuallab
-- Macroeconomics repository: https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics
-- Mortgage Rate Lock-In repository: https://github.com/YangXiaoShawn/open-economic-quant-realestate
-- Tariff Incidence repository: https://github.com/YangXiaoShawn/open-economic-quant-tariff-incidence
-- Microstructure repository: https://github.com/YangXiaoShawn/open-economic-quant-microstructure
+- CasualLab repository: https://github.com/YangXiaoShawn/open-economic-quant/tree/main/CasualLab
+- Macroeconomics repository: https://github.com/YangXiaoShawn/open-economic-quant/tree/main/Macroeconomics
+- Mortgage Rate Lock-In repository: https://github.com/YangXiaoShawn/open-economic-quant/tree/main/RealEstate
+- Tariff Incidence repository: https://github.com/YangXiaoShawn/open-economic-quant/tree/main/TariffIncidence
+- Microstructure repository: https://github.com/YangXiaoShawn/open-economic-quant/tree/main/Microstructure
 - Hugging Face Dataset: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data
 - Hugging Face Space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
 

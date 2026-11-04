@@ -8,9 +8,9 @@
   "projects": [
     {"slug": "casuallab", "remote_prefix": "CasualLab/", "source": "workspace/CasualLab"},
     {"slug": "macroeconomics", "remote_prefix": "Macroeconomics/", "source": "workspace/Macroeconomics"},
-    {"slug": "realestate", "remote_prefix": "RealEstate/", "source": "github/YangXiaoShawn/open-economic-quant-realestate", "publish_mirror": "website/realestate", "publication_policy": "tracked publishable files only; registered loan-level data excluded"},
+    {"slug": "realestate", "remote_prefix": "RealEstate/", "source": "github/YangXiaoShawn/open-economic-quant/RealEstate", "publish_mirror": "website/realestate", "publication_policy": "tracked publishable files only; registered loan-level data excluded"},
     {"slug": "tariff-incidence", "remote_prefix": "TariffIncidence/", "source": "workspace/claude test", "publication_policy": "tracked publishable files only; large raw, intermediate, analytical, and parquet result files excluded"},
-    {"slug": "microstructure", "remote_prefix": "Microstructure/", "source": "github/YangXiaoShawn/open-economic-quant-microstructure", "publish_mirror": "website/microstructure", "publication_policy": "Dataset remains tracked MIT-licensed code and documentation only; market data, derived tables, fitted states, run bundles, ingestion authorities, and local environments excluded. A separate bounded PUBLIC_DERIVED_ONLY summary is hosted only by the website and Space."}
+    {"slug": "microstructure", "remote_prefix": "Microstructure/", "source": "github/YangXiaoShawn/open-economic-quant/Microstructure", "publish_mirror": "website/microstructure", "publication_policy": "Dataset remains tracked MIT-licensed code and documentation only; market data, derived tables, fitted states, run bundles, ingestion authorities, and local environments excluded. A separate bounded PUBLIC_DERIVED_ONLY summary is hosted only by the website and Space."}
   ],
   "root_metadata": [".gitattributes", "README.md", "dataset_manifest.json"],
   "excluded_non_research_paths": ["**/.venv/**", "**/.mypy_cache/**", "**/.pytest_cache/**", "**/.ruff_cache/**", "**/__pycache__/**", "**/.DS_Store"],

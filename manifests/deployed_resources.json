@@ -3,11 +3,11 @@
   "repository": {
     "github_repository": "https://github.com/YangXiaoShawn/YangXiaoShawn.github.io",
     "github_pages_url": "https://yangxiaoshawn.github.io/",
-    "casuallab_repository": "https://github.com/YangXiaoShawn/open-economic-quant-casuallab",
-    "macroeconomics_repository": "https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics",
-    "realestate_repository": "https://github.com/YangXiaoShawn/open-economic-quant-realestate",
-    "tariff_incidence_repository": "https://github.com/YangXiaoShawn/open-economic-quant-tariff-incidence",
-    "microstructure_repository": "https://github.com/YangXiaoShawn/open-economic-quant-microstructure",
+    "casuallab_repository": "https://github.com/YangXiaoShawn/open-economic-quant/tree/main/CasualLab",
+    "macroeconomics_repository": "https://github.com/YangXiaoShawn/open-economic-quant/tree/main/Macroeconomics",
+    "realestate_repository": "https://github.com/YangXiaoShawn/open-economic-quant/tree/main/RealEstate",
+    "tariff_incidence_repository": "https://github.com/YangXiaoShawn/open-economic-quant/tree/main/TariffIncidence",
+    "microstructure_repository": "https://github.com/YangXiaoShawn/open-economic-quant/tree/main/Microstructure",
     "default_branch": "main"
   },
   "huggingface": {

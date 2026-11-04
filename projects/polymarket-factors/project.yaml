@@ -29,7 +29,7 @@ outputs:
   - docs/
   - tests/
   - portfolio/
-github_url: https://github.com/YangXiaoShawn/open-economic-quant-polymarket-factors
+github_url: https://github.com/YangXiaoShawn/open-economic-quant/tree/main/PolymarketFactors
 site_url: https://yangxiaoshawn.github.io/projects/polymarket-factors/
 dataset_url: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/PolymarketFactors
 space_url: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory?project=polymarket-factors

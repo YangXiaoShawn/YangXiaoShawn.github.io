@@ -27,7 +27,7 @@ outputs:
   - scripts/
   - tests/
   - data/fixtures/
-github_url: https://github.com/YangXiaoShawn/open-economic-quant-casuallab
+github_url: https://github.com/YangXiaoShawn/open-economic-quant/tree/main/CasualLab
 site_url: https://yangxiaoshawn.github.io/projects/casuallab/
 dataset_url: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/CasualLab
 space_url: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory

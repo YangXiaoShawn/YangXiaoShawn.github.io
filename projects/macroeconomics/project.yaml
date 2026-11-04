@@ -29,7 +29,7 @@ outputs:
   - tests/
   - data/fixtures/
   - config/
-github_url: https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics
+github_url: https://github.com/YangXiaoShawn/open-economic-quant/tree/main/Macroeconomics
 site_url: https://yangxiaoshawn.github.io/projects/macroeconomics/
 dataset_url: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/Macroeconomics
 space_url: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory

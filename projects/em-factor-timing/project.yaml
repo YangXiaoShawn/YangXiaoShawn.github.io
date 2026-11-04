@@ -31,7 +31,7 @@ outputs:
   - docs/
   - tests/
   - portfolio/
-github_url: https://github.com/YangXiaoShawn/open-economic-quant-em-factor-timing
+github_url: https://github.com/YangXiaoShawn/open-economic-quant/tree/main/EMFactorTiming
 site_url: https://yangxiaoshawn.github.io/projects/em-factor-timing/
 dataset_url: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/EMFactorTiming
 space_url: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory?project=em-factor-timing

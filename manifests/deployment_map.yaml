@@ -14,7 +14,7 @@ projects:
   - slug: casuallab
     title: CasualLab
     publication_status: public-live
-    github: https://github.com/YangXiaoShawn/open-economic-quant-casuallab
+    github: https://github.com/YangXiaoShawn/open-economic-quant/tree/main/CasualLab
     pages: https://yangxiaoshawn.github.io/projects/casuallab/
     dataset: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/CasualLab
     space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
@@ -22,7 +22,7 @@ projects:
   - slug: macroeconomics
     title: Macroeconomics
     publication_status: public-live
-    github: https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics
+    github: https://github.com/YangXiaoShawn/open-economic-quant/tree/main/Macroeconomics
     pages: https://yangxiaoshawn.github.io/projects/macroeconomics/
     dataset: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/Macroeconomics
     space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
@@ -30,7 +30,7 @@ projects:
   - slug: realestate
     title: Mortgage Rate Lock-In and Housing Market Dynamics
     publication_status: public-live
-    github: https://github.com/YangXiaoShawn/open-economic-quant-realestate
+    github: https://github.com/YangXiaoShawn/open-economic-quant/tree/main/RealEstate
     pages: https://yangxiaoshawn.github.io/projects/realestate/
     dataset: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/RealEstate
     space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
@@ -38,7 +38,7 @@ projects:
   - slug: tariff-incidence
     title: Tariff Incidence, Supply-Chain Reallocation, and Domestic Propagation
     publication_status: public-live
-    github: https://github.com/YangXiaoShawn/open-economic-quant-tariff-incidence
+    github: https://github.com/YangXiaoShawn/open-economic-quant/tree/main/TariffIncidence
     pages: https://yangxiaoshawn.github.io/projects/tariff-incidence/
     dataset: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/TariffIncidence
     space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
@@ -46,7 +46,7 @@ projects:
   - slug: microstructure
     title: Order Flow to Price Impact
     publication_status: public-live
-    github: https://github.com/YangXiaoShawn/open-economic-quant-microstructure
+    github: https://github.com/YangXiaoShawn/open-economic-quant/tree/main/Microstructure
     pages: https://yangxiaoshawn.github.io/projects/microstructure/
     dataset: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/Microstructure
     space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory

@@ -23,7 +23,7 @@
       ],
       "metric": "Reproducible fixtures",
       "site_url": "https://yangxiaoshawn.github.io/projects/casuallab/",
-      "github_url": "https://github.com/YangXiaoShawn/open-economic-quant-casuallab",
+      "github_url": "https://github.com/YangXiaoShawn/open-economic-quant/tree/main/CasualLab",
       "dataset_url": "https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/CasualLab",
       "space_url": "https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory"
     },
@@ -49,7 +49,7 @@
       ],
       "metric": "105 coins \u00b7 730d + 92d post-pub OOS",
       "site_url": "https://yangxiaoshawn.github.io/projects/crypto-factors/",
-      "github_url": "https://github.com/YangXiaoShawn/open-economic-quant-crypto-factors",
+      "github_url": "https://github.com/YangXiaoShawn/open-economic-quant/tree/main/CryptoFactors",
       "dataset_url": "https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/CryptoFactors",
       "space_url": "https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory?project=crypto-factors"
     },
@@ -75,7 +75,7 @@
       ],
       "metric": "801,536 country-factor-months",
       "site_url": "https://yangxiaoshawn.github.io/projects/em-factor-timing/",
-      "github_url": "https://github.com/YangXiaoShawn/open-economic-quant-em-factor-timing",
+      "github_url": "https://github.com/YangXiaoShawn/open-economic-quant/tree/main/EMFactorTiming",
       "dataset_url": "https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/EMFactorTiming",
       "space_url": "https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory?project=em-factor-timing"
     },
@@ -101,7 +101,7 @@
       ],
       "metric": "Guarded public adapters",
       "site_url": "https://yangxiaoshawn.github.io/projects/macroeconomics/",
-      "github_url": "https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics",
+      "github_url": "https://github.com/YangXiaoShawn/open-economic-quant/tree/main/Macroeconomics",
       "dataset_url": "https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/Macroeconomics",
       "space_url": "https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory"
     },
@@ -127,7 +127,7 @@
       ],
       "metric": "144 cost-aware execution scenarios",
       "site_url": "https://yangxiaoshawn.github.io/projects/microstructure/",
-      "github_url": "https://github.com/YangXiaoShawn/open-economic-quant-microstructure",
+      "github_url": "https://github.com/YangXiaoShawn/open-economic-quant/tree/main/Microstructure",
       "dataset_url": "https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/Microstructure",
       "space_url": "https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory"
     },
@@ -153,7 +153,7 @@
       ],
       "metric": "5 artifacts removed (-0.44 to -0.054 IC)",
       "site_url": "https://yangxiaoshawn.github.io/projects/polymarket-factors/",
-      "github_url": "https://github.com/YangXiaoShawn/open-economic-quant-polymarket-factors",
+      "github_url": "https://github.com/YangXiaoShawn/open-economic-quant/tree/main/PolymarketFactors",
       "dataset_url": "https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/PolymarketFactors",
       "space_url": "https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory?project=polymarket-factors"
     },
@@ -179,7 +179,7 @@
       ],
       "metric": "Tiered empirical evidence",
       "site_url": "https://yangxiaoshawn.github.io/projects/realestate/",
-      "github_url": "https://github.com/YangXiaoShawn/open-economic-quant-realestate",
+      "github_url": "https://github.com/YangXiaoShawn/open-economic-quant/tree/main/RealEstate",
       "dataset_url": "https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/RealEstate",
       "space_url": "https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory"
     },
@@ -205,7 +205,7 @@
       ],
       "metric": "Official-data design",
       "site_url": "https://yangxiaoshawn.github.io/projects/tariff-incidence/",
-      "github_url": "https://github.com/YangXiaoShawn/open-economic-quant-tariff-incidence",
+      "github_url": "https://github.com/YangXiaoShawn/open-economic-quant/tree/main/TariffIncidence",
       "dataset_url": "https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/TariffIncidence",
       "space_url": "https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory"
     }

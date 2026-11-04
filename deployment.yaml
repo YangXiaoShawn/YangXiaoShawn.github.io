@@ -3,11 +3,11 @@ SITE_DESCRIPTION: Applied economics and quantitative research with open code, da
 GITHUB_REPOSITORY: YangXiaoShawn/YangXiaoShawn.github.io
 GITHUB_PAGES_URL: https://yangxiaoshawn.github.io/
 GITHUB_PROJECT_REPOSITORIES:
-  casuallab: YangXiaoShawn/open-economic-quant-casuallab
-  macroeconomics: YangXiaoShawn/open-economic-quant-macroeconomics
-  realestate: YangXiaoShawn/open-economic-quant-realestate
-  tariff-incidence: YangXiaoShawn/open-economic-quant-tariff-incidence
-  microstructure: YangXiaoShawn/open-economic-quant-microstructure
+  casuallab: YangXiaoShawn/open-economic-quant/tree/main/CasualLab
+  macroeconomics: YangXiaoShawn/open-economic-quant/tree/main/Macroeconomics
+  realestate: YangXiaoShawn/open-economic-quant/tree/main/RealEstate
+  tariff-incidence: YangXiaoShawn/open-economic-quant/tree/main/TariffIncidence
+  microstructure: YangXiaoShawn/open-economic-quant/tree/main/Microstructure
 HUGGINGFACE_DATASET: ShawnChamberlain/open-economic-quant-research-data
 HUGGINGFACE_SPACE: ShawnChamberlain/open-economic-quant-research-observatory
 HF_DATASET_REVISION: 5329ac0f88bae309d6e37eb8fdaefc0f60754f4c

@@ -37,13 +37,13 @@ Open Quant & Econ is public across GitHub Pages, five project repositories, a ve
 
 - Site repository: https://github.com/YangXiaoShawn/YangXiaoShawn.github.io
 - Upgraded Pages site: https://yangxiaoshawn.github.io/
-- CasualLab repository: https://github.com/YangXiaoShawn/open-economic-quant-casuallab
-- Macroeconomics repository: https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics
-- Mortgage Rate Lock-In repository: https://github.com/YangXiaoShawn/open-economic-quant-realestate
+- CasualLab repository: https://github.com/YangXiaoShawn/open-economic-quant/tree/main/CasualLab
+- Macroeconomics repository: https://github.com/YangXiaoShawn/open-economic-quant/tree/main/Macroeconomics
+- Mortgage Rate Lock-In repository: https://github.com/YangXiaoShawn/open-economic-quant/tree/main/RealEstate
 - Mortgage Rate Lock-In page: https://yangxiaoshawn.github.io/projects/realestate/
-- Tariff Incidence repository: https://github.com/YangXiaoShawn/open-economic-quant-tariff-incidence
+- Tariff Incidence repository: https://github.com/YangXiaoShawn/open-economic-quant/tree/main/TariffIncidence
 - Tariff Incidence page: https://yangxiaoshawn.github.io/projects/tariff-incidence/
-- Microstructure repository: https://github.com/YangXiaoShawn/open-economic-quant-microstructure
+- Microstructure repository: https://github.com/YangXiaoShawn/open-economic-quant/tree/main/Microstructure
 - Microstructure page: https://yangxiaoshawn.github.io/projects/microstructure/
 - Full Dataset: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data
 - Live Space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory

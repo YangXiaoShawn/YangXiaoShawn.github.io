@@ -55,14 +55,14 @@ Project-owned fixtures and documentation follow project-local terms; code terms 
 
 - Website: https://yangxiaoshawn.github.io/
 - Unified monorepo: https://github.com/YangXiaoShawn/open-economic-quant
-- CasualLab repository: https://github.com/YangXiaoShawn/open-economic-quant-casuallab
-- Macroeconomics repository: https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics
-- Mortgage Rate Lock-In repository: https://github.com/YangXiaoShawn/open-economic-quant-realestate
-- Tariff Incidence repository: https://github.com/YangXiaoShawn/open-economic-quant-tariff-incidence
-- Microstructure repository: https://github.com/YangXiaoShawn/open-economic-quant-microstructure
-- Emerging-Market Factor Timing repository: https://github.com/YangXiaoShawn/open-economic-quant-em-factor-timing
-- Polymarket Factors repository: https://github.com/YangXiaoShawn/open-economic-quant-polymarket-factors
-- Crypto Factors repository: https://github.com/YangXiaoShawn/open-economic-quant-crypto-factors
+- CasualLab repository: https://github.com/YangXiaoShawn/open-economic-quant/tree/main/CasualLab
+- Macroeconomics repository: https://github.com/YangXiaoShawn/open-economic-quant/tree/main/Macroeconomics
+- Mortgage Rate Lock-In repository: https://github.com/YangXiaoShawn/open-economic-quant/tree/main/RealEstate
+- Tariff Incidence repository: https://github.com/YangXiaoShawn/open-economic-quant/tree/main/TariffIncidence
+- Microstructure repository: https://github.com/YangXiaoShawn/open-economic-quant/tree/main/Microstructure
+- Emerging-Market Factor Timing repository: https://github.com/YangXiaoShawn/open-economic-quant/tree/main/EMFactorTiming
+- Polymarket Factors repository: https://github.com/YangXiaoShawn/open-economic-quant/tree/main/PolymarketFactors
+- Crypto Factors repository: https://github.com/YangXiaoShawn/open-economic-quant/tree/main/CryptoFactors
 - Website repository: https://github.com/YangXiaoShawn/YangXiaoShawn.github.io
 - Interactive observatory: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
 

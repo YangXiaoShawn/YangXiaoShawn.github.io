@@ -13,14 +13,14 @@ file search, and shareable project/metric views.
 - Website: https://yangxiaoshawn.github.io/
 - Website source: https://github.com/YangXiaoShawn/YangXiaoShawn.github.io
 - Unified research monorepo: https://github.com/YangXiaoShawn/open-economic-quant
-- CasualLab source: https://github.com/YangXiaoShawn/open-economic-quant-casuallab
-- Macroeconomics source: https://github.com/YangXiaoShawn/open-economic-quant-macroeconomics
-- Mortgage Rate Lock-In repository: https://github.com/YangXiaoShawn/open-economic-quant-realestate
-- Tariff Incidence source: https://github.com/YangXiaoShawn/open-economic-quant-tariff-incidence
-- Microstructure source: https://github.com/YangXiaoShawn/open-economic-quant-microstructure
-- EM Factor Timing source: https://github.com/YangXiaoShawn/open-economic-quant-em-factor-timing
-- Polymarket Factors source: https://github.com/YangXiaoShawn/open-economic-quant-polymarket-factors
-- Crypto Factors source: https://github.com/YangXiaoShawn/open-economic-quant-crypto-factors
+- CasualLab source: https://github.com/YangXiaoShawn/open-economic-quant/tree/main/CasualLab
+- Macroeconomics source: https://github.com/YangXiaoShawn/open-economic-quant/tree/main/Macroeconomics
+- Mortgage Rate Lock-In repository: https://github.com/YangXiaoShawn/open-economic-quant/tree/main/RealEstate
+- Tariff Incidence source: https://github.com/YangXiaoShawn/open-economic-quant/tree/main/TariffIncidence
+- Microstructure source: https://github.com/YangXiaoShawn/open-economic-quant/tree/main/Microstructure
+- EM Factor Timing source: https://github.com/YangXiaoShawn/open-economic-quant/tree/main/EMFactorTiming
+- Polymarket Factors source: https://github.com/YangXiaoShawn/open-economic-quant/tree/main/PolymarketFactors
+- Crypto Factors source: https://github.com/YangXiaoShawn/open-economic-quant/tree/main/CryptoFactors
 - Full research dataset: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data
 - Interactive Hugging Face Space: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory
 

@@ -30,7 +30,7 @@ outputs:
   - dashboard/
   - docs/
   - assets/data/microstructure_backtest_reference.json (website/Space bounded summary only)
-github_url: https://github.com/YangXiaoShawn/open-economic-quant-microstructure
+github_url: https://github.com/YangXiaoShawn/open-economic-quant/tree/main/Microstructure
 site_url: https://yangxiaoshawn.github.io/projects/microstructure/
 dataset_url: https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/Microstructure
 space_url: https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory

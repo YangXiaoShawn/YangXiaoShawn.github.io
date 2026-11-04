@@ -35,6 +35,6 @@ The detailed boundary is recorded in [DATA_POLICY.md](DATA_POLICY.md).
 ## Permanent destinations
 
 - Website: <https://yangxiaoshawn.github.io/projects/microstructure/>
-- GitHub: <https://github.com/YangXiaoShawn/open-economic-quant-microstructure>
+- GitHub: <https://github.com/YangXiaoShawn/open-economic-quant/tree/main/Microstructure>
 - Dataset mirror: <https://huggingface.co/datasets/ShawnChamberlain/open-economic-quant-research-data/tree/main/Microstructure>
 - Interactive Space: <https://huggingface.co/spaces/ShawnChamberlain/open-economic-quant-research-observatory>
