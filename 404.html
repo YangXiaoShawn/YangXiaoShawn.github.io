@@ -41,8 +41,15 @@
     var match = path.match(/^\/(casuallab|macroeconomics|realestate|tariff-incidence|microstructure|em-factor-timing|polymarket-factors|crypto-factors)(?:\/(.*))?$/);
     if (!match) return;
     var rest = (match[2] || '').replace(/\/$/, '');
-    var repo = 'https://github.com/YangXiaoShawn/open-economic-quant-' + match[1];
-    location.replace(rest ? repo + '/blob/main/' + rest : repo);
+    var folders = {
+      'casuallab': 'CasualLab', 'macroeconomics': 'Macroeconomics', 'realestate': 'RealEstate',
+      'tariff-incidence': 'TariffIncidence', 'microstructure': 'Microstructure',
+      'em-factor-timing': 'EMFactorTiming', 'polymarket-factors': 'PolymarketFactors',
+      'crypto-factors': 'CryptoFactors'
+    };
+    var repo = 'https://github.com/YangXiaoShawn/open-economic-quant';
+    var folder = folders[match[1]];
+    location.replace(rest ? repo + '/blob/main/' + folder + '/' + rest : repo + '/tree/main/' + folder);
   })();
 </script>
 </body>
