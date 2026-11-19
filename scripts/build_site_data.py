@@ -58,6 +58,9 @@ SECTIONS = {
     ),
 }
 
+# Hand-written pages that the generator does not own but lists in the sitemap.
+STATIC_ROUTES = ("public-finance",)
+
 DISPLAY_COPY = {slug: (story['title'], story['finding']) for slug, story in STORIES.items()}
 
 
@@ -221,7 +224,7 @@ def section_page(slug: str, title: str, description: str, projects: list[dict]) 
 <header class="site-header"><div class="container header-inner">
   <a class="brand" href="../index.html"><span class="brand-mark">YX</span><span class="brand-copy"><span class="brand-title">Yang Xiao</span><span class="brand-subtitle">Research portfolio</span></span></a>
   <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation"><span></span></button>
-  <nav class="site-nav" id="site-nav" aria-label="Primary navigation"><a href="../index.html">Home</a><a href="../research/">Research</a><a href="../datasets/">Datasets</a><a href="../methods/">Methods</a><a href="../about/">About</a></nav>
+  <nav class="site-nav" id="site-nav" aria-label="Primary navigation"><a href="../index.html">Home</a><a href="../research/">Research</a><a href="../datasets/">Datasets</a><a href="../methods/">Methods</a><a href="../public-finance/">Public Finance</a><a href="../about/">About</a></nav>
 </div></header>
 <main id="main">
   <section class="page-hero"><div class="container"><div class="breadcrumbs"><a href="../index.html">Home</a><span>{html.escape(title)}</span></div><div class="eyebrow">{html.escape(hero_eyebrow)}</div><h1>{html.escape(hero_title)}</h1><p class="page-lead">{html.escape(page_lead)}</p><div class="hero-actions">{extra}</div></div></section>
@@ -235,7 +238,7 @@ def section_page(slug: str, title: str, description: str, projects: list[dict]) 
 
 
 def sitemap(projects: list[dict], release_date: str) -> str:
-    routes = ["", *[f"{slug}/" for slug in SECTIONS]]
+    routes = ["", *[f"{slug}/" for slug in SECTIONS], *[f"{slug}/" for slug in STATIC_ROUTES]]
     routes.extend(f"projects/{project['slug']}/" for project in projects)
     rows = "\n".join(
         f"  <url><loc>{SITE_URL}/{route}</loc><lastmod>{release_date}</lastmod></url>"

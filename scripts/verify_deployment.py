@@ -27,6 +27,11 @@ ROUTES = (
     "daily-reports",
     "about",
 )
+PUBLIC_FINANCE_FILES = (
+    "index.html",
+    "tariffs-as-a-commodity-tax-paper.pdf",
+    "tariffs-as-a-commodity-tax-slides.pdf",
+)
 EXPECTED_SLUGS = {
     "casuallab",
     "macroeconomics",
@@ -47,6 +52,9 @@ PUBLIC_URLS = (
     "https://yangxiaoshawn.github.io/projects/em-factor-timing/",
     "https://yangxiaoshawn.github.io/projects/polymarket-factors/",
     "https://yangxiaoshawn.github.io/projects/crypto-factors/",
+    "https://yangxiaoshawn.github.io/public-finance/",
+    "https://yangxiaoshawn.github.io/public-finance/tariffs-as-a-commodity-tax-paper.pdf",
+    "https://yangxiaoshawn.github.io/public-finance/tariffs-as-a-commodity-tax-slides.pdf",
     "https://yangxiaoshawn.github.io/assets/data/microstructure_backtest_reference.json",
     "https://yangxiaoshawn.github.io/robots.txt",
     "https://yangxiaoshawn.github.io/sitemap.xml",
@@ -132,6 +140,7 @@ def main() -> None:
         ROOT / "apps" / "space" / "catalog" / "CryptoFactors.json",
     ]
     required.extend(ROOT / route / "index.html" for route in ROUTES)
+    required.extend(ROOT / "public-finance" / name for name in PUBLIC_FINANCE_FILES)
     missing = [str(path.relative_to(ROOT)) for path in required if not path.exists()]
     failures = [f"missing {path}" for path in missing]
 

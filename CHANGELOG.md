@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-11-19
+
+- Added a Public Finance page with the working draft of "Tariffs as a Commodity Tax" (paper and slides as PDF downloads) and the project's current status.
+- Added Public Finance to the primary navigation, the sitemap, deployment verification and the Pages staging list.
+
 ## 2026-08-23
 
 - Published Order Flow to Price Impact as the fifth public research program and standalone GitHub repository.

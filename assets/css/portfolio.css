@@ -49,3 +49,4 @@ html{color-scheme:light}body{background:var(--bg);font-size:16px}body::before{di
 .badge-cat{display:inline-block;font-size:11.5px;padding:2px 7px;border-radius:3px;background:#eaf0fa;color:var(--text-soft);font-weight:600}
 @media(max-width:960px){.arch-grid{grid-template-columns:1fr}.monitor-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.monitor-kpis{grid-template-columns:1fr}}
+@media(min-width:901px) and (max-width:1200px){.site-nav-wide{gap:0}.site-nav-wide a{padding:9px 6px;font-size:13px}.site-nav-wide .nav-cta{margin-left:4px}}

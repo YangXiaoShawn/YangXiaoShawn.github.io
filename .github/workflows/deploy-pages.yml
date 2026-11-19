@@ -34,7 +34,7 @@ jobs:
           mkdir _site
           cp -R index.html 404.html robots.txt sitemap.xml feed.xml assets projects \
             research replications updated-results datasets methods dashboards comparisons \
-            daily-reports about _site/
+            daily-reports about public-finance _site/
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
